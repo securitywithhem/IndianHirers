@@ -31,8 +31,10 @@ const config = {
       colors: {
         maroon: '#800020',
         gold: '#C5A44E',
+        'gold-text': '#7A6530',
         cream: '#FDFBF7',
         ink: '#1F1F1F',
+        text: '#1F1F1F',
         whatsapp: '#25D366',
         
         background: "hsl(var(--background))",
@@ -70,8 +72,8 @@ const config = {
         ring: "hsl(var(--ring))",
       },
       fontFamily: {
-        heading: ['var(--font-heading)', 'serif'],
-        body: ['var(--font-body)', 'sans-serif'],
+        heading: ['var(--font-playfair)', 'serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
       },
       borderRadius: {
         card: '1rem',

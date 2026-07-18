@@ -1,9 +1,21 @@
+import { Hero } from "@/components/home/Hero";
+import { TrustBadges } from "@/components/home/TrustBadges";
+import { CategoryGrid } from "@/components/home/CategoryGrid";
+import { TestimonialsPreview } from "@/components/home/TestimonialsPreview";
+
+export const metadata = {
+  title: "Indian Hires | Premium Crockery & Event Rentals",
+  description:
+    "25 years of trusted crockery, cutlery, and event essentials rental for hotels, caterers, and hosts.",
+};
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="font-heading text-maroon text-4xl text-center">
-        Indian Hires — Coming in Phase 2
-      </h1>
-    </main>
+    <>
+      <Hero />
+      <TrustBadges />
+      <CategoryGrid />
+      <TestimonialsPreview />
+    </>
   );
 }
