@@ -1,0 +1,90 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  :root {
+    /* Custom Theme Colors */
+    --maroon: 345 100% 25%;
+    --gold: 43 52% 54%;
+    --cream: 40 46% 98%;
+    --ink: 0 0% 12%;
+    --whatsapp: 142 71% 49%; /* #25D366 */
+
+    --background: var(--cream);
+    --foreground: var(--ink);
+    
+    --card: var(--cream);
+    --card-foreground: var(--ink);
+    
+    --popover: var(--cream);
+    --popover-foreground: var(--ink);
+    
+    --primary: var(--maroon);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 96%;
+    --secondary-foreground: var(--ink);
+    
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: var(--gold);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--maroon);
+    
+    --radius: 0.625rem;
+  }
+  .dark {
+    --background: var(--ink);
+    --foreground: var(--cream);
+    
+    --card: var(--ink);
+    --card-foreground: var(--cream);
+    
+    --popover: var(--ink);
+    --popover-foreground: var(--cream);
+    
+    --primary: var(--maroon);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: var(--cream);
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: var(--gold);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: var(--maroon);
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
