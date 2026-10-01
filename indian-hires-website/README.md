@@ -31,4 +31,13 @@ See `.env.example`. Required at build/runtime:
 - `npm run lint` — ESLint
 
 ## Deployment
-Deployed via Vercel from `main`. See Implementation Plan Phase 7.
+Deployed via Vercel from `main`.
+
+## Manual Handoff List
+Before full launch, please complete these steps:
+1. Drop real logo file in `public/logo.jpg`
+2. Replace placeholder testimonial data in `src/content/testimonials.ts`
+3. Replace placeholder gallery/founder photos (upload to `public/images/gallery/` and `public/images/founders/`)
+4. Add `NEXT_PUBLIC_WEB3FORMS_KEY` to `.env.local`
+5. Add `NEXT_PUBLIC_MAP_EMBED_URL` to `.env.local`
+6. Connect custom domain (e.g. `indianhirers.com`) in Vercel settings

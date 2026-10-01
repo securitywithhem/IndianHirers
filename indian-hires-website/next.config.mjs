@@ -2,13 +2,8 @@
 const nextConfig = {
   images: {
     formats: ["image/webp"],
-    dangerouslyAllowSVG: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-      },
-    ],
+    // No remotePatterns: every image is now a local asset under /public.
+    // The placehold.co allowance is gone along with the last placeholder.
   },
   compress: true,
 };

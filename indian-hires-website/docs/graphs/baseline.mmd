@@ -1,0 +1,108 @@
+%% Baseline dependency + data-flow graph, Phase R0 (2 Oct 2026).
+%% Derived from the import statements in src/. Solid = import, dotted = data flow.
+%% Machine-extracted companion: baseline.json / baseline.html (graphify).
+flowchart LR
+  subgraph ENV["Environment"]
+    DOTENV[".env.local<br/>PHONE · PHONE_ALT · WHATSAPP · EMAIL<br/>WEB3FORMS_KEY · MAP_EMBED_URL"]
+    LIBENV["lib/env.ts"]
+  end
+
+  subgraph PIPE["Image pipeline (Python, offline)"]
+    PHOTOS["public/images/Photos/**<br/>27 source JPEGs"]
+    NORM["scripts/normalize-images.py"]
+    GEN["scripts/generate-products-content.py"]
+    WEBP["public/images/products/**<br/>21 tiles + 1 cover"]
+  end
+
+  subgraph CONTENT["src/content"]
+    CPROD["products.ts (generated)<br/>5 categories · 21 products"]
+    CHOME["home.ts"]
+    CFOUND["founders.ts"]
+    CCONT["contact.ts"]
+  end
+
+  subgraph LIB["src/lib"]
+    UTILS["utils.ts cn()"]
+    MOTIONPREF["useMotionPreference.ts"]
+    ZOD["validations/contact.ts"]
+  end
+
+  subgraph SHELL["app/layout.tsx"]
+    HEADER["Header (client)"]
+    FOOTER["Footer"]
+    BOTTOM["MobileBottomBar (client)"]
+    FLOAT["FloatingWhatsApp (client)"]
+    PROV["Providers → ui/sonner"]
+  end
+
+  subgraph HOME["/ — app/page.tsx"]
+    HERO["Hero"]
+    LEDGER["Ledger"]
+    ABOUT["AboutStrip"]
+    HREVEAL["HorizontalReveal (client, gsap)"]
+    FINALE["LogoFinale (client, framer-motion)"]
+    CTA["ClosingCTA"]
+  end
+
+  subgraph CATALOGUE["Catalogue routes"]
+    PPRODUCTS["/products"]
+    PSLUG["/products/[slug] ×5"]
+    PGALLERY["/gallery (noindex)"]
+    CARD["products/CategoryCard"]
+    TILE["products/ProductTile"]
+  end
+
+  subgraph FOUNDERS["/founders"]
+    FHERO["FoundersHero"]
+    FSTORY["StorySection"]
+    FROW["FoundersRow → FounderProfile"]
+  end
+
+  subgraph CONTACT["/contact"]
+    CINFO["ContactInfo"]
+    CFORM["ContactForm (client)"]
+    UI["ui/form · input · textarea · button · label"]
+  end
+
+  PTEST["/testimonials (noindex)"]
+  SITEMAP["sitemap.ts"]
+
+  subgraph EXT["External"]
+    WA["wa.me deep link"]
+    TEL["tel: link"]
+    W3F["api.web3forms.com/submit"]
+    MAPS["Google Maps iframe"]
+  end
+
+  PHOTOS --> NORM --> WEBP
+  NORM --> GEN --> CPROD
+  DOTENV -.-> LIBENV
+  DOTENV -.-> CCONT
+  LIBENV --> CHOME
+  CPROD --> CHOME
+
+  CHOME --> HERO & LEDGER & ABOUT & HREVEAL & FINALE & CTA
+  CPROD --> HREVEAL & PPRODUCTS & PSLUG & PGALLERY & SITEMAP
+  MOTIONPREF --> HREVEAL & FINALE
+  HREVEAL --> CARD & TILE
+  PPRODUCTS --> CARD
+  PGALLERY --> CARD
+  PSLUG --> TILE
+  WEBP -.-> CARD & TILE
+
+  CFOUND --> FHERO & FSTORY & FROW
+  CCONT --> CINFO
+  ZOD --> CFORM
+  CFORM --> UI
+  UTILS --> HEADER & UI
+
+  LIBENV --> FOOTER & BOTTOM & FLOAT & CTA & TILE & CINFO & PPRODUCTS & PSLUG & PGALLERY & PTEST
+
+  TILE -.-> WA
+  CTA -.-> WA & TEL
+  FLOAT -.-> WA
+  BOTTOM -.-> WA & TEL
+  FOOTER -.-> WA & TEL
+  HERO -.-> WA
+  CINFO -.-> WA & TEL & MAPS
+  CFORM -.->|"POST JSON, key read from process.env directly"| W3F

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -25,11 +25,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://indianhires.com"),
   title: {
-    default: "Indian Hires | Premium Crockery & Event Rentals for 25 Years",
-    template: "%s | Indian Hires",
+    default: "IndianHirers | Premium Crockery & Banquet Rental Partner — Vadodara, Gujarat",
+    template: "%s | IndianHirers",
   },
   description:
-    "Indian Hires has served hotels, caterers, and event planners with premium crockery, cutlery, and event essentials for 25 years. Get a quote on WhatsApp today.",
+    "25 years of trusted crockery, cutlery & banquet equipment rental for hotels and caterers. Serving Vadodara, expanding across Gujarat. B2B rental partner, not a retailer.",
   keywords: [
     "crockery rental",
     "catering equipment rental",
@@ -37,26 +37,29 @@ export const metadata: Metadata = {
     "banquet crockery hire",
     "utensil rental for events",
   ],
-  authors: [{ name: "Indian Hires" }],
+  authors: [{ name: "IndianHirers" }],
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "/",
-    siteName: "Indian Hires",
-    title: "Indian Hires | Premium Crockery & Event Rentals for 25 Years",
+    siteName: "IndianHirers",
+    title: "IndianHirers | Premium Crockery & Banquet Rental Partner — Vadodara, Gujarat",
     description:
-      "Trusted by hotels and caterers for 25 years. Premium crockery, cutlery, and event essentials — enquire on WhatsApp for an instant quote.",
+      "25 years of trusted crockery, cutlery & banquet equipment rental for hotels and caterers. Serving Vadodara, expanding across Gujarat. B2B rental partner, not a retailer.",
     // TODO: replace with real 1200x630 OG image
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Indian Hires — Premium Event Crockery Rentals" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "IndianHirers — Premium Event Crockery Rentals" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indian Hires | Premium Crockery & Event Rentals",
-    description: "25 years of trusted crockery and event rentals for hotels and caterers.",
+    title: "IndianHirers | Premium Crockery & Banquet Rental Partner — Vadodara, Gujarat",
+    description: "25 years of trusted crockery, cutlery & banquet equipment rental for hotels and caterers.",
     images: ["/og-image.jpg"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
+};
+export const viewport: Viewport = {
+  themeColor: "#800020",
 };
 
 export default function RootLayout({
@@ -85,9 +88,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "Indian Hires",
+              name: "IndianHirers",
               description:
-                "25-year-old family business renting crockery, cutlery, and event essentials to hotels, caterers, and event planners.",
+                "25 years of trusted crockery, cutlery & banquet equipment rental for hotels and caterers. Serving Vadodara, expanding across Gujarat. B2B rental partner, not a retailer.",
               telephone: process.env.NEXT_PUBLIC_PHONE,
               email: process.env.NEXT_PUBLIC_EMAIL,
               url: process.env.NEXT_PUBLIC_SITE_URL,
