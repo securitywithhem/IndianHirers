@@ -16,67 +16,83 @@
     --font-sans: var(--font-sans);
   }
   :root {
-    /* Custom Theme Colors */
-    --maroon: 345 100% 25%;
-    --gold: 43 52% 54%;
-    --cream: 40 46% 98%;
-    --ink: 0 0% 12%;
-    --whatsapp: 142 71% 49%; /* #25D366 */
+    /*
+     * Every value is a bare HSL triplet, never a hex.
+     *
+     * Tailwind consumes these as hsl(var(--x)). A hex value here produces
+     * invalid CSS once wrapped, so `bg-background`, `bg-card` and `bg-primary`
+     * silently rendered as nothing. That is why the sticky header had no
+     * background and page content collided with the nav.
+     *
+     * Triplets also let Tailwind inject alpha, so `bg-surface/90` works.
+     */
 
-    --background: var(--cream);
-    --foreground: var(--ink);
-    
-    --card: var(--cream);
-    --card-foreground: var(--ink);
-    
-    --popover: var(--cream);
-    --popover-foreground: var(--ink);
-    
-    --primary: var(--maroon);
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 0 0% 96%;
-    --secondary-foreground: var(--ink);
-    
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    
-    --accent: var(--gold);
-    --accent-foreground: 0 0% 100%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: var(--maroon);
-    
-    --radius: 0.625rem;
-  }
-  .dark {
-    --background: var(--ink);
+    /* ---- Sampled from the brand's own assets ----
+     * Every hue below was measured out of LOGO (TM).jpg and the product
+     * photography, not chosen by eye. The whole palette lives in the warm
+     * 10°–46° band because that is where the business actually sits:
+     *   logo maroon  #702010  hue 10°   (NOT #800020 / hue 345 — that value
+     *                                    was in UI_UX.md but is not the mark)
+     *   brass/copper          hue 30–40° (the chafers)
+     *   china + logo ground   warm off-white
+     *   studio backdrops      warm olive-neutral, hue ~60°
+     * Nothing in this business is magenta-leaning. Keep new colours in band. */
+
+    /* ---- Deep Oxblood. Dark surface scale, warm brown-black — never neutral
+     * grey and never pure #000. Sections step through these; the page does not
+     * flip to a light band, which is what made an earlier build feel like
+     * several different websites stitched together. ---- */
+    --night: 14 30% 7%;       /* #170F0C — base canvas */
+    --surface: 12 32% 11%;    /* #251713 — alternating band */
+    --surface-2: 12 30% 16%;  /* #35211D — cards, raised panels */
+
+    /* ---- Brand reds ---- */
+    --maroon: 10 75% 25%;      /* #702010 — the logo mark exactly */
+    --maroon-deep: 11 78% 16%; /* #491509 — hero, footer, gold-button type */
+    --maroon-dark: 11 78% 16%;
+
+    /* ---- Gold is the only accent. Nothing else competes. ---- */
+    --gold: 46 68% 47%;       /* #C9A326 gilt — 7.9:1 on night */
+    --gold-light: 44 58% 74%; /* #E3CF96 — hover */
+    --gold-deep: 46 68% 47%;  /* retained as an alias; on a dark base the
+                                 deeper bronze is unnecessary */
+
+    /* ---- Type ---- */
+    --cream: 36 48% 94%;      /* #F7F1E8 ivory — all type. 16.9:1 on night */
+    --ink: 14 30% 7%;         /* dark type, only ever on a gold fill */
+
+    --whatsapp: 142 70% 49%;
+
+    --background: var(--night);
     --foreground: var(--cream);
-    
-    --card: var(--ink);
+
+    --card: var(--surface-2);
     --card-foreground: var(--cream);
-    
-    --popover: var(--ink);
+
+    --popover: var(--surface-2);
     --popover-foreground: var(--cream);
-    
+
     --primary: var(--maroon);
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 0 0% 15%;
+    --primary-foreground: 36 48% 94%;
+
+    --secondary: var(--surface);
     --secondary-foreground: var(--cream);
-    
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    
+
+    --muted: var(--surface);
+    /* 8.2:1 on surface-2 — passes AA for body text. */
+    --muted-foreground: 36 20% 74%;
+
     --accent: var(--gold);
-    --accent-foreground: 0 0% 100%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: var(--maroon);
+    --accent-foreground: 11 78% 16%;
+
+    --destructive: 0 72% 51%;
+    /* Hairlines: warm and gold-leaning, not neutral grey. Solid triplets so
+     * Tailwind opacity modifiers (`border-border/50`) still compose. */
+    --border: 36 25% 22%;
+    --input: 36 22% 28%;
+    --ring: 46 68% 47%;
+
+    --radius: 0.625rem;
   }
   * {
     @apply border-border outline-ring/50;

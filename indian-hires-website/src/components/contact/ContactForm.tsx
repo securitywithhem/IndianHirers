@@ -48,8 +48,8 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: "New Enquiry from Indian Hires Website",
-          from_name: "Indian Hires Website",
+          subject: "New Enquiry from IndianHirers Website",
+          from_name: "IndianHirers Website",
           name: values.name,
           phone: values.phone,
           event_date: values.eventDate || "Not specified",
@@ -79,9 +79,9 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-white shadow-md rounded-2xl p-6 md:p-8">
-      <h2 className="font-serif text-2xl text-maroon font-bold mb-1">Send an Enquiry</h2>
-      <p className="font-sans text-ink/60 text-sm mb-6">We&apos;ll get back to you within a few hours.</p>
+    <div className="bg-surface-2 border border-border rounded-2xl p-6 md:p-8">
+      <h2 className="font-serif text-2xl text-cream font-bold mb-1">Send an Enquiry</h2>
+      <p className="font-sans text-cream/60 text-sm mb-6">We&apos;ll get back to you within a few hours.</p>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -92,9 +92,9 @@ export default function ContactForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name <span aria-hidden="true" className="text-maroon">*</span><span className="sr-only"> (required)</span></FormLabel>
+                    <FormLabel>Full Name <span aria-hidden="true" className="text-cream">*</span><span className="sr-only"> (required)</span></FormLabel>
                     <FormControl>
-                      <Input aria-required="true" required placeholder="e.g. Rohan Mehta" className="focus-visible:ring-maroon focus-visible:border-maroon" {...field} />
+                      <Input aria-required="true" required placeholder="e.g. Rohan Mehta" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -106,9 +106,9 @@ export default function ContactForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number <span aria-hidden="true" className="text-maroon">*</span><span className="sr-only"> (required)</span></FormLabel>
+                    <FormLabel>Phone Number <span aria-hidden="true" className="text-cream">*</span><span className="sr-only"> (required)</span></FormLabel>
                     <FormControl>
-                      <Input type="tel" aria-required="true" required placeholder="e.g. 98765 43210" className="focus-visible:ring-maroon focus-visible:border-maroon" {...field} />
+                      <Input type="tel" aria-required="true" required placeholder="e.g. 98765 43210" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -122,7 +122,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Event Date (optional)</FormLabel>
                     <FormControl>
-                      <Input type="date" className="focus-visible:ring-maroon focus-visible:border-maroon" {...field} />
+                      <Input type="date" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -139,7 +139,7 @@ export default function ContactForm() {
                       <Textarea 
                         rows={4} 
                         placeholder="Number of guests, items needed, venue, etc." 
-                        className="focus-visible:ring-maroon focus-visible:border-maroon" 
+                        className="focus-visible:ring-gold focus-visible:border-gold" 
                         {...field} 
                       />
                     </FormControl>
@@ -151,7 +151,7 @@ export default function ContactForm() {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full bg-gold text-white rounded-full hover:scale-105 transition-transform disabled:opacity-60 disabled:hover:scale-100 mt-2"
+                className="w-full bg-maroon text-cream rounded-full hover:scale-105 transition-transform disabled:opacity-60 disabled:hover:scale-100 mt-2"
               >
                 {isSubmitting ? (
                   <>

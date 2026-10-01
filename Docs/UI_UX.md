@@ -7,12 +7,18 @@
 *Classic elegance meets modern minimalism.* The interface must convey warmth, reliability, and premium service—like a high‑end banquet hall.
 
 ### Colour Palette
+
+> Corrected 21 Jul 2026. The maroon below was previously listed as `#800020`
+> (hue 345, a cool magenta-crimson). That is **not** the logo. Sampling
+> `LOGO (TM).jpg` gives `#702010` — hue 10, a warm brick oxblood. The site is
+> now a dark warm palette; the authoritative token table with measured contrast
+> ratios lives in `indian-hires-website/docs/color-system.md`.
 | Role | Colour | Hex Code |
 |------|--------|----------|
-| Primary Maroon | Trust, legacy | `#800020` |
+| Primary Maroon | Trust, legacy | `#702010` |
 | Accent Gold | Premium, CTAs | `#C5A44E` |
-| Background | Clean canvas | `#FDFBF7` |
-| Text | Readability | `#1F1F1F` |
+| Background | Deep oxblood canvas | `#170F0C` |
+| Text | Readability | `#F7F1E8` ivory |
 | WhatsApp Green | Brand | `#25D366` |
 
 ### Typography

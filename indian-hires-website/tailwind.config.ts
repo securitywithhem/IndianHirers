@@ -29,13 +29,21 @@ const config = {
     },
     extend: {
       colors: {
-        maroon: '#800020',
-        gold: '#C5A44E',
-        'gold-text': '#7A6530',
-        cream: '#FDFBF7',
-        ink: '#1F1F1F',
-        text: '#1F1F1F',
-        whatsapp: '#25D366',
+        /* Wrapped in hsl() because the vars are bare HSL triplets. Passing the
+           raw var produced invalid colours — see the note in globals.css. */
+        maroon: 'hsl(var(--maroon))',
+        'maroon-dark': 'hsl(var(--maroon-dark))',
+        'maroon-deep': 'hsl(var(--maroon-deep))',
+        gold: 'hsl(var(--gold))',
+        'gold-deep': 'hsl(var(--gold-deep))',
+        'gold-light': 'hsl(var(--gold-light))',
+        cream: 'hsl(var(--cream))',
+        ink: 'hsl(var(--ink))',
+        night: 'hsl(var(--night))',
+        surface: 'hsl(var(--surface))',
+        'surface-2': 'hsl(var(--surface-2))',
+        text: 'hsl(var(--cream))',
+        whatsapp: 'hsl(var(--whatsapp))',
         
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -90,10 +98,17 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        // Decorative glow behind the logo finale. Opacity only — no transform,
+        // so it composites off the main thread.
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.28" },
+          "50%": { opacity: "0.5" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 5s ease-in-out infinite",
       },
     },
   },
