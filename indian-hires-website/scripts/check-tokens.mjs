@@ -13,15 +13,21 @@
  *   arbitrary-color  Tailwind arbitrary values carrying a colour: bg-[#…],
  *                    shadow-[…rgba(…)…], bg-[radial-gradient(…#…)]
  *   inline-style     style={{ color | background | borderColor | fill … }}
+ *   stock-white-black  Tailwind's stock `white` / `black` in any colour utility,
+ *                    with any variant or opacity: bg-white, text-black,
+ *                    hover:border-white/20, ring-offset-black. Use a token
+ *                    (ivory-50, espresso-900, maroon-950, foreground …).
  *
  * Non-failing warning:
- *   palette-class    Tailwind's stock palette (text-white, bg-black/40,
- *                    text-red-500) — not a brand token, review by hand.
+ *   palette-class    The rest of Tailwind's stock palette (text-red-500,
+ *                    bg-slate-100) — not a brand token, review by hand.
  *
- * Escape hatch, for the rare value that cannot be a CSS variable (e.g. the
+ * Escape hatch, for the rare value that cannot be a token (e.g. the
  * `themeColor` meta tag). Put it on the offending line or the line above, and
  * always give a reason:
  *   // check-tokens-ignore: <reason>
+ * The `.theme-dark` scope is not detected statically; a stock white/black class
+ * that is genuinely required needs this marker like any other exception.
  *
  * Usage: node scripts/check-tokens.mjs [--json]
  */
@@ -64,8 +70,24 @@ const RULES = [
 const STYLE_COLOR_KEY =
   /\b(color|background|backgroundColor|borderColor|border(?:Top|Right|Bottom|Left)Color|outlineColor|caretColor|accentColor|textDecorationColor|fill|stroke|stopColor|floodColor)\s*:/g;
 
-const PALETTE_CLASS =
-  /(?<![\w-])(?:[\w-]+:)*(?:text|bg|border|ring|ring-offset|from|via|to|fill|stroke|divide|outline|decoration|shadow|accent|caret|placeholder)-(?:white|black|(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-\d{2,3})(?:\/\d+)?(?![\w-])/g;
+// Colour-utility prefixes, including per-side borders (`border-t-`, `divide-x-`).
+const COLOR_UTILITY = String.raw`(?:text|bg|border(?:-[trblxyse])?|ring-offset|ring|from|via|to|fill|stroke|divide(?:-[xy])?|outline|decoration|shadow|accent|caret|placeholder)`;
+// Optional opacity modifier: `/40` or `/[0.35]`.
+const OPACITY = String.raw`(?:\/(?:\d+|\[[^\]\s]+\]))?`;
+const STOCK_HUES =
+  "slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose";
+
+// Fails. Variant prefixes (`hover:`, `md:`, `group-hover:`, `data-[x=y]:`) need
+// no special handling: the class is matched wherever it starts.
+const WHITE_BLACK_CLASS = new RegExp(
+  String.raw`(?<![\w-])(?:[\w-]+:)*${COLOR_UTILITY}-(?:white|black)${OPACITY}(?![\w-])`,
+  "g"
+);
+// Warns.
+const PALETTE_CLASS = new RegExp(
+  String.raw`(?<![\w-])(?:[\w-]+:)*${COLOR_UTILITY}-(?:${STOCK_HUES})-\d{2,3}${OPACITY}(?![\w-])`,
+  "g"
+);
 
 function walk(dir, out = []) {
   let entries;
@@ -145,6 +167,16 @@ function scan(file) {
     }
   }
 
+  for (const match of code.matchAll(WHITE_BLACK_CLASS)) {
+    report(
+      errors,
+      "stock-white-black",
+      "use a token: ivory-50 / foreground for light, espresso-900 / maroon-950 for dark",
+      match.index,
+      match[0]
+    );
+  }
+
   for (const match of code.matchAll(PALETTE_CLASS)) {
     report(warnings, "palette-class", "stock Tailwind colour, not a brand token", match.index, match[0]);
   }
@@ -177,7 +209,7 @@ if (warnings.length > 0) {
 }
 
 if (errors.length > 0) {
-  console.log(`\n${errors.length} offender(s) — raw colour outside globals.css / tailwind.config:`);
+  console.log(`\n${errors.length} offender(s) — raw colour or stock white/black outside the token files:`);
   errors.forEach(print);
   const hints = new Map(errors.map((e) => [e.rule, e.hint]));
   console.log("\nFix:");
@@ -186,4 +218,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("\ncheck-tokens: PASS — no raw colours outside the token files");
+console.log("\ncheck-tokens: PASS — no raw colours or stock white/black outside the token files");

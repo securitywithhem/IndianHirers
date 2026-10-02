@@ -1,18 +1,26 @@
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cx } from "@/lib/cx"
 
-function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
-  return (
-    <textarea
-      data-slot="textarea"
-      className={cn(
-        "flex field-sizing-content min-h-16 w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-base transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+/*
+ * Docs/UI_UX_V2.md §7.8: the input recipe with `min-h-32 py-3` instead of
+ * `h-12`. The ref is forwarded so react-hook-form can focus an invalid field.
+ * `className` is appended, not merged.
+ */
+const Textarea = React.forwardRef<HTMLTextAreaElement, React.ComponentPropsWithoutRef<"textarea">>(
+  function Textarea({ className, ...props }, ref) {
+    return (
+      <textarea
+        ref={ref}
+        data-slot="textarea"
+        className={cx(
+          "type-body focus-ring min-h-32 w-full min-w-0 rounded-lg border border-input bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground aria-invalid:border-destructive disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
 
 export { Textarea }

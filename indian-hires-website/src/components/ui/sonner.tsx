@@ -1,32 +1,25 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 import { CheckCircle2, Info, AlertTriangle, XOctagon, Loader2 } from "lucide-react"
 
+/*
+ * The site has one theme (ivory), so the toaster is fixed to sonner's light
+ * theme rather than following the OS. Its surface colours are the `popover`
+ * role and the gold hairline: globals.css re-wraps the variables below as
+ * hsl(), because ours are bare triplets.
+ */
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
-
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme="light"
       className="toaster group"
       icons={{
-        success: (
-          <CheckCircle2 className="size-4" />
-        ),
-        info: (
-          <Info className="size-4" />
-        ),
-        warning: (
-          <AlertTriangle className="size-4" />
-        ),
-        error: (
-          <XOctagon className="size-4" />
-        ),
-        loading: (
-          <Loader2 className="size-4 animate-spin" />
-        ),
+        success: <CheckCircle2 aria-hidden="true" className="size-4" />,
+        info: <Info aria-hidden="true" className="size-4" />,
+        warning: <AlertTriangle aria-hidden="true" className="size-4" />,
+        error: <XOctagon aria-hidden="true" className="size-4" />,
+        loading: <Loader2 aria-hidden="true" className="size-4 motion-safe:animate-spin" />,
       }}
       style={
         {
@@ -38,7 +31,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }
       toastOptions={{
         classNames: {
-          toast: "cn-toast",
+          toast: "font-body shadow-lift",
+          title: "type-small font-medium",
+          description: "type-small",
         },
       }}
       {...props}

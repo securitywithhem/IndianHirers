@@ -1,56 +1,81 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { CategoryCard } from "@/components/products/CategoryCard";
-import { productCategories } from "@/content/products";
-import { env } from "@/lib/env";
+import { GalleryCta } from "@/components/gallery/GalleryCta";
+import { GalleryGrid, type GalleryLabels, type GalleryTile } from "@/components/gallery/GalleryGrid";
+import { galleryLayout, holdsUpLarge } from "@/components/gallery/galleryLayout";
+import { SectionHeading } from "@/components/ornament";
+import { Band } from "@/components/shared/Band";
+import { PageHero } from "@/components/shared/PageHero";
+import { pageMetadata } from "@/components/shared/pageMetadata";
+import { eventPhotos, gallery, galleryPhotoCount, galleryPhotos } from "@/content/gallery";
+import { collectionPath, routeMetadata } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Event Gallery — IndianHirers",
-  description:
-    "Photographs from real events styled with IndianHirers crockery and equipment.",
-  alternates: { canonical: "/gallery" },
-  // Nothing worth indexing until real event photography lands. Remove this and
-  // restore /gallery to src/app/sitemap.ts once the shoot is done.
-  robots: { index: false, follow: true },
+export const metadata = pageMetadata(routeMetadata["/gallery"]);
+
+const EVENTS_HEADING_ID = "gallery-events-heading";
+
+const { lightbox } = gallery;
+
+/* The lightbox templates are functions, so they are called here, on the
+ * server, and only strings cross to the client grid. */
+const labels: GalleryLabels = {
+  dialog: lightbox.label,
+  close: lightbox.close,
+  previous: lightbox.previous,
+  next: lightbox.next,
 };
+
+/* Only photographs that hold up at double size are enlarged. */
+const rangeLayout = galleryLayout(galleryPhotos.map((photo) => holdsUpLarge(photo.collection)));
+
+/** The range: every photographed catalogue piece, in catalogue order. */
+const rangeTiles: GalleryTile[] = galleryPhotos.map((photo, index) => ({
+  id: photo.id,
+  image: photo.image,
+  caption: photo.caption,
+  openLabel: lightbox.openLabel(photo.caption),
+  positionLabel: lightbox.position(index + 1, galleryPhotoCount),
+  link: {
+    href: collectionPath(photo.collection),
+    label: lightbox.viewCollection(photo.collectionTitle),
+  },
+  className: rangeLayout[index]?.className ?? "",
+  sizes: rangeLayout[index]?.sizes ?? "",
+}));
+
+/* An event photograph is supplied for this page, so any of them may be enlarged. */
+const eventLayout = galleryLayout(eventPhotos.map(() => true));
+
+/** Photographs taken at events. There are none yet, and nothing stands in for them. */
+const eventTiles: GalleryTile[] = eventPhotos.map((photo, index) => ({
+  id: `event-${photo.id}`,
+  image: photo.image,
+  caption: photo.caption,
+  openLabel: lightbox.openLabel(photo.caption),
+  positionLabel: lightbox.position(index + 1, eventPhotos.length),
+  link: null,
+  className: eventLayout[index]?.className ?? "",
+  sizes: eventLayout[index]?.sizes ?? "",
+}));
 
 export default function GalleryPage() {
   return (
-    <section className="container mx-auto px-4 py-12 md:py-20">
-      <div className="text-center max-w-2xl mx-auto">
-        <h1 className="font-heading text-4xl md:text-5xl text-cream mb-4">
-          Event Gallery
-        </h1>
-        <p className="font-body text-lg text-cream/70">
-          We&apos;re photographing our setups on site through this season, so
-          this page is still filling up. In the meantime, the range itself is
-          all here.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            href="/products"
-            className="inline-flex items-center justify-center min-h-[44px] rounded-full bg-gold px-7 py-3 font-body text-sm font-semibold text-maroon-deep transition-transform duration-200 motion-safe:hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-          >
-            Browse what we rent
-          </Link>
-          <a
-            href={`https://wa.me/${env.whatsapp}?text=${encodeURIComponent(
-              "Hi, could you send photos of your recent event setups?"
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center min-h-[44px] rounded-full border border-maroon px-7 py-3 font-body text-sm font-medium text-cream transition-colors duration-200 hover:bg-maroon hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-          >
-            Ask us for photos
-          </a>
-        </div>
-      </div>
+    <>
+      <PageHero eyebrow={gallery.eyebrow} heading={gallery.heading} lead={gallery.lead} />
 
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {productCategories.map((category) => (
-          <CategoryCard key={category.slug} category={category} />
-        ))}
-      </div>
-    </section>
+      <Band tone="ivory" aria-label={gallery.gridLabel}>
+        {/* The first tile is the first photograph on screen at every width: the route's one priority image. */}
+        <GalleryGrid tiles={rangeTiles} labels={labels} priorityIndex={0} />
+      </Band>
+
+      {eventTiles.length > 0 ? (
+        <Band tone="ivory-alt" aria-labelledby={EVENTS_HEADING_ID}>
+          <SectionHeading as="h2" id={EVENTS_HEADING_ID} align="center" heading={gallery.eventsHeading} />
+          <div className="mt-10 md:mt-14">
+            <GalleryGrid tiles={eventTiles} labels={labels} />
+          </div>
+        </Band>
+      ) : null}
+
+      <GalleryCta />
+    </>
   );
 }

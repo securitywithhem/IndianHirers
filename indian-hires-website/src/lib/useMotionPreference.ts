@@ -1,50 +1,86 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 /**
- * useLayoutEffect on the client, useEffect on the server (where layout effects
- * don't run and React warns). Resolving the preference in a layout effect means
- * the swap from the static path to the animated one happens before the browser
- * paints, so there is no visible jump between the two layouts.
+ * The reduced-motion gate. Every animated primitive in
+ * `src/components/motion/` asks this file whether it may move.
+ *
+ * "Reduce" means either the OS setting (`prefers-reduced-motion: reduce`) or a
+ * coarse low-power signal (Save-Data, <= 2 cores, <= 2 GB), so a weak phone is
+ * spared the animation work even when it has not asked for reduced motion.
+ *
+ * One shared `matchMedia` listener serves every subscriber.
  */
-const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-/**
- * Whether this visitor should get the reduced-motion path.
- *
- * Combines the OS preference with a coarse device-capability check, so a
- * low-core phone on a metered connection is spared the pinned scroll
- * choreography even when it hasn't asked for reduced motion.
- *
- * Named `useMotionPreference` rather than `useReducedMotion` to avoid shadowing
- * framer-motion's hook of that name, which is used elsewhere in the codebase.
- *
- * Returns `true` until the first client effect runs, so SSR and the initial
- * paint render the static path — motion is opt-in, never a flash of animation.
- */
-export function useMotionPreference(): boolean {
-  const [shouldReduce, setShouldReduce] = useState(true);
+const REDUCE_QUERY = "(prefers-reduced-motion: reduce)";
 
-  useIsomorphicLayoutEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+type CapabilityNavigator = Navigator & {
+  connection?: { saveData?: boolean };
+  deviceMemory?: number;
+};
 
-    const nav = navigator as Navigator & {
-      connection?: { saveData?: boolean };
-      deviceMemory?: number;
-    };
-    const lowPower =
+let mediaQuery: MediaQueryList | null = null;
+let lowPower: boolean | null = null;
+const subscribers = new Set<() => void>();
+
+function notifySubscribers(): void {
+  subscribers.forEach((subscriber) => subscriber());
+}
+
+function getQuery(): MediaQueryList {
+  if (mediaQuery === null) {
+    mediaQuery = window.matchMedia(REDUCE_QUERY);
+    mediaQuery.addEventListener("change", notifySubscribers);
+  }
+  return mediaQuery;
+}
+
+function isLowPower(): boolean {
+  if (lowPower === null) {
+    const nav = navigator as CapabilityNavigator;
+    lowPower =
       (nav.connection?.saveData ?? false) ||
       (nav.hardwareConcurrency ?? 8) <= 2 ||
       (nav.deviceMemory ?? 8) <= 2;
+  }
+  return lowPower;
+}
 
-    const update = () => setShouldReduce(query.matches || lowPower);
-    update();
+/**
+ * The preference right now, outside React. `true` = reduce.
+ * Always `true` on the server. Call it from effects and event handlers only,
+ * never during render (use the hook there, it is hydration-safe).
+ */
+export function getMotionPreference(): boolean {
+  if (typeof window === "undefined") return true;
+  return getQuery().matches || isLowPower();
+}
 
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
+function subscribe(onChange: () => void): () => void {
+  getQuery();
+  subscribers.add(onChange);
+  return () => {
+    subscribers.delete(onChange);
+  };
+}
 
-  return shouldReduce;
+function getServerSnapshot(): boolean {
+  return true;
+}
+
+/**
+ * Whether this visitor should get the reduced-motion path. `true` = reduce.
+ *
+ * Returns `true` on the server and for the hydration render, so SSR and first
+ * paint are always the static path; React then re-renders with the real value
+ * before the browser paints. Components mounted later (client navigation) get
+ * the real value on their first render. Follows a live change of the OS
+ * setting.
+ *
+ * Named `useMotionPreference` rather than `useReducedMotion` so it is never
+ * confused with the motion library's hook of that name.
+ */
+export function useMotionPreference(): boolean {
+  return useSyncExternalStore(subscribe, getMotionPreference, getServerSnapshot);
 }

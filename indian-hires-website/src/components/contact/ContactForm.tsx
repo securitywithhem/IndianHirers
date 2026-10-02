@@ -1,168 +1,259 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useEffect, useId, useRef, useState, type HTMLAttributes } from "react";
+import { Controller, useForm, type Control, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
-import { contactFormSchema, type ContactFormValues } from "@/lib/validations/contact";
+import { contact, type FormField, type FormToast } from "@/content/contact";
+import { contactFormSchema } from "@/lib/validations/contact";
 
-export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      phone: "",
-      eventDate: "",
-      message: "",
-    },
+/*
+ * The visible fields plus the spam trap. The trap is a real, registered field:
+ * people never see or reach it, so a value in it means a script filled the form.
+ */
+const formSchema = contactFormSchema.extend({ botcheck: z.string().optional() });
+type FormValues = z.infer<typeof formSchema>;
+
+type VisibleField = keyof typeof contact.form.fields;
+
+/* Visual order; the first of these with an error takes focus on a failed submit. */
+const FIELD_ORDER: readonly VisibleField[] = ["name", "phone", "eventDate", "message"];
+
+const EMPTY_VALUES: FormValues = { name: "", phone: "", eventDate: "", message: "", botcheck: "" };
+
+function isAccepted(result: unknown): boolean {
+  return typeof result === "object" && result !== null && "success" in result && result.success === true;
+}
+
+/* Loaded on first use: the toaster is its own chunk (see Providers), and this
+ * keeps the toast code out of the form's as well. */
+async function notify(kind: "success" | "error", message: FormToast): Promise<void> {
+  const { toast } = await import("sonner");
+  toast[kind](message.title, { description: message.description });
+}
+
+export interface ContactFormProps {
+  /**
+   * `env.web3FormsKey`, read on the server. The form is only rendered when it
+   * is set (`hasEnquiryForm`); the empty case below is a guard, not a state.
+   */
+  accessKey: string;
+  /** `id` of the heading that names the form. */
+  labelledBy: string;
+}
+
+/**
+ * The enquiry form: react-hook-form + zod, posted to Web3Forms, answered with
+ * a toast. Validation is ours, not the browser's (`noValidate`): each error is
+ * text under its field, linked with `aria-describedby`, in a polite live
+ * region, and a failed submit moves focus to the first invalid field.
+ *
+ * Every string comes from `contact.form`. No entrance animation (motion rule).
+ */
+export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
+  const copy = contact.form;
+  const baseId = useId();
+  const formRef = useRef<HTMLFormElement>(null);
+  const busy = useRef(false);
+  const [sending, setSending] = useState(false);
+
+  const { control, register, handleSubmit, reset, setValue } = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: EMPTY_VALUES,
   });
 
-  async function onSubmit(values: ContactFormValues) {
-    if (!process.env.NEXT_PUBLIC_WEB3FORMS_KEY) {
-      console.error("Missing NEXT_PUBLIC_WEB3FORMS_KEY");
-      toast.error("Form is not configured.", {
-        description: "Please contact us directly via phone or WhatsApp for now.",
-      });
-      setIsSubmitting(false);
+  const fieldId = (name: VisibleField) => `${baseId}-${name}`;
+
+  /* Anything typed before this component hydrated is on screen but unknown to
+   * the form state; take it over rather than let it be validated as empty. */
+  useEffect(() => {
+    const form = formRef.current;
+    if (form === null) return;
+    FIELD_ORDER.forEach((name) => {
+      const element = form.elements.namedItem(name);
+      const typed = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement;
+      if (typed && element.value !== "") setValue(name, element.value);
+    });
+  }, [setValue]);
+
+  async function onValid(values: FormValues) {
+    if (busy.current) return;
+    /* Spam trap filled: drop the submission and say nothing. */
+    if (values.botcheck) return;
+
+    /* No access key: say so, point to WhatsApp and the phone, send nothing. */
+    if (accessKey === "") {
+      await notify("error", copy.toasts.notConfigured);
       return;
     }
 
-    setIsSubmitting(true);
+    busy.current = true;
+    setSending(true);
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: "New Enquiry from IndianHirers Website",
-          from_name: "IndianHirers Website",
+          access_key: accessKey,
+          subject: copy.submission.subject,
+          from_name: copy.submission.fromName,
           name: values.name,
           phone: values.phone,
-          event_date: values.eventDate || "Not specified",
+          event_date: values.eventDate || copy.submission.eventDateNotGiven,
           message: values.message,
-          botcheck: false,
         }),
       });
+      const result: unknown = await response.json();
 
-      const result = await response.json();
-
-      if (result.success) {
-        toast.success("Enquiry sent!", {
-          description: "Thanks for reaching out — we'll get back to you within a few hours.",
-        });
-        form.reset();
+      if (response.ok && isAccepted(result)) {
+        reset(EMPTY_VALUES);
+        await notify("success", copy.toasts.success);
       } else {
-        throw new Error(result.message || "Submission failed");
+        await notify("error", copy.toasts.error);
       }
-    } catch (error) {
-      console.error("Contact form submission error:", error);
-      toast.error("Something went wrong.", {
-        description: "Please try again, or reach us directly via WhatsApp or phone.",
-      });
+    } catch {
+      await notify("error", copy.toasts.error);
     } finally {
-      setIsSubmitting(false);
+      busy.current = false;
+      setSending(false);
     }
   }
 
+  function onInvalid(errors: FieldErrors<FormValues>) {
+    const first = FIELD_ORDER.find((name) => errors[name] !== undefined);
+    if (first !== undefined) document.getElementById(fieldId(first))?.focus();
+  }
+
   return (
-    <div className="bg-surface-2 border border-border rounded-2xl p-6 md:p-8">
-      <h2 className="font-serif text-2xl text-cream font-bold mb-1">Send an Enquiry</h2>
-      <p className="font-sans text-cream/60 text-sm mb-6">We&apos;ll get back to you within a few hours.</p>
+    <form
+      ref={formRef}
+      noValidate
+      /* Before this component hydrates (or without JavaScript) the browser
+         submits the form itself: a POST to Web3Forms with the same fields,
+         never a GET that would put the visitor's details in the URL. */
+      method="post"
+      action={WEB3FORMS_ENDPOINT}
+      aria-labelledby={labelledBy}
+      onSubmit={handleSubmit(onValid, onInvalid)}
+      className="flex flex-col gap-5"
+    >
+      <input type="hidden" name="access_key" value={accessKey} />
+      <input type="hidden" name="subject" value={copy.submission.subject} />
+      <input type="hidden" name="from_name" value={copy.submission.fromName} />
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-          <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
-          
-          <FormField
-            control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name <span aria-hidden="true" className="text-cream">*</span><span className="sr-only"> (required)</span></FormLabel>
-                    <FormControl>
-                      <Input aria-required="true" required placeholder="e.g. Rohan Mehta" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      <p className="type-small text-muted-foreground">{copy.requiredLegend}</p>
 
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number <span aria-hidden="true" className="text-cream">*</span><span className="sr-only"> (required)</span></FormLabel>
-                    <FormControl>
-                      <Input type="tel" aria-required="true" required placeholder="e.g. 98765 43210" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      {/* Spam trap: off screen, out of the tab order, hidden from assistive technology. */}
+      <div aria-hidden="true" className="sr-only">
+        <label htmlFor={`${baseId}-botcheck`}>{copy.honeypotLabel}</label>
+        <input id={`${baseId}-botcheck`} type="text" tabIndex={-1} autoComplete="off" {...register("botcheck")} />
+      </div>
 
-              <FormField
-                control={form.control}
-                name="eventDate"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Event Date (optional)</FormLabel>
-                    <FormControl>
-                      <Input type="date" className="focus-visible:ring-gold focus-visible:border-gold" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <FormRow control={control} name="name" id={fieldId("name")} autoComplete="name" />
+        <FormRow
+          control={control}
+          name="phone"
+          id={fieldId("phone")}
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+        />
+      </div>
+      <FormRow control={control} name="eventDate" id={fieldId("eventDate")} type="date" />
+      <FormRow control={control} name="message" id={fieldId("message")} multiline />
 
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tell us about your event</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        rows={4} 
-                        placeholder="Number of guests, items needed, venue, etc." 
-                        className="focus-visible:ring-gold focus-visible:border-gold" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      <Button type="submit" aria-disabled={sending} className="w-full sm:w-auto sm:self-start">
+        {sending ? copy.sending : copy.submit}
+      </Button>
+    </form>
+  );
+}
 
-              <Button 
-                type="submit" 
-                disabled={isSubmitting} 
-                className="w-full bg-maroon text-cream rounded-full hover:scale-105 transition-transform disabled:opacity-60 disabled:hover:scale-100 mt-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="animate-spin mr-2 h-4 w-4" /> Sending...
-                  </>
-                ) : (
-                  "Send Enquiry"
-                )}
-              </Button>
-        </form>
-      </Form>
-    </div>
+interface FormRowProps {
+  control: Control<FormValues>;
+  name: VisibleField;
+  id: string;
+  type?: "text" | "tel" | "date";
+  inputMode?: HTMLAttributes<HTMLInputElement>["inputMode"];
+  autoComplete?: string;
+  /** Render a textarea. */
+  multiline?: boolean;
+}
+
+/** One labelled field (Docs/UI_UX_V2.md §7.8): label, control, help, error. */
+function FormRow({ control, name, id, type = "text", inputMode, autoComplete, multiline = false }: FormRowProps) {
+  const copy = contact.form;
+  const field: FormField = copy.fields[name];
+  const helpId = `${id}-help`;
+  const errorId = `${id}-error`;
+
+  return (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field: { name: fieldName, value, onChange, onBlur }, fieldState }) => {
+        const error = fieldState.error?.message;
+        const describedBy =
+          [field.helper === null ? null : helpId, error === undefined ? null : errorId]
+            .filter((part): part is string => part !== null)
+            .join(" ") || undefined;
+
+        const shared = {
+          id,
+          name: fieldName,
+          value: value ?? "",
+          onChange,
+          onBlur,
+          placeholder: field.placeholder || undefined,
+          "aria-required": field.required,
+          "aria-invalid": error !== undefined,
+          "aria-describedby": describedBy,
+        };
+
+        return (
+          <div className="flex flex-col">
+            <Label htmlFor={id} className="mb-2">
+              {field.label}
+              {field.required ? (
+                <>
+                  <span aria-hidden="true"> {copy.requiredMark}</span>
+                  <span className="sr-only"> {copy.requiredNote}</span>
+                </>
+              ) : (
+                <span className="font-normal text-muted-foreground"> {copy.optionalNote}</span>
+              )}
+            </Label>
+
+            {multiline ? (
+              <Textarea rows={5} {...shared} />
+            ) : (
+              <Input type={type} inputMode={inputMode} autoComplete={autoComplete} {...shared} />
+            )}
+
+            {field.helper === null ? null : (
+              <p id={helpId} className="type-small mt-2 text-muted-foreground">
+                {field.helper}
+              </p>
+            )}
+
+            {/* Always in the DOM (and empty until needed), so a new error is announced. */}
+            <div aria-live="polite">
+              {error === undefined ? null : (
+                <p id={errorId} className="type-small mt-2 font-medium text-destructive">
+                  {error}
+                </p>
+              )}
+            </div>
+          </div>
+        );
+      }}
+    />
   );
 }

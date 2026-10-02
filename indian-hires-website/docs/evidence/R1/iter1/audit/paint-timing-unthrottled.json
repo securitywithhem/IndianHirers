@@ -1,0 +1,1147 @@
+{
+  "/@390@no-preference": {
+    "fcp": 36,
+    "lcp": 880,
+    "lcpElement": {
+      "t": 880,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "motion-safe:animate-enter-rise type-lead max-w-measure-tight text-mute",
+      "text": "Bone china, melamine, glassware and chafing dishes",
+      "style": "animation-delay:320ms"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 37812,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=384&q=75",
+        "cls": "object-cover",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      },
+      {
+        "t": 880,
+        "size": 48096,
+        "tag": "P",
+        "url": "",
+        "cls": "motion-safe:animate-enter-rise type-lead max-w-measure-tight text-mute",
+        "text": "Bone china, melamine, glassware and chafing dishes",
+        "style": "animation-delay:320ms"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@390@no-preference": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 29750,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "41 designs and pieces across 8 collections. Add wh"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 29750,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "41 designs and pieces across 8 collections. Add wh"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@390@no-preference": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 27680,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 27680,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@390@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 28000,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Chafing dishes in brass, copper, gold and silver f"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 28000,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Chafing dishes in brass, copper, gold and silver f"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@390@no-preference": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 46784,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Silver-plated plates, cutlery, serving spoons, tra"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 46784,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Silver-plated plates, cutlery, serving spoons, tra"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@390@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 37368,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Cutlery and serving pieces to go with the crockery"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 37368,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Cutlery and serving pieces to go with the crockery"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 68614,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 68614,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@390@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 122467,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 122467,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 45792,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead text-foreground",
+      "text": "We have not published any testimonials yet. When w"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 45792,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead text-foreground",
+        "text": "We have not published any testimonials yet. When w"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@390@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 29070,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp, c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 29070,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp, c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@390@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 29068,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 29068,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@1280@no-preference": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 295036,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+      "cls": "object-cover",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 295036,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+        "cls": "object-cover",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@1280@no-preference": {
+    "fcp": 52,
+    "lcp": 84,
+    "lcpElement": {
+      "t": 84,
+      "size": 67374,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=384&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 53625,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "41 designs and pieces across 8 collections. Add wh"
+      },
+      {
+        "t": 84,
+        "size": 67374,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=384&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@1280@no-preference": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 36960,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 36960,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@1280@no-preference": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 65081,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chafing Dishes & Buffet Display"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 65081,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chafing Dishes & Buffet Display"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@1280@no-preference": {
+    "fcp": 68,
+    "lcp": 68,
+    "lcpElement": {
+      "t": 68,
+      "size": 58588,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 68,
+        "size": 58588,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@1280@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 43578,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 43578,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 99396,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 99396,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@1280@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 187068,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 187068,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@1280@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 80936,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "We would rather you asked us directly"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 80936,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "We would rather you asked us directly"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@1280@no-preference": {
+    "fcp": 76,
+    "lcp": 76,
+    "lcpElement": {
+      "t": 76,
+      "size": 52065,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp, c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 76,
+        "size": 52065,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp, c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@1280@no-preference": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 53504,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 53504,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@390@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "motion-safe:animate-enter-rise type-lead max-w-measure-tight text-mute",
+      "text": "Bone china, melamine, glassware and chafing dishes",
+      "style": "animation-delay:320ms"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 48096,
+        "tag": "P",
+        "url": "",
+        "cls": "motion-safe:animate-enter-rise type-lead max-w-measure-tight text-mute",
+        "text": "Bone china, melamine, glassware and chafing dishes",
+        "style": "animation-delay:320ms"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 29750,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "41 designs and pieces across 8 collections. Add wh"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 29750,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "41 designs and pieces across 8 collections. Add wh"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@390@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 27680,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 27680,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 28000,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Chafing dishes in brass, copper, gold and silver f"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 28000,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Chafing dishes in brass, copper, gold and silver f"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 46784,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Silver-plated plates, cutlery, serving spoons, tra"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 46784,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Silver-plated plates, cutlery, serving spoons, tra"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@390@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 37368,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Cutlery and serving pieces to go with the crockery"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 37368,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Cutlery and serving pieces to go with the crockery"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 68614,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 68614,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 122467,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 122467,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 45792,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead text-foreground",
+      "text": "We have not published any testimonials yet. When w"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 45792,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead text-foreground",
+        "text": "We have not published any testimonials yet. When w"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@390@reduce": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 29070,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp, c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 29070,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp, c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@390@reduce": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 29068,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 29068,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@1280@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 295036,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+      "cls": "object-cover",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 295036,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+        "cls": "object-cover",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@1280@reduce": {
+    "fcp": 44,
+    "lcp": 64,
+    "lcpElement": {
+      "t": 64,
+      "size": 67374,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=384&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 53625,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "41 designs and pieces across 8 collections. Add wh"
+      },
+      {
+        "t": 64,
+        "size": 67374,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=384&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@1280@reduce": {
+    "fcp": 48,
+    "lcp": 48,
+    "lcpElement": {
+      "t": 48,
+      "size": 36960,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body max-w-measure text-foreground",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 48,
+        "size": 36960,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body max-w-measure text-foreground",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@1280@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 65081,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chafing Dishes & Buffet Display"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 65081,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chafing Dishes & Buffet Display"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@1280@reduce": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 58588,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 58588,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@1280@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 43578,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 43578,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@1280@reduce": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 99396,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 99396,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@1280@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 187068,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 187068,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 80936,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "We would rather you asked us directly"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 80936,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "We would rather you asked us directly"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@1280@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 52065,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp, c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 52065,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp, c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@1280@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 53504,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 53504,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  }
+}

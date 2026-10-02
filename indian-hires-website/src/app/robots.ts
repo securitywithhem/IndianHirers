@@ -1,9 +1,16 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { env } from "@/lib/env";
+import { absoluteUrl } from "@/lib/links";
 
+/**
+ * Pages that should stay out of search results say so themselves (`noindex`
+ * from `routeMetadata`), which only works if crawlers may fetch them — so
+ * nothing is disallowed here. The sitemap line appears only when
+ * NEXT_PUBLIC_SITE_URL is set; there is no fallback domain.
+ */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://indianhirers.com";
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    ...(env.siteUrl ? { sitemap: absoluteUrl("/sitemap.xml") } : {}),
   };
 }

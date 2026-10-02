@@ -1,0 +1,99 @@
+
+> indian-hires-website@0.1.0 verify
+> bash scripts/verify.sh
+
+
+==> [1/4 lint] npm run lint
+
+> indian-hires-website@0.1.0 lint
+> next lint
+
+✔ No ESLint warnings or errors
+==> [1/4 lint] PASS
+
+==> [2/4 typecheck] npm run typecheck
+
+> indian-hires-website@0.1.0 typecheck
+> tsc --noEmit
+
+==> [2/4 typecheck] PASS
+
+==> [3/4 build] npm run build
+
+> indian-hires-website@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/17) ...
+   Generating static pages (4/17) 
+   Generating static pages (8/17) 
+   Generating static pages (12/17) 
+ ✓ Generating static pages (17/17)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    86.2 kB         187 kB
+├ ○ /_not-found                          142 B          87.5 kB
+├ ○ /contact                             35.7 kB         142 kB
+├ ○ /founders                            142 B          87.5 kB
+├ ○ /gallery                             190 B           101 kB
+├ ○ /products                            190 B           101 kB
+├ ● /products/[slug]                     190 B           101 kB
+├   ├ /products/vintage
+├   ├ /products/bone-china
+├   ├ /products/melamine
+├   └ [+2 more paths]
+├ ○ /robots.txt                          0 B                0 B
+├ ○ /sitemap.xml                         0 B                0 B
+└ ○ /testimonials                        178 B          96.2 kB
++ First Load JS shared by all            87.3 kB
+  ├ chunks/117-30b1ef42c2c15b0b.js       31.7 kB
+  ├ chunks/fd9d1056-ee1554f9fa0c166c.js  53.6 kB
+  └ other shared chunks (total)          1.96 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses getStaticProps)
+
+==> [3/4 build] PASS
+
+==> [4/4 tokens] node scripts/check-tokens.mjs
+check-tokens: scanned 65 files in src/components, src/app
+
+19 offender(s) — raw colour or stock white/black outside the token files:
+  src/app/gallery/page.tsx:42:209  [stock-white-black]  hover:text-white
+  src/app/layout.tsx:62:16  [raw-hex]  #800020
+  src/app/layout.tsx:82:120  [stock-white-black]  text-white
+  src/app/layout.tsx:82:202  [stock-white-black]  focus-visible:ring-white
+  src/app/products/[slug]/page.tsx:81:58  [stock-white-black]  text-white
+  src/app/products/[slug]/page.tsx:84:41  [stock-white-black]  text-white/80
+  src/app/products/[slug]/page.tsx:92:270  [stock-white-black]  focus-visible:ring-white
+  src/components/founders/FoundersHero.tsx:7:35  [stock-white-black]  text-white
+  src/components/founders/FoundersHero.tsx:9:31  [stock-white-black]  text-white/85
+  src/components/home/AboutStrip.tsx:16:107  [stock-white-black]  hover:text-white
+  src/components/home/ClosingCTA.tsx:19:64  [arbitrary-color]  hover:bg-[#1DA851]
+  src/components/home/Hero.tsx:76:162  [arbitrary-color]  shadow-[0_10px_34px_-10px_rgba(201,162,39,0.6)]
+  src/components/home/LogoFinale.tsx:46:140  [arbitrary-color]  bg-[radial-gradient(circle,_#C5A44E_0%,_transparent_70%)]
+  src/components/layout/FloatingWhatsApp.tsx:25:57  [stock-white-black]  text-white
+  src/components/layout/Header.tsx:67:29  [stock-white-black]  text-white
+  src/components/layout/Header.tsx:93:44  [stock-white-black]  text-white
+  src/components/layout/Header.tsx:150:36  [stock-white-black]  bg-black/40
+  src/components/layout/MobileBottomBar.tsx:11:101  [arbitrary-color]  shadow-[0_-2px_10px_rgba(0,0,0,0.06)]
+  src/components/products/CategoryCard.tsx:37:54  [arbitrary-color]  bg-[radial-gradient(circle_at_50%_35%,_#C5A44E_0%,_transparent_65%)]
+
+Fix:
+  [stock-white-black] use a token: ivory-50 / foreground for light, espresso-900 / maroon-950 for dark
+  [raw-hex] move the value into a CSS variable in globals.css
+  [arbitrary-color] use a token utility (bg-gold, shadow-*) or add a token to globals.css
+
+check-tokens: FAIL
+
+==> [4/4 tokens] FAIL (exit 1)
+verify: FAILED at 4/4 tokens — stopping.

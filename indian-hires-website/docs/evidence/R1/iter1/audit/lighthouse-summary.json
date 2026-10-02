@@ -1,0 +1,232 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/",
+    "perf": 92,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.3 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections",
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/bone-china",
+    "perf": 86,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "4.3 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/chafing-dishes",
+    "perf": 95,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.9 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/heritage-silver",
+    "perf": 94,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.1 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/cutlery-and-serveware",
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/founders",
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.4 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/gallery",
+    "perf": 83,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "4.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/testimonials",
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 66,
+    "lcp": "2.4 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/contact",
+    "perf": 98,
+    "a11y": 93,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.4 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/this-page-does-not-exist",
+    "error": "Error: Command failed: npx lighthouse http://localhost:3001/this-page-does-not-exist --quiet --output=json --output-path=/Users/hemgabhawala/Desktop/Hem/IndianH"
+  },
+  {
+    "preset": "desktop",
+    "route": "/",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/bone-china",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/chafing-dishes",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/heritage-silver",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/cutlery-and-serveware",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.5 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/founders",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/gallery",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/testimonials",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 66,
+    "lcp": "0.5 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/contact",
+    "perf": 100,
+    "a11y": 93,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.5 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/this-page-does-not-exist",
+    "error": "Error: Command failed: npx lighthouse http://localhost:3001/this-page-does-not-exist --quiet --output=json --output-path=/Users/hemgabhawala/Desktop/Hem/IndianH"
+  }
+]

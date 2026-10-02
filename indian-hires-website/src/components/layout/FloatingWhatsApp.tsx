@@ -1,29 +1,41 @@
-"use client";
-
 import { MessageCircle } from "lucide-react";
-import { env } from "@/lib/env";
+import { shell, whatsappMessages } from "@/content/site";
+import { whatsappUrl } from "@/lib/links";
+import { AppLink } from "@/components/shared/AppLink";
 
+/**
+ * Floating WhatsApp button for tablet and desktop (Docs/UI_UX_V2.md §7.3).
+ * Hidden below `md`, where the bottom bar already carries WhatsApp — the two
+ * never overlap, and are never both in the accessibility tree.
+ *
+ * It sits in its own complementary landmark, so no content is outside a
+ * landmark. The label is the bottom bar's ("Quick contact"): it is the same
+ * shortcut at a different width, and only one of the two is ever rendered.
+ *
+ * Geometry: 56px circle, 24px from the bottom and right edges, `z-bar`. The
+ * 72px above it (bottom-24 right-6) is left free for the quote-basket button
+ * on catalogue routes; see src/components/shared/README.md.
+ *
+ * The ring pulses once every 6s (`transform` + `opacity`); under reduced
+ * motion it stays at `opacity-0`. Icon and ring are never light on the green.
+ */
 export function FloatingWhatsApp() {
+  const { floatingWhatsApp, bottomBar } = shell;
+
   return (
-    <div
-      // Z-index ordering: Header (z-50) > FloatingWhatsApp & MobileBottomBar (z-40)
-      // This ensures that when the Header's mobile drawer opens, it sits above this component.
-      className="hidden md:flex fixed bottom-6 right-6 z-40"
-    >
-      <a
-        href={`https://wa.me/${env.whatsapp}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20crockery%20rental%20for%20my%20event.`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with IndianHirers"
-        title="Chat with IndianHirers"
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp shadow-lg hover:scale-110 transition-transform duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+    <aside aria-label={bottomBar.navLabel} className="hidden md:block">
+      <AppLink
+        href={whatsappUrl(whatsappMessages.general())}
+        aria-label={floatingWhatsApp.ariaLabel}
+        title={floatingWhatsApp.title}
+        className="focus-ring fixed bottom-6 right-6 z-bar isolate grid size-14 place-items-center rounded-full bg-whatsapp text-espresso-900 shadow-lift motion-safe:transition-transform motion-safe:duration-hover motion-safe:ease-royal motion-safe:hover:-translate-y-0.5"
       >
-        {/* Pulse Animation Ring */}
-        <span className="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-75" />
-        
-        {/* Icon (Foreground) */}
-        <MessageCircle className="relative z-10 w-7 h-7 text-white" />
-      </a>
-    </div>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-whatsapp opacity-0 motion-safe:animate-whatsapp-pulse"
+        />
+        <MessageCircle aria-hidden="true" className="size-7" />
+      </AppLink>
+    </aside>
   );
 }

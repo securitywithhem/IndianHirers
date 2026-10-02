@@ -1,0 +1,1703 @@
+{
+  "states": {
+    "mobile nav drawer open /@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            ".h-header.justify-between.gap-4 > .gap-3 > .size-12.bg-ivory-50.ring-1 > .font-semibold.text-maroon-700.type-caption"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 30
+    },
+    "item drawer open /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 35
+    },
+    "filter chip pressed /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 30,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            "nav[aria-label=\"Breadcrumb\"] > .text-link.underline.decoration-hairline\\/60",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "two items added, sheet closed /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "impact": "critical",
+          "nodes": 1,
+          "targets": [
+            ".bottom-\\[calc\\(5rem\\+env\\(safe-area-inset-bottom\\)\\)\\]"
+          ],
+          "why": [
+            "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"quote-list-sheet\""
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "quote sheet open (2 items) /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            "#quote-list-sheet > .text-muted-foreground"
+          ],
+          "why": [
+            "Element's background color could not be determined because it partially overlaps other elements"
+          ]
+        }
+      ],
+      "passes": 31
+    },
+    "lightbox open /gallery@390": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 31
+    },
+    "contact form after empty submit /contact@390": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    "item drawer open /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 35
+    },
+    "filter chip pressed /collections/bone-china@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 34,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "two items added, sheet closed /collections/bone-china@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "impact": "critical",
+          "nodes": 1,
+          "targets": [
+            ".bottom-\\[calc\\(5rem\\+env\\(safe-area-inset-bottom\\)\\)\\]"
+          ],
+          "why": [
+            "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"quote-list-sheet\""
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 33,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "quote sheet open (2 items) /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            "#quote-list-sheet > .text-muted-foreground"
+          ],
+          "why": [
+            "Element's background color could not be determined because it partially overlaps other elements"
+          ]
+        }
+      ],
+      "passes": 31
+    },
+    "lightbox open /gallery@1280": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 31
+    },
+    "contact form after empty submit /contact@1280": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            ".group\\/link.relative[href$=\"collections\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    }
+  },
+  "fullPageReducedMotion": {
+    "/@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".motion-safe\\:animate-enter-rise.type-eyebrow.text-kicker",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chafing-dishes@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/heritage-silver@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 22,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/cutlery-and-serveware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 8,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/founders@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-gold-300",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/gallery@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/testimonials@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/contact@390": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    "/this-page-does-not-exist@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-stat",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".motion-safe\\:animate-enter-rise.type-eyebrow.text-kicker",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(3) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/collections@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/collections/bone-china@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/chafing-dishes@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 25,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/heritage-silver@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 20,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/cutlery-and-serveware@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/founders@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-gold-300",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/gallery@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/testimonials@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 10,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    "/contact@1280": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 25,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".md\\:inline-flex",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    "/this-page-does-not-exist@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".px-4",
+            ".type-stat",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 40
+    }
+  },
+  "fullPageScrolledMotion": {
+    "/@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".motion-safe\\:animate-enter-rise.type-eyebrow.text-kicker",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chafing-dishes@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/heritage-silver@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 22,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/cutlery-and-serveware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 8,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-link",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/founders@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".text-gold-300",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/gallery@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/testimonials@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/contact@390": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    "/this-page-does-not-exist@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".type-stat",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".motion-safe\\:animate-enter-rise.type-eyebrow.text-kicker",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(3) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/collections@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/collections/bone-china@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/chafing-dishes@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 25,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/heritage-silver@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 20,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/cutlery-and-serveware@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-link",
+            ".type-eyebrow"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/founders@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".text-gold-300",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/gallery@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/testimonials@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 10,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".hover\\:bg-primary-hover",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 40
+    },
+    "/contact@1280": {
+      "violations": [
+        {
+          "id": "definition-list",
+          "impact": "serious",
+          "nodes": 1,
+          "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+          "targets": [
+            ".divide-y"
+          ],
+          "summary": [
+            "Fix all of the following: dl element has direct children that are not allowed: div > div"
+          ]
+        },
+        {
+          "id": "dlitem",
+          "impact": "serious",
+          "nodes": 14,
+          "help": "<dt> and <dd> elements must be contained by a <dl>",
+          "targets": [
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(1) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dt",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(2) > .min-w-0.flex-col.flex > dd",
+            ".grid-cols-\\[2\\.75rem_1fr\\].gap-x-4.py-4:nth-child(3) > .min-w-0.flex-col.flex > dt"
+          ],
+          "summary": [
+            "Fix any of the following: Description list item does not have a <dl> parent element",
+            "Fix any of the following: Description list item does not have a <dl> parent element"
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 25,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".md\\:inline-flex",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 46
+    },
+    "/this-page-does-not-exist@1280": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "nodes": 1,
+          "help": "All page content should be contained by landmarks",
+          "targets": [
+            ".bottom-6"
+          ],
+          "summary": [
+            "Fix any of the following: Some page content is not contained by landmarks"
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            "a[aria-label=\"Indian Hirers — home\"] > .type-h4.text-heading",
+            ".px-4",
+            ".type-stat",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 40
+    }
+  }
+}
