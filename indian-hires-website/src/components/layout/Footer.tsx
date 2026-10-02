@@ -1,90 +1,104 @@
-import Link from "next/link";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { brand, footerNav, shell, whatsappMessages } from "@/content/site";
+import { cn } from "@/lib/utils";
 import { env } from "@/lib/env";
+import { formatPhone, mailtoUrl, telUrl, whatsappUrl } from "@/lib/links";
+import { CrownDivider } from "@/components/ornament";
+import { AppLink } from "@/components/shared/AppLink";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Our Story", href: "/founders" },
-  { label: "What We Rent", href: "/products" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Contact", href: "/contact" },
-];
+const HEADING_CLASS = "type-h4 text-heading";
+const LINK_CLASS =
+  "type-small focus-ring inline-flex min-h-11 min-w-11 items-center gap-3 rounded-sm text-foreground transition-colors duration-hover ease-royal hover:text-link";
+const ICON_CLASS = "size-4 shrink-0 text-hairline";
 
+/**
+ * Site footer (Docs/UI_UX_V2.md §7.11): the deepest maroon band. Everything
+ * in it comes from `@/content/site` and `env`; a contact detail that is not
+ * configured is left out rather than replaced by a guess.
+ *
+ * The GSTIN appears here and nowhere else, as small print — never as a badge.
+ * No entrance animation in the footer (motion README).
+ */
 export function Footer() {
+  const { footer } = shell;
+  const contacts = [
+    { label: footer.phoneLabel, href: telUrl(env.phone), text: formatPhone(env.phone), Icon: Phone },
+    { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), Icon: Phone },
+    { label: footer.emailLabel, href: mailtoUrl(env.email), text: env.email, Icon: Mail },
+  ].filter((contact) => contact.text !== "");
+
   return (
-    <footer className="bg-maroon-deep text-cream py-12 md:py-16">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Column 1: About */}
-          <div>
-            <h2 className="font-heading text-2xl text-gold mb-2">Indian Hirers</h2>
-            <p className="text-[11px] tracking-widest text-gold uppercase mb-6">
-              An Occasion With Dignity
-            </p>
-            <div className="font-body text-sm text-cream/80 leading-relaxed space-y-2">
-              <p>3-4 Sandalwood Residency,<br />Nr Urmi Char Rasta, Akota,<br />Vadodara – 390020</p>
-              <p className="pt-2 text-cream/60 text-xs">GSTIN: 24AABPG5066D1Z8</p>
+    <footer className="theme-dark border-t border-hairline/40 bg-maroon-950 pt-section-sm">
+      <div className="shell">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1.1fr] lg:gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <BrandLogo size="footer" />
+            <div className="flex flex-col gap-2">
+              <p className="type-h3 text-heading">{brand.name}</p>
+              {/* Not `type-eyebrow`: that would uppercase a tagline whose casing is fixed. */}
+              <p className="type-small font-medium text-kicker">{brand.tagline}</p>
             </div>
+            <p className="type-small max-w-measure-tight text-muted-foreground">{footer.blurb}</p>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="font-heading text-lg text-cream mb-4">Quick Links</h3>
-            <ul className="flex flex-col gap-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-body text-sm text-cream/80 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
-                  >
-                    {link.label}
-                  </Link>
+          <nav aria-label={footer.navLabel} className="flex flex-col gap-2">
+            <h2 className={HEADING_CLASS}>{footer.navHeading}</h2>
+            <ul className="flex flex-col gap-2">
+              {footerNav.map((item) => (
+                <li key={item.href}>
+                  <AppLink href={item.href} className={LINK_CLASS}>
+                    {item.label}
+                  </AppLink>
                 </li>
               ))}
             </ul>
+          </nav>
+
+          <div className="flex flex-col gap-2">
+            <h2 className={HEADING_CLASS}>{footer.contactHeading}</h2>
+            <div className="flex flex-col gap-2">
+              <dl className="flex flex-col gap-2">
+                {contacts.map(({ label, href, text, Icon }) => (
+                  <div key={label}>
+                    <dt className="sr-only">{label}</dt>
+                    <dd>
+                      <AppLink href={href} className={LINK_CLASS}>
+                        <Icon aria-hidden="true" className={ICON_CLASS} />
+                        {text}
+                      </AppLink>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <AppLink href={whatsappUrl(whatsappMessages.general())} className={cn(LINK_CLASS, "self-start")}>
+                <MessageCircle aria-hidden="true" className={ICON_CLASS} />
+                {footer.whatsappLabel}
+              </AppLink>
+            </div>
           </div>
 
-          {/* Column 3: Contact */}
-          <div>
-            <h3 className="font-heading text-lg text-cream mb-4">Contact Us</h3>
-            <ul className="flex flex-col gap-4">
-              <li>
-                <a
-                  href={`tel:${env.phone}`}
-                  className="flex items-center gap-3 font-body text-sm text-cream/80 hover:text-gold transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded w-fit"
-                >
-                  <Phone className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
-                  <span>{env.phone || "9825037478 / 8734090908"}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${env.email || "indianhires@gmail.com"}`}
-                  className="flex items-center gap-3 font-body text-sm text-cream/80 hover:text-gold transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded w-fit"
-                >
-                  <Mail className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
-                  <span>{env.email || "indianhires@gmail.com"}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`https://wa.me/${env.whatsapp}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20crockery%20rental%20for%20my%20event.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 font-body text-sm text-cream/80 hover:text-gold transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded w-fit"
-                >
-                  <MessageCircle className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
-                  <span>WhatsApp Us</span>
-                </a>
-              </li>
-            </ul>
+          <div className="flex flex-col gap-4">
+            <h2 className={HEADING_CLASS}>{footer.addressHeading}</h2>
+            <address className="type-small not-italic text-muted-foreground">
+              {brand.address.lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </address>
           </div>
         </div>
 
-        {/* Bottom Copyright Bar */}
-        <div className="border-t border-cream/20 mt-10 pt-6 text-center text-xs text-cream/60 font-body">
-          © {new Date().getFullYear()} IndianHirers. All rights reserved.
+        <CrownDivider className="mt-section-sm" />
+
+        {/* Left-aligned on purpose: the floating WhatsApp button sits over the
+            bottom-right corner from `md` and must not cover the small print. */}
+        <div className="type-caption flex flex-col gap-2 py-6 text-muted-foreground md:flex-row md:items-center md:gap-8">
+          <p>{footer.copyright(new Date().getFullYear())}</p>
+          <p>
+            {footer.gstinLabel} {brand.gstin}
+          </p>
         </div>
       </div>
     </footer>

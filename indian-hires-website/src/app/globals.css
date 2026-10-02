@@ -1,8 +1,431 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+
+/*
+ * The Royal Banquet Table — design tokens.
+ * Spec: Docs/UI_UX_V2.md · colour authority: docs/color-system.md
+ *
+ * Every colour variable is a BARE HSL TRIPLET, never a hex. Tailwind consumes
+ * them as hsl(var(--x)); a hex here produces invalid CSS once wrapped and the
+ * utility silently renders nothing (that bug once left the header transparent).
+ * Triplets also let Tailwind inject alpha, so `border-hairline/40` works.
+ *
+ * `node scripts/contrast.mjs` reads the `--name: H S% L%;` lines below.
+ *
+ * The token and theme-scope rules sit ABOVE the @tailwind directives and
+ * outside any @layer on purpose: Tailwind tree-shakes class selectors inside
+ * @layer, and a rule placed after the utilities would out-rank them.
+ */
+
+:root {
+  /* --------------------------------------------------------------------
+   * Primitives. Sampled from the brand's own assets, not chosen by eye:
+   *   logo maroon  #702010  hue 10°  (NOT #800020 / hue 345)
+   *   brass / copper        hue 30–40° (the chafers)
+   *   bone china            warm off-white
+   * Everything sits in the warm 10°–46° band except WhatsApp green.
+   * -------------------------------------------------------------------- */
+
+  /* Maroon — the walls of the hall */
+  --maroon-950: 11 62% 10%; /* #290F0A — deepest wall: footer, hero base */
+  --maroon-800: 11 72% 19%; /* #531A0E — primary dark surface */
+  --maroon-700: 10 75% 25%; /* #702010 — the logo mark exactly */
+
+  /* Gold — the only accent */
+  --gold-700: 42 66% 28%; /* #775A18 — gold as TEXT on ivory */
+  --gold-500: 42 53% 54%; /* #C8A34C — antique gold: lines, icons, fills */
+  --gold-300: 43 64% 69%; /* #E3C67D — highlight; gold text on maroon */
+
+  /* Ivory — the linen */
+  --ivory-50: 40 65% 95%; /* #FBF5EA — page background */
+  --ivory-100: 40 53% 90%; /* #F3EAD8 — alternate section background */
+  --ivory-300: 40 32% 78%; /* #D9CDB5 — quiet rules on ivory; secondary text on maroon */
+
+  /* Espresso — type on ivory */
+  --espresso-900: 10 25% 9%; /* #1D1311 — body text */
+  --espresso-600: 16 14% 32%; /* #5D4C46 — secondary text */
+
+  /* Functional */
+  --whatsapp: 142 70% 49%; /* #25D466 — WhatsApp elements only; dark type on it */
+  --danger: 10 72% 36%; /* #9E301A — form errors on ivory */
+  --control-border: 34 22% 42%; /* #836E54 — input / control boundary on ivory */
+
+  /* --------------------------------------------------------------------
+   * Composite tokens (gradients, textures). Built only from the primitives
+   * above, so they follow any future palette change.
+   * -------------------------------------------------------------------- */
+
+  /* Decorative fill only — its dark end fails with any type on top. */
+  --gradient-gold: linear-gradient(
+    135deg,
+    hsl(var(--gold-700)),
+    hsl(var(--gold-500)) 35%,
+    hsl(var(--gold-300)) 65%,
+    hsl(var(--gold-500))
+  );
+  /* Gold fill that MAY carry maroon-950 type, and display text on maroon. */
+  --gradient-gold-sheen: linear-gradient(
+    135deg,
+    hsl(var(--gold-500)),
+    hsl(var(--gold-300)) 50%,
+    hsl(var(--gold-500))
+  );
+  /* Candle light behind a heading in a maroon band. */
+  --glow-candle: radial-gradient(
+    ellipse 60% 60% at 50% 45%,
+    hsl(var(--gold-500) / 0.18) 0%,
+    hsl(var(--gold-500) / 0.07) 45%,
+    hsl(var(--gold-500) / 0) 75%
+  );
+  /* Linen weave for ivory surfaces: two hairline grids, no image file. */
+  --texture-linen:
+    repeating-linear-gradient(0deg, hsl(var(--gold-700) / 0.04) 0 1px, hsl(var(--gold-700) / 0) 1px 3px),
+    repeating-linear-gradient(90deg, hsl(var(--gold-700) / 0.03) 0 1px, hsl(var(--gold-700) / 0) 1px 3px);
+  /* Scrim over the hero photograph. Never lighter than 0.62: at that strength
+   * ivory-50 still clears 4.5:1 over a pure-white pixel of the photograph.
+   * Hero copy sits in the lower 40% (>= 0.78), where gold-300 clears it too. */
+  --scrim-hero: linear-gradient(
+    180deg,
+    hsl(var(--maroon-950) / 0.8) 0%,
+    hsl(var(--maroon-950) / 0.62) 30%,
+    hsl(var(--maroon-950) / 0.78) 60%,
+    hsl(var(--maroon-950) / 0.94) 100%
+  );
+
+  /* ---- Shape and layout ---- */
+  --radius: 0.375rem;
+  --header-h: 4.5rem;
+
+  /* --------------------------------------------------------------------
+   * Semantic roles — LIGHT (the default). The page is ivory.
+   * Keep this list identical to `.theme-light` below.
+   * -------------------------------------------------------------------- */
+  --background: var(--ivory-50);
+  --foreground: var(--espresso-900);
+
+  --card: var(--ivory-50);
+  --card-foreground: var(--espresso-900);
+
+  --popover: var(--ivory-50);
+  --popover-foreground: var(--espresso-900);
+
+  --primary: var(--maroon-700);
+  --primary-foreground: var(--ivory-50);
+  --primary-hover: var(--maroon-800);
+
+  --secondary: var(--ivory-100);
+  --secondary-foreground: var(--maroon-700);
+
+  --muted: var(--ivory-100);
+  --muted-foreground: var(--espresso-600);
+
+  --accent: var(--gold-500);
+  --accent-foreground: var(--maroon-950);
+
+  --destructive: var(--danger);
+  --destructive-foreground: var(--ivory-50);
+
+  --border: var(--ivory-300); /* quiet structural rule — decorative */
+  --input: var(--control-border); /* control boundary — 4.47:1 on ivory */
+  --ring: var(--maroon-700); /* focus ring — gold fails 3:1 on ivory */
+
+  --heading: var(--maroon-700);
+  --kicker: var(--gold-700); /* eyebrows, small gold labels */
+  --link: var(--maroon-700);
+  --hairline: var(--gold-500); /* use at /40 for card and header lines */
+}
+
+/* An ivory panel nested inside a maroon band (a form, a card). Same values
+ * as the light roles in :root — custom properties resolve where they are
+ * declared, so the list has to be restated here. */
+.theme-light {
+  --background: var(--ivory-50);
+  --foreground: var(--espresso-900);
+  --card: var(--ivory-50);
+  --card-foreground: var(--espresso-900);
+  --popover: var(--ivory-50);
+  --popover-foreground: var(--espresso-900);
+  --primary: var(--maroon-700);
+  --primary-foreground: var(--ivory-50);
+  --primary-hover: var(--maroon-800);
+  --secondary: var(--ivory-100);
+  --secondary-foreground: var(--maroon-700);
+  --muted: var(--ivory-100);
+  --muted-foreground: var(--espresso-600);
+  --accent: var(--gold-500);
+  --accent-foreground: var(--maroon-950);
+  --destructive: var(--danger);
+  --destructive-foreground: var(--ivory-50);
+  --border: var(--ivory-300);
+  --input: var(--control-border);
+  --ring: var(--maroon-700);
+  --heading: var(--maroon-700);
+  --kicker: var(--gold-700);
+  --link: var(--maroon-700);
+  --hairline: var(--gold-500);
+  color: hsl(var(--foreground));
+}
+
+/* ----------------------------------------------------------------------
+ * Semantic roles — DARK. Put `.theme-dark` on a maroon band; every semantic
+ * utility inside it (bg-background, text-foreground, bg-card,
+ * text-muted-foreground, ring-ring …) flips to ivory-and-gold-on-maroon.
+ * All of these pass on maroon-950, maroon-800 and maroon-700.
+ * ---------------------------------------------------------------------- */
+.theme-dark {
+  --background: var(--maroon-800);
+  --foreground: var(--ivory-50);
+
+  --card: var(--maroon-700);
+  --card-foreground: var(--ivory-50);
+
+  --popover: var(--maroon-950);
+  --popover-foreground: var(--ivory-50);
+
+  --primary: var(--gold-500);
+  --primary-foreground: var(--maroon-950);
+  --primary-hover: var(--gold-300);
+
+  --secondary: var(--maroon-700);
+  --secondary-foreground: var(--ivory-50);
+
+  --muted: var(--maroon-950);
+  --muted-foreground: var(--ivory-300);
+
+  --accent: var(--gold-500);
+  --accent-foreground: var(--maroon-950);
+
+  /* No error red is legible on maroon. Forms live on ivory (a `.theme-light`
+   * panel); this mapping only keeps a stray error readable. */
+  --destructive: var(--gold-300);
+  --destructive-foreground: var(--maroon-950);
+
+  --border: var(--maroon-700);
+  --input: var(--gold-500);
+  --ring: var(--gold-300);
+
+  --heading: var(--ivory-50);
+  --kicker: var(--gold-300);
+  --link: var(--gold-300);
+  --hairline: var(--gold-500);
+
+  color: hsl(var(--foreground));
+}
+
+@keyframes crown-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    /* Anchor targets (and the skip link's #main-content) clear the fixed header. */
+    scroll-padding-top: var(--header-h);
+    /* Below `md` the fixed bottom bar (4rem + safe-area inset) covers the end
+     * of the viewport: keep a focused or targeted element clear of it. */
+    scroll-padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  @screen md {
+    html {
+      scroll-padding-bottom: 0;
+    }
+  }
+
+  body {
+    @apply bg-background font-body text-body text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  ::selection {
+    background-color: hsl(var(--gold-300) / 0.65);
+    color: hsl(var(--maroon-950));
+  }
+
+  /* Safety net: anything interactive that a builder forgot still shows a ring.
+   * Zero specificity, so `.focus-ring` and component styles override it. */
+  :where(a, button, summary, [role="button"]):focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* ----------------------------------------------------------------------
+   * Type roles. One class sets family, fluid size, leading, tracking and
+   * weight. Use these instead of the raw `text-display` / `text-h2` sizes:
+   * `cn()` runs tailwind-merge, which reads an unknown `text-*` class as a
+   * colour and drops it when a real text colour sits beside it.
+   * ---------------------------------------------------------------------- */
+  .type-display {
+    @apply font-display text-display text-balance;
+  }
+  .type-h2 {
+    @apply font-display text-h2 text-balance;
+  }
+  .type-h3 {
+    @apply font-display text-h3 text-balance;
+  }
+  .type-h4 {
+    @apply font-display text-h4 text-balance;
+  }
+  .type-lead {
+    @apply font-body text-lead text-pretty;
+  }
+  .type-body {
+    @apply font-body text-body;
+  }
+  .type-small {
+    @apply font-body text-small;
+  }
+  .type-caption {
+    @apply font-body text-caption;
+  }
+  .type-eyebrow {
+    @apply font-body text-eyebrow uppercase;
+  }
+  .type-button {
+    @apply font-body text-button;
+  }
+  .type-stat {
+    @apply font-display text-stat lining-nums tabular-nums;
+  }
+
+  /* Page gutter + max content width. */
+  .shell {
+    @apply mx-auto w-full max-w-content px-gutter;
+  }
+
+  /* Focus ring. Colour and offset follow the surface: maroon ring on ivory,
+   * gold-300 ring inside `.theme-dark`. */
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* ----------------------------------------------------------------------
+   * Signature surfaces. Named without a `bg-` prefix on purpose: tailwind-
+   * merge would treat `bg-linen` as a background COLOUR and drop it (or
+   * `bg-background`) inside `cn()`.
+   * ---------------------------------------------------------------------- */
+  .surface-linen {
+    background-image: var(--texture-linen);
+  }
+  .candle-glow {
+    background-image: var(--glow-candle);
+  }
+  .gold-sheen {
+    background-image: var(--gradient-gold-sheen);
+  }
+  .hero-scrim {
+    background-image: var(--scrim-hero);
+  }
+
+  /* Double gold rule: two 1px lines, 3px apart. */
+  .rule-double {
+    display: block;
+    box-sizing: border-box;
+    height: 5px;
+    border-block: 1px solid hsl(var(--hairline) / 0.75);
+    border-inline: 0;
+  }
+  /* Fade the outer end of a rule that sits left / right of the crown. */
+  .rule-fade-start {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 45%);
+    mask-image: linear-gradient(to right, transparent, black 45%);
+  }
+  .rule-fade-end {
+    -webkit-mask-image: linear-gradient(to left, transparent, black 45%);
+    mask-image: linear-gradient(to left, transparent, black 45%);
+  }
+
+  /* Mehrab (pointed ogee arch) mask. The mask stretches to the element's box,
+   * so give the element a fixed aspect ratio (3/4, 4/5 or 1/1) and it never
+   * shifts layout. Use through <ArchFrame>. */
+  .mask-arch {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18 16 32 10C40 6.5 46 4 50 0C54 4 60 6.5 68 10C82 16 100 22 100 40V100Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18 16 32 10C40 6.5 46 4 50 0C54 4 60 6.5 68 10C82 16 100 22 100 40V100Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  @supports not ((mask-image: none) or (-webkit-mask-image: none)) {
+    .mask-arch {
+      border-radius: 9999px 9999px 0 0;
+      overflow: hidden;
+    }
+  }
+
+  /* Card lift. box-shadow is never animated: the lifted shadow lives on a
+   * pseudo-element and only its OPACITY changes. The card itself must not be
+   * `overflow-hidden` (that would clip the shadow) — clip the image wrapper. */
+  .card-royal {
+    position: relative;
+  }
+  .card-royal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow:
+      0 2px 4px hsl(var(--maroon-950) / 0.06),
+      0 20px 40px -12px hsl(var(--maroon-950) / 0.22);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card-royal:hover::after,
+  .card-royal:focus-within::after {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .card-royal {
+      transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .card-royal:hover,
+    .card-royal:focus-within {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Crown self-draw. Each stroke in <Crown> has pathLength="1", so a dash of 1
+   * covers it. Runs once; absent under reduced motion (the crown is simply
+   * there). Sequence: band, petals, finial — 900ms in total. */
+  @media (prefers-reduced-motion: no-preference) {
+    .crown-draw [data-crown-stroke] {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: crown-draw 600ms cubic-bezier(0.65, 0, 0.35, 1) both;
+    }
+    .crown-draw [data-crown-stroke="petal"] {
+      animation-delay: 150ms;
+    }
+    .crown-draw [data-crown-stroke="finial"] {
+      animation-delay: 300ms;
+    }
+  }
+}
 
 @layer utilities {
   .text-balance {
@@ -10,97 +433,114 @@
   }
 }
 
-@layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
+/*
+ * Sonner (src/components/ui/sonner.tsx) passes `var(--popover)` straight into
+ * its own variables as an inline style. Our variables are bare triplets, so
+ * that yields an invalid background and the toast renders with none. Wrap
+ * them here; `!important` is the only way a stylesheet can beat an inline
+ * style.
+ */
+[data-sonner-toaster].toaster {
+  --normal-bg: hsl(var(--popover)) !important;
+  --normal-text: hsl(var(--popover-foreground)) !important;
+  --normal-border: hsl(var(--hairline) / 0.4) !important;
+}
+
+/* ==========================================================================
+ * motion primitives — begin
+ * Owned by src/components/motion (see its README.md). Transform and opacity
+ * only. Every state below is switched on by a data attribute that a primitive
+ * sets from JavaScript AFTER it has checked the motion preference, so without
+ * JavaScript, on the server and under reduced motion none of it applies and
+ * the content is simply there. The media query is a second guard.
+ * It sits after the utilities on purpose, so these states win over a
+ * builder's own opacity / transform / transition utilities while they last.
+ * JS-side copies of the numbers: src/components/motion/tokens.ts.
+ * ========================================================================== */
+
+@keyframes motion-page-fade {
+  from {
+    opacity: 0;
   }
-  :root {
-    /*
-     * Every value is a bare HSL triplet, never a hex.
-     *
-     * Tailwind consumes these as hsl(var(--x)). A hex value here produces
-     * invalid CSS once wrapped, so `bg-background`, `bg-card` and `bg-primary`
-     * silently rendered as nothing. That is why the sticky header had no
-     * background and page content collided with the nav.
-     *
-     * Triplets also let Tailwind inject alpha, so `bg-surface/90` works.
-     */
-
-    /* ---- Sampled from the brand's own assets ----
-     * Every hue below was measured out of LOGO (TM).jpg and the product
-     * photography, not chosen by eye. The whole palette lives in the warm
-     * 10°–46° band because that is where the business actually sits:
-     *   logo maroon  #702010  hue 10°   (NOT #800020 / hue 345 — that value
-     *                                    was in UI_UX.md but is not the mark)
-     *   brass/copper          hue 30–40° (the chafers)
-     *   china + logo ground   warm off-white
-     *   studio backdrops      warm olive-neutral, hue ~60°
-     * Nothing in this business is magenta-leaning. Keep new colours in band. */
-
-    /* ---- Deep Oxblood. Dark surface scale, warm brown-black — never neutral
-     * grey and never pure #000. Sections step through these; the page does not
-     * flip to a light band, which is what made an earlier build feel like
-     * several different websites stitched together. ---- */
-    --night: 14 30% 7%;       /* #170F0C — base canvas */
-    --surface: 12 32% 11%;    /* #251713 — alternating band */
-    --surface-2: 12 30% 16%;  /* #35211D — cards, raised panels */
-
-    /* ---- Brand reds ---- */
-    --maroon: 10 75% 25%;      /* #702010 — the logo mark exactly */
-    --maroon-deep: 11 78% 16%; /* #491509 — hero, footer, gold-button type */
-    --maroon-dark: 11 78% 16%;
-
-    /* ---- Gold is the only accent. Nothing else competes. ---- */
-    --gold: 46 68% 47%;       /* #C9A326 gilt — 7.9:1 on night */
-    --gold-light: 44 58% 74%; /* #E3CF96 — hover */
-    --gold-deep: 46 68% 47%;  /* retained as an alias; on a dark base the
-                                 deeper bronze is unnecessary */
-
-    /* ---- Type ---- */
-    --cream: 36 48% 94%;      /* #F7F1E8 ivory — all type. 16.9:1 on night */
-    --ink: 14 30% 7%;         /* dark type, only ever on a gold fill */
-
-    --whatsapp: 142 70% 49%;
-
-    --background: var(--night);
-    --foreground: var(--cream);
-
-    --card: var(--surface-2);
-    --card-foreground: var(--cream);
-
-    --popover: var(--surface-2);
-    --popover-foreground: var(--cream);
-
-    --primary: var(--maroon);
-    --primary-foreground: 36 48% 94%;
-
-    --secondary: var(--surface);
-    --secondary-foreground: var(--cream);
-
-    --muted: var(--surface);
-    /* 8.2:1 on surface-2 — passes AA for body text. */
-    --muted-foreground: 36 20% 74%;
-
-    --accent: var(--gold);
-    --accent-foreground: 11 78% 16%;
-
-    --destructive: 0 72% 51%;
-    /* Hairlines: warm and gold-leaning, not neutral grey. Solid triplets so
-     * Tailwind opacity modifiers (`border-border/50`) still compose. */
-    --border: 36 25% 22%;
-    --input: 36 22% 28%;
-    --ring: 46 68% 47%;
-
-    --radius: 0.625rem;
-  }
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+  to {
+    opacity: 1;
   }
 }
+
+/* <Counter>: while it runs, the final text keeps its box (and stays readable
+ * to assistive technology) and the running number is drawn over it. */
+@media screen {
+  [data-count] > [data-count-final] {
+    opacity: 0;
+  }
+  [data-count] > [data-count-live] {
+    visibility: visible;
+  }
+}
+
+/* `screen`: a printed page never has content waiting below the fold. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* <Reveal>, <StaggerItem>: below the fold -> hidden; entering -> transition. */
+  [data-reveal="pending"] {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-y, 24px), 0);
+  }
+  [data-reveal="in"] {
+    transition:
+      opacity var(--reveal-duration, 500ms) cubic-bezier(0.23, 1, 0.32, 1) var(--reveal-delay, 0ms),
+      transform var(--reveal-duration, 500ms) cubic-bezier(0.23, 1, 0.32, 1) var(--reveal-delay, 0ms);
+  }
+  [data-stagger-item][data-reveal="pending"] {
+    transform: translate3d(0, 16px, 0);
+  }
+  [data-stagger-item][data-reveal="in"] {
+    transition-duration: 350ms;
+  }
+
+  /* <DrawLine>, <Reveal lines>: gold rules grow from the centre. */
+  [data-draw="pending"] [data-divider-rule],
+  [data-draw="pending"] [data-draw-rule],
+  [data-reveal="pending"][data-reveal-lines] [data-divider-rule] {
+    transform: scaleX(0);
+  }
+  [data-draw="in"] [data-divider-rule],
+  [data-draw="in"] [data-draw-rule],
+  [data-reveal="in"][data-reveal-lines] [data-divider-rule] {
+    transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1) calc(var(--reveal-delay, 0ms) + 120ms);
+  }
+
+  /* <MaskLines>: the mask. A clip, not `overflow: hidden`, so layout is
+   * untouched; it reaches a little past the line box so ascenders,
+   * descenders and italic overhang are never cut. */
+  [data-mask-line] {
+    -webkit-clip-path: inset(-0.14em -0.08em);
+    clip-path: inset(-0.14em -0.08em);
+  }
+
+  /* <SlidePanel>: surface slides, backdrop fades, exit 25% faster. */
+  [data-slide-panel="animated"] > [data-slide-backdrop] {
+    transition: opacity var(--slide-enter, 500ms) cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  [data-slide-panel="animated"] > [data-slide-surface] {
+    transition: transform var(--slide-enter, 500ms) cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  [data-slide-panel="animated"][data-state="closed"] > [data-slide-backdrop] {
+    opacity: 0;
+    transition-duration: var(--slide-exit, 375ms);
+  }
+  [data-slide-panel="animated"][data-state="closed"] > [data-slide-surface] {
+    transition-duration: var(--slide-exit, 375ms);
+  }
+  [data-slide-panel="animated"][data-side="right"][data-state="closed"] > [data-slide-surface] {
+    transform: translate3d(100%, 0, 0);
+  }
+  [data-slide-panel="animated"][data-side="bottom"][data-state="closed"] > [data-slide-surface] {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  /* <PageFade>: incoming page on a client navigation. */
+  [data-page-fade="in"] {
+    animation: motion-page-fade 300ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+  }
+}
+/* motion primitives — end */

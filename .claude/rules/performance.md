@@ -23,7 +23,7 @@ FCP < 1.5s.
 
 ## Fonts
 
-- `next/font` only, declared once in `src/app/layout.tsx`, exposed as CSS variables.
+- `next/font` only, declared once in `src/app/fonts.ts` and applied in `src/app/layout.tsx`, exposed as CSS variables.
   No `<link>` to Google Fonts, no `@import url()`, no `@font-face` by hand.
 - At most two families; load only the weights that are used; `display: "swap"`.
 
@@ -50,7 +50,7 @@ FCP < 1.5s.
 | Shared by all | 90 kB | 87.3 kB |
 | `/` | 185 kB, target ≤ 160 kB | 182 kB |
 | `/contact` | 140 kB | 138 kB |
-| `/products`, `/products/[slug]`, `/gallery` | 110 kB | 101 kB |
+| `/collections`, `/collections/[slug]`, `/gallery` (R0: `/products`, `/products/[slug]`) | 110 kB | 101 kB |
 | `/founders`, `/testimonials`, 404 | 100 kB | 87.5–96.2 kB |
 
 A route over its ceiling fails the phase. Paste the build table into the phase's
