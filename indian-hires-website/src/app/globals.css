@@ -70,6 +70,14 @@
     hsl(var(--gold-300)) 50%,
     hsl(var(--gold-500))
   );
+  /* The band of light that crosses a filled button on hover (`.btn-sheen`).
+   * Peak 0.3: ivory-50 on maroon-700 under it is still 5.58:1. */
+  --sheen-sweep: linear-gradient(
+    105deg,
+    hsl(var(--gold-300) / 0) 30%,
+    hsl(var(--gold-300) / 0.3) 50%,
+    hsl(var(--gold-300) / 0) 70%
+  );
   /* Candle light behind a heading in a maroon band. */
   --glow-candle: radial-gradient(
     ellipse 60% 60% at 50% 45%,
@@ -303,7 +311,7 @@
     @apply font-body text-caption;
   }
   .type-eyebrow {
-    @apply font-body text-eyebrow uppercase;
+    @apply font-label text-eyebrow uppercase;
   }
   .type-button {
     @apply font-body text-button;
@@ -406,6 +414,34 @@
     .card-royal:hover,
     .card-royal:focus-within {
       transform: translateY(-4px);
+    }
+  }
+
+  /* Button sheen: one band of gold light crosses a filled button on hover or
+   * keyboard focus. The band is a pseudo-element behind the label (`isolate`
+   * keeps its negative z-index above the button's own fill) and only its
+   * TRANSFORM changes. The transition is declared on the hovered state alone,
+   * so the band snaps back unseen when the pointer leaves. Under reduced
+   * motion the hover rule does not exist and the band never enters. */
+  .btn-sheen {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .btn-sheen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: var(--sheen-sweep);
+    transform: translate3d(-101%, 0, 0);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-sheen:hover::before,
+    .btn-sheen:focus-visible::before {
+      transform: translate3d(101%, 0, 0);
+      transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
     }
   }
 
@@ -544,3 +580,26 @@
   }
 }
 /* motion primitives — end */
+
+/* ==========================================================================
+ * Reduced motion — the safety net. Every animation above is already gated
+ * (`motion-safe:`, a `no-preference` query, or a primitive that checks the
+ * preference before it sets its data attribute), so this block should find
+ * nothing to do. It exists for what a builder forgets and for third-party
+ * CSS: with motion reduced, no animation or transition runs for longer than
+ * a frame, nothing loops, and scrolling is never smoothed. The end state of
+ * every animation is still reached, so no content stays hidden.
+ * Last in the file and `!important` on purpose: it must beat the utilities.
+ * ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
