@@ -1,23 +1,47 @@
-import Link from "next/link";
-import { Home } from "lucide-react";
+import type { Metadata } from "next";
+import { Crown } from "@/components/ornament";
+import { Band } from "@/components/shared/Band";
+import { ButtonLink } from "@/components/shared/ButtonLink";
+import { PageHero } from "@/components/shared/PageHero";
+import { pageMetadata } from "@/components/shared/pageMetadata";
+import { notFoundContent } from "@/content/notFound";
+import { routeMetadata } from "@/content/site";
+
+/* Next.js adds `noindex` to a not-found response by itself; `robots: null`
+ * keeps ours (and the layout's `index, follow`) out, so there is one tag. */
+export const metadata: Metadata = { ...pageMetadata(routeMetadata.notFound), robots: null };
 
 export default function NotFound() {
+  const { code, heading, body, links } = notFoundContent;
+
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
-      <h1 className="font-heading text-6xl md:text-8xl text-cream font-bold mb-4">404</h1>
-      <h2 className="font-heading text-2xl md:text-3xl text-cream font-semibold mb-6">
-        Page Not Found
-      </h2>
-      <p className="font-body text-cream/70 max-w-md mb-8">
-        We couldn&apos;t find the page you were looking for. It might have been moved or doesn&apos;t exist.
-      </p>
-      <Link 
-        href="/"
-        className="inline-flex items-center justify-center bg-maroon text-cream font-medium px-6 py-3 rounded-full hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
-      >
-        <Home className="w-5 h-5 mr-2" />
-        Back to Home
-      </Link>
-    </div>
+    <>
+      <PageHero
+        heading={heading}
+        lead={body}
+        divider={false}
+        before={
+          /* Decorative: the crown draws itself once, the status code sits under
+           * it. The page's heading is the `h1` below. */
+          <div aria-hidden="true" className="crown-draw flex flex-col items-center gap-3 text-hairline">
+            <Crown className="h-12" />
+            <p className="type-stat gold-sheen bg-clip-text text-transparent">{code}</p>
+          </div>
+        }
+      />
+
+      <Band tone="ivory" linen size="sm">
+        <ul className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+          {links.map((link, index) => (
+            <li key={link.href} className="flex flex-col">
+              {/* The first link is the primary action; one primary per view. */}
+              <ButtonLink href={link.href} variant={index === 0 ? "primary" : "secondary"}>
+                {link.label}
+              </ButtonLink>
+            </li>
+          ))}
+        </ul>
+      </Band>
+    </>
   );
 }

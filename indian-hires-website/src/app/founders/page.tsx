@@ -1,20 +1,22 @@
-import { FoundersHero } from "@/components/founders/FoundersHero";
-import { StorySection } from "@/components/founders/StorySection";
-import { FoundersRow } from "@/components/founders/FoundersRow";
+import { FoundersCta } from "@/components/founders/FoundersCta";
+import { FoundersPeople } from "@/components/founders/FoundersPeople";
+import { FoundersStory } from "@/components/founders/FoundersStory";
+import { PageHero } from "@/components/shared/PageHero";
+import { pageMetadata } from "@/components/shared/pageMetadata";
+import { founders } from "@/content/founders";
+import { routeMetadata } from "@/content/site";
 
-export const metadata = {
-  title: "Our Story — 25 Years of IndianHirers",
-  description:
-    "For 25 years, IndianHirers has been the trusted crockery partner for hotels and caterers. Meet the family behind the business.",
-  alternates: { canonical: "/founders" },
-};
+export const metadata = pageMetadata(routeMetadata["/founders"]);
 
 export default function FoundersPage() {
+  const { hero } = founders;
+
   return (
     <>
-      <FoundersHero />
-      <StorySection />
-      <FoundersRow />
+      <PageHero eyebrow={hero.eyebrow} heading={hero.title} lead={hero.subtitle} />
+      <FoundersStory />
+      <FoundersPeople />
+      <FoundersCta />
     </>
   );
 }
