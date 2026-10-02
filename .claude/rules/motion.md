@@ -48,6 +48,22 @@ No `ease-in` on entrances. No bounce or elastic — it reads as playful, not dig
   0.92–0.97 is the floor.
 - No scroll hijacking, no smooth-scroll libraries, no pinned sections on mobile.
 - No infinite loops except a purely decorative opacity pulse, off under reduced motion.
+- **Approved exceptions (R1, owner's brief) — these three only:** the crown ornament's one-time self-draw (`stroke-dashoffset` 1 → 0, paint only, no layout; `crown-draw`), and the hero photograph's one-shot 20s Ken Burns (`scale` 1 → 1.08, plays once, never loops; `animate-ken-burns`) and the floating WhatsApp button's pulse ring on a 6s cycle (`transform` + `opacity`; `animate-whatsapp-pulse`); all are off under reduced motion (`motion-safe:` or a `prefers-reduced-motion` media query).
 - Every animation must answer "what does this help the visitor understand?" If the
   answer is "nothing", remove it.
 - `will-change` only on the element being animated, only while it animates.
+
+## Recorded clarifications (R1)
+
+- **Engine scope.** Scroll reveals, counters, the page fade and drawers are CSS-driven
+  (`@/components/motion`) and load no animation library. `motion` is loaded only inside
+  `MotionMaxProvider` (`@/components/motion/engine`, async `domMax`) around the catalogue
+  grid and the gallery lightbox, because layout animation and `layoutId` need `domMax`.
+  It is never mounted in the root layout.
+- **Hero entrance (owner's brief).** The home `<h1>` lines may enter by a CSS mask
+  slide-up and the eyebrow may fade in, starting at first paint, ≤ 900ms in total. The
+  lead paragraph and the hero's calls to action are painted at first paint and never
+  wait on an entrance. The mobile bottom bar may slide up 1.2s after load.
+- **Card hover (owner's brief).** The card image zoom runs 700ms (`duration-zoom`, scale
+  1.04) and the card lift 350ms; both are `motion-safe:` and outside the 150–200ms hover
+  row, which still applies to colour and focus changes.

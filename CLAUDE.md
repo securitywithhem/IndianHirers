@@ -13,7 +13,7 @@ IndianHirers/                 ← git root; Claude Code starts here
 │                               Implementation_Plan, Phase3_Assets, LOGO (TM).jpg
 └── indian-hires-website/     ← the Next.js app; run every npm command from here
     ├── src/app  src/components  src/content  src/lib
-    ├── scripts/              ← verify.sh, check-tokens.mjs, image pipeline (Python)
+    ├── scripts/              ← verify.sh, check-tokens.mjs, contrast/screenshots/audit (QA), image pipeline (Python)
     └── docs/                 ← BASELINE, QA_LOOP, RUBRIC, color-system, graphs/, evidence/
 ```
 
@@ -44,11 +44,13 @@ Colour: the palette is warm, hue 10°–46°, sampled from the logo (`#702010`).
 Next.js 14 App Router · TypeScript strict · Tailwind 3 · shadcn/ui · lucide-react ·
 react-hook-form + zod · Web3Forms · Vercel.
 
-**Motion library for the redesign: `motion`** (framer-motion's successor; import from
-`motion/react`). Current state: `framer-motion` and `gsap` are installed and used in one
-file each; `motion` is not installed yet. **AOS is already removed** — no package, no
-imports; only TRD/Implementation_Plan still mention it. Plan: add `motion`, migrate
-`LogoFinale` and `HorizontalReveal`, then remove `framer-motion` and `gsap`.
+**Motion: `motion`** (framer-motion's successor), installed in R1. `framer-motion`, `gsap`
+and AOS are gone. Scroll reveals, counters, the page fade and drawers are CSS-driven
+primitives in `src/components/motion` and load no library; `motion` itself loads only
+through `@/components/motion/engine` around the catalogue grid and the gallery lightbox.
+Client components join classes with `cx` (`src/lib/cx.ts`), never `cn` — `cn` ships
+tailwind-merge to the browser. QA tooling (devDependencies): `playwright`, `lighthouse`,
+`@axe-core/playwright`.
 Ask before installing or removing any package.
 
 ## Non-negotiables
