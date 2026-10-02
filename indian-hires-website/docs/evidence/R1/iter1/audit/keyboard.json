@@ -1,0 +1,602 @@
+[
+  {
+    "area": "skip",
+    "name": "first Tab stop is the skip link @390",
+    "result": "PASS",
+    "observed": "a \"Skip to content\" -> #main-content rect=[16,16,110,20]"
+  },
+  {
+    "area": "skip",
+    "name": "Enter moves focus to #main-content @390",
+    "result": "PASS",
+    "observed": "active=main#main-content \"SINCE 1977 · VADODARA SINCE 2001 Since 1977, one f\" url=/#main-content"
+  },
+  {
+    "area": "skip",
+    "name": "next Tab after skip lands inside <main> @390",
+    "result": "PASS",
+    "observed": "a \"Enquire on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2"
+  },
+  {
+    "area": "skip",
+    "name": "first Tab stop is the skip link @1280",
+    "result": "PASS",
+    "observed": "a \"Skip to content\" -> #main-content rect=[16,16,110,20]"
+  },
+  {
+    "area": "skip",
+    "name": "Enter moves focus to #main-content @1280",
+    "result": "PASS",
+    "observed": "active=main#main-content \"SINCE 1977 · VADODARA SINCE 2001 Since 1977, one f\" url=/#main-content"
+  },
+  {
+    "area": "skip",
+    "name": "next Tab after skip lands inside <main> @1280",
+    "result": "PASS",
+    "observed": "a \"Enquire on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2"
+  },
+  {
+    "area": "header",
+    "name": "header stops follow visual (left-to-right) order @1280",
+    "result": "PASS",
+    "observed": "Indian Hirers — home@x30 | Home@x413 | Collections@x489 | Founders@x602 | Gallery@x702 | Testimonials@x787 | Contact@x907 | Enquire@x1161"
+  },
+  {
+    "area": "header",
+    "name": "tab sequence equals visible header controls sorted by x",
+    "result": "PASS",
+    "observed": "visible: Indian Hirers — home | Home | Collections | Founders | Gallery | Testimonials | Contact | Enquire"
+  },
+  {
+    "area": "header",
+    "name": "current route marked with aria-current",
+    "result": "PASS",
+    "observed": "Home=page"
+  },
+  {
+    "area": "drawer",
+    "name": "trigger is a <button> with aria-expanded/aria-controls",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open menu\",\"expanded\":\"false\",\"controls\":\"site-menu\",\"targetExists\":false}"
+  },
+  {
+    "area": "drawer",
+    "name": "trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "reached after 3 Tab presses"
+  },
+  {
+    "area": "drawer",
+    "name": "Enter opens the drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Site menu\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[6,0,384,844],\"vis\":\"visible\",\"disp\":\"flex\"}] aria-expanded=true"
+  },
+  {
+    "area": "drawer",
+    "name": "focus moves into the drawer (Enter)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "background inert + scroll locked (Enter)",
+    "result": "PASS",
+    "observed": "inert body children=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section body overflow=visible html overflow=hidden"
+  },
+  {
+    "area": "drawer",
+    "name": "focus is trapped (25 Tab + 6 Shift+Tab)",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Home\" -> / | a \"Collections\" -> /collections | a \"Founders\" -> /founders | a \"Gallery\" -> /gallery | a \"Testimonials\" -> /testimonials | a \"Contact\" -> /contact | a \"Enquire\" -> /contact | a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | a \"Call us\" -> tel:+919825037478 | button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "Esc closes (Enter cycle)",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "drawer",
+    "name": "focus returns to the trigger (Enter cycle)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "Space opens the drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Site menu\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[6,0,384,844],\"vis\":\"visible\",\"disp\":\"flex\"}] aria-expanded=true"
+  },
+  {
+    "area": "drawer",
+    "name": "focus moves into the drawer (Space)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "background inert + scroll locked (Space)",
+    "result": "PASS",
+    "observed": "inert body children=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section body overflow=visible html overflow=hidden"
+  },
+  {
+    "area": "drawer",
+    "name": "Esc closes (Space cycle)",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "drawer",
+    "name": "focus returns to the trigger (Space cycle)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open menu\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "filter chips present",
+    "result": "PASS",
+    "observed": "12 chips, 9 cards"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "first unpressed chip reachable by Tab",
+    "result": "PASS",
+    "observed": "after 12 Tabs: button \"Gold\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter toggles aria-pressed to true and filters",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=true; cards 9 -> 4; status=\"Showing 4 of 9 designs\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Space toggles aria-pressed back to false",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=false; cards 4 -> 9"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "card details trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "after 12 Tabs: a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter on a card opens the item drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Golden Rim details\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[832,0,448,844],\"vis\":\"visible\",\"disp\":\"flex\"}] url /collections/bone-china -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus is inside the item drawer",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "background inert + scroll locked (item drawer)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "item drawer traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Ask on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button \"Add to quote\" | button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Esc closes the item drawer",
+    "result": "PASS",
+    "observed": "open dialogs=0 url=/collections/bone-china"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus returns to the card trigger",
+    "result": "PASS",
+    "observed": "a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "\"Add to quote\" reachable by Tab after the card",
+    "result": "PASS",
+    "observed": "after 1 Tabs: button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter toggles Add to quote on",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Space toggles it off again",
+    "result": "PASS",
+    "observed": "button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "second item added with Space",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket button appears with a count of 2",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open your quote list, 2 items\",\"badge\":\"2\",\"expanded\":\"false\"}"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket change announced in a live region",
+    "result": "PASS",
+    "observed": "status text=\"Green Golden added to your quote list\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket button reachable by Tab",
+    "result": "PASS",
+    "observed": "after 30 forward Tabs from the 2nd toggle: button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter on the basket button opens the quote sheet",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Your quote list\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[832,0,448,844],\"vis\":\"visible\",\"disp\":\"flex\"}]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus is inside the quote sheet",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "sheet lists the two items",
+    "result": "PASS",
+    "observed": "2 list items"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "quote sheet traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: button[aria-label=\"Remove Golden Rim from your quote list\"] | button[aria-label=\"Remove Green Golden from your quote list\"] | button \"Clear list\" | a \"Send list on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Esc closes the quote sheet",
+    "result": "PASS",
+    "observed": "open dialogs=0"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus returns to the basket button",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "filter chips present",
+    "result": "PASS",
+    "observed": "12 chips, 9 cards"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "first unpressed chip reachable by Tab",
+    "result": "PASS",
+    "observed": "after 6 Tabs: button \"Gold\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter toggles aria-pressed to true and filters",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=true; cards 9 -> 4; status=\"Showing 4 of 9 designs\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Space toggles aria-pressed back to false",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=false; cards 4 -> 9"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "card details trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "after 12 Tabs: a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter on a card opens the item drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Golden Rim details\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,152,390,692],\"vis\":\"visible\",\"disp\":\"flex\"}] url /collections/bone-china -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus is inside the item drawer",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "background inert + scroll locked (item drawer)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "item drawer traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Ask on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button \"Add to quote\" | button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Esc closes the item drawer",
+    "result": "PASS",
+    "observed": "open dialogs=0 url=/collections/bone-china"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus returns to the card trigger",
+    "result": "PASS",
+    "observed": "a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "\"Add to quote\" reachable by Tab after the card",
+    "result": "PASS",
+    "observed": "after 1 Tabs: button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter toggles Add to quote on",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Space toggles it off again",
+    "result": "PASS",
+    "observed": "button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "second item added with Space",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket button appears with a count of 2",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open your quote list, 2 items\",\"badge\":\"2\",\"expanded\":\"false\"}"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket change announced in a live region",
+    "result": "PASS",
+    "observed": "status text=\"Green Golden added to your quote list\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket button reachable by Tab",
+    "result": "PASS",
+    "observed": "after 30 forward Tabs from the 2nd toggle: button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter on the basket button opens the quote sheet",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Your quote list\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,429,390,415],\"vis\":\"visible\",\"disp\":\"flex\"}]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus is inside the quote sheet",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "sheet lists the two items",
+    "result": "PASS",
+    "observed": "2 list items"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "quote sheet traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: button[aria-label=\"Remove Golden Rim from your quote list\"] | button[aria-label=\"Remove Green Golden from your quote list\"] | button \"Clear list\" | a \"Send list on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Esc closes the quote sheet",
+    "result": "PASS",
+    "observed": "open dialogs=0"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus returns to the basket button",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "tiles reachable by Tab",
+    "result": "PASS",
+    "observed": "21 tiles; first after 10 Tabs; using button[aria-label=\"View a larger photograph of Green Golden\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Enter on a tile opens the lightbox",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Photograph viewer\",\"modal\":\"true\",\"state\":null,\"rect\":[0,0,1280,844],\"vis\":\"visible\",\"disp\":\"grid\"}]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "focus is inside the lightbox",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "background inert + scroll locked (lightbox)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "ArrowRight moves to the next photograph",
+    "result": "PASS",
+    "observed": "\"Image 2 of 21 / Green Golden\" -> \"Image 3 of 21 / White\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "ArrowLeft moves back",
+    "result": "PASS",
+    "observed": "\"Image 3 of 21 / White\" -> \"Image 2 of 21 / Green Golden\" -> \"Image 1 of 21 / Golden Rim\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Tab reaches close, previous and next; focus trapped",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"See Bone China\" -> /collections/bone-china | button[aria-label=\"Previous image\"] | button[aria-label=\"Next image\"] | button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Esc closes the lightbox",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "focus returns to the tile that opened it",
+    "result": "PASS",
+    "observed": "button[aria-label=\"View a larger photograph of Green Golden\"] (opened from button[aria-label=\"View a larger photograph of Green Golden\"])"
+  },
+  {
+    "area": "gallery@390",
+    "name": "tiles reachable by Tab",
+    "result": "PASS",
+    "observed": "21 tiles; first after 4 Tabs; using button[aria-label=\"View a larger photograph of Green Golden\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "Enter on a tile opens the lightbox",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Photograph viewer\",\"modal\":\"true\",\"state\":null,\"rect\":[0,0,390,844],\"vis\":\"visible\",\"disp\":\"grid\"}]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "focus is inside the lightbox",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "background inert + scroll locked (lightbox)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,a,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "gallery@390",
+    "name": "ArrowRight moves to the next photograph",
+    "result": "PASS",
+    "observed": "\"Image 2 of 21 / Green Golden\" -> \"Image 3 of 21 / White\""
+  },
+  {
+    "area": "gallery@390",
+    "name": "ArrowLeft moves back",
+    "result": "PASS",
+    "observed": "\"Image 3 of 21 / White\" -> \"Image 2 of 21 / Green Golden\" -> \"Image 1 of 21 / Golden Rim\""
+  },
+  {
+    "area": "gallery@390",
+    "name": "Tab reaches close, previous and next; focus trapped",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"See Bone China\" -> /collections/bone-china | button[aria-label=\"Previous image\"] | button[aria-label=\"Next image\"] | button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "Esc closes the lightbox",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "gallery@390",
+    "name": "focus returns to the tile that opened it",
+    "result": "PASS",
+    "observed": "button[aria-label=\"View a larger photograph of Green Golden\"] (opened from button[aria-label=\"View a larger photograph of Green Golden\"])"
+  },
+  {
+    "area": "contact@1280",
+    "name": "form fields present with visible labels",
+    "result": "PASS",
+    "observed": "[{\"id\":\":R2tafn9sq:-name\",\"type\":\"text\",\"name\":\"name\",\"label\":\"Full name * (required)\",\"required\":\"true\"},{\"id\":\":R2tafn9sq:-phone\",\"type\":\"tel\",\"name\":\"phone\",\"label\":\"Phone number * (required)\",\"required\":\"true\"},{\"id\":\":R2tafn9sq:-eventDate\",\"type\":\"date\",\"name\":\"eventDate\",\"label\":\"Event date (optional)\",\"required\":\"false\"},{\"id\":\":R2tafn9sq:-message\",\"type\":\"textarea\",\"name\":\"message\",\"label\":\"Tell us about your event * (required)\",\"required\":\"true\"}]"
+  },
+  {
+    "area": "contact@1280",
+    "name": "every field reachable by Tab, in DOM order, then the submit button",
+    "result": "PASS",
+    "observed": "input#:R2tafn9sq:-name | input#:R2tafn9sq:-phone | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | textarea#:R2tafn9sq:-message | button \"Send enquiry\""
+  },
+  {
+    "area": "contact@1280",
+    "name": "empty submit shows inline errors",
+    "result": "PASS",
+    "observed": "[{\"id\":\":R2tafn9sq:-name\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-name-error\"],\"describedText\":[\"Please enter your full name.\"],\"errorVisible\":true},{\"id\":\":R2tafn9sq:-phone\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-phone-help\",\":R2tafn9sq:-phone-error\"],\"describedText\":[\"We will call or WhatsApp you on this number.\",\"Enter a valid phone number.\"],\"errorVisible\":true},{\"id\":\":R2tafn9sq:-eventDate\",\"invalid\":\"false\",\"describedby\":[\":R2tafn9sq:-eventDate-help\"],\"describedText\":[\"Leave blank if the date is not fixed yet.\"],\"errorVisible\":false},{\"id\":\":R2tafn9sq:-message\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-message-error\"],\"describedText\":[\"Please tell us a little more about your event (at least 10 characters).\"],\"errorVisible\":true}]"
+  },
+  {
+    "area": "contact@1280",
+    "name": "each error is linked by aria-describedby to existing text",
+    "result": "PASS",
+    "observed": ":R2tafn9sq:-name -> :R2tafn9sq:-name-error ; :R2tafn9sq:-phone -> :R2tafn9sq:-phone-help,:R2tafn9sq:-phone-error ; :R2tafn9sq:-message -> :R2tafn9sq:-message-error"
+  },
+  {
+    "area": "contact@1280",
+    "name": "focus moves to the first invalid field",
+    "result": "PASS",
+    "observed": "active=input#:R2tafn9sq:-name; first invalid=:R2tafn9sq:-name"
+  },
+  {
+    "area": "contact@1280",
+    "name": "no request sent to the form endpoint on an empty submit",
+    "result": "PASS",
+    "observed": "requests to web3forms: 0"
+  },
+  {
+    "area": "contact@390",
+    "name": "form fields present with visible labels",
+    "result": "PASS",
+    "observed": "[{\"id\":\":R2tafn9sq:-name\",\"type\":\"text\",\"name\":\"name\",\"label\":\"Full name * (required)\",\"required\":\"true\"},{\"id\":\":R2tafn9sq:-phone\",\"type\":\"tel\",\"name\":\"phone\",\"label\":\"Phone number * (required)\",\"required\":\"true\"},{\"id\":\":R2tafn9sq:-eventDate\",\"type\":\"date\",\"name\":\"eventDate\",\"label\":\"Event date (optional)\",\"required\":\"false\"},{\"id\":\":R2tafn9sq:-message\",\"type\":\"textarea\",\"name\":\"message\",\"label\":\"Tell us about your event * (required)\",\"required\":\"true\"}]"
+  },
+  {
+    "area": "contact@390",
+    "name": "every field reachable by Tab, in DOM order, then the submit button",
+    "result": "PASS",
+    "observed": "input#:R2tafn9sq:-name | input#:R2tafn9sq:-phone | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | input#:R2tafn9sq:-eventDate | textarea#:R2tafn9sq:-message | button \"Send enquiry\""
+  },
+  {
+    "area": "contact@390",
+    "name": "empty submit shows inline errors",
+    "result": "PASS",
+    "observed": "[{\"id\":\":R2tafn9sq:-name\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-name-error\"],\"describedText\":[\"Please enter your full name.\"],\"errorVisible\":true},{\"id\":\":R2tafn9sq:-phone\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-phone-help\",\":R2tafn9sq:-phone-error\"],\"describedText\":[\"We will call or WhatsApp you on this number.\",\"Enter a valid phone number.\"],\"errorVisible\":true},{\"id\":\":R2tafn9sq:-eventDate\",\"invalid\":\"false\",\"describedby\":[\":R2tafn9sq:-eventDate-help\"],\"describedText\":[\"Leave blank if the date is not fixed yet.\"],\"errorVisible\":false},{\"id\":\":R2tafn9sq:-message\",\"invalid\":\"true\",\"describedby\":[\":R2tafn9sq:-message-error\"],\"describedText\":[\"Please tell us a little more about your event (at least 10 characters).\"],\"errorVisible\":true}]"
+  },
+  {
+    "area": "contact@390",
+    "name": "each error is linked by aria-describedby to existing text",
+    "result": "PASS",
+    "observed": ":R2tafn9sq:-name -> :R2tafn9sq:-name-error ; :R2tafn9sq:-phone -> :R2tafn9sq:-phone-help,:R2tafn9sq:-phone-error ; :R2tafn9sq:-message -> :R2tafn9sq:-message-error"
+  },
+  {
+    "area": "contact@390",
+    "name": "focus moves to the first invalid field",
+    "result": "PASS",
+    "observed": "active=input#:R2tafn9sq:-name; first invalid=:R2tafn9sq:-name"
+  },
+  {
+    "area": "contact@390",
+    "name": "no request sent to the form endpoint on an empty submit",
+    "result": "PASS",
+    "observed": "requests to web3forms: 0"
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "js": true,
+    "path": "/products",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products"
+    ],
+    "finalUrl": "/collections",
+    "msUntilUrlChanged": 101,
+    "h1": "Collections",
+    "title": "Collections — Crockery, Glassware & Chafing Dishes on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\nTHE CATALOGUE\n\nCollections\n\n41 designs and pie",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/vintage",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/vintage"
+    ],
+    "finalUrl": "/collections/heritage-silver",
+    "msUntilUrlChanged": 101,
+    "h1": "Vintage & Heritage Silver",
+    "title": "Vintage & Heritage Silver on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 DESIGNS\n\nVintage & Heritage ",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/bone-china",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/bone-china"
+    ],
+    "finalUrl": "/collections/bone-china",
+    "msUntilUrlChanged": 101,
+    "h1": "Bone China",
+    "title": "Bone China on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n9 DESIGNS\n\nBone China\n\nDinner ",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/melamine",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/melamine"
+    ],
+    "finalUrl": "/collections/premium-melamine",
+    "msUntilUrlChanged": 101,
+    "h1": "Premium Melamine",
+    "title": "Premium Melamine on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n9 DESIGNS\n\nPremium Melamine\n\nM",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/glassware",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/glassware"
+    ],
+    "finalUrl": "/collections/glassware",
+    "msUntilUrlChanged": 101,
+    "h1": "Glassware",
+    "title": "Glassware on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n4 DESIGNS\n\nGlassware\n\nTumblers",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/chafing-dishes",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/chafing-dishes"
+    ],
+    "finalUrl": "/collections/chafing-dishes",
+    "msUntilUrlChanged": 101,
+    "h1": "Chafing Dishes & Buffet Display",
+    "title": "Chafing Dishes & Buffet Display on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 DESIGNS\n\nChafing Dishes & Bu",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/not-a-category",
+    "firstStatus": 404,
+    "documentResponses": [
+      "404 /products/not-a-category"
+    ],
+    "finalUrl": "/products/not-a-category",
+    "msUntilUrlChanged": null,
+    "h1": "Page not found",
+    "title": "Page not found | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\n404\n\nPage not found\n\nThe page you were looking",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products"
+    ],
+    "finalUrl": "/products",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/vintage",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/vintage"
+    ],
+    "finalUrl": "/products/vintage",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/bone-china",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/bone-china"
+    ],
+    "finalUrl": "/products/bone-china",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/melamine",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/melamine"
+    ],
+    "finalUrl": "/products/melamine",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/glassware",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/glassware"
+    ],
+    "finalUrl": "/products/glassware",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/chafing-dishes",
+    "firstStatus": 308,
+    "documentResponses": [
+      "308 /products/chafing-dishes"
+    ],
+    "finalUrl": "/products/chafing-dishes",
+    "msUntilUrlChanged": null,
+    "h1": null,
+    "title": "Indian Hirers — Crockery & Tableware on Hire in Vadodara",
+    "metaRefresh": null,
+    "bodyText": "",
+    "htmlId": "__next_error__"
+  },
+  {
+    "js": false,
+    "path": "/products/not-a-category",
+    "firstStatus": 404,
+    "documentResponses": [
+      "404 /products/not-a-category"
+    ],
+    "finalUrl": "/products/not-a-category",
+    "msUntilUrlChanged": null,
+    "h1": "Page not found",
+    "title": "Page not found | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\n404\n\nPage not found\n\nThe page you were looking",
+    "htmlId": ""
+  }
+]
