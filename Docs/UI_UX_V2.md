@@ -1,6 +1,6 @@
 # Indian Hirers — UI/UX Specification v2: "The Royal Banquet Table"
 
-**Version:** 2.0 · **Phase:** R1, Wave 1 · **Replaces:** `Docs/UI_UX.md` (v1)
+**Version:** 2.1 · **Phase:** R2 (first written in R1, Wave 1) · **Replaces:** `Docs/UI_UX.md` (v1)
 
 This is the single source of truth for how the site looks and moves. Builders read
 this file and the rules in `.claude/rules/`; they do not need v1.
@@ -13,6 +13,8 @@ Where the tokens live (and the only two files that may hold a raw colour value):
 | Tailwind theme that exposes them | `indian-hires-website/tailwind.config.ts` |
 | Fonts | `indian-hires-website/src/app/fonts.ts` |
 | Ornament components | `indian-hires-website/src/components/ornament/` |
+| Base components | `indian-hires-website/src/components/ui/`, `src/components/shared/` |
+| Visual QA sheet (development only) | `/design-system` — `src/app/design-system/page.tsx` |
 | Colour provenance and full contrast table | `indian-hires-website/docs/color-system.md` |
 | Allowed pairs (the rule reviewers score against) | `.claude/rules/a11y.md` |
 
@@ -126,6 +128,7 @@ the crown placeholder tile, type on a gold fill (`text-maroon-950`).
 | `bg-gold-gradient` | 135° `gold-700 → gold-500 → gold-300 → gold-500` | Decorative fills only. **Never put type on it** — the dark end fails. Do not combine with a `bg-*` colour inside `cn()` |
 | `gold-sheen` | 135° `gold-500 → gold-300 → gold-500` | A gold fill that carries `text-maroon-950`. May be clipped to large display text on maroon: `gold-sheen bg-clip-text text-transparent` (≥ 32px only) |
 | `surface-linen` | Two crossed hairline grids of `gold-700` at 3–4% | Ivory surfaces only: `surface-linen bg-background` or `surface-linen bg-muted`. CSS only, no image file |
+| `btn-sheen` | A 105° band of `gold-300` (0 → 30% → 0) behind a button's label | Part of the primary and gold button recipes (7.1). It crosses once on hover; the label stays ≥ 5.58:1 under its peak |
 | `candle-glow` | Radial `gold-500` at 18% fading to 0 | An `aria-hidden` layer behind a heading in a maroon band. Text over it is `ivory-50` or `gold-300`, never `gold-500` |
 | `hero-scrim` | `maroon-950` at 62–94%, top to bottom | The only permitted way to place text over a photograph |
 
@@ -139,74 +142,140 @@ through `cn()`.
 
 ## 3. Contrast
 
-Body text ≥ 4.5:1. Large text (≥ 24px, or ≥ 18.66px bold) and UI boundaries ≥ 3:1.
-**Measured** = computed from the tokens with `node scripts/contrast.mjs`.
-**tbm** = an estimate, to be measured before anyone relies on it.
+Body text ≥ 4.5:1. Large text (≥ 24px, or ≥ 18.66px bold) and UI boundaries, icons and
+focus rings ≥ 3:1.
 
-### 3.1 On ivory
+**Every ratio below is computed, none is estimated.** The tables are the output of
+`node scripts/contrast.mjs --table`, which reads the HSL triplets in `globals.css`;
+`node scripts/contrast.mjs --check` exits 1 if a required pair is under its floor.
+State at R2: **62 required pairs, 0 under their floor.** Regenerate this section when a
+token changes.
 
-| Foreground | Background | Ratio | Status | Allowed use |
-|---|---|---|---|---|
-| `espresso-900` | `ivory-50` | 16.76 | measured | all text |
-| `espresso-900` | `ivory-100` | 15.23 | measured | all text |
-| `espresso-600` | `ivory-50` | 7.45 | measured | secondary text, captions, placeholders |
-| `espresso-600` | `ivory-100` | 6.77 | measured | secondary text, captions, placeholders |
-| `maroon-700` | `ivory-50` | 10.20 | measured | headings, links, outline button, focus ring |
-| `maroon-700` | `ivory-100` | 9.27 | measured | headings, links, outline button, focus ring |
-| `gold-700` | `ivory-50` | 5.93 | measured | eyebrows, small gold labels |
-| `gold-700` | `ivory-100` | 5.39 | measured | eyebrows, small gold labels |
-| `ivory-50` | `maroon-700` | 10.20 | measured | primary button label |
-| `ivory-50` | `maroon-800` | 12.65 | measured | primary button label, hover |
-| `danger` | `ivory-50` | ~6.7 | **tbm** | error text, invalid border |
-| `danger` | `ivory-100` | ~6.1 | **tbm** | error text, invalid border |
-| `ivory-50` | `danger` | ~6.7 | **tbm** | label on a destructive fill (not currently used) |
-| `control-border` | `ivory-50` | 4.47 | measured | input / chip boundary (UI) |
-| `control-border` | `ivory-100` | 4.06 | measured | input / chip boundary (UI) |
-| `gold-500` | `ivory-50` | 2.21 | measured | **lines and large ornament only — never text, never a control boundary** |
-| `ivory-300` | `ivory-50` | ~1.45 | **tbm** | decorative rule only; no requirement applies |
+How to read a background: `a+b/n` is colour `b` at `n`% over `a` — the worst point of a
+layered surface. `maroon-800+gold-500/18` is the candle glow's peak;
+`ivory-100+gold-700/4+gold-700/3` is a crossing of the linen weave;
+`white+maroon-950/62` is the hero scrim at its lightest over the brightest pixel a
+photograph can hold; `maroon-700+gold-300/30` is a primary button under the sheen.
 
-### 3.2 On maroon
+Least headroom, in order: `gold-500` on `maroon-700` (4.62 — text ≥ 16px only, prefer
+`gold-300`), `ivory-50` on the scrim at its lightest (4.70 — never lighten the scrim),
+`gold-700` on linen over `ivory-100` (4.92).
 
-| Foreground | Background | Ratio | Status | Allowed use |
-|---|---|---|---|---|
-| `ivory-50` | `maroon-950` | 16.51 | measured | all text |
-| `ivory-50` | `maroon-800` | 12.65 | measured | all text |
-| `ivory-50` | `maroon-700` | 10.20 | measured | all text |
-| `ivory-300` | `maroon-950` | ~11.4 | **tbm** | secondary text |
-| `ivory-300` | `maroon-800` | ~8.7 | **tbm** | secondary text |
-| `ivory-300` | `maroon-700` | ~7.0 | **tbm** | secondary text |
-| `gold-300` | `maroon-950` | 10.77 | measured | eyebrows, links, gold text, focus ring |
-| `gold-300` | `maroon-800` | 8.26 | measured | eyebrows, links, gold text, focus ring |
-| `gold-300` | `maroon-700` | 6.65 | measured | eyebrows, links, gold text, focus ring |
-| `gold-500` | `maroon-950` | 7.48 | measured | text, icons, outline button |
-| `gold-500` | `maroon-800` | 5.74 | measured | text, icons, outline button |
-| `gold-500` | `maroon-700` | 4.62 | measured | text ≥ 16px only — little headroom; prefer `gold-300` |
-| `maroon-950` | `gold-500` | 7.48 | measured | type on a gold fill |
-| `maroon-950` | `gold-300` | 10.77 | measured | type on a gold fill, hover; type on `gold-sheen` |
+### 3.1 On ivory (default scope and `.theme-light`)
 
-### 3.3 Special surfaces
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `espresso-900` | `ivory-50` | 16.76 | 4.5 | pass (4.5:1) | all text [`foreground`] |
+| `espresso-900` | `ivory-100` | 15.23 | 4.5 | pass (4.5:1) | all text |
+| `espresso-600` | `ivory-50` | 7.45 | 4.5 | pass (4.5:1) | secondary text, captions, placeholders, tags [`muted-foreground`] |
+| `espresso-600` | `ivory-100` | 6.77 | 4.5 | pass (4.5:1) | secondary text, captions |
+| `maroon-700` | `ivory-50` | 10.20 | 4.5 | pass (4.5:1) | headings, links, outline-button label [`heading`, `link`, `primary`] |
+| `maroon-700` | `ivory-100` | 9.27 | 4.5 | pass (4.5:1) | headings, links; secondary-button label |
+| `gold-700` | `ivory-50` | 5.93 | 4.5 | pass (4.5:1) | eyebrows, small gold labels [`kicker`] |
+| `gold-700` | `ivory-100` | 5.39 | 4.5 | pass (4.5:1) | eyebrows, small gold labels |
+| `danger` | `ivory-50` | 6.70 | 4.5 | pass (4.5:1) | form error text [`destructive`] |
+| `danger` | `ivory-100` | 6.09 | 4.5 | pass (4.5:1) | form error text |
 
-| Foreground | Background | Ratio | Status | Allowed use |
-|---|---|---|---|---|
-| `espresso-900` | `whatsapp` | 9.30 | measured | the only type or icon colour on WhatsApp green |
-| `ivory-50` | `hero-scrim` at its lightest (62%) over a white pixel | ~4.7 | **tbm** | text over a photograph — verify on the real image |
-| `gold-300` | `hero-scrim` at ≥ 78% over a white pixel | ~5.4 | **tbm** | only in the lower 40% of a scrimmed photograph |
-| `ivory-50` | `candle-glow` peak over `maroon-800` | ~9.3 | **tbm** | headings in the glow |
-| `gold-300` | `candle-glow` peak over `maroon-800` | ~6.1 | **tbm** | eyebrow in the glow |
-| `gold-500` | `candle-glow` peak over `maroon-800` | ~4.2 | **tbm** | **not allowed as text over the glow** |
-| `espresso-600` | `surface-linen` over `ivory-100` | ~6.5 | **tbm** | the weave costs ≤ ~0.3 on any ivory pair |
-| `gold-700` | `surface-linen` over `ivory-100` | ~5.1 | **tbm** | the weave costs ≤ ~0.3 on any ivory pair |
+### 3.2 On maroon (inside `.theme-dark`)
 
-Every row except the first involves a gradient or texture under the text, which
-`scripts/contrast.mjs` cannot composite directly; they need a screenshot-based check.
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `maroon-950` | 16.51 | 4.5 | pass (4.5:1) | all text [`foreground`, `heading`] |
+| `ivory-50` | `maroon-800` | 12.65 | 4.5 | pass (4.5:1) | all text |
+| `ivory-50` | `maroon-700` | 10.20 | 4.5 | pass (4.5:1) | all text; card text |
+| `ivory-300` | `maroon-950` | 11.39 | 4.5 | pass (4.5:1) | secondary text [`muted-foreground`] |
+| `ivory-300` | `maroon-800` | 8.73 | 4.5 | pass (4.5:1) | secondary text |
+| `ivory-300` | `maroon-700` | 7.03 | 4.5 | pass (4.5:1) | secondary text on a card |
+| `gold-300` | `maroon-950` | 10.77 | 4.5 | pass (4.5:1) | eyebrows, links, gold text [`kicker`, `link`] |
+| `gold-300` | `maroon-800` | 8.26 | 4.5 | pass (4.5:1) | eyebrows, links, outline-button label |
+| `gold-300` | `maroon-700` | 6.65 | 4.5 | pass (4.5:1) | eyebrows, links on a card |
+| `gold-500` | `maroon-950` | 7.48 | 4.5 | pass (4.5:1) | gold text and icons [`primary`] |
+| `gold-500` | `maroon-800` | 5.74 | 4.5 | pass (4.5:1) | gold text and icons |
+| `gold-500` | `maroon-700` | 4.62 | 4.5 | pass (4.5:1) | text >= 16px only - little headroom; prefer `gold-300` |
 
-### 3.4 Forbidden
+### 3.3 Fills: buttons, chips, selection
 
-- `gold-500` or `gold-300` as text on ivory (2.21 and lower).
-- `ivory-50`, `ivory-100` or stock `white` on any gold fill (2.21).
-- Any light type on `whatsapp` (~2:1). WhatsApp buttons take `text-espresso-900`.
-- `gold-700`, `maroon-700`, `espresso-*` or `danger` as text on any maroon surface.
-- Type of any colour on `bg-gold-gradient`.
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `maroon-700` | 10.20 | 4.5 | pass (4.5:1) | primary button and selected chip, on ivory |
+| `ivory-50` | `maroon-800` | 12.65 | 4.5 | pass (4.5:1) | primary button, hover |
+| `ivory-50` | `maroon-700+gold-300/30` | 5.58 | 4.5 | pass (4.5:1) | primary button under the sheen's peak, as hover begins |
+| `ivory-50` | `maroon-800+gold-300/30` | 6.41 | 4.5 | pass (4.5:1) | primary button under the sheen's peak, hover |
+| `maroon-950` | `gold-500` | 7.48 | 4.5 | pass (4.5:1) | gold button; primary button and selected chip in `.theme-dark`; darkest point of `gold-sheen` |
+| `maroon-950` | `gold-300` | 10.77 | 4.5 | pass (4.5:1) | gold button hover; lightest point of `gold-sheen` |
+| `ivory-50` | `danger` | 6.70 | 4.5 | pass (4.5:1) | destructive button, hover |
+| `espresso-900` | `whatsapp` | 9.30 | 4.5 | pass (4.5:1) | the only type or icon colour on WhatsApp green |
+| `maroon-950` | `ivory-50+gold-300/65` | 12.57 | 4.5 | pass (4.5:1) | selected text on ivory (`::selection`) |
+| `maroon-950` | `ivory-100+gold-300/65` | 12.13 | 4.5 | pass (4.5:1) | selected text on alternate ivory |
+| `maroon-950` | `maroon-950+gold-300/65` | 5.19 | 4.5 | pass (4.5:1) | selected text on the deepest maroon |
+| `maroon-950` | `maroon-800+gold-300/65` | 5.65 | 4.5 | pass (4.5:1) | selected text on maroon |
+| `maroon-950` | `maroon-700+gold-300/65` | 5.95 | 4.5 | pass (4.5:1) | selected text on a maroon card |
+
+### 3.4 Special surfaces: scrim, glow, linen, translucent bars
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `white+maroon-950/62` | 4.70 | 4.5 | pass (4.5:1) | text on `hero-scrim` at its lightest, over a white pixel |
+| `gold-300` | `white+maroon-950/78` | 5.43 | 4.5 | pass (4.5:1) | gold text on `hero-scrim`, lower 40% only, over a white pixel |
+| `ivory-50` | `maroon-800+gold-500/18` | 9.31 | 4.5 | pass (4.5:1) | heading at the peak of `candle-glow` |
+| `ivory-300` | `maroon-800+gold-500/18` | 6.42 | 4.5 | pass (4.5:1) | lead at the peak of `candle-glow` |
+| `gold-300` | `maroon-800+gold-500/18` | 6.07 | 4.5 | pass (4.5:1) | eyebrow, outline-button label at the peak of `candle-glow` |
+| `ivory-50` | `maroon-950+gold-500/18` | 12.08 | 4.5 | pass (4.5:1) | heading over the glow in the hero band |
+| `ivory-300` | `maroon-950+gold-500/18` | 8.33 | 4.5 | pass (4.5:1) | lead over the glow in the hero band |
+| `gold-300` | `maroon-950+gold-500/18` | 7.88 | 4.5 | pass (4.5:1) | eyebrow over the glow in the hero band |
+| `espresso-900` | `ivory-100+gold-700/4+gold-700/3` | 13.91 | 4.5 | pass (4.5:1) | text on `surface-linen`, darkest crossing |
+| `espresso-600` | `ivory-100+gold-700/4+gold-700/3` | 6.18 | 4.5 | pass (4.5:1) | secondary text on `surface-linen` |
+| `maroon-700` | `ivory-100+gold-700/4+gold-700/3` | 8.46 | 4.5 | pass (4.5:1) | headings on `surface-linen` |
+| `gold-700` | `ivory-100+gold-700/4+gold-700/3` | 4.92 | 4.5 | pass (4.5:1) | eyebrows on `surface-linen` |
+| `espresso-900` | `maroon-950+ivory-50/90` | 13.66 | 4.5 | pass (4.5:1) | solid header (ivory at 90%) over the darkest band |
+| `maroon-700` | `maroon-950+ivory-50/90` | 8.31 | 4.5 | pass (4.5:1) | solid header: links, current-page text |
+| `espresso-900` | `maroon-950+ivory-50/95` | 15.16 | 4.5 | pass (4.5:1) | mobile bottom bar (ivory at 95%) over the darkest band |
+
+### 3.5 Non-text: boundaries, icons, focus rings (floor 3:1)
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `control-border` | `ivory-50` | 4.47 | 3 | pass (3:1) | input, textarea, chip boundary [`input`] |
+| `control-border` | `ivory-100` | 4.06 | 3 | pass (3:1) | input, chip boundary on alternate ivory |
+| `maroon-700` | `ivory-50` | 10.20 | 3 | pass (3:1) | focus ring, outline-button border [`ring`, `primary`] |
+| `maroon-700` | `ivory-100` | 9.27 | 3 | pass (3:1) | focus ring on alternate ivory |
+| `danger` | `ivory-50` | 6.70 | 3 | pass (3:1) | invalid-field border |
+| `gold-300` | `maroon-950` | 10.77 | 3 | pass (3:1) | focus ring inside `.theme-dark` [`ring`] |
+| `gold-300` | `maroon-800` | 8.26 | 3 | pass (3:1) | focus ring inside `.theme-dark` |
+| `gold-300` | `maroon-700` | 6.65 | 3 | pass (3:1) | focus ring on a maroon card |
+| `gold-500` | `maroon-950` | 7.48 | 3 | pass (3:1) | outline-button border, input boundary in `.theme-dark` [`primary`, `input`] |
+| `gold-500` | `maroon-800` | 5.74 | 3 | pass (3:1) | outline-button border, input boundary |
+| `gold-500` | `maroon-700` | 4.62 | 3 | pass (3:1) | outline-button border, input boundary on a card |
+| `maroon-700` | `maroon-950+ivory-50/95` | 9.22 | 3 | pass (3:1) | mobile bottom bar icons |
+
+### 3.6 Decorative: no requirement applies
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `gold-500` | `ivory-50` | 2.21 | - | decorative | hairlines, rules, the crown - never text, never a control boundary |
+| `gold-500/40` | `ivory-50` | 1.34 | - | decorative | card and header hairline (`border-hairline/40`) |
+| `ivory-300` | `ivory-50` | 1.45 | - | decorative | quiet structural rule [`border`] |
+| `maroon-700` | `maroon-800` | 1.24 | - | decorative | structural rule inside `.theme-dark` [`border`] |
+
+### 3.7 Forbidden: these fail and are never written
+
+| Foreground | Background | Ratio | Why it is listed |
+|---|---|---|---|
+| `gold-500` | `ivory-50` | 2.21 | gold as text on ivory - use `gold-700` |
+| `gold-300` | `ivory-50` | 1.53 | gold as text on ivory |
+| `ivory-50` | `gold-500` | 2.21 | light type on a gold fill - use `maroon-950` |
+| `ivory-50` | `gold-300` | 1.53 | light type on a gold fill |
+| `ivory-50` | `whatsapp` | 1.80 | light type on WhatsApp green - use `espresso-900` |
+| `maroon-950` | `gold-700` | 2.79 | type on `bg-gold-gradient` (its dark end) - use `gold-sheen` |
+| `gold-700` | `maroon-950` | 2.79 | `gold-700` on maroon |
+| `maroon-700` | `maroon-950` | 1.62 | maroon as text on maroon |
+| `espresso-600` | `maroon-800` | 1.70 | espresso as text on maroon |
+| `danger` | `maroon-800` | 1.89 | error red on maroon - forms stay on ivory |
+| `gold-500` | `maroon-800+gold-500/18` | 4.22 | `gold-500` text over the candle glow - use `gold-300` |
+| `gold-500` | `maroon-700+gold-500/18` | 3.54 | `gold-500` text over a glow on a card |
+
+Also forbidden, though not a ratio:
+
 - Opacity modifiers on text colours (`text-foreground/60`). Use `text-muted-foreground`.
 - `control-border`, any gold, or `ivory-300` as a focus ring on ivory.
 - Text over a photograph without `hero-scrim`.
@@ -225,6 +294,10 @@ Every row except the first involves a gradient or texture under the text, which
 
 Declared in `src/app/fonts.ts` as `fontDisplay` and `fontBody` (`next/font/google`,
 `display: "swap"`, upright only). Exactly two families — the performance rule.
+
+There is a third *name*, not a third family: **`font-label`** is the label voice
+(eyebrows) and resolves to Jost. `type-eyebrow` uses it, so the label face has one
+switch point.
 
 - **Playfair Display (v1) is replaced by Cormorant Garamond.** Cormorant has higher
   stroke contrast and is more ceremonial at display sizes, and its sharp, bracketed
@@ -412,7 +485,7 @@ One glow per maroon band, centred behind the heading. It never moves and never p
 Ivory, a 1px `gold-500` border at 40% opacity, a resting shadow; on hover or keyboard
 focus the card rises 4px and the lifted shadow fades in, and the image zooms to 1.04
 over 700ms. Transform and opacity only; the rise and the zoom are off under reduced
-motion (the shadow fade, an opacity change of 180ms, remains). Recipe in 7.4.
+motion, where the shadow simply appears. Recipe in 7.4.
 
 ### 6.6 Header
 
@@ -444,16 +517,32 @@ inside `.theme-dark`.
 ### 7.1 Primary button
 
 ```
-type-button focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-lg
-bg-primary px-6 py-3 text-primary-foreground
+type-button focus-ring btn-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-lg
+border border-hairline/60 bg-primary px-6 py-3 text-primary-foreground
 transition-colors duration-hover ease-royal hover:bg-primary-hover
 motion-safe:active:translate-y-px
 disabled:pointer-events-none disabled:opacity-50
 ```
 
-On ivory: maroon-700 fill, ivory label (10.20), hover maroon-800 (12.65).
-Inside `.theme-dark`: gold-500 fill, maroon-950 label (7.48), hover gold-300 (10.77).
-One primary button per view.
+On ivory: maroon-700 fill with a gold hairline, ivory label (10.20), hover maroon-800
+(12.65). Inside `.theme-dark`: gold-500 fill (the hairline disappears into it),
+maroon-950 label (7.48), hover gold-300 (10.77). One primary button per view.
+
+`btn-sheen` sends one band of gold light across the fill on hover or keyboard focus
+(600ms, transform only, once; nothing under reduced motion). Under the band's peak the
+ivory label is still 5.58:1 on maroon-700.
+
+**7.1a Gold button** — `variant="gold"`. A gold fill that does **not** flip with the
+scope, for the one invitation-card action on an ivory page:
+
+```
+type-button focus-ring btn-sheen gold-sheen inline-flex min-h-12 items-center justify-center
+gap-2 rounded-lg px-6 py-3 text-maroon-950 motion-safe:active:translate-y-px
+```
+
+Label `maroon-950` (7.48 at the fill's darkest point, 10.77 at its lightest) — never
+ivory, never espresso-on-`bg-gold-gradient`. Inside `.theme-dark` the primary button is
+already gold; do not put the two side by side.
 
 ### 7.2 Secondary button (outline)
 
@@ -562,6 +651,11 @@ border border-input bg-transparent px-4 text-foreground
 transition-colors duration-hover ease-royal hover:border-primary
 aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground
 ```
+
+Use the component: `<Chip selected={…} onClick={…}>` from `@/components/ui/chip` — a
+`<button aria-pressed>`; the string itself is `CHIP_CLASS`. A finish named on a card is
+not a control and uses `<ChipTag>`:
+`type-caption inline-flex min-h-7 items-center rounded-full border border-hairline/40 px-3 text-muted-foreground`.
 
 A filter chip is a `<button aria-pressed>`. Chips sit in a `flex flex-wrap gap-2` row
 (a horizontally scrollable row at 390px is acceptable if it is a plain scroll with no
@@ -697,11 +791,26 @@ Import from `@/components/ornament`.
 
 | Component | Props | Notes |
 |---|---|---|
-| `Crown` | `className?: string` · `title?: string` · `strokeWidth?: number` (default 2) | Outline crown, `currentColor` stroke, viewBox 64×48, default height `h-6`. Decorative (`aria-hidden`) unless `title` is given, then `role="img"` with a `<title>`. Each path has `pathLength={1}` and `data-crown-stroke="band" \| "petal" \| "finial"` |
+| `Crown` | `size?: "sm" \| "md" \| "lg" \| "xl"` (20 / 24 / 40 / 48px) · `className?: string` · `title?: string` · `strokeWidth?: number` (default 2) · `animate?: boolean` (default false) | Outline crown, `currentColor` stroke, viewBox 64×48, default height `h-6`. `animate` draws it once (the `crown-draw` class on the crown itself); one per page. Decorative (`aria-hidden`) unless `title` is given, then `role="img"` with a `<title>`. Each path has `pathLength={1}` and `data-crown-stroke="band" \| "petal" \| "finial"` |
 | `CrownDivider` | `className?: string` | Double rule + crown, `aria-hidden`, gold (`text-hairline`), default `mx-auto max-w-xs`. The rules are `[data-divider-rule="start"]` (`origin-right`) and `[data-divider-rule="end"]` (`origin-left`); the root is `[data-crown-divider]` |
 | `ArchFrame` | `aspect: "3/4" \| "4/5" \| "1/1"` · `children: ReactNode` · `framed?: boolean` (default false) · `className?: string` | Fixed-aspect box with the mehrab mask. Inner box is positioned and `overflow-hidden`, so a `fill` image and a hover zoom stay inside the arch |
+| `ArchImage` | `image: { src, alt, blurDataURL }` · `aspect` · `sizes: string` · `framed?` · `priority?` · `zoom?: boolean` · `className?` | A photograph in the arch: `next/image` (fill, cover, blur) inside `ArchFrame`. `zoom` adds the 1.04 hover zoom (needs a `group` ancestor). **Import from `@/components/ornament/ArchImage`, not the barrel** — it pulls in `next/image`, and a barrel export would add about 5 kB to every route that uses any ornament |
 | `SectionHeading` | `as: "h1" \| "h2" \| "h3"` · `heading: string` · `eyebrow?: string` · `lead?: string` · `align?: "start" \| "center"` (default `start`) · `tone?: "light" \| "dark"` (default `light`) · `divider?: boolean` (default false) · `id?: string` · `className?: string` | Type role follows the level: `h1` → `type-display`, `h2` → `type-h2`, `h3` → `type-h3`. `id` goes on the heading element |
 | `CrownPlaceholder` | `aspect: "1/1" \| "4/5" \| "3/4" \| "4/3"` · `className?: string` | Ivory linen tile with the crown, `aria-hidden`. Always ivory, also inside `.theme-dark` |
+
+### 8.1 Base components
+
+| Component | Import | Props | Notes |
+|---|---|---|---|
+| `Button` | `@/components/ui/button` | `variant?: "default" \| "gold" \| "outline" \| "secondary" \| "ghost" \| "destructive" \| "link" \| "whatsapp"` · `size?: "default" \| "sm" \| "lg" \| "icon"` | A real `<button>`. 48px; `sm` and `icon` are 44px. The class strings are `buttonVariants()` in `ui/button-variants.ts` — a Server Component can put them on its own element with no client JavaScript |
+| `ButtonLink` | `@/components/shared/ButtonLink` | `variant?: "primary" \| "gold" \| "secondary" \| "link"` · `size?` · `href` | A link that looks like a button |
+| `WhatsAppButton` | `@/components/shared/WhatsAppButton` | `message` · `label` · `ariaLabel?` · `size?` | Green fill, espresso type, always |
+| `Chip` | `@/components/ui/chip` | `selected: boolean` · button attributes | Filter chip, `aria-pressed`. No directive of its own |
+| `ChipTag` | `@/components/ui/chip` | `children` · `className?` | A finish or material label; not a control |
+| `ProductCard` | `@/components/shared/ProductCard` | `name` · `image \| null` · `finishes: string[]` · `finishesLabel` · `ask: { label, ariaLabel, message }` · `headingLevel` · `sizes` · `priority?` | Recipe 7.4 with finish tags and one WhatsApp text link. For a design shown outside `/collections`; the catalogue keeps `collections/ItemCard` (drawer, quote list) |
+
+Everything above is on `/design-system` (development only, `noindex`, not in the
+sitemap), on ivory and inside `.theme-dark`.
 
 ---
 
@@ -740,11 +849,17 @@ list of where motion is used. Library: `motion` (`motion/react`) through `LazyMo
 | Catalogue | Filter chips animate layout; cards stagger in; hover lift (`card-royal`) and image zoom 1.04 over 700ms |
 | Lightbox | Opens with a shared-element zoom from the tile; closes about 25% faster |
 | Page transitions | A gentle fade only |
+| Primary and gold buttons | One band of gold light crosses the fill on hover or keyboard focus: `btn-sheen`, 600ms, transform only, once per hover |
 | Floating WhatsApp | A pulse ring every 6 seconds, not constant: `motion-safe:animate-whatsapp-pulse` |
 | Mobile bottom bar | Slides up (translateY) 1.2s after load; present and static under reduced motion |
 
 **Approved exceptions to the motion rule** (recorded in `.claude/rules/motion.md`):
 the one-shot 20s hero Ken Burns, and the 6-second WhatsApp pulse ring.
+
+**Reduced motion.** Every animation is gated where it is written. `globals.css` also
+ends with a safety net — under `prefers-reduced-motion: reduce` no animation or
+transition lasts longer than a frame, nothing loops and scrolling is not smoothed — so a
+forgotten gate or third-party CSS cannot move anything.
 
 **Banned:** janky parallax, auto-playing carousels, bouncing or elastic easing, scroll
 hijacking, pinned sections on mobile, anything that animates width, height, top or left,
@@ -774,7 +889,7 @@ hijacking, pinned sections on mobile, anything that animates width, height, top 
 
 **Type:** `type-display` · `type-h2` · `type-h3` · `type-h4` · `type-stat` ·
 `type-lead` · `type-body` · `type-small` · `type-caption` · `type-eyebrow` ·
-`type-button` · `font-display` · `font-body` · `tracking-eyebrow` · `tracking-display` ·
+`type-button` · `font-display` · `font-body` · `font-label` · `tracking-eyebrow` · `tracking-display` ·
 `text-balance` · `text-pretty`
 
 **Layout:** `shell` · `py-section` · `py-section-sm` · `px-gutter` · `h-header` ·
@@ -786,14 +901,18 @@ hijacking, pinned sections on mobile, anything that animates width, height, top 
 
 **Signature:** `surface-linen` · `candle-glow` · `gold-sheen` · `hero-scrim` ·
 `bg-gold-gradient` · `rule-double` · `rule-fade-start` · `rule-fade-end` · `mask-arch`
-(through `<ArchFrame>`) · `card-royal` · `focus-ring` · `crown-draw`
+(through `<ArchFrame>`) · `card-royal` · `btn-sheen` (through the button recipes) ·
+`focus-ring` · `crown-draw` (or `<Crown animate>`)
 
 **Motion:** `ease-royal` · `ease-move` · `duration-press` · `duration-hover` ·
 `duration-enter` · `duration-enter-lg` · `duration-zoom` · `duration-signature` ·
 `scale-104` · `motion-safe:animate-ken-burns` · `motion-safe:animate-whatsapp-pulse`
 
 **Components:** `Crown` · `CrownDivider` · `ArchFrame` · `SectionHeading` ·
-`CrownPlaceholder` (from `@/components/ornament`)
+`CrownPlaceholder` (from `@/components/ornament`) · `ArchImage`
+(`@/components/ornament/ArchImage`) · `Button`, `Chip`, `ChipTag` (`@/components/ui/…`) ·
+`ButtonLink`, `WhatsAppButton`, `CallButton`, `ProductCard`, `Band`, `PageHero`
+(`@/components/shared/…`)
 
 **Fonts:** `fontDisplay` · `fontBody` (from `@/app/fonts`)
 
@@ -875,3 +994,42 @@ Cormorant Garamond.
   builders; section 5.2 fixes only the light/dark order.
 - **`performance.md`** still says fonts are declared in `layout.tsx`; they are now
   declared in `src/app/fonts.ts` and applied in `layout.tsx`.
+
+---
+
+## 12. The R2 brief and this system
+
+The R2 brief ("Royal Design System") was written before R1 had settled the palette, the
+fonts and the names. Where the brief and a recorded decision disagree, the decision
+stands (section 1, "Decisions already made"); this table says where each thing the brief
+asked for lives.
+
+| The brief asked for | In this system | Status |
+|---|---|---|
+| `maroon-950/800/700`, `gold-700/500/300`, `ivory-50/100`, `espresso-900`, `whatsapp` | the same names, plus `ivory-300`, `espresso-600`, `danger`, `control-border` | as asked |
+| `sage-700` | — | **not added**: gold is the only accent (decision 2) |
+| `--bg` / `--bg-alt` | `--background` / `--muted` (`bg-background`, `bg-muted`) | same role, shadcn's name |
+| `--surface` | `--card` (`bg-card`) | same role; `surface` was a v1 name with another meaning and was removed in R1 |
+| `--text` / `--text-muted` | `--foreground` / `--muted-foreground` | same role |
+| `--accent` | `--accent` | as asked |
+| `--accent-text` | `--kicker` (gold as text: `gold-700` on ivory, `gold-300` on maroon) | same role |
+| `--border-gold` | `--hairline` (`border-hairline/40`) | same role |
+| `.theme-dark` that remaps the roles | `.theme-dark`, and `.theme-light` for an ivory panel inside it | as asked |
+| a `prefers-reduced-motion` block | the safety net at the end of `globals.css` | added in R2 |
+| fonts: Cormorant Garamond, Cinzel, Inter | Cormorant Garamond and Jost | **two families only** (decision 3); `font-label` is the label voice |
+| `fontFamily` display / label / body | `font-display` / `font-label` / `font-body` | `font-label` added in R2 |
+| container, max 1240px, padding 16 / 24 / 32 | `shell`: max 1280px, gutter fluid 20 → 32px | **kept**: every image `sizes` string in R1 is derived from the 1280px shell |
+| `borderRadius.arch` | `mask-arch` through `ArchFrame` / `ArchImage` — a pointed mehrab, not a round-topped box | kept (6.3) |
+| `shadow-royal` / `shadow-royal-lg` | `shadow-card` / `shadow-lift` | same role |
+| `bg-gold-gradient`, `bg-candle-glow` | `bg-gold-gradient`, `candle-glow` | as asked |
+| `CrownOrnament` (size, stroke, animate) | `Crown` (`size`, `strokeWidth`, `animate`) | `size` and `animate` added in R2 |
+| `GoldDivider` | `CrownDivider` | exists |
+| `SectionHeading` | `SectionHeading` | exists |
+| `ArchImage` | `ArchImage` | added in R2 |
+| `Button`: primary, gold, outline, whatsapp | `default`, `gold`, `outline`, `whatsapp` (+ `secondary`, `ghost`, `destructive`, `link`) | `gold`, the hairline and the sheen added in R2 |
+| gold button with espresso text | gold button with `maroon-950` text | the existing rule for type on gold; 7.48 – 10.77 |
+| `ProductCard` with an "Ask for rates" WhatsApp CTA | `ProductCard`; the label is a prop | added in R2. The specimen uses the catalogue's existing "Ask on WhatsApp" — new visitor-facing copy needs the owner |
+| `Chip` | `Chip`, `ChipTag` | added in R2 |
+| components in `src/components/ui/` | ornaments in `ornament/`, primitives in `ui/`, composed pieces in `shared/` | the R1 layout; nothing is duplicated under a second name |
+| `/design-system`, dev-only, not in the sitemap, noindex | `src/app/design-system/page.tsx` | added in R2; answers 404 in a build |
+
