@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { AppLink, type AppLinkProps } from "./AppLink";
 
-export type ButtonLinkVariant = "primary" | "secondary" | "link";
+export type ButtonLinkVariant = "primary" | "gold" | "secondary" | "link";
 export type ButtonLinkSize = "default" | "sm";
 
 export interface ButtonLinkProps extends Omit<AppLinkProps, "children"> {
-  /** `primary` §7.1 (one per view) · `secondary` §7.2 outline · `link` §7.3 text link. Default `primary`. */
+  /** `primary` §7.1 (one per view) · `gold` §7.1a gold fill · `secondary` §7.2 outline · `link` §7.3 text link. Default `primary`. */
   variant?: ButtonLinkVariant;
   /** `default` 48px · `sm` 44px. */
   size?: ButtonLinkSize;
@@ -17,6 +17,7 @@ export interface ButtonLinkProps extends Omit<AppLinkProps, "children"> {
 
 const VARIANT = {
   primary: "default",
+  gold: "gold",
   secondary: "outline",
   link: "link",
 } as const;
