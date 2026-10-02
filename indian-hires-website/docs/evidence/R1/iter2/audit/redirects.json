@@ -1,0 +1,224 @@
+[
+  {
+    "js": true,
+    "path": "/products",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products Location:/collections",
+      "200 /collections"
+    ],
+    "finalUrl": "/collections",
+    "msUntilUrlChanged": 0,
+    "h1": "Collections",
+    "title": "Collections — Crockery, Glassware & Chafing Dishes on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\nTHE CATALOGUE\n\nCollections\n\nOur crockery and t",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/vintage",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/vintage Location:/collections/heritage-silver",
+      "200 /collections/heritage-silver"
+    ],
+    "finalUrl": "/collections/heritage-silver",
+    "msUntilUrlChanged": 0,
+    "h1": "Vintage & Heritage Silver",
+    "title": "Vintage & Heritage Silver on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 ITEMS\n\nVintage & Heritage Si",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/bone-china",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/bone-china Location:/collections/bone-china",
+      "200 /collections/bone-china"
+    ],
+    "finalUrl": "/collections/bone-china",
+    "msUntilUrlChanged": 0,
+    "h1": "Bone China",
+    "title": "Bone China on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n7 DESIGNS\n\nBone China\n\nDinner ",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/melamine",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/melamine Location:/collections/premium-melamine",
+      "200 /collections/premium-melamine"
+    ],
+    "finalUrl": "/collections/premium-melamine",
+    "msUntilUrlChanged": 0,
+    "h1": "Premium Melamine",
+    "title": "Premium Melamine on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n9 DESIGNS\n\nPremium Melamine\n\nM",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/glassware",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/glassware Location:/collections/glassware",
+      "200 /collections/glassware"
+    ],
+    "finalUrl": "/collections/glassware",
+    "msUntilUrlChanged": 0,
+    "h1": "Glassware",
+    "title": "Glassware on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n4 DESIGNS\n\nGlassware\n\nTumblers",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/chafing-dishes",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/chafing-dishes Location:/collections/chafing-dishes",
+      "200 /collections/chafing-dishes"
+    ],
+    "finalUrl": "/collections/chafing-dishes",
+    "msUntilUrlChanged": 0,
+    "h1": "Chafing Dishes & Buffet Display",
+    "title": "Chafing Dishes & Buffet Display on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 DESIGNS\n\nChafing Dishes & Bu",
+    "htmlId": ""
+  },
+  {
+    "js": true,
+    "path": "/products/not-a-category",
+    "firstStatus": 404,
+    "documentResponses": [
+      "404 /products/not-a-category"
+    ],
+    "finalUrl": "/products/not-a-category",
+    "msUntilUrlChanged": null,
+    "h1": "Page not found",
+    "title": "Page not found | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\n404\n\nPage not found\n\nThe page you were looking",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products Location:/collections",
+      "200 /collections"
+    ],
+    "finalUrl": "/collections",
+    "msUntilUrlChanged": 0,
+    "h1": "Collections",
+    "title": "Collections — Crockery, Glassware & Chafing Dishes on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\nTHE CATALOGUE\n\nCollections\n\nOur crockery and t",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/vintage",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/vintage Location:/collections/heritage-silver",
+      "200 /collections/heritage-silver"
+    ],
+    "finalUrl": "/collections/heritage-silver",
+    "msUntilUrlChanged": 0,
+    "h1": "Vintage & Heritage Silver",
+    "title": "Vintage & Heritage Silver on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 ITEMS\n\nVintage & Heritage Si",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/bone-china",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/bone-china Location:/collections/bone-china",
+      "200 /collections/bone-china"
+    ],
+    "finalUrl": "/collections/bone-china",
+    "msUntilUrlChanged": 0,
+    "h1": "Bone China",
+    "title": "Bone China on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n7 DESIGNS\n\nBone China\n\nDinner ",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/melamine",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/melamine Location:/collections/premium-melamine",
+      "200 /collections/premium-melamine"
+    ],
+    "finalUrl": "/collections/premium-melamine",
+    "msUntilUrlChanged": 0,
+    "h1": "Premium Melamine",
+    "title": "Premium Melamine on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n9 DESIGNS\n\nPremium Melamine\n\nM",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/glassware",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/glassware Location:/collections/glassware",
+      "200 /collections/glassware"
+    ],
+    "finalUrl": "/collections/glassware",
+    "msUntilUrlChanged": 0,
+    "h1": "Glassware",
+    "title": "Glassware on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n4 DESIGNS\n\nGlassware\n\nTumblers",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/chafing-dishes",
+    "firstStatus": 200,
+    "documentResponses": [
+      "308 /products/chafing-dishes Location:/collections/chafing-dishes",
+      "200 /collections/chafing-dishes"
+    ],
+    "finalUrl": "/collections/chafing-dishes",
+    "msUntilUrlChanged": 0,
+    "h1": "Chafing Dishes & Buffet Display",
+    "title": "Chafing Dishes & Buffet Display on Hire | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\nAll collections\n\n5 DESIGNS\n\nChafing Dishes & Bu",
+    "htmlId": ""
+  },
+  {
+    "js": false,
+    "path": "/products/not-a-category",
+    "firstStatus": 404,
+    "documentResponses": [
+      "404 /products/not-a-category"
+    ],
+    "finalUrl": "/products/not-a-category",
+    "msUntilUrlChanged": null,
+    "h1": "Page not found",
+    "title": "Page not found | Indian Hirers",
+    "metaRefresh": null,
+    "bodyText": "Skip to content\nIH\nIndian Hirers\n\n404\n\nPage not found\n\nThe page you were looking",
+    "htmlId": ""
+  }
+]

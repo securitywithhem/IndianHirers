@@ -1,0 +1,1619 @@
+{
+  "states": {
+    "mobile nav drawer open /@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            ".h-header.justify-between.gap-4 > .gap-3 > .size-12.bg-ivory-50.ring-1 > .font-semibold.text-maroon-700.type-caption"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 30
+    },
+    "item drawer open /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 35
+    },
+    "filter chip pressed /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 22,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "two items added, sheet closed /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "quote sheet open (2 items) /collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            "#quote-list-sheet > .text-muted-foreground"
+          ],
+          "why": [
+            "Element's background color could not be determined because it partially overlaps other elements"
+          ]
+        }
+      ],
+      "passes": 31
+    },
+    "lightbox open /gallery@390": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 31
+    },
+    "contact page panel, no form /contact@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "text-list collection, one item added /collections/heritage-silver@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 17,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "text-list collection, one item added /collections/chat-and-snack-plates@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 20,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "item drawer open /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 35
+    },
+    "filter chip pressed /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 28,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "two items added, sheet closed /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "quote sheet open (2 items) /collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1,
+          "targets": [
+            "#quote-list-sheet > .text-muted-foreground"
+          ],
+          "why": [
+            "Element's background color could not be determined because it partially overlaps other elements"
+          ]
+        }
+      ],
+      "passes": 31
+    },
+    "lightbox open /gallery@1280": {
+      "violations": [],
+      "incomplete": [],
+      "passes": 31
+    },
+    "contact page panel, no form /contact@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "text-list collection, one item added /collections/heritage-silver@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "text-list collection, one item added /collections/chat-and-snack-plates@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined because it is overlapped by another element"
+          ]
+        }
+      ],
+      "passes": 43
+    }
+  },
+  "fullPageReducedMotion": {
+    "/@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 28,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".motion-safe\\:animate-enter-fade",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/chafing-dishes@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/heritage-silver@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 17,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/cutlery-and-serveware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 7,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/premium-melamine@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/regular-melamine@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 15,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/glassware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chat-and-snack-plates@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 20,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/founders@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".text-gold-300",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/gallery@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/testimonials@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/contact@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/this-page-does-not-exist@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-stat",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".motion-safe\\:animate-enter-fade",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(3) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"page\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chafing-dishes@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 17,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/heritage-silver@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 23,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/cutlery-and-serveware@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 13,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/premium-melamine@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/regular-melamine@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/glassware@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 16,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chat-and-snack-plates@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/founders@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 33,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            "a[aria-current=\"page\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/gallery@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 15,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/testimonials@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 14,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            ".group\\/link.relative[href$=\"collections\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/contact@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/this-page-does-not-exist@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 13,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            ".group\\/link.relative[href$=\"collections\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    }
+  },
+  "fullPageScrolledMotion": {
+    "/@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 28,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".motion-safe\\:animate-enter-fade",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/bone-china@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/chafing-dishes@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/heritage-silver@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 17,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/cutlery-and-serveware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 7,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/premium-melamine@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/collections/regular-melamine@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 15,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/glassware@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 11,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chat-and-snack-plates@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 20,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".justify-start",
+            ".type-eyebrow",
+            "h1"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 44
+    },
+    "/founders@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".text-gold-300",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/gallery@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".max-w-measure"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/testimonials@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 12,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/contact@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 27,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".type-eyebrow",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/this-page-does-not-exist@390": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".type-stat",
+            "h1",
+            ".type-lead"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 24,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".motion-safe\\:animate-enter-fade",
+            ".block[data-mask-line=\"\"]:nth-child(1) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(2) > .motion-safe\\:animate-mask-line.block",
+            ".block[data-mask-line=\"\"]:nth-child(3) > .motion-safe\\:animate-mask-line.block"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"page\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/bone-china@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chafing-dishes@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 17,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/heritage-silver@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 23,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/cutlery-and-serveware@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 13,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/collections/premium-melamine@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/regular-melamine@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 21,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/glassware@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 16,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/collections/chat-and-snack-plates@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 26,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            "a[aria-current=\"true\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/founders@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 33,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            "a[aria-current=\"page\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/gallery@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 15,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 43
+    },
+    "/testimonials@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 14,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            ".group\\/link.relative[href$=\"collections\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    },
+    "/contact@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 29,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.rounded-sm[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.type-button[href=\"/\"]",
+            ".group\\/link.type-button[href$=\"collections\"]",
+            ".group\\/link.type-button[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 42
+    },
+    "/this-page-does-not-exist@1280": {
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 13,
+          "targets": [
+            ".size-12 > .font-semibold.text-maroon-700.type-caption",
+            ".gap-3.min-h-11[href=\"/\"] > .type-h4.text-heading",
+            ".group\\/link.relative[href=\"/\"]",
+            ".group\\/link.relative[href$=\"collections\"]",
+            ".group\\/link.relative[href$=\"founders\"]"
+          ],
+          "why": [
+            "Element's background color could not be determined because it is overlapped by another element",
+            "Element's background color could not be determined due to a background gradient"
+          ]
+        }
+      ],
+      "passes": 41
+    }
+  }
+}

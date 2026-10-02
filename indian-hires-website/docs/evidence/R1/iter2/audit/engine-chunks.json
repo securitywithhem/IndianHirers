@@ -1,0 +1,394 @@
+{
+  "/gallery@no-preference": {
+    "loadEventMs": 50,
+    "scripts": [
+      {
+        "file": "webpack-747fae5f71391061.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "fd9d1056-aa4a6c05d422bd12.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "117-b39b440fd78c9c44.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "main-app-1c137f0a5b5d061c.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "972-113b6a50c0c2f3e8.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "878-08b6f7f436312b46.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "749-4835140c1bee2e74.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-db155aec164d003b.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "layout-bd63f97e258c71f4.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-82859a820f8621b2.js",
+        "at": 10,
+        "phase": "before load event"
+      },
+      {
+        "file": "438.5ea092c0725e7c5b.js",
+        "at": 55,
+        "phase": "after load event"
+      },
+      {
+        "file": "513.2722c483d54e1389.js",
+        "at": 55,
+        "phase": "after load event"
+      },
+      {
+        "file": "950.737476a44eac026c.js",
+        "at": 61,
+        "phase": "after load event"
+      },
+      {
+        "file": "802.3ac962d47611fa2a.js",
+        "at": 61,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-48485ce3981be349.js",
+        "at": 64,
+        "phase": "after load event"
+      },
+      {
+        "file": "727.1320be9d40bf2ca4.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "535.c6aa0de4df5d086e.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "423.1bbd3723f7c44f6b.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-30156a9fd10301b3.js",
+        "at": 6135,
+        "phase": "after load event"
+      }
+    ],
+    "afterInteraction": [
+      "page-30156a9fd10301b3.js"
+    ]
+  },
+  "/collections/bone-china@no-preference": {
+    "loadEventMs": 47,
+    "scripts": [
+      {
+        "file": "webpack-747fae5f71391061.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "fd9d1056-aa4a6c05d422bd12.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "117-b39b440fd78c9c44.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "main-app-1c137f0a5b5d061c.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "972-113b6a50c0c2f3e8.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "878-08b6f7f436312b46.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "749-4835140c1bee2e74.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-30156a9fd10301b3.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "layout-bd63f97e258c71f4.js",
+        "at": 9,
+        "phase": "before load event"
+      },
+      {
+        "file": "950.737476a44eac026c.js",
+        "at": 53,
+        "phase": "after load event"
+      },
+      {
+        "file": "599.e989a27d7bcf331e.js",
+        "at": 54,
+        "phase": "after load event"
+      },
+      {
+        "file": "438.5ea092c0725e7c5b.js",
+        "at": 54,
+        "phase": "after load event"
+      },
+      {
+        "file": "513.2722c483d54e1389.js",
+        "at": 54,
+        "phase": "after load event"
+      },
+      {
+        "file": "727.1320be9d40bf2ca4.js",
+        "at": 60,
+        "phase": "after load event"
+      },
+      {
+        "file": "535.c6aa0de4df5d086e.js",
+        "at": 60,
+        "phase": "after load event"
+      },
+      {
+        "file": "423.1bbd3723f7c44f6b.js",
+        "at": 60,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-82859a820f8621b2.js",
+        "at": 69,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-b7ca0cb3dd812d1d.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "layout-35f858ef6a47e3ae.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-48485ce3981be349.js",
+        "at": 71,
+        "phase": "after load event"
+      },
+      {
+        "file": "398.2745f2b26f7fff73.js",
+        "at": 6103,
+        "phase": "after load event"
+      }
+    ],
+    "afterInteraction": [
+      "398.2745f2b26f7fff73.js"
+    ]
+  },
+  "/gallery@reduce": {
+    "loadEventMs": 75,
+    "scripts": [
+      {
+        "file": "webpack-747fae5f71391061.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "fd9d1056-aa4a6c05d422bd12.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "117-b39b440fd78c9c44.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "main-app-1c137f0a5b5d061c.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "972-113b6a50c0c2f3e8.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "878-08b6f7f436312b46.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "749-4835140c1bee2e74.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-db155aec164d003b.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "layout-bd63f97e258c71f4.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-82859a820f8621b2.js",
+        "at": 12,
+        "phase": "before load event"
+      },
+      {
+        "file": "438.5ea092c0725e7c5b.js",
+        "at": 69,
+        "phase": "before load event"
+      },
+      {
+        "file": "513.2722c483d54e1389.js",
+        "at": 70,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-48485ce3981be349.js",
+        "at": 77,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-30156a9fd10301b3.js",
+        "at": 6177,
+        "phase": "after load event"
+      }
+    ],
+    "afterInteraction": [
+      "page-30156a9fd10301b3.js"
+    ]
+  },
+  "/collections/bone-china@reduce": {
+    "loadEventMs": 48,
+    "scripts": [
+      {
+        "file": "webpack-747fae5f71391061.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "fd9d1056-aa4a6c05d422bd12.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "117-b39b440fd78c9c44.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "main-app-1c137f0a5b5d061c.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "972-113b6a50c0c2f3e8.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "878-08b6f7f436312b46.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "749-4835140c1bee2e74.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "page-30156a9fd10301b3.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "layout-bd63f97e258c71f4.js",
+        "at": 11,
+        "phase": "before load event"
+      },
+      {
+        "file": "950.737476a44eac026c.js",
+        "at": 54,
+        "phase": "after load event"
+      },
+      {
+        "file": "599.e989a27d7bcf331e.js",
+        "at": 55,
+        "phase": "after load event"
+      },
+      {
+        "file": "438.5ea092c0725e7c5b.js",
+        "at": 55,
+        "phase": "after load event"
+      },
+      {
+        "file": "513.2722c483d54e1389.js",
+        "at": 55,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-82859a820f8621b2.js",
+        "at": 68,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-b7ca0cb3dd812d1d.js",
+        "at": 69,
+        "phase": "after load event"
+      },
+      {
+        "file": "layout-35f858ef6a47e3ae.js",
+        "at": 69,
+        "phase": "after load event"
+      },
+      {
+        "file": "page-48485ce3981be349.js",
+        "at": 70,
+        "phase": "after load event"
+      },
+      {
+        "file": "398.2745f2b26f7fff73.js",
+        "at": 6103,
+        "phase": "after load event"
+      }
+    ],
+    "afterInteraction": [
+      "398.2745f2b26f7fff73.js"
+    ]
+  }
+}
