@@ -1,20 +1,28 @@
 "use client";
 
-import { Toaster } from "@/components/ui/sonner";
+import dynamic from "next/dynamic";
+
+/*
+ * The toaster is only ever needed after a visitor submits the enquiry form,
+ * so it loads as its own chunk after hydration instead of riding in every
+ * route's first-load JavaScript.
+ */
+const Toaster = dynamic(
+  () => import("@/components/ui/sonner").then((module) => module.Toaster),
+  { ssr: false }
+);
 
 /**
- * AOS was removed here. The site had three motion systems running at once —
- * AOS across fourteen files, framer-motion in the crest, gsap in the range —
- * which is a large part of why the page felt like several different websites.
- *
- * Scroll-driven motion is now gsap + ScrollTrigger; discrete entrances are
- * framer-motion. Both gate on src/lib/useMotionPreference.ts.
+ * Client-side singletons for the whole site. There is deliberately no motion
+ * provider here: the shell uses the library-free primitives from
+ * `@/components/motion`, and the animation engine is mounted only by the
+ * catalogue and gallery (see src/components/motion/README.md).
  */
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <Toaster position="top-center" richColors />
+      <Toaster position="top-center" />
     </>
   );
 }

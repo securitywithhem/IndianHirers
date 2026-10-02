@@ -1,20 +1,28 @@
 import * as React from "react"
 import { Input as InputPrimitive } from "@base-ui/react/input"
 
-import { cn } from "@/lib/utils"
+import { cx } from "@/lib/cx"
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
-  return (
-    <InputPrimitive
-      type={type}
-      data-slot="input"
-      className={cn(
-        "h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+/*
+ * Docs/UI_UX_V2.md §7.8. 48px tall; body-size type also stops iOS zooming on
+ * focus. The ref is forwarded so react-hook-form can focus an invalid field.
+ * `className` is appended, not merged: add layout, do not restyle the control.
+ */
+const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<"input">>(
+  function Input({ className, type, ...props }, ref) {
+    return (
+      <InputPrimitive
+        ref={ref}
+        type={type}
+        data-slot="input"
+        className={cx(
+          "type-body focus-ring h-12 w-full min-w-0 rounded-lg border border-input bg-card px-4 text-foreground placeholder:text-muted-foreground aria-invalid:border-destructive disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
 
 export { Input }

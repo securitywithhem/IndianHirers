@@ -1,48 +1,46 @@
-"use client";
+import { MessageCircle, Phone, Send } from "lucide-react";
+import { routes, shell, whatsappMessages } from "@/content/site";
+import { telUrl, whatsappUrl } from "@/lib/links";
+import { SlideUpAfter } from "@/components/motion";
+import { AppLink } from "@/components/shared/AppLink";
 
-import Link from "next/link";
-import { Phone, MessageCircle, Send } from "lucide-react";
-import { env } from "@/lib/env";
+const ACTION_CLASS =
+  "type-caption focus-ring flex min-h-14 flex-col items-center justify-center gap-1 rounded-md font-medium text-foreground";
+const ICON_CLASS = "size-5 text-primary";
 
+/**
+ * Call / WhatsApp / Enquire, always within thumb reach below `md`
+ * (Docs/UI_UX_V2.md §7.10). Three 56px targets with 8px between them.
+ *
+ * The bar is 4rem tall plus the bottom safe-area inset; `<body>` reserves
+ * exactly that (`layout.tsx`), so the bar never covers the end of the page.
+ * It slides up 1.2s after load and is simply present under reduced motion.
+ */
 export function MobileBottomBar() {
+  const { bottomBar } = shell;
+
   return (
-    <nav 
-      aria-label="Mobile Bottom Bar"
-      className="md:hidden fixed bottom-0 left-0 w-full z-40 bg-surface-2 border-t border-maroon/10 shadow-[0_-2px_10px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom)]"
+    <SlideUpAfter
+      as="nav"
+      aria-label={bottomBar.navLabel}
+      className="fixed inset-x-0 bottom-0 z-bar grid grid-cols-3 gap-2 bg-background/95 px-2 pb-[calc(0.25rem+env(safe-area-inset-bottom))] pt-1 shadow-bar backdrop-blur-md md:hidden"
     >
-      <div className="grid grid-cols-3 divide-x divide-maroon/10">
-        {/* Segment 1: Call */}
-        <a
-          href={`tel:${env.phone}`}
-          aria-label="Call"
-          className="flex flex-col items-center justify-center py-2.5 gap-0.5 text-cream hover:bg-maroon/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:z-10"
-        >
-          <Phone className="w-5 h-5 md:w-[22px] md:h-[22px]" />
-          <span className="text-[11px] font-body font-medium">Call</span>
-        </a>
-
-        {/* Segment 2: WhatsApp */}
-        <a
-          href={`https://wa.me/${env.whatsapp}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20crockery%20rental%20for%20my%20event.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-          className="flex flex-col items-center justify-center py-2.5 gap-0.5 text-whatsapp hover:bg-whatsapp/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:z-10"
-        >
-          <MessageCircle className="w-5 h-5 md:w-[22px] md:h-[22px]" />
-          <span className="text-[11px] font-body font-medium">WhatsApp</span>
-        </a>
-
-        {/* Segment 3: Enquire */}
-        <Link
-          href="/contact"
-          aria-label="Enquire"
-          className="flex flex-col items-center justify-center py-2.5 gap-0.5 text-gold hover:bg-gold/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:z-10"
-        >
-          <Send className="w-5 h-5 md:w-[22px] md:h-[22px]" />
-          <span className="text-[11px] font-body font-medium">Enquire</span>
-        </Link>
-      </div>
-    </nav>
+      <AppLink href={telUrl()} aria-label={bottomBar.call.ariaLabel} className={ACTION_CLASS}>
+        <Phone aria-hidden="true" className={ICON_CLASS} />
+        {bottomBar.call.label}
+      </AppLink>
+      <AppLink
+        href={whatsappUrl(whatsappMessages.general())}
+        aria-label={bottomBar.whatsapp.ariaLabel}
+        className={ACTION_CLASS}
+      >
+        <MessageCircle aria-hidden="true" className={ICON_CLASS} />
+        {bottomBar.whatsapp.label}
+      </AppLink>
+      <AppLink href={routes.contact} aria-label={bottomBar.enquire.ariaLabel} className={ACTION_CLASS}>
+        <Send aria-hidden="true" className={ICON_CLASS} />
+        {bottomBar.enquire.label}
+      </AppLink>
+    </SlideUpAfter>
   );
 }
