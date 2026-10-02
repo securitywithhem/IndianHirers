@@ -1,32 +1,193 @@
-export const foundersContent = {
-  hero: {
-    title: "Three Generations, One Promise",
-    subtitle: "What started as a very small shop in Malad, Mumbai, in 1977 is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son.",
-    imageAlt: "IndianHirers warehouse and equipment setup",
-  },
+/**
+ * Founders page (`/founders`) content.
+ *
+ * The story paragraphs are the family's own text, with two spelling fixes
+ * (the brand name as two words, and "Jasvantlal") and four small edits made
+ * in Phase R1 so the page states only what the site can stand behind:
+ *   - growth is described plainly, twice;
+ *   - a typed count of years, which would have been wrong from 2027, is
+ *     replaced by the start year (`brand.vadodaraSinceYear`);
+ *   - a ranking claim about the business is replaced by what is evidenced.
+ * The family's ORIGINAL sentences are recorded word for word in
+ * docs/COPY_TO_CONFIRM.md §5 so the owner can restore them. Do not rewrite
+ * the story any further.
+ */
+import type { ProductImage } from "./products";
+import { brand, routes, whatsappMessages, type CtaLink } from "./site";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export interface FoundersHero {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+export interface StorySection {
+  id: string;
+  /** Null for the opening section, which runs straight on from the hero. */
+  heading: string | null;
+  paragraphs: string[];
+}
+
+export interface FounderProfile {
+  id: "nikesh" | "jay";
+  name: string;
+  role: string;
+  /** A third-person description. Not a quotation — never render in quote marks. */
+  description: string;
+  /** Null until a real portrait is supplied; the UI shows the monogram. */
+  portrait: ProductImage | null;
+  /** Alt text to use once `portrait` exists. */
+  portraitAlt: string;
+}
+
+export interface Milestone {
+  year: number;
+  title: string;
+  body: string;
+}
+
+export interface FoundersCta {
+  heading: string;
+  body: string;
+  whatsappLabel: string;
+  whatsappMessage: string;
+  link: CtaLink;
+}
+
+/**
+ * Years the story states, defined once so the milestones here and the home
+ * page (trust strip, heritage teaser) cannot disagree. 1977 and 2001 are
+ * brand facts and live in site.ts → `brand`.
+ */
+export interface StoryYears {
+  /** "By 2015, he had introduced bone china on rental". */
+  boneChinaIntroduced: number;
+  /** "In 2023, Jay Nikesh Gabhawala … stepped into the family business". */
+  thirdGenerationJoined: number;
+}
+
+export interface FoundersContent {
+  hero: FoundersHero;
   story: {
-    paragraphs: [
-      "Our story begins in 1977, in Malad (East), Mumbai — where Nikesh's father, Mr. Jasvantlal Satilal Gabhawala, set up a very small shop that would plant the seed for everything that followed. It was here that the family first learned the business of serving others, one small order at a time.",
-      "In 2001, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.",
-      "By 2015, he had introduced bone china on rental — a bold step that set us apart in the market. The years that followed brought steady, exponential growth. Then came COVID, and the two years after it were some of the hardest the business had ever faced. But Nikesh held firm, kept the business alive, and rebuilt it piece by piece. Today, his twenty-five years of dedication — built on the foundation his father laid in Mumbai decades earlier — stand as the bedrock of everything we are.",
-      "## Growing Together",
-      "In 2023, Jay Nikesh Gabhawala, Nikesh's elder son, stepped into the family business to support his father through its next chapter. Together, they have grown the business exponentially, bringing fresh energy and renewed ambition to a legacy that now spans three generations. Under their combined leadership, Indian Hirers has become one of the leading rental agencies across Gujarat, trusted for quality crockery and dependable service. What began as a very small shop in Malad, Mumbai, in 1977 is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son."
+    /** Visually hidden heading of the story region. */
+    heading: string;
+    sections: StorySection[];
+  };
+  milestones: {
+    heading: string;
+    /** Only dates stated in the story. In chronological order. */
+    items: Milestone[];
+  };
+  people: {
+    heading: string;
+    profiles: FounderProfile[];
+  };
+  cta: FoundersCta;
+}
+
+// ---------------------------------------------------------------------------
+// Content
+// ---------------------------------------------------------------------------
+
+const NIKESH = "Nikesh Jasvantlal Gabhawala";
+const JAY = "Jay Nikesh Gabhawala";
+
+export const storyYears: StoryYears = {
+  boneChinaIntroduced: 2015,
+  thirdGenerationJoined: 2023,
+};
+
+export const founders: FoundersContent = {
+  hero: {
+    eyebrow: `Since ${brand.foundedYear}`,
+    title: "Three Generations, One Promise",
+    // Brand facts only. The story's closing sentence is said once, in the
+    // story, and is not repeated here.
+    subtitle: `A family crockery hire business that began in ${brand.foundedPlace}, in ${brand.foundedYear} and has been in ${brand.city} since ${brand.vadodaraSinceYear}.`,
+  },
+
+  story: {
+    heading: "Our story",
+    sections: [
+      {
+        id: "beginnings",
+        heading: null,
+        paragraphs: [
+          "Our story begins in 1977, in Malad (East), Mumbai — where Nikesh's father, Mr. Jasvantlal Satilal Gabhawala, set up a very small shop that would plant the seed for everything that followed. It was here that the family first learned the business of serving others, one small order at a time.",
+          "In 2001, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.",
+          `By 2015, he had introduced bone china on rental — a bold step that set us apart in the market. The years that followed brought steady growth. Then came COVID, and the two years after it were some of the hardest the business had ever faced. But Nikesh held firm, kept the business alive, and rebuilt it piece by piece. Today, his dedication since ${brand.vadodaraSinceYear} — built on the foundation his father laid in Mumbai decades earlier — stands as the bedrock of everything we are.`,
+        ],
+      },
+      {
+        id: "growing-together",
+        heading: "Growing Together",
+        paragraphs: [
+          "In 2023, Jay Nikesh Gabhawala, Nikesh's elder son, stepped into the family business to support his father through its next chapter. Together, they have grown the business steadily, bringing fresh energy and renewed ambition to a legacy that now spans three generations. Under their combined leadership, Indian Hirers serves hotels and caterers across Gujarat from Vadodara, with quality crockery and dependable service. What began as a very small shop in Malad, Mumbai, in 1977 is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son.",
+        ],
+      },
     ],
   },
-  founders: [
-    {
-      id: "nikesh",
-      name: "Nikesh Jasvantal Gabhawala",
-      role: "Founder",
-      imageAlt: "Portrait of Nikesh Jasvantal Gabhawala",
-      quote: "Built the foundation of Indian Hirers piece by piece over twenty-five years with dedication and a will to serve.",
-    },
-    {
-      id: "jay",
-      name: "Jay Nikesh Gabhawala",
-      role: "Partner",
-      imageAlt: "Portrait of Jay Nikesh Gabhawala",
-      quote: "Stepped in to support the family legacy, bringing fresh energy and renewed ambition to grow the business across Gujarat.",
-    },
-  ],
+
+  // Each entry restates a date and an event from the story above. Nothing
+  // here is new information.
+  milestones: {
+    heading: "Milestones",
+    items: [
+      {
+        year: 1977,
+        title: "A very small shop in Malad",
+        body: "Mr. Jasvantlal Satilal Gabhawala sets up the family's first shop in Malad (East), Mumbai.",
+      },
+      {
+        year: 2001,
+        title: "A new chapter in Vadodara",
+        body: "Nikesh Jasvantlal Gabhawala starts a small shop of his own in Vadodara, hiring out utensils, steel plates and simple melamine plates for local events.",
+      },
+      {
+        year: storyYears.boneChinaIntroduced,
+        title: "Bone china on rental",
+        body: "Bone china is introduced, after premium-quality melamine and glassware had joined the collection.",
+      },
+      {
+        year: storyYears.thirdGenerationJoined,
+        title: "The third generation",
+        body: "Jay Nikesh Gabhawala, Nikesh's elder son, steps into the family business.",
+      },
+    ],
+  },
+
+  people: {
+    heading: "Meet the Family",
+    profiles: [
+      {
+        id: "nikesh",
+        name: NIKESH,
+        role: "Founder",
+        description: `Built the foundation of ${brand.name} piece by piece since ${brand.vadodaraSinceYear}, with dedication and a will to serve.`,
+        portrait: null,
+        portraitAlt: `Portrait of ${NIKESH}`,
+      },
+      {
+        id: "jay",
+        name: JAY,
+        role: "Partner",
+        description:
+          "Stepped in to support the family legacy, bringing fresh energy and renewed ambition to grow the business across Gujarat.",
+        portrait: null,
+        portraitAlt: `Portrait of ${JAY}`,
+      },
+    ],
+  },
+
+  cta: {
+    heading: "Speak to the family directly",
+    body: "Tell us about your event and we will take it from there.",
+    whatsappLabel: "Message us on WhatsApp",
+    whatsappMessage: whatsappMessages.speakToFamily(),
+    link: { label: "See the collections", href: routes.collections },
+  },
 };
