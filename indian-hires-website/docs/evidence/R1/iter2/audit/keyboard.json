@@ -1,0 +1,710 @@
+[
+  {
+    "area": "skip",
+    "name": "first Tab stop is the skip link @390",
+    "result": "PASS",
+    "observed": "a \"Skip to content\" -> #main-content rect=[16,80,158,48]"
+  },
+  {
+    "area": "skip",
+    "name": "focused skip link is at least 44x44, on top, clear of the header controls @390",
+    "result": "PASS",
+    "observed": "unfocused rect=[16,-56,158,48]; focused {\"rect\":[16,80,158,48],\"headerBottom\":72,\"onTopAtCentre\":true,\"overlapsHeaderControls\":[],\"padding\":\"12px 24px\",\"shadow\":\"rgb(251, 245, 234) 0px 0px 0px 2px, rgb(112, 32, 16) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px\",\"bg\":\"rgb(112, 32, 16)\",\"color\":\"rgb(251, 245, 234)\"}"
+  },
+  {
+    "area": "skip",
+    "name": "Enter moves focus to #main-content @390",
+    "result": "PASS",
+    "observed": "active=main#main-content \"SINCE 1977 · VADODARA SINCE 2001 Since 1977, one f\" url=/#main-content"
+  },
+  {
+    "area": "skip",
+    "name": "next Tab after skip lands inside <main> @390",
+    "result": "PASS",
+    "observed": "a \"Enquire on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2"
+  },
+  {
+    "area": "skip",
+    "name": "first Tab stop is the skip link @1280",
+    "result": "PASS",
+    "observed": "a \"Skip to content\" -> #main-content rect=[16,80,158,48]"
+  },
+  {
+    "area": "skip",
+    "name": "focused skip link is at least 44x44, on top, clear of the header controls @1280",
+    "result": "PASS",
+    "observed": "unfocused rect=[16,-56,158,48]; focused {\"rect\":[16,80,158,48],\"headerBottom\":72,\"onTopAtCentre\":true,\"overlapsHeaderControls\":[],\"padding\":\"12px 24px\",\"shadow\":\"rgb(251, 245, 234) 0px 0px 0px 2px, rgb(112, 32, 16) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px\",\"bg\":\"rgb(112, 32, 16)\",\"color\":\"rgb(251, 245, 234)\"}"
+  },
+  {
+    "area": "skip",
+    "name": "Enter moves focus to #main-content @1280",
+    "result": "PASS",
+    "observed": "active=main#main-content \"SINCE 1977 · VADODARA SINCE 2001 Since 1977, one f\" url=/#main-content"
+  },
+  {
+    "area": "skip",
+    "name": "next Tab after skip lands inside <main> @1280",
+    "result": "PASS",
+    "observed": "a \"Enquire on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2"
+  },
+  {
+    "area": "header",
+    "name": "header stops follow visual (left-to-right) order @1280",
+    "result": "PASS",
+    "observed": "IH Indian Hirers@x30 | Home@x457 | Collections@x541 | Founders@x662 | Gallery@x770 | Contact@x863 | Enquire@x1161"
+  },
+  {
+    "area": "header",
+    "name": "tab sequence equals visible header controls sorted by x",
+    "result": "FAIL",
+    "observed": "visible: IH\nIndian Hirers | Home | Collections | Founders | Gallery | Contact | Enquire"
+  },
+  {
+    "area": "header",
+    "name": "current route marked with aria-current",
+    "result": "PASS",
+    "observed": "Home=page"
+  },
+  {
+    "area": "drawer",
+    "name": "trigger is a <button> with aria-expanded (aria-controls only while open)",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open menu\",\"expanded\":\"false\",\"controls\":null,\"targetExists\":null,\"targetRole\":null}"
+  },
+  {
+    "area": "drawer",
+    "name": "trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "reached after 3 Tab presses"
+  },
+  {
+    "area": "drawer",
+    "name": "Enter opens the drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Site menu\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,0,390,844],\"vis\":\"visible\",\"disp\":\"flex\"}] aria-expanded=true"
+  },
+  {
+    "area": "drawer",
+    "name": "aria-controls resolves to the dialog while open (Enter)",
+    "result": "PASS",
+    "observed": "{\"controls\":\"site-menu\",\"exists\":true,\"role\":\"dialog\"}"
+  },
+  {
+    "area": "drawer",
+    "name": "focus moves into the drawer (Enter)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "background inert + scroll locked (Enter)",
+    "result": "PASS",
+    "observed": "inert body children=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,script,div,next-route-announcer,section body overflow=visible html overflow=hidden"
+  },
+  {
+    "area": "drawer",
+    "name": "focus is trapped (25 Tab + 6 Shift+Tab)",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Home\" -> / | a \"Collections\" -> /collections | a \"Founders\" -> /founders | a \"Gallery\" -> /gallery | a \"Contact\" -> /contact | a \"Enquire\" -> /contact | a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | a \"Call us\" -> tel:+919825037478 | button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "Esc closes (Enter cycle)",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "drawer",
+    "name": "focus returns to the trigger (Enter cycle)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "Space opens the drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Site menu\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,0,390,844],\"vis\":\"visible\",\"disp\":\"flex\"}] aria-expanded=true"
+  },
+  {
+    "area": "drawer",
+    "name": "aria-controls resolves to the dialog while open (Space)",
+    "result": "PASS",
+    "observed": "{\"controls\":\"site-menu\",\"exists\":true,\"role\":\"dialog\"}"
+  },
+  {
+    "area": "drawer",
+    "name": "focus moves into the drawer (Space)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close menu\"]"
+  },
+  {
+    "area": "drawer",
+    "name": "background inert + scroll locked (Space)",
+    "result": "PASS",
+    "observed": "inert body children=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,script,div,next-route-announcer,section body overflow=visible html overflow=hidden"
+  },
+  {
+    "area": "drawer",
+    "name": "Esc closes (Space cycle)",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "drawer",
+    "name": "focus returns to the trigger (Space cycle)",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open menu\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "filter chips present",
+    "result": "PASS",
+    "observed": "9 chips, 7 cards"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "first unpressed chip reachable by Tab",
+    "result": "PASS",
+    "observed": "after 11 Tabs: button \"Gold\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter toggles aria-pressed to true and filters",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=true; cards 7 -> 3; status=\"Showing 3 of 7 designs\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Space toggles aria-pressed back to false",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=false; cards 3 -> 7"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "card details trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "after 8 Tabs: a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter on a card opens the item drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Golden Rim details\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[832,0,448,844],\"vis\":\"visible\",\"disp\":\"flex\"}] url /collections/bone-china -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus is inside the item drawer",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "background inert + scroll locked (item drawer)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "item drawer traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Ask on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button \"Add to quote\" | button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Esc closes the item drawer",
+    "result": "PASS",
+    "observed": "open dialogs=0 url=/collections/bone-china"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus returns to the card trigger",
+    "result": "PASS",
+    "observed": "a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "\"Add to quote\" reachable by Tab after the card",
+    "result": "PASS",
+    "observed": "after 1 Tabs: button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter toggles Add to quote on",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Space toggles it off again",
+    "result": "PASS",
+    "observed": "button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "second item added with Space",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket button appears with a count of 2",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open your quote list, 2 items\",\"badge\":\"2\",\"expanded\":\"false\",\"controlsWhileClosed\":null}"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket change announced in a live region",
+    "result": "PASS",
+    "observed": "status text=\"Green Golden added to your quote list\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket button reachable by Tab",
+    "result": "PASS",
+    "observed": "after 17 forward Tabs from the 2nd toggle: button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Enter on the basket button opens the quote sheet",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Your quote list\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[832,0,448,844],\"vis\":\"visible\",\"disp\":\"flex\"}]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus is inside the quote sheet",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "basket aria-controls resolves to the sheet while open",
+    "result": "PASS",
+    "observed": "{\"expanded\":\"true\",\"controls\":\"quote-list-sheet\",\"exists\":true,\"role\":\"dialog\"}"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "sheet lists the two items",
+    "result": "PASS",
+    "observed": "2 list items"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "quote sheet traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: button[aria-label=\"Remove Golden Rim from your quote list\"] | button[aria-label=\"Remove Green Golden from your quote list\"] | button \"Clear list\" | a \"Send list on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "Esc closes the quote sheet",
+    "result": "PASS",
+    "observed": "open dialogs=0"
+  },
+  {
+    "area": "catalogue@1280",
+    "name": "focus returns to the basket button",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "filter chips present",
+    "result": "PASS",
+    "observed": "9 chips, 7 cards"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "first unpressed chip reachable by Tab",
+    "result": "PASS",
+    "observed": "after 6 Tabs: button \"Gold\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter toggles aria-pressed to true and filters",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=true; cards 7 -> 3; status=\"Showing 3 of 7 designs\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Space toggles aria-pressed back to false",
+    "result": "PASS",
+    "observed": "focus on button \"Gold\" pressed=false; cards 3 -> 7"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "card details trigger reachable by Tab",
+    "result": "PASS",
+    "observed": "after 8 Tabs: a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter on a card opens the item drawer",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Golden Rim details\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,152,390,692],\"vis\":\"visible\",\"disp\":\"flex\"}] url /collections/bone-china -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus is inside the item drawer",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "background inert + scroll locked (item drawer)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "item drawer traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"Ask on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button \"Add to quote\" | button[aria-label=\"Close details\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Esc closes the item drawer",
+    "result": "PASS",
+    "observed": "open dialogs=0 url=/collections/bone-china"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus returns to the card trigger",
+    "result": "PASS",
+    "observed": "a \"Golden Rim\" -> /collections/bone-china?item=bone-china--golden-rim"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "\"Add to quote\" reachable by Tab after the card",
+    "result": "PASS",
+    "observed": "after 1 Tabs: button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter toggles Add to quote on",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Space toggles it off again",
+    "result": "PASS",
+    "observed": "button \"Add to quote\" pressed=false"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "second item added with Space",
+    "result": "PASS",
+    "observed": "button \"Added\" pressed=true"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket button appears with a count of 2",
+    "result": "PASS",
+    "observed": "{\"label\":\"Open your quote list, 2 items\",\"badge\":\"2\",\"expanded\":\"false\",\"controlsWhileClosed\":null}"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket change announced in a live region",
+    "result": "PASS",
+    "observed": "status text=\"Green Golden added to your quote list\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket button reachable by Tab",
+    "result": "PASS",
+    "observed": "after 17 forward Tabs from the 2nd toggle: button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Enter on the basket button opens the quote sheet",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Your quote list\",\"modal\":\"true\",\"state\":\"open\",\"rect\":[0,429,390,415],\"vis\":\"visible\",\"disp\":\"flex\"}]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus is inside the quote sheet",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "basket aria-controls resolves to the sheet while open",
+    "result": "PASS",
+    "observed": "{\"expanded\":\"true\",\"controls\":\"quote-list-sheet\",\"exists\":true,\"role\":\"dialog\"}"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "sheet lists the two items",
+    "result": "PASS",
+    "observed": "2 list items"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "quote sheet traps focus",
+    "result": "PASS",
+    "observed": "escapes=0; stops: button[aria-label=\"Remove Golden Rim from your quote list\"] | button[aria-label=\"Remove Green Golden from your quote list\"] | button \"Clear list\" | a \"Send list on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | button[aria-label=\"Close quote list\"]"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "Esc closes the quote sheet",
+    "result": "PASS",
+    "observed": "open dialogs=0"
+  },
+  {
+    "area": "catalogue@390",
+    "name": "focus returns to the basket button",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Open your quote list, 2 items\"] \"2\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "tiles reachable by Tab",
+    "result": "PASS",
+    "observed": "21 tiles; first after 9 Tabs; using button[aria-label=\"View a larger photograph of Green Golden\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Enter on a tile opens the lightbox",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Photograph viewer\",\"modal\":\"true\",\"state\":null,\"rect\":[0,0,1280,844],\"vis\":\"visible\",\"disp\":\"grid\"}]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "focus is inside the lightbox",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "background inert + scroll locked (lightbox)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "ArrowRight moves to the next photograph",
+    "result": "PASS",
+    "observed": "\"Image 2 of 21 / Green Golden\" -> \"Image 3 of 21 / White\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "ArrowLeft moves back",
+    "result": "PASS",
+    "observed": "\"Image 3 of 21 / White\" -> \"Image 2 of 21 / Green Golden\" -> \"Image 1 of 21 / Golden Rim\""
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Tab reaches close, previous and next; focus trapped",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"See Bone China\" -> /collections/bone-china | button[aria-label=\"Previous image\"] | button[aria-label=\"Next image\"] | button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "Esc closes the lightbox",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "gallery@1280",
+    "name": "focus returns to the tile that opened it",
+    "result": "PASS",
+    "observed": "button[aria-label=\"View a larger photograph of Green Golden\"] (opened from button[aria-label=\"View a larger photograph of Green Golden\"])"
+  },
+  {
+    "area": "gallery@390",
+    "name": "tiles reachable by Tab",
+    "result": "PASS",
+    "observed": "21 tiles; first after 4 Tabs; using button[aria-label=\"View a larger photograph of Green Golden\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "Enter on a tile opens the lightbox",
+    "result": "PASS",
+    "observed": "dialogs=[{\"label\":\"Photograph viewer\",\"modal\":\"true\",\"state\":null,\"rect\":[0,0,390,844],\"vis\":\"visible\",\"disp\":\"grid\"}]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "focus is inside the lightbox",
+    "result": "PASS",
+    "observed": "button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "background inert + scroll locked (lightbox)",
+    "result": "PASS",
+    "observed": "inert=a,script,header,main,footer,nav,aside,script,script,script,script,script,script,div,next-route-announcer,section overflow body=visible html=hidden"
+  },
+  {
+    "area": "gallery@390",
+    "name": "ArrowRight moves to the next photograph",
+    "result": "PASS",
+    "observed": "\"Image 2 of 21 / Green Golden\" -> \"Image 3 of 21 / White\""
+  },
+  {
+    "area": "gallery@390",
+    "name": "ArrowLeft moves back",
+    "result": "PASS",
+    "observed": "\"Image 3 of 21 / White\" -> \"Image 2 of 21 / Green Golden\" -> \"Image 1 of 21 / Golden Rim\""
+  },
+  {
+    "area": "gallery@390",
+    "name": "Tab reaches close, previous and next; focus trapped",
+    "result": "PASS",
+    "observed": "escapes=0; stops: a \"See Bone China\" -> /collections/bone-china | button[aria-label=\"Previous image\"] | button[aria-label=\"Next image\"] | button[aria-label=\"Close viewer\"]"
+  },
+  {
+    "area": "gallery@390",
+    "name": "Esc closes the lightbox",
+    "result": "PASS",
+    "observed": "open dialogs=0; inert left=none; body overflow=visible"
+  },
+  {
+    "area": "gallery@390",
+    "name": "focus returns to the tile that opened it",
+    "result": "PASS",
+    "observed": "button[aria-label=\"View a larger photograph of Green Golden\"] (opened from button[aria-label=\"View a larger photograph of Green Golden\"])"
+  },
+  {
+    "area": "contact@1280",
+    "name": "enquiry form rendered",
+    "result": "INFO",
+    "observed": "0 <form> in <main> (0 = the form path cannot be exercised on this build)"
+  },
+  {
+    "area": "contact@1280",
+    "name": "tab stops inside <main>",
+    "result": "INFO",
+    "observed": "[Contact details] a \"+91 98250 37478\" -> tel:+919825037478 | [Contact details] a \"+91 87340 90908\" -> tel:+918734090908 | [Contact details] a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | [Contact details] a \"indianhires@gmail.com\" -> mailto:indianhires@gmail.com | [Contact details] a \"Open in Google Maps (opens in a new tab)\" -> https://www.google.com/maps/search/?api=1&query=Indian%20Hir | [Enquire by WhatsApp or phone] a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | [Enquire by WhatsApp or phone] a \"+91 98250 37478\" -> tel:+919825037478 | [Enquire by WhatsApp or phone] a \"+91 87340 90908\" -> tel:+918734090908"
+  },
+  {
+    "area": "contact@1280",
+    "name": "panel content",
+    "result": "INFO",
+    "observed": "{\"h\":[\"Contact details\",\"Enquire by WhatsApp or phone\"],\"p\":[{\"heading\":\"Contact details\",\"links\":[\"+91 98250 37478 -> tel:+919825037478\",\"+91 87340 90908 -> tel:+918734090908\",\"Message us on WhatsApp (opens in a new tab) -> https://wa.me/919825037478?text=He\",\"indianhires@gmail.com -> mailto:indianhires@gmail.com\",\"Open in Google Maps (opens in a new tab) -> https://www.google.com/maps/search\"]},{\"heading\":\"Enquire by WhatsApp or phone\",\"links\":[\"Message us on WhatsApp (opens in a new tab) -> https://wa.me/919825037478?text=He\",\"+91 98250 37478 -> tel:+919825037478\",\"+91 87340 90908 -> tel:+918734090908\"]}]}"
+  },
+  {
+    "area": "contact@1280",
+    "name": "WhatsApp button(s) reachable by Tab",
+    "result": "PASS",
+    "observed": "[Contact details] Message us on WhatsApp (opens in a new tab) 191x44 | [Enquire by WhatsApp or phone] Message us on WhatsApp (opens in a new tab) 267x48"
+  },
+  {
+    "area": "contact@1280",
+    "name": "call button(s) reachable by Tab",
+    "result": "PASS",
+    "observed": "[Contact details] +91 98250 37478 -> tel:+919825037478 136x44 | [Contact details] +91 87340 90908 -> tel:+918734090908 138x44 | [Enquire by WhatsApp or phone] +91 98250 37478 -> tel:+919825037478 214x48 | [Enquire by WhatsApp or phone] +91 87340 90908 -> tel:+918734090908 216x48"
+  },
+  {
+    "area": "contact@1280",
+    "name": "email link reachable by Tab",
+    "result": "PASS",
+    "observed": "indianhires@gmail.com -> mailto:indianhires@gmail.com"
+  },
+  {
+    "area": "contact@1280",
+    "name": "every stop in <main> is at least 44px tall",
+    "result": "PASS",
+    "observed": "all >= 44"
+  },
+  {
+    "area": "contact@390",
+    "name": "enquiry form rendered",
+    "result": "INFO",
+    "observed": "0 <form> in <main> (0 = the form path cannot be exercised on this build)"
+  },
+  {
+    "area": "contact@390",
+    "name": "tab stops inside <main>",
+    "result": "INFO",
+    "observed": "[Contact details] a \"+91 98250 37478\" -> tel:+919825037478 | [Contact details] a \"+91 87340 90908\" -> tel:+918734090908 | [Contact details] a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | [Contact details] a \"indianhires@gmail.com\" -> mailto:indianhires@gmail.com | [Contact details] a \"Open in Google Maps (opens in a new tab)\" -> https://www.google.com/maps/search/?api=1&query=Indian%20Hir | [Enquire by WhatsApp or phone] a \"Message us on WhatsApp (opens in a new tab)\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 | [Enquire by WhatsApp or phone] a \"+91 98250 37478\" -> tel:+919825037478 | [Enquire by WhatsApp or phone] a \"+91 87340 90908\" -> tel:+918734090908"
+  },
+  {
+    "area": "contact@390",
+    "name": "panel content",
+    "result": "INFO",
+    "observed": "{\"h\":[\"Contact details\",\"Enquire by WhatsApp or phone\"],\"p\":[{\"heading\":\"Contact details\",\"links\":[\"+91 98250 37478 -> tel:+919825037478\",\"+91 87340 90908 -> tel:+918734090908\",\"Message us on WhatsApp (opens in a new tab) -> https://wa.me/919825037478?text=He\",\"indianhires@gmail.com -> mailto:indianhires@gmail.com\",\"Open in Google Maps (opens in a new tab) -> https://www.google.com/maps/search\"]},{\"heading\":\"Enquire by WhatsApp or phone\",\"links\":[\"Message us on WhatsApp (opens in a new tab) -> https://wa.me/919825037478?text=He\",\"+91 98250 37478 -> tel:+919825037478\",\"+91 87340 90908 -> tel:+918734090908\"]}]}"
+  },
+  {
+    "area": "contact@390",
+    "name": "WhatsApp button(s) reachable by Tab",
+    "result": "PASS",
+    "observed": "[Contact details] Message us on WhatsApp (opens in a new tab) 191x44 | [Enquire by WhatsApp or phone] Message us on WhatsApp (opens in a new tab) 300x48"
+  },
+  {
+    "area": "contact@390",
+    "name": "call button(s) reachable by Tab",
+    "result": "PASS",
+    "observed": "[Contact details] +91 98250 37478 -> tel:+919825037478 136x44 | [Contact details] +91 87340 90908 -> tel:+918734090908 138x44 | [Enquire by WhatsApp or phone] +91 98250 37478 -> tel:+919825037478 300x48 | [Enquire by WhatsApp or phone] +91 87340 90908 -> tel:+918734090908 300x48"
+  },
+  {
+    "area": "contact@390",
+    "name": "email link reachable by Tab",
+    "result": "PASS",
+    "observed": "indianhires@gmail.com -> mailto:indianhires@gmail.com"
+  },
+  {
+    "area": "contact@390",
+    "name": "every stop in <main> is at least 44px tall",
+    "result": "PASS",
+    "observed": "all >= 44"
+  },
+  {
+    "area": "/collections/heritage-silver@390",
+    "name": "shape of the page",
+    "result": "INFO",
+    "observed": "{\"articles\":5,\"itemImgs\":4,\"chips\":5,\"toggles\":5,\"triggers\":0,\"asks\":5,\"h3\":[\"Silver-Plated Plates\",\"Silver-Plated Cutlery\",\"Serving Spoons\",\"Trays\",\"Tableware\",\"Bone China\",\"Premium Melamine\",\"Chafing Dishes & Buffet Display\"]}"
+  },
+  {
+    "area": "/collections/heritage-silver@390",
+    "name": "tab stops inside <main> (first 14)",
+    "result": "INFO",
+    "observed": "a \"All collections\" -> /collections 131x44 | button \"All\" 51x44 | button \"Plates\" 70x44 | button \"Cutlery\" 79x44 | button \"Serving spoons\" 132x44 | button \"Trays\" 65x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Silver-Plated Plates (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Silver-Plated Cutlery (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Serving Spoons (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Trays (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44"
+  },
+  {
+    "area": "/collections/heritage-silver@390",
+    "name": "Add to quote reachable and toggles with Enter",
+    "result": "PASS",
+    "observed": "after 10 Tabs: button \"Added\" pressed=true"
+  },
+  {
+    "area": "/collections/heritage-silver@390",
+    "name": "announced",
+    "result": "PASS",
+    "observed": "\"Silver-Plated Plates added to your quote list\""
+  },
+  {
+    "area": "/collections/heritage-silver@390",
+    "name": "\"Ask on WhatsApp\" link per item reachable by Tab",
+    "result": "PASS",
+    "observed": "a[aria-label=\"Ask on WhatsApp about Silver-Plated Plates (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | a[aria-label=\"Ask on WhatsApp about Silver-Plated Cutlery (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | a[aria-label=\"Ask on WhatsApp about Serving Spoons (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44"
+  },
+  {
+    "area": "/collections/chat-and-snack-plates@390",
+    "name": "shape of the page",
+    "result": "INFO",
+    "observed": "{\"articles\":7,\"itemImgs\":4,\"chips\":8,\"toggles\":7,\"triggers\":0,\"asks\":7,\"h3\":[\"Rectangular\",\"Dessert Bowl\",\"Snack Plate\",\"Mug\",\"Blue Handle\",\"Marble\",\"Matt\",\"Bone China\"]}"
+  },
+  {
+    "area": "/collections/chat-and-snack-plates@390",
+    "name": "tab stops inside <main> (first 14)",
+    "result": "INFO",
+    "observed": "a \"All collections\" -> /collections 131x44 | button \"All\" 51x44 | button \"Matt\" 61x44 | button \"Blue\" 61x44 | button \"Marble\" 78x44 | button \"All\" 51x44 | button \"Plates\" 70x44 | button \"Bowls\" 70x44 | button \"Mugs\" 69x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Rectangular (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | button \"Add to quote\" 160x44 | a[aria-label=\"Ask on WhatsApp about Dessert Bowl (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | button \"Add to quote\" 160x44"
+  },
+  {
+    "area": "/collections/chat-and-snack-plates@390",
+    "name": "Add to quote reachable and toggles with Enter",
+    "result": "PASS",
+    "observed": "after 13 Tabs: button \"Added\" pressed=true"
+  },
+  {
+    "area": "/collections/chat-and-snack-plates@390",
+    "name": "announced",
+    "result": "PASS",
+    "observed": "\"Rectangular added to your quote list\""
+  },
+  {
+    "area": "/collections/chat-and-snack-plates@390",
+    "name": "\"Ask on WhatsApp\" link per item reachable by Tab",
+    "result": "PASS",
+    "observed": "a[aria-label=\"Ask on WhatsApp about Rectangular (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | a[aria-label=\"Ask on WhatsApp about Dessert Bowl (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44 | a[aria-label=\"Ask on WhatsApp about Snack Plate (opens in a new tab)\"] \"Ask on WhatsApp\" -> https://wa.me/919825037478?text=Hello%20Indian%20Hirers%2C%2 132x44"
+  }
+]

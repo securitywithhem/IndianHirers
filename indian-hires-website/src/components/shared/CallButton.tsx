@@ -21,6 +21,7 @@ export interface CallButtonProps {
 
 const VARIANT = {
   primary: "default",
+  gold: "gold",
   secondary: "outline",
   link: "link",
 } as const;

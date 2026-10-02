@@ -111,6 +111,7 @@ restores the ivory values for a panel nested inside a maroon band.
 |---|---|---|---|
 | `--gradient-gold` | `bg-gold-gradient` | `gold-700 → gold-500 → gold-300 → gold-500`, 135° | Decorative fills only. **Never carries type.** |
 | `--gradient-gold-sheen` | `.gold-sheen` | `gold-500 → gold-300 → gold-500`, 135° | Gold fill that carries `maroon-950` type; display text on maroon |
+| `--sheen-sweep` | `.btn-sheen` (`bg-sheen-sweep`) | 105° band of `gold-300`, 0 → 30% → 0 | Crosses a filled button on hover. Under its peak `ivory-50` on `maroon-700` is 5.58 |
 | `--glow-candle` | `.candle-glow` | radial `gold-500` at 18% → 0 | Behind a heading in a maroon band |
 | `--texture-linen` | `.surface-linen` | two `gold-700` hairline grids at 3–4% | Ivory surfaces only |
 | `--scrim-hero` | `.hero-scrim` | `maroon-950` at 62–94% | Over the hero photograph |
@@ -154,8 +155,10 @@ transparent header always starts over maroon.
 
 ## Measured contrast
 
-**Measured** = computed from the token values with `node scripts/contrast.mjs`
-(orchestrator, R1). **tbm** = estimated by hand, still to be measured with the script.
+Every row is computed from the token values (R2): `node scripts/contrast.mjs --table`
+prints the full table — it is reproduced in `Docs/UI_UX_V2.md` §3 — and `--check` exits 1
+if any required pair is under its floor (62 pairs, 0 failures). Layered surfaces are
+measured at their worst point.
 
 ### On ivory
 | Pair | Ratio | Status | Grade |
@@ -170,13 +173,13 @@ transparent header always starts over maroon.
 | gold-700 on ivory-100 | 5.39 | measured | AA body |
 | ivory-50 on maroon-700 (primary button) | 10.20 | measured | AA body |
 | ivory-50 on maroon-800 (primary button, hover) | 12.65 | measured | AA body |
-| danger on ivory-50 | ~6.7 | **tbm** | AA body expected |
-| danger on ivory-100 | ~6.1 | **tbm** | AA body expected |
-| ivory-50 on danger | ~6.7 | **tbm** | AA body expected |
+| danger on ivory-50 | 6.70 | measured | AA body |
+| danger on ivory-100 | 6.09 | measured | AA body |
+| ivory-50 on danger | 6.70 | measured | AA body |
 | control-border on ivory-50 | 4.47 | measured | UI boundary (≥ 3) |
 | control-border on ivory-100 | 4.06 | measured | UI boundary (≥ 3) |
 | gold-500 on ivory-50 | 2.21 | measured | **lines and large shapes only — never text** |
-| ivory-300 on ivory-50 | ~1.45 | **tbm** | decorative rule, no requirement |
+| ivory-300 on ivory-50 | 1.45 | measured | decorative rule, no requirement |
 
 ### On maroon
 | Pair | Ratio | Status | Grade |
@@ -184,9 +187,9 @@ transparent header always starts over maroon.
 | ivory-50 on maroon-950 | 16.51 | measured | AA body |
 | ivory-50 on maroon-800 | 12.65 | measured | AA body |
 | ivory-50 on maroon-700 | 10.20 | measured | AA body |
-| ivory-300 on maroon-950 | ~11.4 | **tbm** | AA body expected |
-| ivory-300 on maroon-800 | ~8.7 | **tbm** | AA body expected |
-| ivory-300 on maroon-700 | ~7.0 | **tbm** | AA body expected |
+| ivory-300 on maroon-950 | 11.39 | measured | AA body |
+| ivory-300 on maroon-800 | 8.73 | measured | AA body |
+| ivory-300 on maroon-700 | 7.03 | measured | AA body |
 | gold-300 on maroon-950 | 10.77 | measured | AA body |
 | gold-300 on maroon-800 | 8.26 | measured | AA body |
 | gold-300 on maroon-700 | 6.65 | measured | AA body |
@@ -200,24 +203,29 @@ transparent header always starts over maroon.
 | Pair | Ratio | Status | Note |
 |---|---|---|---|
 | espresso-900 on whatsapp | 9.30 | measured | the only type colour on WhatsApp green |
-| ivory-50 on hero-scrim, worst case (62% maroon-950 over a white pixel) | ~4.7 | **tbm** | check on the real photograph |
-| gold-300 on hero-scrim at ≥ 78% over a white pixel | ~5.4 | **tbm** | lower 40% of the hero only |
-| ivory-50 on candle-glow peak over maroon-800 | ~9.3 | **tbm** | |
-| gold-300 on candle-glow peak over maroon-800 | ~6.1 | **tbm** | |
-| gold-500 on candle-glow peak over maroon-800 | ~4.2 | **tbm** | **not allowed as text over the glow** |
-| espresso-600 on surface-linen over ivory-100 | ~6.5 | **tbm** | weave costs ≤ ~0.3 |
-| gold-700 on surface-linen over ivory-100 | ~5.1 | **tbm** | weave costs ≤ ~0.3 |
+| ivory-50 on hero-scrim, worst case (62% maroon-950 over a white pixel) | 4.70 | measured | 0.2 of headroom — never lighten the scrim |
+| gold-300 on hero-scrim at ≥ 78% over a white pixel | 5.43 | measured | lower 40% of the hero only |
+| ivory-50 on candle-glow peak over maroon-800 | 9.31 | measured | |
+| ivory-300 on candle-glow peak over maroon-800 | 6.42 | measured | |
+| gold-300 on candle-glow peak over maroon-800 | 6.07 | measured | |
+| gold-500 on candle-glow peak over maroon-800 | 4.22 | measured | **not allowed as text over the glow** (icons and lines only) |
+| espresso-600 on surface-linen over ivory-100 | 6.18 | measured | at a crossing of the weave; it costs up to 0.6 |
+| gold-700 on surface-linen over ivory-100 | 4.92 | measured | at a crossing of the weave — the thinnest text pair on ivory |
+| ivory-50 on a primary button under the sheen's peak (maroon-700 / maroon-800) | 5.58 / 6.41 | measured | `--sheen-sweep` peaks at 30% gold-300 |
+| maroon-950 on `::selection` over maroon-950 / maroon-800 / maroon-700 | 5.19 / 5.65 / 5.95 | measured | gold-300 at 65%; 12.57 over ivory-50 |
+| espresso-900 / maroon-700 on the solid header (ivory-50 at 90%) over maroon-950 | 13.66 / 8.31 | measured | worst case behind the header |
+| espresso-900 / maroon-700 on the mobile bottom bar (ivory-50 at 95%) over maroon-950 | 15.16 / 9.22 | measured | worst case behind the bar |
 
 ### Never use
 | Pair | Ratio | |
 |---|---|---|
 | ivory-50 on gold-500 | 2.21 | **fail** |
 | gold-500 as text on ivory-50 | 2.21 | **fail** |
-| gold-300 as text on ivory-50 | ~1.5 | **fail** |
-| ivory-50 or white on whatsapp | ~2 | **fail** |
-| gold-700 on maroon-950 | ~2.8 | **fail** (and any type on `bg-gold-gradient`) |
-| maroon-700 on maroon-950 | ~1.6 | **fail** |
-| danger on any maroon | ~2.5 | **fail** — forms stay on ivory |
+| gold-300 as text on ivory-50 | 1.53 | **fail** |
+| ivory-50 or white on whatsapp | 1.80 | **fail** |
+| gold-700 on maroon-950 | 2.79 | **fail** (and any type on `bg-gold-gradient`) |
+| maroon-700 on maroon-950 | 1.62 | **fail** |
+| danger on any maroon | 1.89 on maroon-800 | **fail** — forms stay on ivory |
 
 To re-measure a pair: `node scripts/contrast.mjs <fg> <bg> [<fg> <bg> …]`, for example
 `node scripts/contrast.mjs ivory-300 maroon-800 danger ivory-50`.

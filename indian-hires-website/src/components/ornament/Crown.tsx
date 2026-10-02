@@ -1,9 +1,25 @@
 import { cx } from "@/lib/cx";
 
+/** Height of the crown: `sm` 20px (dividers) · `md` 24px · `lg` 40px (placeholders) · `xl` 48px (a hero). */
+export type CrownSize = "sm" | "md" | "lg" | "xl";
+
+const SIZE_CLASS: Record<CrownSize, string> = {
+  sm: "h-5",
+  md: "h-6",
+  lg: "h-10",
+  xl: "h-12",
+};
+
 export interface CrownProps {
   /**
-   * Size and colour. Default height is `h-6` (a zero-specificity default, so
-   * any `h-*` here wins); stroke follows `currentColor`.
+   * Height on the fixed scale. Omit it and the crown is `h-6` by a
+   * zero-specificity default, so an `h-*` in `className` wins. Pass one or
+   * the other, not both: classes are joined, never merged.
+   */
+  size?: CrownSize;
+  /**
+   * Colour (the stroke follows `currentColor`), spacing, and — when `size` is
+   * not given — an `h-*` height.
    */
   className?: string;
   /**
@@ -13,6 +29,12 @@ export interface CrownProps {
   title?: string;
   /** Stroke width in viewBox units (the viewBox is 64 x 48). Default 2. */
   strokeWidth?: number;
+  /**
+   * Draw the crown once when it is first painted (band, petals, finial;
+   * 900ms). One per page: the hero. Without motion the crown is simply there.
+   * Default false.
+   */
+  animate?: boolean;
 }
 
 /**
@@ -25,7 +47,7 @@ export interface CrownProps {
  * stroke-dashoffset 1 → 0 without measuring anything. The `crown-draw` class
  * in globals.css does exactly that, once, and is inert under reduced motion.
  */
-export function Crown({ className, title, strokeWidth = 2 }: CrownProps) {
+export function Crown({ size, className, title, strokeWidth = 2, animate = false }: CrownProps) {
   const decorative = title === undefined || title.length === 0;
 
   return (
@@ -39,7 +61,12 @@ export function Crown({ className, title, strokeWidth = 2 }: CrownProps) {
       focusable="false"
       role={decorative ? undefined : "img"}
       aria-hidden={decorative ? true : undefined}
-      className={cx("inline-block aspect-[4/3] w-auto shrink-0 [:where(&)]:h-6", className)}
+      className={cx(
+        "inline-block aspect-[4/3] w-auto shrink-0",
+        size ? SIZE_CLASS[size] : "[:where(&)]:h-6",
+        animate && "crown-draw",
+        className,
+      )}
     >
       {decorative ? null : <title>{title}</title>}
 

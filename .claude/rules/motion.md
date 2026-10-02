@@ -64,6 +64,16 @@ No `ease-in` on entrances. No bounce or elastic — it reads as playful, not dig
   slide-up and the eyebrow may fade in, starting at first paint, ≤ 900ms in total. The
   lead paragraph and the hero's calls to action are painted at first paint and never
   wait on an entrance. The mobile bottom bar may slide up 1.2s after load.
+- **Button sheen (owner's brief, R2).** A filled button (`default`, `gold`) may send one
+  band of gold light across itself on hover or keyboard focus: a pseudo-element's
+  `transform`, 600ms, `ease-royal`, once per hover (`.btn-sheen`). It sits outside the
+  150–200ms hover row, which still applies to the button's colour. Absent under reduced
+  motion. The label stays ≥ 5.58:1 under the band's peak.
+- **Reduced-motion safety net (R2).** `globals.css` ends with a
+  `prefers-reduced-motion: reduce` block that cuts every animation and transition to a
+  single frame, stops loops and turns off smooth scrolling. It is a net, not the gate:
+  each animation must still be written `motion-safe:` or behind a primitive. With the net
+  in place the permitted ≤ 200ms opacity fades are instant under reduced motion.
 - **Card hover (owner's brief).** The card image zoom runs 700ms (`duration-zoom`, scale
   1.04) and the card lift 350ms; both are `motion-safe:` and outside the 150–200ms hover
   row, which still applies to colour and focus changes.

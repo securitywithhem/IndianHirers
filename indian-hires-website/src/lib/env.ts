@@ -22,6 +22,8 @@ export interface Env {
   mapEmbedUrl: string;
   /** Canonical origin, no trailing slash, e.g. https://example.com. */
   siteUrl: string;
+  /** True under `next dev` only. Gates pages that must not exist in a build (`/design-system`). */
+  isDevelopment: boolean;
 }
 
 export const env: Env = {
@@ -32,6 +34,7 @@ export const env: Env = {
   email: process.env.NEXT_PUBLIC_EMAIL || "",
   mapEmbedUrl: process.env.NEXT_PUBLIC_MAP_EMBED_URL || "",
   siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, ""),
+  isDevelopment: process.env.NODE_ENV === "development",
 };
 
 // Development only. Nothing is logged in production builds.

@@ -1,0 +1,115 @@
+contrast: 62 required pairs, 0 under their floor
+contrast: least headroom - gold-500 on maroon-700: 4.62 (floor 4.5)
+contrast: PASS
+#### On ivory (default scope and `.theme-light`)
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `espresso-900` | `ivory-50` | 16.76 | 4.5 | pass (4.5:1) | all text [`foreground`] |
+| `espresso-900` | `ivory-100` | 15.23 | 4.5 | pass (4.5:1) | all text |
+| `espresso-600` | `ivory-50` | 7.45 | 4.5 | pass (4.5:1) | secondary text, captions, placeholders, tags [`muted-foreground`] |
+| `espresso-600` | `ivory-100` | 6.77 | 4.5 | pass (4.5:1) | secondary text, captions |
+| `maroon-700` | `ivory-50` | 10.20 | 4.5 | pass (4.5:1) | headings, links, outline-button label [`heading`, `link`, `primary`] |
+| `maroon-700` | `ivory-100` | 9.27 | 4.5 | pass (4.5:1) | headings, links; secondary-button label |
+| `gold-700` | `ivory-50` | 5.93 | 4.5 | pass (4.5:1) | eyebrows, small gold labels [`kicker`] |
+| `gold-700` | `ivory-100` | 5.39 | 4.5 | pass (4.5:1) | eyebrows, small gold labels |
+| `danger` | `ivory-50` | 6.70 | 4.5 | pass (4.5:1) | form error text [`destructive`] |
+| `danger` | `ivory-100` | 6.09 | 4.5 | pass (4.5:1) | form error text |
+
+#### On maroon (inside `.theme-dark`)
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `maroon-950` | 16.51 | 4.5 | pass (4.5:1) | all text [`foreground`, `heading`] |
+| `ivory-50` | `maroon-800` | 12.65 | 4.5 | pass (4.5:1) | all text |
+| `ivory-50` | `maroon-700` | 10.20 | 4.5 | pass (4.5:1) | all text; card text |
+| `ivory-300` | `maroon-950` | 11.39 | 4.5 | pass (4.5:1) | secondary text [`muted-foreground`] |
+| `ivory-300` | `maroon-800` | 8.73 | 4.5 | pass (4.5:1) | secondary text |
+| `ivory-300` | `maroon-700` | 7.03 | 4.5 | pass (4.5:1) | secondary text on a card |
+| `gold-300` | `maroon-950` | 10.77 | 4.5 | pass (4.5:1) | eyebrows, links, gold text [`kicker`, `link`] |
+| `gold-300` | `maroon-800` | 8.26 | 4.5 | pass (4.5:1) | eyebrows, links, outline-button label |
+| `gold-300` | `maroon-700` | 6.65 | 4.5 | pass (4.5:1) | eyebrows, links on a card |
+| `gold-500` | `maroon-950` | 7.48 | 4.5 | pass (4.5:1) | gold text and icons [`primary`] |
+| `gold-500` | `maroon-800` | 5.74 | 4.5 | pass (4.5:1) | gold text and icons |
+| `gold-500` | `maroon-700` | 4.62 | 4.5 | pass (4.5:1) | text >= 16px only - little headroom; prefer `gold-300` |
+
+#### Fills: buttons, chips, selection
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `maroon-700` | 10.20 | 4.5 | pass (4.5:1) | primary button and selected chip, on ivory |
+| `ivory-50` | `maroon-800` | 12.65 | 4.5 | pass (4.5:1) | primary button, hover |
+| `ivory-50` | `maroon-700+gold-300/30` | 5.58 | 4.5 | pass (4.5:1) | primary button under the sheen's peak, as hover begins |
+| `ivory-50` | `maroon-800+gold-300/30` | 6.41 | 4.5 | pass (4.5:1) | primary button under the sheen's peak, hover |
+| `maroon-950` | `gold-500` | 7.48 | 4.5 | pass (4.5:1) | gold button; primary button and selected chip in `.theme-dark`; darkest point of `gold-sheen` |
+| `maroon-950` | `gold-300` | 10.77 | 4.5 | pass (4.5:1) | gold button hover; lightest point of `gold-sheen` |
+| `ivory-50` | `danger` | 6.70 | 4.5 | pass (4.5:1) | destructive button, hover |
+| `espresso-900` | `whatsapp` | 9.30 | 4.5 | pass (4.5:1) | the only type or icon colour on WhatsApp green |
+| `maroon-950` | `ivory-50+gold-300/65` | 12.57 | 4.5 | pass (4.5:1) | selected text on ivory (`::selection`) |
+| `maroon-950` | `ivory-100+gold-300/65` | 12.13 | 4.5 | pass (4.5:1) | selected text on alternate ivory |
+| `maroon-950` | `maroon-950+gold-300/65` | 5.19 | 4.5 | pass (4.5:1) | selected text on the deepest maroon |
+| `maroon-950` | `maroon-800+gold-300/65` | 5.65 | 4.5 | pass (4.5:1) | selected text on maroon |
+| `maroon-950` | `maroon-700+gold-300/65` | 5.95 | 4.5 | pass (4.5:1) | selected text on a maroon card |
+
+#### Special surfaces: scrim, glow, linen, translucent bars
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `ivory-50` | `white+maroon-950/62` | 4.70 | 4.5 | pass (4.5:1) | text on `hero-scrim` at its lightest, over a white pixel |
+| `gold-300` | `white+maroon-950/78` | 5.43 | 4.5 | pass (4.5:1) | gold text on `hero-scrim`, lower 40% only, over a white pixel |
+| `ivory-50` | `maroon-800+gold-500/18` | 9.31 | 4.5 | pass (4.5:1) | heading at the peak of `candle-glow` |
+| `ivory-300` | `maroon-800+gold-500/18` | 6.42 | 4.5 | pass (4.5:1) | lead at the peak of `candle-glow` |
+| `gold-300` | `maroon-800+gold-500/18` | 6.07 | 4.5 | pass (4.5:1) | eyebrow, outline-button label at the peak of `candle-glow` |
+| `ivory-50` | `maroon-950+gold-500/18` | 12.08 | 4.5 | pass (4.5:1) | heading over the glow in the hero band |
+| `ivory-300` | `maroon-950+gold-500/18` | 8.33 | 4.5 | pass (4.5:1) | lead over the glow in the hero band |
+| `gold-300` | `maroon-950+gold-500/18` | 7.88 | 4.5 | pass (4.5:1) | eyebrow over the glow in the hero band |
+| `espresso-900` | `ivory-100+gold-700/4+gold-700/3` | 13.91 | 4.5 | pass (4.5:1) | text on `surface-linen`, darkest crossing |
+| `espresso-600` | `ivory-100+gold-700/4+gold-700/3` | 6.18 | 4.5 | pass (4.5:1) | secondary text on `surface-linen` |
+| `maroon-700` | `ivory-100+gold-700/4+gold-700/3` | 8.46 | 4.5 | pass (4.5:1) | headings on `surface-linen` |
+| `gold-700` | `ivory-100+gold-700/4+gold-700/3` | 4.92 | 4.5 | pass (4.5:1) | eyebrows on `surface-linen` |
+| `espresso-900` | `maroon-950+ivory-50/90` | 13.66 | 4.5 | pass (4.5:1) | solid header (ivory at 90%) over the darkest band |
+| `maroon-700` | `maroon-950+ivory-50/90` | 8.31 | 4.5 | pass (4.5:1) | solid header: links, current-page text |
+| `espresso-900` | `maroon-950+ivory-50/95` | 15.16 | 4.5 | pass (4.5:1) | mobile bottom bar (ivory at 95%) over the darkest band |
+
+#### Non-text: boundaries, icons, focus rings (floor 3:1)
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `control-border` | `ivory-50` | 4.47 | 3 | pass (3:1) | input, textarea, chip boundary [`input`] |
+| `control-border` | `ivory-100` | 4.06 | 3 | pass (3:1) | input, chip boundary on alternate ivory |
+| `maroon-700` | `ivory-50` | 10.20 | 3 | pass (3:1) | focus ring, outline-button border [`ring`, `primary`] |
+| `maroon-700` | `ivory-100` | 9.27 | 3 | pass (3:1) | focus ring on alternate ivory |
+| `danger` | `ivory-50` | 6.70 | 3 | pass (3:1) | invalid-field border |
+| `gold-300` | `maroon-950` | 10.77 | 3 | pass (3:1) | focus ring inside `.theme-dark` [`ring`] |
+| `gold-300` | `maroon-800` | 8.26 | 3 | pass (3:1) | focus ring inside `.theme-dark` |
+| `gold-300` | `maroon-700` | 6.65 | 3 | pass (3:1) | focus ring on a maroon card |
+| `gold-500` | `maroon-950` | 7.48 | 3 | pass (3:1) | outline-button border, input boundary in `.theme-dark` [`primary`, `input`] |
+| `gold-500` | `maroon-800` | 5.74 | 3 | pass (3:1) | outline-button border, input boundary |
+| `gold-500` | `maroon-700` | 4.62 | 3 | pass (3:1) | outline-button border, input boundary on a card |
+| `maroon-700` | `maroon-950+ivory-50/95` | 9.22 | 3 | pass (3:1) | mobile bottom bar icons |
+
+#### Decorative: no requirement applies
+
+| Foreground | Background | Ratio | Floor | Result | Use |
+|---|---|---|---|---|---|
+| `gold-500` | `ivory-50` | 2.21 | - | decorative | hairlines, rules, the crown - never text, never a control boundary |
+| `gold-500/40` | `ivory-50` | 1.34 | - | decorative | card and header hairline (`border-hairline/40`) |
+| `ivory-300` | `ivory-50` | 1.45 | - | decorative | quiet structural rule [`border`] |
+| `maroon-700` | `maroon-800` | 1.24 | - | decorative | structural rule inside `.theme-dark` [`border`] |
+
+#### Forbidden: these fail and are never written
+
+| Foreground | Background | Ratio | Why it is listed |
+|---|---|---|---|
+| `gold-500` | `ivory-50` | 2.21 | gold as text on ivory - use `gold-700` |
+| `gold-300` | `ivory-50` | 1.53 | gold as text on ivory |
+| `ivory-50` | `gold-500` | 2.21 | light type on a gold fill - use `maroon-950` |
+| `ivory-50` | `gold-300` | 1.53 | light type on a gold fill |
+| `ivory-50` | `whatsapp` | 1.80 | light type on WhatsApp green - use `espresso-900` |
+| `maroon-950` | `gold-700` | 2.79 | type on `bg-gold-gradient` (its dark end) - use `gold-sheen` |
+| `gold-700` | `maroon-950` | 2.79 | `gold-700` on maroon |
+| `maroon-700` | `maroon-950` | 1.62 | maroon as text on maroon |
+| `espresso-600` | `maroon-800` | 1.70 | espresso as text on maroon |
+| `danger` | `maroon-800` | 1.89 | error red on maroon - forms stay on ivory |
+| `gold-500` | `maroon-800+gold-500/18` | 4.22 | `gold-500` text over the candle glow - use `gold-300` |
+| `gold-500` | `maroon-700+gold-500/18` | 3.54 | `gold-500` text over a glow on a card |

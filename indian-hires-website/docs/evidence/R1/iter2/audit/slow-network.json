@@ -1,0 +1,2167 @@
+{
+  "slow-3g:/": {
+    "profile": {
+      "label": "DevTools 'Slow 3G' preset",
+      "downloadThroughput": 50000,
+      "uploadThroughput": 50000,
+      "latency": 2000,
+      "cpuThrottle": 4,
+      "viewport": "390x844 @3x, mobile"
+    },
+    "route": "/",
+    "ttfbMs": 5,
+    "fcpMs": 5068,
+    "lcpMs": 5068,
+    "lcpElement": {
+      "t": 5068,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure-tight text-muted-foreground",
+      "text": "Bone china, melamine, glassware and chafing dishes on hire f",
+      "renderTime": 5068,
+      "loadTime": 0
+    },
+    "lcpCandidates": 1,
+    "cls": 0.0007,
+    "shifts": [
+      {
+        "t": 5804.799999998882,
+        "v": 0.0005813483870187448,
+        "nodes": [
+          "#text.",
+          "#text."
+        ]
+      },
+      {
+        "t": 5951.5,
+        "v": 0.00007508993343101124,
+        "nodes": [
+          "P.motion-safe:animate-enter-fade type-eyebrow text-k",
+          "svg.[object SVGAnimatedString]"
+        ]
+      }
+    ],
+    "domContentLoadedMs": 5067,
+    "loadMs": 11074,
+    "fonts": [
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "start": 2065,
+        "end": 5788,
+        "bytes": 23684
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "start": 2065,
+        "end": 5939,
+        "bytes": 26888
+      }
+    ],
+    "firstFontArrivesMs": 5788,
+    "lastFontArrivesMs": 5939,
+    "atFcp": {
+      "takenAtMs": 5188,
+      "fontsStatus": "loading",
+      "facesLoaded": 2,
+      "faceCount": 16,
+      "h1Visible": "visible/1",
+      "h1Rect": [
+        220,
+        126
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=3840&q=75",
+          "loaded": false,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+          "loaded": false,
+          "rect": [
+            57,
+            707,
+            276,
+            346
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 488px, (min-width: 1024px) 38vw, (min-width: 540px) 384px, 72vw"
+        }
+      ]
+    },
+    "fontDisplay": [
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=unloaded",
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=loaded",
+      "__Cormorant_Garamond_Fallback_682e08 normal normal: display=auto status=loaded",
+      "__Jost_3221f3 400 normal: display=swap status=unloaded",
+      "__Jost_3221f3 400 normal: display=swap status=loaded",
+      "__Jost_3221f3 500 normal: display=swap status=unloaded",
+      "__Jost_3221f3 500 normal: display=swap status=loaded",
+      "__Jost_3221f3 600 normal: display=swap status=unloaded",
+      "__Jost_3221f3 600 normal: display=swap status=loaded",
+      "__Jost_Fallback_3221f3 normal normal: display=auto status=loaded"
+    ],
+    "atEnd": {
+      "h1Rect": [
+        220,
+        126
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+          "loaded": true,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+          "loaded": true,
+          "rect": [
+            46,
+            694,
+            297,
+            372
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 488px, (min-width: 1024px) 38vw, (min-width: 540px) 384px, 72vw"
+        }
+      ],
+      "h1Font": "__Cormorant_Garamond_682e08, __Cormorant_Garamond_Fallback_682e08, Georgia, \"Tim",
+      "bodyFont": "__Jost_3221f3, __Jost_Fallback_3221f3, system-ui, -apple-system, \"Segoe UI\", Rob"
+    },
+    "requests": 33,
+    "finished": 33,
+    "failed": [],
+    "transferredBytes": 574369,
+    "byType": {
+      "Document": {
+        "n": 1,
+        "bytes": 17267
+      },
+      "Font": {
+        "n": 2,
+        "bytes": 50572
+      },
+      "Image": {
+        "n": 12,
+        "bytes": 343738
+      },
+      "Stylesheet": {
+        "n": 2,
+        "bytes": 13642
+      },
+      "Script": {
+        "n": 14,
+        "bytes": 132427
+      },
+      "Fetch": {
+        "n": 2,
+        "bytes": 16723
+      }
+    },
+    "largest": [
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+        "type": "Image",
+        "bytes": 158389,
+        "start": 2065,
+        "end": 10977
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 5059,
+        "end": 15058
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 2066,
+        "end": 9777
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50716,
+        "start": 5059,
+        "end": 15659
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38557,
+        "start": 5059,
+        "end": 14967
+      }
+    ],
+    "all": [
+      {
+        "url": "/",
+        "type": "Document",
+        "bytes": 17267,
+        "start": 0,
+        "end": 2365,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "type": "Font",
+        "bytes": 23684,
+        "start": 2065,
+        "end": 5788,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "type": "Font",
+        "bytes": 26888,
+        "start": 2065,
+        "end": 5939,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+        "type": "Image",
+        "bytes": 158389,
+        "start": 2065,
+        "end": 10977,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/css/17d2a1057ed442d2.css",
+        "type": "Stylesheet",
+        "bytes": 4242,
+        "start": 2065,
+        "end": 4439,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/css/d0d4eab1edb07bbf.css",
+        "type": "Stylesheet",
+        "bytes": 9400,
+        "start": 2066,
+        "end": 5006,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/chunks/webpack-747fae5f71391061.js",
+        "type": "Script",
+        "bytes": 2434,
+        "start": 2066,
+        "end": 4674,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 2066,
+        "end": 9777,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/117-b39b440fd78c9c44.js",
+        "type": "Script",
+        "bytes": 32256,
+        "start": 2066,
+        "end": 8998,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/main-app-1c137f0a5b5d061c.js",
+        "type": "Script",
+        "bytes": 808,
+        "start": 2066,
+        "end": 7107,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/972-113b6a50c0c2f3e8.js",
+        "type": "Script",
+        "bytes": 9107,
+        "start": 2066,
+        "end": 8848,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/878-08b6f7f436312b46.js",
+        "type": "Script",
+        "bytes": 5555,
+        "start": 2066,
+        "end": 9448,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/749-4835140c1bee2e74.js",
+        "type": "Script",
+        "bytes": 3689,
+        "start": 2066,
+        "end": 10464,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/page-82859a820f8621b2.js",
+        "type": "Script",
+        "bytes": 883,
+        "start": 2066,
+        "end": 10889,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/layout-bd63f97e258c71f4.js",
+        "type": "Script",
+        "bytes": 4199,
+        "start": 2066,
+        "end": 11064,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5030,
+        "end": 5030,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5033,
+        "end": 5033,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5036,
+        "end": 5036,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5037,
+        "end": 5037,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5038,
+        "end": 5038,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5038,
+        "end": 5038,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+        "type": "Image",
+        "bytes": 5627,
+        "start": 5059,
+        "end": 8308,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 27473,
+        "start": 5059,
+        "end": 12206,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 5059,
+        "end": 15058,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38557,
+        "start": 5059,
+        "end": 14967,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50716,
+        "start": 5059,
+        "end": 15659,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/438.5ea092c0725e7c5b.js",
+        "type": "Script",
+        "bytes": 9751,
+        "start": 11091,
+        "end": 13947,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/513.2722c483d54e1389.js",
+        "type": "Script",
+        "bytes": 1162,
+        "start": 11091,
+        "end": 13198,
+        "priority": "Low"
+      },
+      {
+        "url": "/collections?_rsc=19zvn",
+        "type": "Fetch",
+        "bytes": 9865,
+        "start": 11102,
+        "end": 15026,
+        "priority": "High"
+      },
+      {
+        "url": "/contact?_rsc=19zvn",
+        "type": "Fetch",
+        "bytes": 6858,
+        "start": 11103,
+        "end": 15475,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/page-b7ca0cb3dd812d1d.js",
+        "type": "Script",
+        "bytes": 3421,
+        "start": 14429,
+        "end": 16497,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/layout-35f858ef6a47e3ae.js",
+        "type": "Script",
+        "bytes": 3370,
+        "start": 14429,
+        "end": 17038,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/contact/page-48485ce3981be349.js",
+        "type": "Script",
+        "bytes": 1613,
+        "start": 15298,
+        "end": 17334,
+        "priority": "Low"
+      }
+    ]
+  },
+  "slow-3g:/collections/bone-china": {
+    "profile": {
+      "label": "DevTools 'Slow 3G' preset",
+      "downloadThroughput": 50000,
+      "uploadThroughput": 50000,
+      "latency": 2000,
+      "cpuThrottle": 4,
+      "viewport": "390x844 @3x, mobile"
+    },
+    "route": "/collections/bone-china",
+    "ttfbMs": 5,
+    "fcpMs": 5092,
+    "lcpMs": 5116,
+    "lcpElement": {
+      "t": 5116,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-s",
+      "text": "",
+      "renderTime": 5116,
+      "loadTime": 5095.299999998882
+    },
+    "lcpCandidates": 2,
+    "cls": 0.0006,
+    "shifts": [
+      {
+        "t": 6286.0999999996275,
+        "v": 0.0006215042785916642,
+        "nodes": [
+          "DIV.flex flex-col [:where(&)]:gap-4 items-center text-"
+        ]
+      }
+    ],
+    "domContentLoadedMs": 5095,
+    "loadMs": 12245,
+    "fonts": [
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "start": 2040,
+        "end": 6061,
+        "bytes": 23684
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "start": 2040,
+        "end": 6270,
+        "bytes": 26888
+      }
+    ],
+    "firstFontArrivesMs": 6061,
+    "lastFontArrivesMs": 6270,
+    "atFcp": {
+      "takenAtMs": 5193,
+      "fontsStatus": "loading",
+      "facesLoaded": 2,
+      "faceCount": 16,
+      "h1Visible": "visible/1",
+      "h1Rect": [
+        220,
+        42
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=3840&q=75",
+          "loaded": false,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+          "loaded": false,
+          "rect": [
+            21,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+          "loaded": false,
+          "rect": [
+            204,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        }
+      ]
+    },
+    "fontDisplay": [
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=unloaded",
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=loaded",
+      "__Cormorant_Garamond_Fallback_682e08 normal normal: display=auto status=loaded",
+      "__Jost_3221f3 400 normal: display=swap status=unloaded",
+      "__Jost_3221f3 400 normal: display=swap status=loaded",
+      "__Jost_3221f3 500 normal: display=swap status=unloaded",
+      "__Jost_3221f3 500 normal: display=swap status=loaded",
+      "__Jost_3221f3 600 normal: display=swap status=unloaded",
+      "__Jost_3221f3 600 normal: display=swap status=loaded",
+      "__Jost_Fallback_3221f3 normal normal: display=auto status=loaded"
+    ],
+    "atEnd": {
+      "h1Rect": [
+        220,
+        42
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+          "loaded": true,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+          "loaded": true,
+          "rect": [
+            21,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+          "loaded": true,
+          "rect": [
+            204,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        }
+      ],
+      "h1Font": "__Cormorant_Garamond_682e08, __Cormorant_Garamond_Fallback_682e08, Georgia, \"Tim",
+      "bodyFont": "__Jost_3221f3, __Jost_Fallback_3221f3, system-ui, -apple-system, \"Segoe UI\", Rob"
+    },
+    "requests": 46,
+    "finished": 46,
+    "failed": [],
+    "transferredBytes": 703285,
+    "byType": {
+      "Document": {
+        "n": 1,
+        "bytes": 24388
+      },
+      "Font": {
+        "n": 2,
+        "bytes": 50572
+      },
+      "Image": {
+        "n": 18,
+        "bytes": 396048
+      },
+      "Stylesheet": {
+        "n": 2,
+        "bytes": 13642
+      },
+      "Script": {
+        "n": 20,
+        "bytes": 193224
+      },
+      "Fetch": {
+        "n": 3,
+        "bytes": 25411
+      }
+    },
+    "largest": [
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 76542,
+        "start": 2041,
+        "end": 9720
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 70056,
+        "start": 2040,
+        "end": 8937
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 5088,
+        "end": 17759
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 2041,
+        "end": 10290
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 5088,
+        "end": 18059
+      }
+    ],
+    "all": [
+      {
+        "url": "/collections/bone-china",
+        "type": "Document",
+        "bytes": 24388,
+        "start": 0,
+        "end": 2491,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "type": "Font",
+        "bytes": 23684,
+        "start": 2040,
+        "end": 6061,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "type": "Font",
+        "bytes": 26888,
+        "start": 2040,
+        "end": 6270,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 70056,
+        "start": 2040,
+        "end": 8937,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 76542,
+        "start": 2041,
+        "end": 9720,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/css/17d2a1057ed442d2.css",
+        "type": "Stylesheet",
+        "bytes": 4242,
+        "start": 2041,
+        "end": 4439,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/css/d0d4eab1edb07bbf.css",
+        "type": "Stylesheet",
+        "bytes": 9400,
+        "start": 2041,
+        "end": 5039,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/chunks/webpack-747fae5f71391061.js",
+        "type": "Script",
+        "bytes": 2434,
+        "start": 2041,
+        "end": 6598,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 2041,
+        "end": 10290,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/117-b39b440fd78c9c44.js",
+        "type": "Script",
+        "bytes": 32256,
+        "start": 2041,
+        "end": 10170,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/main-app-1c137f0a5b5d061c.js",
+        "type": "Script",
+        "bytes": 808,
+        "start": 2041,
+        "end": 8760,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/972-113b6a50c0c2f3e8.js",
+        "type": "Script",
+        "bytes": 9107,
+        "start": 2041,
+        "end": 11039,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/878-08b6f7f436312b46.js",
+        "type": "Script",
+        "bytes": 5555,
+        "start": 2041,
+        "end": 11129,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/749-4835140c1bee2e74.js",
+        "type": "Script",
+        "bytes": 3689,
+        "start": 2041,
+        "end": 11156,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/%5Bslug%5D/page-30156a9fd10301b3.js",
+        "type": "Script",
+        "bytes": 4338,
+        "start": 2041,
+        "end": 11789,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/layout-bd63f97e258c71f4.js",
+        "type": "Script",
+        "bytes": 4199,
+        "start": 2041,
+        "end": 12238,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5062,
+        "end": 5062,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5063,
+        "end": 5063,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5064,
+        "end": 5064,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5064,
+        "end": 5064,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5065,
+        "end": 5065,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5067,
+        "end": 5067,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5067,
+        "end": 5067,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5068,
+        "end": 5068,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 5069,
+        "end": 5069,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+        "type": "Image",
+        "bytes": 5625,
+        "start": 5087,
+        "end": 8879,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fclassic-white.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 14579,
+        "start": 5088,
+        "end": 12570,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fhaldi-ivory.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 36139,
+        "start": 5088,
+        "end": 15841,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fspiral-motif.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 40862,
+        "start": 5088,
+        "end": 16679,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 5088,
+        "end": 17759,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38555,
+        "start": 5088,
+        "end": 17220,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 5088,
+        "end": 18059,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/950.737476a44eac026c.js",
+        "type": "Script",
+        "bytes": 19048,
+        "start": 12261,
+        "end": 19047,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/599.e989a27d7bcf331e.js",
+        "type": "Script",
+        "bytes": 5881,
+        "start": 12262,
+        "end": 19320,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/438.5ea092c0725e7c5b.js",
+        "type": "Script",
+        "bytes": 9751,
+        "start": 12272,
+        "end": 19950,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/513.2722c483d54e1389.js",
+        "type": "Script",
+        "bytes": 1162,
+        "start": 12273,
+        "end": 20066,
+        "priority": "Low"
+      },
+      {
+        "url": "/?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 8688,
+        "start": 12278,
+        "end": 15629,
+        "priority": "High"
+      },
+      {
+        "url": "/collections?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 9865,
+        "start": 12279,
+        "end": 18179,
+        "priority": "High"
+      },
+      {
+        "url": "/contact?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 6858,
+        "start": 12279,
+        "end": 18206,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/chunks/app/page-82859a820f8621b2.js",
+        "type": "Script",
+        "bytes": 883,
+        "start": 14908,
+        "end": 20187,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/page-b7ca0cb3dd812d1d.js",
+        "type": "Script",
+        "bytes": 3421,
+        "start": 17790,
+        "end": 20279,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/layout-35f858ef6a47e3ae.js",
+        "type": "Script",
+        "bytes": 3370,
+        "start": 17790,
+        "end": 21120,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/contact/page-48485ce3981be349.js",
+        "type": "Script",
+        "bytes": 1613,
+        "start": 18001,
+        "end": 21361,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/727.1320be9d40bf2ca4.js",
+        "type": "Script",
+        "bytes": 16479,
+        "start": 19348,
+        "end": 22470,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/535.c6aa0de4df5d086e.js",
+        "type": "Script",
+        "bytes": 14569,
+        "start": 19348,
+        "end": 22588,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/423.1bbd3723f7c44f6b.js",
+        "type": "Script",
+        "bytes": 482,
+        "start": 19350,
+        "end": 22257,
+        "priority": "Low"
+      }
+    ]
+  },
+  "fast-3g:/": {
+    "profile": {
+      "label": "DevTools 'Fast 3G' preset (regular-3G class)",
+      "downloadThroughput": 180000,
+      "uploadThroughput": 84375,
+      "latency": 562.5,
+      "cpuThrottle": 4,
+      "viewport": "390x844 @3x, mobile"
+    },
+    "route": "/",
+    "ttfbMs": 4,
+    "fcpMs": 1524,
+    "lcpMs": 1524,
+    "lcpElement": {
+      "t": 1524,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure-tight text-muted-foreground",
+      "text": "Bone china, melamine, glassware and chafing dishes on hire f",
+      "renderTime": 1524,
+      "loadTime": 0
+    },
+    "lcpCandidates": 1,
+    "cls": 0,
+    "shifts": [],
+    "domContentLoadedMs": 1426,
+    "loadMs": 3121,
+    "fonts": [
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "start": 581,
+        "end": 1630,
+        "bytes": 23684
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "start": 582,
+        "end": 1670,
+        "bytes": 26888
+      }
+    ],
+    "firstFontArrivesMs": 1630,
+    "lastFontArrivesMs": 1670,
+    "atFcp": {
+      "takenAtMs": 1591,
+      "fontsStatus": "loading",
+      "facesLoaded": 2,
+      "faceCount": 16,
+      "h1Visible": "visible/1",
+      "h1Rect": [
+        220,
+        126
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=3840&q=75",
+          "loaded": false,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+          "loaded": false,
+          "rect": [
+            57,
+            707,
+            276,
+            346
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 488px, (min-width: 1024px) 38vw, (min-width: 540px) 384px, 72vw"
+        }
+      ]
+    },
+    "fontDisplay": [
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=unloaded",
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=loaded",
+      "__Cormorant_Garamond_Fallback_682e08 normal normal: display=auto status=loaded",
+      "__Jost_3221f3 400 normal: display=swap status=unloaded",
+      "__Jost_3221f3 400 normal: display=swap status=loaded",
+      "__Jost_3221f3 500 normal: display=swap status=unloaded",
+      "__Jost_3221f3 500 normal: display=swap status=loaded",
+      "__Jost_3221f3 600 normal: display=swap status=unloaded",
+      "__Jost_3221f3 600 normal: display=swap status=loaded",
+      "__Jost_Fallback_3221f3 normal normal: display=auto status=loaded"
+    ],
+    "atEnd": {
+      "h1Rect": [
+        220,
+        126
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+          "loaded": true,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+          "loaded": true,
+          "rect": [
+            55,
+            705,
+            280,
+            351
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 488px, (min-width: 1024px) 38vw, (min-width: 540px) 384px, 72vw"
+        }
+      ],
+      "h1Font": "__Cormorant_Garamond_682e08, __Cormorant_Garamond_Fallback_682e08, Georgia, \"Tim",
+      "bodyFont": "__Jost_3221f3, __Jost_Fallback_3221f3, system-ui, -apple-system, \"Segoe UI\", Rob"
+    },
+    "requests": 33,
+    "finished": 33,
+    "failed": [],
+    "transferredBytes": 574361,
+    "byType": {
+      "Document": {
+        "n": 1,
+        "bytes": 17267
+      },
+      "Font": {
+        "n": 2,
+        "bytes": 50572
+      },
+      "Image": {
+        "n": 12,
+        "bytes": 343730
+      },
+      "Stylesheet": {
+        "n": 2,
+        "bytes": 13642
+      },
+      "Script": {
+        "n": 14,
+        "bytes": 132427
+      },
+      "Fetch": {
+        "n": 2,
+        "bytes": 16723
+      }
+    },
+    "largest": [
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+        "type": "Image",
+        "bytes": 158387,
+        "start": 582,
+        "end": 3072
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62978,
+        "start": 1515,
+        "end": 4171
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 582,
+        "end": 2738
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 1515,
+        "end": 4413
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38555,
+        "start": 1515,
+        "end": 4288
+      }
+    ],
+    "all": [
+      {
+        "url": "/",
+        "type": "Document",
+        "bytes": 17267,
+        "start": 0,
+        "end": 663,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "type": "Font",
+        "bytes": 23684,
+        "start": 581,
+        "end": 1630,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "type": "Font",
+        "bytes": 26888,
+        "start": 582,
+        "end": 1670,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=1080&q=75",
+        "type": "Image",
+        "bytes": 158387,
+        "start": 582,
+        "end": 3072,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/css/17d2a1057ed442d2.css",
+        "type": "Stylesheet",
+        "bytes": 4242,
+        "start": 582,
+        "end": 1247,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/css/d0d4eab1edb07bbf.css",
+        "type": "Stylesheet",
+        "bytes": 9400,
+        "start": 582,
+        "end": 1422,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/chunks/webpack-747fae5f71391061.js",
+        "type": "Script",
+        "bytes": 2434,
+        "start": 582,
+        "end": 1313,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 582,
+        "end": 2738,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/117-b39b440fd78c9c44.js",
+        "type": "Script",
+        "bytes": 32256,
+        "start": 582,
+        "end": 2521,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/main-app-1c137f0a5b5d061c.js",
+        "type": "Script",
+        "bytes": 808,
+        "start": 582,
+        "end": 2013,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/972-113b6a50c0c2f3e8.js",
+        "type": "Script",
+        "bytes": 9107,
+        "start": 582,
+        "end": 2455,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/878-08b6f7f436312b46.js",
+        "type": "Script",
+        "bytes": 5555,
+        "start": 582,
+        "end": 2672,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/749-4835140c1bee2e74.js",
+        "type": "Script",
+        "bytes": 3689,
+        "start": 582,
+        "end": 3003,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/page-82859a820f8621b2.js",
+        "type": "Script",
+        "bytes": 883,
+        "start": 582,
+        "end": 3030,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/layout-bd63f97e258c71f4.js",
+        "type": "Script",
+        "bytes": 4199,
+        "start": 582,
+        "end": 3112,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1443,
+        "end": 1443,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1445,
+        "end": 1445,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1447,
+        "end": 1447,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1448,
+        "end": 1448,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1449,
+        "end": 1449,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1450,
+        "end": 1450,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+        "type": "Image",
+        "bytes": 5625,
+        "start": 1515,
+        "end": 2397,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fcover.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 27471,
+        "start": 1515,
+        "end": 3488,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62978,
+        "start": 1515,
+        "end": 4171,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38555,
+        "start": 1515,
+        "end": 4288,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 1515,
+        "end": 4413,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/438.5ea092c0725e7c5b.js",
+        "type": "Script",
+        "bytes": 9751,
+        "start": 3140,
+        "end": 3938,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/513.2722c483d54e1389.js",
+        "type": "Script",
+        "bytes": 1162,
+        "start": 3141,
+        "end": 3729,
+        "priority": "Low"
+      },
+      {
+        "url": "/collections?_rsc=19zvn",
+        "type": "Fetch",
+        "bytes": 9865,
+        "start": 3152,
+        "end": 4255,
+        "priority": "High"
+      },
+      {
+        "url": "/contact?_rsc=19zvn",
+        "type": "Fetch",
+        "bytes": 6858,
+        "start": 3152,
+        "end": 4370,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/page-b7ca0cb3dd812d1d.js",
+        "type": "Script",
+        "bytes": 3421,
+        "start": 4114,
+        "end": 4705,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/layout-35f858ef6a47e3ae.js",
+        "type": "Script",
+        "bytes": 3370,
+        "start": 4114,
+        "end": 4763,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/contact/page-48485ce3981be349.js",
+        "type": "Script",
+        "bytes": 1613,
+        "start": 4323,
+        "end": 4904,
+        "priority": "Low"
+      }
+    ]
+  },
+  "fast-3g:/collections/bone-china": {
+    "profile": {
+      "label": "DevTools 'Fast 3G' preset (regular-3G class)",
+      "downloadThroughput": 180000,
+      "uploadThroughput": 84375,
+      "latency": 562.5,
+      "cpuThrottle": 4,
+      "viewport": "390x844 @3x, mobile"
+    },
+    "route": "/collections/bone-china",
+    "ttfbMs": 5,
+    "fcpMs": 1524,
+    "lcpMs": 1524,
+    "lcpElement": {
+      "t": 1524,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-s",
+      "text": "",
+      "renderTime": 1524,
+      "loadTime": 1479.8999999985099
+    },
+    "lcpCandidates": 1,
+    "cls": 0,
+    "shifts": [],
+    "domContentLoadedMs": 1442,
+    "loadMs": 3454,
+    "fonts": [
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "start": 582,
+        "end": 1731,
+        "bytes": 23684
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "start": 582,
+        "end": 1780,
+        "bytes": 26888
+      }
+    ],
+    "firstFontArrivesMs": 1731,
+    "lastFontArrivesMs": 1780,
+    "atFcp": {
+      "takenAtMs": 1588,
+      "fontsStatus": "loading",
+      "facesLoaded": 2,
+      "faceCount": 16,
+      "h1Visible": "visible/1",
+      "h1Rect": [
+        220,
+        42
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=3840&q=75",
+          "loaded": false,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+          "loaded": false,
+          "rect": [
+            21,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+          "loaded": false,
+          "rect": [
+            204,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": true,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        }
+      ]
+    },
+    "fontDisplay": [
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=unloaded",
+      "__Cormorant_Garamond_682e08 600 normal: display=swap status=loaded",
+      "__Cormorant_Garamond_Fallback_682e08 normal normal: display=auto status=loaded",
+      "__Jost_3221f3 400 normal: display=swap status=unloaded",
+      "__Jost_3221f3 400 normal: display=swap status=loaded",
+      "__Jost_3221f3 500 normal: display=swap status=unloaded",
+      "__Jost_3221f3 500 normal: display=swap status=loaded",
+      "__Jost_3221f3 600 normal: display=swap status=unloaded",
+      "__Jost_3221f3 600 normal: display=swap status=loaded",
+      "__Jost_Fallback_3221f3 normal normal: display=auto status=loaded"
+    ],
+    "atEnd": {
+      "h1Rect": [
+        220,
+        42
+      ],
+      "imgs": [
+        {
+          "src": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+          "loaded": true,
+          "rect": [
+            20,
+            12,
+            48,
+            48
+          ],
+          "blurPlaceholder": false,
+          "loading": "lazy",
+          "fetchpriority": null,
+          "sizes": "48px"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+          "loaded": true,
+          "rect": [
+            21,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        },
+        {
+          "src": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+          "loaded": true,
+          "rect": [
+            204,
+            536,
+            165,
+            165
+          ],
+          "blurPlaceholder": false,
+          "loading": "auto",
+          "fetchpriority": "high",
+          "sizes": "(min-width: 1280px) 279px, (min-width: 1024px) calc(24.4vw - 34px), (min-width: 768px) calc(32.6vw - 28px), calc(48.9vw - 26px)"
+        }
+      ],
+      "h1Font": "__Cormorant_Garamond_682e08, __Cormorant_Garamond_Fallback_682e08, Georgia, \"Tim",
+      "bodyFont": "__Jost_3221f3, __Jost_Fallback_3221f3, system-ui, -apple-system, \"Segoe UI\", Rob"
+    },
+    "requests": 46,
+    "finished": 46,
+    "failed": [],
+    "transferredBytes": 703277,
+    "byType": {
+      "Document": {
+        "n": 1,
+        "bytes": 24388
+      },
+      "Font": {
+        "n": 2,
+        "bytes": 50572
+      },
+      "Image": {
+        "n": 18,
+        "bytes": 396040
+      },
+      "Stylesheet": {
+        "n": 2,
+        "bytes": 13642
+      },
+      "Script": {
+        "n": 20,
+        "bytes": 193224
+      },
+      "Fetch": {
+        "n": 3,
+        "bytes": 25411
+      }
+    },
+    "largest": [
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 76540,
+        "start": 582,
+        "end": 2713
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 70056,
+        "start": 582,
+        "end": 2472
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 1518,
+        "end": 5014
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 583,
+        "end": 2888
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 1518,
+        "end": 5063
+      }
+    ],
+    "all": [
+      {
+        "url": "/collections/bone-china",
+        "type": "Document",
+        "bytes": 24388,
+        "start": 0,
+        "end": 705,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/media/58e15ce3f60c02ac-s.p.woff2",
+        "type": "Font",
+        "bytes": 23684,
+        "start": 582,
+        "end": 1731,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/media/9dd75fadc5b3df29-s.p.woff2",
+        "type": "Font",
+        "bytes": 26888,
+        "start": 582,
+        "end": 1780,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 70056,
+        "start": 582,
+        "end": 2472,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 76540,
+        "start": 582,
+        "end": 2713,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/css/17d2a1057ed442d2.css",
+        "type": "Stylesheet",
+        "bytes": 4242,
+        "start": 583,
+        "end": 1264,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/css/d0d4eab1edb07bbf.css",
+        "type": "Stylesheet",
+        "bytes": 9400,
+        "start": 583,
+        "end": 1438,
+        "priority": "VeryHigh"
+      },
+      {
+        "url": "/_next/static/chunks/webpack-747fae5f71391061.js",
+        "type": "Script",
+        "bytes": 2434,
+        "start": 583,
+        "end": 1872,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/fd9d1056-aa4a6c05d422bd12.js",
+        "type": "Script",
+        "bytes": 54179,
+        "start": 583,
+        "end": 2888,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/117-b39b440fd78c9c44.js",
+        "type": "Script",
+        "bytes": 32256,
+        "start": 583,
+        "end": 2855,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/main-app-1c137f0a5b5d061c.js",
+        "type": "Script",
+        "bytes": 808,
+        "start": 583,
+        "end": 2481,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/972-113b6a50c0c2f3e8.js",
+        "type": "Script",
+        "bytes": 9107,
+        "start": 583,
+        "end": 3155,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/878-08b6f7f436312b46.js",
+        "type": "Script",
+        "bytes": 5555,
+        "start": 583,
+        "end": 3113,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/749-4835140c1bee2e74.js",
+        "type": "Script",
+        "bytes": 3689,
+        "start": 583,
+        "end": 3138,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/%5Bslug%5D/page-30156a9fd10301b3.js",
+        "type": "Script",
+        "bytes": 4338,
+        "start": 583,
+        "end": 3306,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/layout-bd63f97e258c71f4.js",
+        "type": "Script",
+        "bytes": 4199,
+        "start": 583,
+        "end": 3447,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1464,
+        "end": 1464,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1465,
+        "end": 1465,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1466,
+        "end": 1466,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1467,
+        "end": 1467,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1467,
+        "end": 1467,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V40C0 22 18",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1469,
+        "end": 1469,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1470,
+        "end": 1471,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1471,
+        "end": 1471,
+        "priority": "Low"
+      },
+      {
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGau",
+        "type": "Image",
+        "bytes": 0,
+        "start": 1472,
+        "end": 1472,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fbrand%2Flogo.webp&w=256&q=75",
+        "type": "Image",
+        "bytes": 5625,
+        "start": 1518,
+        "end": 2514,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fclassic-white.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 14577,
+        "start": 1518,
+        "end": 3531,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fhaldi-ivory.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 36137,
+        "start": 1518,
+        "end": 4505,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fspiral-motif.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 40860,
+        "start": 1518,
+        "end": 4688,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 62976,
+        "start": 1518,
+        "end": 5014,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-handi.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 38555,
+        "start": 1518,
+        "end": 4830,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=640&q=75",
+        "type": "Image",
+        "bytes": 50714,
+        "start": 1518,
+        "end": 5063,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/950.737476a44eac026c.js",
+        "type": "Script",
+        "bytes": 19048,
+        "start": 3473,
+        "end": 5364,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/599.e989a27d7bcf331e.js",
+        "type": "Script",
+        "bytes": 5881,
+        "start": 3474,
+        "end": 5430,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/438.5ea092c0725e7c5b.js",
+        "type": "Script",
+        "bytes": 9751,
+        "start": 3482,
+        "end": 5647,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/513.2722c483d54e1389.js",
+        "type": "Script",
+        "bytes": 1162,
+        "start": 3483,
+        "end": 5638,
+        "priority": "Low"
+      },
+      {
+        "url": "/?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 8688,
+        "start": 3490,
+        "end": 4388,
+        "priority": "High"
+      },
+      {
+        "url": "/collections?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 9865,
+        "start": 3491,
+        "end": 5088,
+        "priority": "High"
+      },
+      {
+        "url": "/contact?_rsc=auox8",
+        "type": "Fetch",
+        "bytes": 6858,
+        "start": 3491,
+        "end": 5122,
+        "priority": "High"
+      },
+      {
+        "url": "/_next/static/chunks/app/page-82859a820f8621b2.js",
+        "type": "Script",
+        "bytes": 883,
+        "start": 4189,
+        "end": 5655,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/page-b7ca0cb3dd812d1d.js",
+        "type": "Script",
+        "bytes": 3421,
+        "start": 4997,
+        "end": 5713,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/collections/layout-35f858ef6a47e3ae.js",
+        "type": "Script",
+        "bytes": 3370,
+        "start": 4998,
+        "end": 5955,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/app/contact/page-48485ce3981be349.js",
+        "type": "Script",
+        "bytes": 1613,
+        "start": 5097,
+        "end": 6014,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/727.1320be9d40bf2ca4.js",
+        "type": "Script",
+        "bytes": 16479,
+        "start": 5458,
+        "end": 6388,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/535.c6aa0de4df5d086e.js",
+        "type": "Script",
+        "bytes": 14569,
+        "start": 5460,
+        "end": 6381,
+        "priority": "Low"
+      },
+      {
+        "url": "/_next/static/chunks/423.1bbd3723f7c44f6b.js",
+        "type": "Script",
+        "bytes": 482,
+        "start": 5461,
+        "end": 6238,
+        "priority": "Low"
+      }
+    ]
+  }
+}

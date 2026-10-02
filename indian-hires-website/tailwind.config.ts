@@ -111,6 +111,10 @@ const config = {
       fontFamily: {
         display: displayStack,
         body: bodyStack,
+        /* The label voice: eyebrows and small caps. It is the body face (Jost
+         * 500, uppercase, 0.2em) — a third family is ruled out, so there is no
+         * Cinzel. Kept as its own name so the label face has one switch point. */
+        label: bodyStack,
         /* Tailwind's own `font-sans` / `font-serif` resolve to the brand faces,
          * so a stray stock class can no longer fall back to a system stack. */
         sans: bodyStack,
@@ -171,6 +175,7 @@ const config = {
       backgroundImage: {
         "gold-gradient": "var(--gradient-gold)",
         "gold-sheen": "var(--gradient-gold-sheen)",
+        "sheen-sweep": "var(--sheen-sweep)",
         "candle-glow": "var(--glow-candle)",
         linen: "var(--texture-linen)",
         "hero-scrim": "var(--scrim-hero)",

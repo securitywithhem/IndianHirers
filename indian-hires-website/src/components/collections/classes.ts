@@ -13,9 +13,8 @@ export const TEXT_ACTION_CLASS =
 export const TOGGLE_CLASS =
   "type-button focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-primary bg-transparent px-3 py-2 text-center text-primary select-none transition-colors duration-hover ease-royal hover:bg-primary hover:text-primary-foreground aria-pressed:bg-primary aria-pressed:text-primary-foreground [&_svg]:size-5 [&_svg]:shrink-0";
 
-/** §7.5 filter chip. The chip owns its fill and its label colour, so they change together. */
-export const CHIP_CLASS =
-  "type-small focus-ring inline-flex min-h-11 items-center whitespace-nowrap rounded-full border border-input bg-transparent px-4 text-foreground transition-colors duration-hover ease-royal hover:border-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground";
+/** §7.5 filter chip. The recipe lives with the `Chip` primitive; one string, one place. */
+export { CHIP_CLASS } from "@/components/ui/chip";
 
 /** Two columns on a phone, three from `md`, four from `lg`. `relative` is for `LayoutPresence`. */
 export const ITEM_GRID_CLASS = "relative grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8";

@@ -41,3 +41,25 @@ listed separately, with file and key and the original wording, in
 | E8 | `public/images/Photos/**` (27 source JPEGs, 4.2 MB) is unreferenced but would ship with a deployment | 9 | Left in place | Deleting or moving files needs the owner's go-ahead |
 | E9 | `next-themes`, `shadcn`, `@radix-ui/react-label` and `@radix-ui/react-slot` remain in `dependencies` though unused at runtime | 9 | Left in place | Removing a package needs the owner's approval |
 | E10 | `src/content/products.ts` is still the generated photo manifest behind `collections.ts` | — | By design this phase | Folding it into one pipeline is a later clean-up |
+
+
+## Phase R2 — design system
+
+### Needs the owner
+
+| # | Item | Where it shows | What is needed |
+|---|---|---|---|
+| O18 | The R2 brief asks for things earlier decisions ruled out: `sage-700`, Cinzel and Inter, a 1240px container, the names `--bg` / `--surface` / `--text` | Not built. `Docs/UI_UX_V2.md` §12 maps each to what exists (gold-only accent, Cormorant Garamond + Jost, the 1280px `shell`, shadcn's role names) | Confirm the R1 decisions stand, or say which to reopen |
+| O19 | "Ask for rates" as the card's WhatsApp label | `ProductCard` takes the label as a prop; the only specimen uses the catalogue's existing "Ask on WhatsApp" | The wording, if a second label is wanted |
+| O20 | The primary button changed on every page: a gold hairline edge and a gold sheen on hover | All routes | A look at `docs/evidence/R2/home-1280.png` and a hover in the browser; say if the hairline or the sheen should go |
+
+### Engineering
+
+| # | Item | Rubric | State | Blocking |
+|---|---|---|---|---|
+| E11 | `npm run verify` for R2 first ran on a mirror of the app (another session held port 3001) | — | Resolved: re-run in place before the merge, exit 0 (`docs/evidence/R2/verify.log`) | Nothing |
+| E12 | `/design-system` was captured from `next dev` only | 9, 10 | The route is development-only and answers 404 in a build, so there is no production capture, no Lighthouse and no axe run for it | By design; drop the `env.isDevelopment` gate if a deployed copy is wanted |
+| E13 | R2 changed the primary button and added the reduced-motion net on every route, but only `/`, the 404 and `/design-system` were re-captured | 1, 6 | Not re-scored by `reviewer`; no Lighthouse or axe re-run for R2 | Run the QA loop for R2 (reviewer + qa-a11y-perf) |
+| E14 | `scripts/contrast.mjs --check` is not part of `npm run verify` | 4 | Run by hand; output in `docs/evidence/R2/contrast.log` | Adding a step to `verify.sh` changes the harness — needs a yes |
+| E15 | `tailwind.config.ts` still carries shadcn's default `container` (2rem, 1400px), unused | — | Left as is; `shell` is the content column | Remove or align in a clean-up |
+| E16 | `ArchImage` must not be re-exported from the ornament barrel | 9 | Doing so added about 5 kB (the `next/image` client chunk) to `/founders`, `/testimonials` and `/contact` and put two of them over the 100 kB ceiling; reverted, comment left in `ornament/index.ts` | Nothing — recorded so it is not repeated |

@@ -15,6 +15,7 @@ Spec: `Docs/UI_UX_V2.md`. Motion: `src/components/motion/README.md`.
 | `@/components/shared/Band` | a full-bleed section with the content column inside |
 | `@/components/shared/PageHero` | the maroon band that opens every inner page |
 | `@/components/shared/CollectionTile` | arch tile linking to a collection |
+| `@/components/shared/ProductCard` | one design on a card, outside the catalogue: photograph, name, finish tags, WhatsApp link |
 | `@/components/shared/BrandLogo` | the logo on its plaque |
 | `@/components/shared/pageMetadata` | `routeMetadata[...]` → a page's `metadata` export |
 | `@/components/ui/button` | a real `<button>` with the same recipes (`Button`) |
@@ -236,6 +237,29 @@ in an `ArchFrame` with the blur placeholder, or the crown placeholder when `hero
 null; then title, tagline and the count line from `collectionCountLabel(collection)`. Lifts with
 `card-royal` and zooms the photograph on hover and focus; both off under reduced motion.
 The card uses roles, so it also works inside a maroon band. Never `priority`.
+
+## ProductCard
+
+```tsx
+import { ProductCard } from "@/components/shared/ProductCard";
+
+<ProductCard
+  name={item.name}
+  image={item.image}                       // null → the crown placeholder
+  finishes={item.finishes.map((finish) => finishLabels[finish])}
+  finishesLabel={catalogueCopy.filters.finishLabel}
+  ask={{ label, ariaLabel, message }}      // message from whatsappMessages.itemQuote()
+  headingLevel="h3"
+  sizes="…"                                // the photograph's real rendered width
+/>
+```
+
+For a design shown outside `/collections` (a home-page feature, a related design).
+Inside the catalogue keep `collections/ItemCard`, which adds the drawer and the quote
+list. No price field exists and none may be added. Specimens: `/design-system` (dev only).
+
+Related: `ButtonLink` also takes `variant="gold"` — a gold fill with maroon-950 type that
+does not flip inside `.theme-dark` (Docs/UI_UX_V2.md §7.1a).
 
 ## BrandLogo
 

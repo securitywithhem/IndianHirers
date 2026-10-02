@@ -1,0 +1,1542 @@
+{
+  "/@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure-tight text-muted-foreground",
+      "text": "Bone china, melamine, glassware and chafing dishes"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 48096,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure-tight text-muted-foreground",
+        "text": "Bone china, melamine, glassware and chafing dishes"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@390@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 27880,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Our crockery and tableware on hire, in 8 collectio"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 27880,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Our crockery and tableware on hire, in 8 collectio"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@390@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@390@no-preference": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-round.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fbrass-round.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 21112,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 21112,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 15778,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 15778,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/premium-melamine@390@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fmatt-black.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fmatt-black.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/regular-melamine@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 18096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+      "text": "This collection has not been photographed yet. Pho"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 18096,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+        "text": "This collection has not been photographed yet. Pho"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/glassware@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fhighball.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fhighball.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chat-and-snack-plates@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 18444,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+      "text": "This collection has not been photographed yet. Pho"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 18444,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+        "text": "This collection has not been photographed yet. Pho"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@390@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 68952,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 68952,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@390@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 29750,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Photographs of the crockery, glassware and chafing"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 29750,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Photographs of the crockery, glassware and chafing"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@390@no-preference": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 45792,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead text-foreground",
+      "text": "We have not published any testimonials yet. When w"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 45792,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead text-foreground",
+        "text": "We have not published any testimonials yet. When w"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@390@no-preference": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 29070,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp or"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 29070,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp or"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@390@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 29068,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 29068,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@1280@no-preference": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 295036,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "object-cover object-center",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 295036,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "object-cover object-center",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@1280@no-preference": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 67374,
+      "tag": "IMG",
+      "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 67374,
+        "tag": "IMG",
+        "url": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='b' color",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@1280@no-preference": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 31570,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body hidden max-w-measure text-foreground md:block",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 31570,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body hidden max-w-measure text-foreground md:block",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@1280@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 65081,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chafing Dishes & Buffet Display"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 65081,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chafing Dishes & Buffet Display"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 58588,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 58588,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 43578,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 43578,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/premium-melamine@1280@no-preference": {
+    "fcp": 48,
+    "lcp": 48,
+    "lcpElement": {
+      "t": 48,
+      "size": 41472,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Premium Melamine"
+    },
+    "lcpCandidates": [
+      {
+        "t": 48,
+        "size": 41472,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Premium Melamine"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/regular-melamine@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 38637,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Regular Melamine"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 38637,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Regular Melamine"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/glassware@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 63493,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=320&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 63493,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=320&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chat-and-snack-plates@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 42768,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chat & Snack Plates"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 42768,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chat & Snack Plates"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@1280@no-preference": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 99396,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 99396,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 187068,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 187068,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@1280@no-preference": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 80936,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "We would rather you asked us directly"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 80936,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "We would rather you asked us directly"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@1280@no-preference": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 43420,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp or"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 43420,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp or"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@1280@no-preference": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 44032,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 44032,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@390@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 48096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure-tight text-muted-foreground",
+      "text": "Bone china, melamine, glassware and chafing dishes"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 48096,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure-tight text-muted-foreground",
+        "text": "Bone china, melamine, glassware and chafing dishes"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 27880,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Our crockery and tableware on hire, in 8 collectio"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 27880,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Our crockery and tableware on hire, in 8 collectio"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@390@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Femerald-gold.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fsilver-carved-stand.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fchafing-dishes%2Fsilver-carved-stand.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 21112,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 21112,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@390@reduce": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 15778,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 15778,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/premium-melamine@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fmatt-black.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fmatt-black.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/regular-melamine@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 18096,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+      "text": "This collection has not been photographed yet. Pho"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 18096,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+        "text": "This collection has not been photographed yet. Pho"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/glassware@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 27219,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fhighball.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 27219,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fhighball.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chat-and-snack-plates@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 18444,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+      "text": "This collection has not been photographed yet. Pho"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 18444,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body mb-6 max-w-measure text-muted-foreground",
+        "text": "This collection has not been photographed yet. Pho"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 68952,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 68952,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@390@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 29750,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Photographs of the crockery, glassware and chafing"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 29750,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Photographs of the crockery, glassware and chafing"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@390@reduce": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 45792,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead text-foreground",
+      "text": "We have not published any testimonials yet. When w"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 45792,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead text-foreground",
+        "text": "We have not published any testimonials yet. When w"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@390@reduce": {
+    "fcp": 24,
+    "lcp": 24,
+    "lcpElement": {
+      "t": 24,
+      "size": 29070,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp or"
+    },
+    "lcpCandidates": [
+      {
+        "t": 24,
+        "size": 29070,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp or"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@390@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 29068,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 29068,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 295036,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "object-cover object-center",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 295036,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "object-cover object-center",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections@1280@reduce": {
+    "fcp": 40,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 59647,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=256&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 44850,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Our crockery and tableware on hire, in 8 collectio"
+      },
+      {
+        "t": 52,
+        "size": 59647,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fmelamine%2Fblue-gold-border.webp&w=256&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position: absolute; height: 100%; width: 100%; inset: 0px; c"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/bone-china@1280@reduce": {
+    "fcp": 44,
+    "lcp": 44,
+    "lcpElement": {
+      "t": 44,
+      "size": 31570,
+      "tag": "P",
+      "url": "",
+      "cls": "type-body hidden max-w-measure text-foreground md:block",
+      "text": "Bone china in gold-rimmed, patterned and plain whi"
+    },
+    "lcpCandidates": [
+      {
+        "t": 44,
+        "size": 31570,
+        "tag": "P",
+        "url": "",
+        "cls": "type-body hidden max-w-measure text-foreground md:block",
+        "text": "Bone china in gold-rimmed, patterned and plain whi"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chafing-dishes@1280@reduce": {
+    "fcp": 40,
+    "lcp": 40,
+    "lcpElement": {
+      "t": 40,
+      "size": 65081,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chafing Dishes & Buffet Display"
+    },
+    "lcpCandidates": [
+      {
+        "t": 40,
+        "size": 65081,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chafing Dishes & Buffet Display"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/heritage-silver@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 58588,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Vintage & Heritage Silver"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 58588,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Vintage & Heritage Silver"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/cutlery-and-serveware@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 43578,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Cutlery & Serveware"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 43578,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Cutlery & Serveware"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/premium-melamine@1280@reduce": {
+    "fcp": 48,
+    "lcp": 48,
+    "lcpElement": {
+      "t": 48,
+      "size": 41472,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Premium Melamine"
+    },
+    "lcpCandidates": [
+      {
+        "t": 48,
+        "size": 41472,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Premium Melamine"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/regular-melamine@1280@reduce": {
+    "fcp": 52,
+    "lcp": 52,
+    "lcpElement": {
+      "t": 52,
+      "size": 38637,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Regular Melamine"
+    },
+    "lcpCandidates": [
+      {
+        "t": 52,
+        "size": 38637,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Regular Melamine"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/glassware@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 63493,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=320&q=75",
+      "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+      "text": "",
+      "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 63493,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fglassware%2Fwine-glass.webp&w=320&q=75",
+        "cls": "object-cover motion-safe:transition-transform motion-safe:duration-zoo",
+        "text": "",
+        "style": "position:absolute;height:100%;width:100%;left:0;top:0;right:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/collections/chat-and-snack-plates@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 42768,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "Chat & Snack Plates"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 42768,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "Chat & Snack Plates"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/founders@1280@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 99396,
+      "tag": "P",
+      "url": "",
+      "cls": "text-foreground type-lead",
+      "text": "Our story begins in 1977, in Malad (East), Mumbai "
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 99396,
+        "tag": "P",
+        "url": "",
+        "cls": "text-foreground type-lead",
+        "text": "Our story begins in 1977, in Malad (East), Mumbai "
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/gallery@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 187068,
+      "tag": "IMG",
+      "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+      "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+      "text": "",
+      "style": "color:transparent;background-size:cover;background-position:"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 187068,
+        "tag": "IMG",
+        "url": "http://localhost:3001/_next/image?url=%2Fimages%2Fproducts%2Fbone-china%2Fgolden-rim.webp&w=640&q=75",
+        "cls": "size-full object-cover motion-safe:transition-transform motion-safe:du",
+        "text": "",
+        "style": "color:transparent;background-size:cover;background-position:"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/testimonials@1280@reduce": {
+    "fcp": 28,
+    "lcp": 28,
+    "lcpElement": {
+      "t": 28,
+      "size": 80936,
+      "tag": "H1",
+      "url": "",
+      "cls": "type-display max-w-heading text-ivory-50",
+      "text": "We would rather you asked us directly"
+    },
+    "lcpCandidates": [
+      {
+        "t": 28,
+        "size": 80936,
+        "tag": "H1",
+        "url": "",
+        "cls": "type-display max-w-heading text-ivory-50",
+        "text": "We would rather you asked us directly"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/contact@1280@reduce": {
+    "fcp": 32,
+    "lcp": 32,
+    "lcpElement": {
+      "t": 32,
+      "size": 43420,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "Have an event coming up? Message us on WhatsApp or"
+    },
+    "lcpCandidates": [
+      {
+        "t": 32,
+        "size": 43420,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "Have an event coming up? Message us on WhatsApp or"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  },
+  "/this-page-does-not-exist@1280@reduce": {
+    "fcp": 36,
+    "lcp": 36,
+    "lcpElement": {
+      "t": 36,
+      "size": 44032,
+      "tag": "P",
+      "url": "",
+      "cls": "type-lead max-w-measure text-ivory-300",
+      "text": "The page you were looking for has moved or does no"
+    },
+    "lcpCandidates": [
+      {
+        "t": 36,
+        "size": 44032,
+        "tag": "P",
+        "url": "",
+        "cls": "type-lead max-w-measure text-ivory-300",
+        "text": "The page you were looking for has moved or does no"
+      }
+    ],
+    "clsLoad": 0,
+    "clsAfterScroll": 0,
+    "shifts": []
+  }
+}
