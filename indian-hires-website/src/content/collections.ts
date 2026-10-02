@@ -15,8 +15,9 @@
  *
  * CONFIRMED vs ASSUMED
  * An item's `material`, `finishes` and `pieces` hold only what the owner has
- * stated. A value read off a photograph or guessed from a name is kept in the
- * seed's `assumed` field, which never leaves this module: it is not on
+ * stated (one recorded exception: the piece type of the sized chat plates,
+ * see `chat-and-snack-plates`). A value read off a photograph or guessed
+ * from a name is kept in the seed's `assumed` field, which never leaves this module: it is not on
  * `CatalogueItem`, no helper returns it, and so it can be neither rendered
  * nor offered as a filter. When the owner confirms a value, move it from
  * `assumed` to the real field.
@@ -26,8 +27,10 @@
  * request" and a WhatsApp quote button instead.
  *
  * FUTURE PHOTOGRAPHS — path convention
- *   /images/catalogue/<collection>/<slug>.webp     (see `cataloguePhotoPath`)
- * Square WebP, 1200×1200, with a blurDataURL, the same as the manifest tiles.
+ *   /images/catalogue/<collection>/<slug>-1.webp   (see `cataloguePhotoPath`)
+ * WebP, at most 1200px wide, with a blurDataURL; `-1` is the lead photograph,
+ * `-2`, `-3` … any further views. How to export them from the catalogue PDFs:
+ * scripts/extract-catalogue-images.md.
  * Existing photographs keep their /images/products/** paths via the manifest.
  */
 import {
@@ -214,9 +217,10 @@ export interface Piece {
 /**
  * "available"   — a real item, shown publicly.
  * "todo"        — a placeholder the owner still has to fill in.
- * "unconfirmed" — an owner-listed name that is probably the same design as
- *                 an item already shown under another name. Hidden until the
- *                 owner says whether the two are one design.
+ * "unconfirmed" — an owner-listed entry held back until the owner answers a
+ *                 question about it: a name that is probably the same design
+ *                 as an item already shown, or a catalogue line that has no
+ *                 name of its own.
  *
  * Only "available" is public. "todo" and "unconfirmed" are excluded from
  * every public helper and must never be rendered.
@@ -333,12 +337,16 @@ const manifestHome: Record<ProductCategorySlug, ManifestHome> = {
   "chafing-dishes": { collection: "chafing-dishes", material: null },
 };
 
-/** Path convention for photographs added after this phase. */
+/**
+ * Path convention for photographs added after this phase. `index` counts from
+ * 1: the lead photograph is `<slug>-1.webp`.
+ */
 export function cataloguePhotoPath(
   collection: CollectionSlug,
-  slug: string
+  slug: string,
+  index: number = 1
 ): string {
-  return `/images/catalogue/${collection}/${slug}.webp`;
+  return `/images/catalogue/${collection}/${slug}-${index}.webp`;
 }
 
 // ---------------------------------------------------------------------------
@@ -394,8 +402,17 @@ const BONE_CHINA_PIECES: Piece[] = [
   { type: "plate", label: "Quarter Plate" },
 ];
 
-/** Owner: the pieces of the premium melamine range. */
-const PREMIUM_MELAMINE_PIECES: Piece[] = [
+/**
+ * Owner's catalogue: a melamine design is hired as a set of these two. Double
+ * Color, 24KT Blue, Matt Melamine and 24KT Gold Melamine list nothing else.
+ */
+const MELAMINE_SET_PIECES: Piece[] = [
+  { type: "dinner-set", label: "Dinner Set" },
+  { type: "soup-set", label: "Soup Set" },
+];
+
+/** Owner's catalogue: the seven pieces of the Matt Black Series, and of it only. */
+const MATT_BLACK_SERIES_PIECES: Piece[] = [
   { type: "dinner-set", label: "Dinner Set" },
   { type: "soup-set", label: "Soup Set" },
   { type: "bowl", label: "Chat Bowl (Big)" },
@@ -413,6 +430,12 @@ const PHOTOGRAPHED_MELAMINE_PIECES: Piece[] = [
   { type: "dinner-set", label: "Dinner Set" },
 ];
 
+/** Owner's catalogue: the plain, marble and matt chat plates each come in two sizes. */
+const CHAT_PLATE_SIZES: Piece[] = [
+  { type: "plate", label: "Small" },
+  { type: "plate", label: "Big" },
+];
+
 const CHAFING_DISH_PIECES: Piece[] = [
   { type: "chafing-dish", label: "Chafing Dish" },
 ];
@@ -421,8 +444,8 @@ const GLASS_PIECES: Piece[] = [{ type: "glass", label: "Glass" }];
 
 /**
  * TODO(owner): six chafing-dish designs still to be supplied. Replace each
- * placeholder's slug, name, material and finishes, add its photograph at
- * `cataloguePhotoPath("chafing-dishes", slug)`, then set status "available".
+ * placeholder's slug, name, material and finishes, add its photograph (see
+ * scripts/extract-catalogue-images.md §5), then set status "available".
  * While status is "todo" these are excluded by `publicItems` and every other
  * public helper, so they cannot appear on the site.
  */
@@ -600,7 +623,7 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
     title: "Premium Melamine",
     tagline: "Melamine with a finer finish",
     description:
-      'Our premium melamine designs, including the Matt Black Series. Hired as dinner sets, soup sets, chat bowls, snack plates and a 9" nasta plate.',
+      'Our premium melamine designs. Double Color and 24KT Blue are hired as dinner sets and soup sets; the Matt Black Series also comes as chat bowls, snack plates and a 9" nasta plate.',
     heroFrom: "melamine",
     countAs: "designs",
     items: [
@@ -610,14 +633,14 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         material: "melamine",
         // The two colours have not been supplied.
         finishes: [],
-        pieces: PREMIUM_MELAMINE_PIECES,
+        pieces: MELAMINE_SET_PIECES,
       },
       {
         slug: "24kt-blue",
         name: "24KT Blue",
         material: "melamine",
         finishes: ["blue"],
-        pieces: PREMIUM_MELAMINE_PIECES,
+        pieces: MELAMINE_SET_PIECES,
       },
       {
         // MATCHED: same name as the manifest's "Matt Black Melamine".
@@ -625,7 +648,7 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         name: "Matt Black Series",
         material: "melamine",
         finishes: ["matt", "black"],
-        pieces: PREMIUM_MELAMINE_PIECES,
+        pieces: MATT_BLACK_SERIES_PIECES,
         photo: { category: "melamine", slug: "matt-black" },
         featured: true,
       },
@@ -700,7 +723,7 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
     title: "Regular Melamine",
     tagline: "Everyday melamine service",
     description:
-      "Matt Melamine and 24KT Gold Melamine — straightforward melamine service for everyday functions. Ask us which pieces are available in each.",
+      "Matt Melamine and 24KT Gold Melamine — straightforward melamine service for everyday functions. Each is hired as a dinner set and a soup set.",
     heroFrom: null,
     countAs: "designs",
     // The owner's names are "Matt Melamine" and "24KT Gold Melamine"; inside
@@ -711,26 +734,31 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         name: "Matt",
         material: "melamine",
         finishes: ["matt"],
-        // Pieces not supplied for the regular range.
-        pieces: [],
+        pieces: MELAMINE_SET_PIECES,
       },
       {
         slug: "24kt-gold-melamine",
         name: "24KT Gold",
         material: "melamine",
         finishes: ["gold"],
-        pieces: [],
+        pieces: MELAMINE_SET_PIECES,
       },
     ],
   },
 
-  // The owner's list for this collection is short-hand: "rectangular, dessert
-  // bowl, snack plate, mug, small/big, blue handle, marble small/big, matt
-  // small/big". Confirmed here: the names, the finishes the list states (blue
-  // handle → blue, marble, matt) and the piece a name states (dessert bowl,
-  // snack plate, mug). NOT confirmed, and so in `assumed`: the material
-  // (melamine), what "rectangular", "marble" and "matt" are pieces of, and
-  // which entries "small/big" belongs to.
+  // The owner's catalogue lists eleven lines under "Chat Plates": Rectangular,
+  // Dessert Bowl, Snack Plate, Mug, Small, Big, Blue Handle, Marble Small,
+  // Marble Big, Matt Small, Matt Big. Each line is here exactly once: Marble
+  // and Matt each carry their Small and Big, and the plain Small and Big are
+  // the two sizes of one entry. The catalogue gives that entry no name; "Chat
+  // Plate" is ours, taken from the heading, so the entry is "unconfirmed" and
+  // hidden until the owner names it. Confirmed: the other names, the sizes,
+  // the finishes the list states (blue handle → blue, marble, matt) and the
+  // piece a name states (dessert bowl, snack plate, mug). NOT confirmed, and
+  // so in `assumed`: the material (melamine) and what "rectangular" is a
+  // piece of. The one value here that is read rather than stated: Marble and
+  // Matt are filed as plates because the catalogue's heading is "Chat Plates"
+  // (docs/COPY_TO_CONFIRM.md §9).
   "chat-and-snack-plates": {
     title: "Chat & Snack Plates",
     tagline: "Small plates and bowls for counters and starters",
@@ -764,13 +792,7 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         material: null,
         finishes: [],
         pieces: [{ type: "plate", label: "Snack Plate" }],
-        assumed: {
-          material: "melamine",
-          pieces: [
-            { type: "plate", label: "Snack Plate (Small)" },
-            { type: "plate", label: "Snack Plate (Big)" },
-          ],
-        },
+        assumed: { material: "melamine" },
       },
       {
         slug: "mug",
@@ -779,6 +801,17 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         finishes: [],
         pieces: [{ type: "mug", label: "Mug" }],
         assumed: { material: "melamine" },
+      },
+      {
+        // UNCONFIRMED, hidden. The catalogue's plain "Small" and "Big" lines;
+        // the name is ours. Set status "available" once the owner names it.
+        slug: "chat-plate",
+        name: "Chat Plate",
+        material: null,
+        finishes: [],
+        pieces: CHAT_PLATE_SIZES,
+        assumed: { material: "melamine" },
+        status: "unconfirmed",
       },
       {
         slug: "blue-handle",
@@ -794,28 +827,16 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         name: "Marble",
         material: null,
         finishes: ["marble"],
-        pieces: [],
-        assumed: {
-          material: "melamine",
-          pieces: [
-            { type: "plate", label: "Small" },
-            { type: "plate", label: "Big" },
-          ],
-        },
+        pieces: CHAT_PLATE_SIZES,
+        assumed: { material: "melamine" },
       },
       {
         slug: "matt",
         name: "Matt",
         material: null,
         finishes: ["matt"],
-        pieces: [],
-        assumed: {
-          material: "melamine",
-          pieces: [
-            { type: "plate", label: "Small" },
-            { type: "plate", label: "Big" },
-          ],
-        },
+        pieces: CHAT_PLATE_SIZES,
+        assumed: { material: "melamine" },
       },
     ],
   },

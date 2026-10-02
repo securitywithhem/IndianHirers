@@ -27,7 +27,7 @@ Section 0 lists what iteration 2 changed. Sections 1–8 are the standing list.
 
 | # | Change | Where | Original, for restoring |
 |---|---|---|---|
-| 0.1 | Inferred materials are no longer shown or offered as filters. Hidden: "Steel" (two chafing dishes), "Brass" / "Copper" (three chafing dishes), "Silver-plated" on Serving Spoons, Trays and Tableware, "Melamine" on all seven Chat & Snack entries | `src/content/collections.ts` → `collectionSeeds[*].items[*].material` is `null`; the guess is in `.assumed.material` | §2.2, §2.10, §2.12 |
+| 0.1 | Inferred materials are no longer shown or offered as filters. Hidden: "Steel" (two chafing dishes), "Brass" / "Copper" (three chafing dishes), "Silver-plated" on Serving Spoons, Trays and Tableware, "Melamine" on all Chat & Snack entries (seven then; eight since R3, §9) | `src/content/collections.ts` → `collectionSeeds[*].items[*].material` is `null`; the guess is in `.assumed.material` | §2.2, §2.10, §2.12 |
 | 0.2 | Inferred finishes are no longer shown or offered as filters. Hidden: silver (heritage), ivory + gold (Haldi Ivory), black + white (Spiral Motif), the six photographed melamine designs' colours, brass / silver / gold / copper (chafing dishes), clear (glassware) | `…items[*].finishes` is `[]`; the guess is in `.assumed.finishes` | §2.5, §2.8, §2.12 |
 | 0.3 | Inferred pieces are no longer shown. Hidden: "Dinner Set" on the six photographed melamine designs; "Rectangular Plate"; "Small / Big" on Snack Plate, Marble and Matt | `…items[*].pieces`; the guess is in `.assumed.pieces` | §2.8, §2.11 |
 | 0.4 | "Yellow" and "Black-White" (bone china) are hidden. Each is probably a design already shown under another name; showing both would list one design twice | `collectionSeeds["bone-china"].items` → `status: "unconfirmed"` | §1, OPEN_ISSUES O2 |
@@ -163,16 +163,16 @@ of `assumed` into the real field of the same seed.
 | 2.3 | Heritage Silver "Tableware" has no pieces listed | `…items[4].pieces` (empty) | SHOWN as a name only | What does "tableware" cover? |
 | 2.4 | Bone China: the three pieces (Dinner Set, Soup Set, Quarter Plate) are applied to every design, including the two photographed designs not in the owner's list, on the owner's statement that every bone china design comes as these three | `BONE_CHINA_PIECES` | SHOWN | Do Haldi Ivory and Spiral Motif come in all three? |
 | 2.5 | Bone China finishes. Shown — stated by the owner's design name: Clay Craft Golden → gold; Rose Gold → rose gold; Golden Rim → gold; Green Golden → green + gold; White → white. Hidden — read from the photograph: Haldi Ivory → ivory + gold; Spiral Motif → black + white. (Yellow → yellow and Black-White → black + white sit on the two hidden entries) | `collectionSeeds["bone-china"].items[*].finishes / .assumed` | part HIDDEN | Correct? "Clay Craft Golden → gold" follows the same rule as "Golden Rim → gold"; say if it is wrong |
-| 2.6 | Premium Melamine: the full piece list (Dinner Set, Soup Set, Chat Bowl Big/Small, Snack Plate Big/Small, Nasta Plate 9") is applied to each of the three owner-listed designs | `PREMIUM_MELAMINE_PIECES` | SHOWN | Does every premium design come in every piece? |
+| 2.6 | **(Superseded in R3 — see §9.)** Premium Melamine: the full piece list (Dinner Set, Soup Set, Chat Bowl Big/Small, Snack Plate Big/Small, Nasta Plate 9") is applied to each of the three owner-listed designs | `PREMIUM_MELAMINE_PIECES` | SHOWN | Does every premium design come in every piece? |
 | 2.7 | Premium Melamine finishes, from the owner's names: Double Color → none (colours unknown); 24KT Blue → blue only (gold not tagged although "24KT" suggests it); Matt Black Series → matt + black | `…items[0..2].finishes` | SHOWN | Colours of Double Color? Is 24KT Blue gold-lined? |
 | 2.8 | The six photographed melamine designs: material Melamine is shown (everything in the melamine collections is melamine). Hidden: the piece "Dinner Set" and the finishes read from the photographs (Blue Rim → blue; Sky Blue → blue; Ribbed White → white; Textured Ivory → ivory; Gold Medallion → gold; Blue & Gold Border → blue + gold) | `…items[3..8].assumed` | HIDDEN | Which pieces does each come in? Colours right? |
-| 2.9 | Regular Melamine: Matt Melamine → matt; 24KT Gold Melamine → gold (both from the owner's names). No pieces listed | `collectionSeeds["regular-melamine"].items` | SHOWN | Which pieces does the regular range come in? |
-| 2.10 | Chat & Snack Plates: **material assumed to be melamine** for all seven entries. The owner's list does not state a material | `collectionSeeds["chat-and-snack-plates"].items[*].assumed.material` | HIDDEN | Material? |
-| 2.11 | Chat & Snack Plates: the owner's short-hand list "rectangular, dessert bowl, snack plate, mug, small/big, blue handle, marble small/big, matt small/big" is shown as seven entries: Rectangular · Dessert Bowl · Snack Plate · Mug · Blue Handle (finish blue) · Marble (finish marble) · Matt (finish matt). Hidden: that "Rectangular" is a plate (it was named "Rectangular Plate"); that "small/big" on its own belongs to Snack Plate; that Marble and Matt are plates in Small and Big. The collection description still says "in small and big sizes", which is the owner's wording | `collectionSeeds["chat-and-snack-plates"].items` | part HIDDEN | Please correct this list — what is each item, and which have small/big sizes? |
+| 2.9 | **(Superseded in R3 — see §9.)** Regular Melamine: Matt Melamine → matt; 24KT Gold Melamine → gold (both from the owner's names). No pieces listed | `collectionSeeds["regular-melamine"].items` | SHOWN | Which pieces does the regular range come in? |
+| 2.10 | **(Superseded in R3 — see §9.)** Chat & Snack Plates: **material assumed to be melamine** for all seven entries. The owner's list does not state a material | `collectionSeeds["chat-and-snack-plates"].items[*].assumed.material` | HIDDEN | Material? |
+| 2.11 | **(Superseded in R3 — see §9.)** Chat & Snack Plates: the owner's short-hand list "rectangular, dessert bowl, snack plate, mug, small/big, blue handle, marble small/big, matt small/big" is shown as seven entries: Rectangular · Dessert Bowl · Snack Plate · Mug · Blue Handle (finish blue) · Marble (finish marble) · Matt (finish matt). Hidden: that "Rectangular" is a plate (it was named "Rectangular Plate"); that "small/big" on its own belongs to Snack Plate; that Marble and Matt are plates in Small and Big. The collection description still says "in small and big sizes", which is the owner's wording | `collectionSeeds["chat-and-snack-plates"].items` | part HIDDEN | Please correct this list — what is each item, and which have small/big sizes? |
 | 2.12 | Chafing dish materials read from the photographs and the previous site's names: brass (Round Brass, Brass Handi), copper (Ribbed Copper Dome), steel (Silver Chafer on Carved Stand, Hammered Gold Square — the weakest guesses in the file). Finishes: brass / silver / gold / brass / copper | `collectionSeeds["chafing-dishes"].items[0..4].assumed` | HIDDEN (but see the note on names in §1) | Actual material of each? |
 | 2.13 | Cutlery & Serveware has no items; the page shows "This list is not on the website yet" | `collectionSeeds["cutlery-and-serveware"]`, `catalogueCopy.emptyCollection` | SHOWN | Item list needed |
 | 2.14 | Featured on the home page — collections: derived, the first four collections that have a photograph (today Bone China, Premium Melamine, Chafing Dishes & Buffet Display, Glassware). Items flagged `featured`: Golden Rim, Green Golden, Matt Black Series, Large Brass Handi Chafer, Ribbed Copper Dome Chafer, Wine Glass | `home.ts` → `FEATURED_COLLECTIONS`; `collections.ts` → `featured: true` | SHOWN | Right collections to lead with? |
-| 2.15 | Counts. No total is shown anywhere. Each collection shows its own count of public entries: Bone China 7 designs · Premium Melamine 9 designs · Regular Melamine 2 designs · Chafing Dishes 5 designs · Glassware 4 designs · Heritage Silver 5 items · Chat & Snack Plates 7 items · Cutlery & Serveware "Ask us for the list". Hidden entries are not counted. The home page and the catalogue landing state the number of collections (8), derived | `collections.ts` → `collectionCountLabel()`, `collectionCount` | SHOWN | Is "8 collections" right, given 2.1 and 2.13? |
+| 2.15 | **(Superseded in R3 — see §9.)** Counts. No total is shown anywhere. Each collection shows its own count of public entries: Bone China 7 designs · Premium Melamine 9 designs · Regular Melamine 2 designs · Chafing Dishes 5 designs · Glassware 4 designs · Heritage Silver 5 items · Chat & Snack Plates 7 items · Cutlery & Serveware "Ask us for the list". Hidden entries are not counted. The home page and the catalogue landing state the number of collections (8), derived | `collections.ts` → `collectionCountLabel()`, `collectionCount` | SHOWN | Is "8 collections" right, given 2.1 and 2.13? |
 | 2.16 | Old URLs redirect: `/products` → `/collections`; `vintage` → heritage-silver; `bone-china` → bone-china; `melamine` → premium-melamine; `glassware` → glassware; `chafing-dishes` → chafing-dishes | `collections.ts` → `legacyRedirects` | — | — |
 | 2.17 | Glassware: material Glass is shown. Hidden: finish "Clear", read from the photographs | `collectionSeeds.glassware.items[*].assumed` | part HIDDEN | — |
 
@@ -184,8 +184,8 @@ of `assumed` into the real field of the same seed.
 |---|---|---|
 | Vintage & Heritage Silver | "Silver-plated plates and silver-plated cutlery, with serving spoons, trays and tableware, for weddings and formal dinners. Ask us on WhatsApp which pieces are available for your date." Tagline "Silver-plated service for the formal table". "for weddings and formal dinners" is CARRIED OVER from the previous site's Vintage description | **CHANGED.** Was: "Silver-plated plates, cutlery, serving spoons, trays and tableware for weddings and formal dinners. This range has not been photographed yet — ask us on WhatsApp and we will tell you which pieces are available for your date." (It read as if all five were silver-plated; the photography sentence moved to `catalogueCopy.textOnly.listNote`.) |
 | Bone China | "Bone china in gold-rimmed, patterned and plain white designs. Each design is hired as a dinner set, a soup set and quarter plates." | — |
-| Premium Melamine | tagline "Melamine with a finer finish"; "Hired as dinner sets, soup sets, chat bowls, snack plates and a 9\" nasta plate" | — |
-| Regular Melamine | "straightforward melamine service for everyday functions" | — |
+| Premium Melamine | tagline "Melamine with a finer finish"; description reworded in R3 — see §9.2 | — |
+| Regular Melamine | "straightforward melamine service for everyday functions"; last sentence reworded in R3 — see §9.2 | — |
 | Chat & Snack Plates | "for counters and starters"; "in small and big sizes and in marble and matt finishes" | — |
 | Chafing Dishes & Buffet Display | "Chafing dishes for the buffet line, in round, square and handi shapes. We hold more designs than are photographed here."; note "More chafing dish designs are available on request — ask us for the full list." | **CHANGED.** Was: "Chafing dishes in brass, copper, gold and silver finishes, in round, square and handi shapes. We hold more designs than are photographed here." (Metals unconfirmed.) |
 | Cutlery & Serveware | "Cutlery and serving pieces to go with the crockery" | — |
@@ -287,3 +287,64 @@ growing name across Gujarat" (the story's closing sentence).
 | 8.8 | Catalogue wording uses the owner's spellings "Chat" and "Nasta" | `collections.ts` | Preferred over "Chaat" / "Nashta"? |
 | 8.9 | Accessible names (read by screen readers, used by voice control). **CHANGED** so each begins with the visible label: home link — label removed, the link is named by its text "Indian Hirers" (was "Indian Hirers — home"); bottom bar WhatsApp — "WhatsApp Indian Hirers" (was "Message Indian Hirers on WhatsApp"); bottom bar Enquire — label removed (was "Go to the enquiry form"); collection card — "Bone China collection" (was "View Bone China"); item WhatsApp action — "Ask on WhatsApp about Golden Rim" (was "Ask about Golden Rim on WhatsApp") | `shell.header.homeLinkLabel` (unset), `shell.bottomBar`, `catalogueCopy.landing.cardLinkLabel`, `catalogueCopy.item.askOnWhatsAppLabel` | Not owner-facing; recorded for completeness |
 | 8.10 | Page titles: Contact — "Contact — Call, WhatsApp or Enquire in Vadodara"; Founders — "Founders — A Family Business Since 1977" (each followed by " \| Indian Hirers") | `routeMetadata` | NEW COPY |
+
+---
+
+## 9. Phase R3 — catalogue transcription and trust badges
+
+The R3 brief transcribed the owner's four-page catalogue line by line. Where it says
+more than the earlier short-hand list did, the data now follows it. Rates were in the
+brief and are **not** in the code (OPEN_ISSUES O21). This section replaces rows 2.6,
+2.9, 2.10, 2.11 and 2.15 above.
+
+### 9.1 Pieces — now from the catalogue
+
+| # | Change | Where | Status | Confirm |
+|---|---|---|---|---|
+| 9.1 | Premium Melamine: **Double Color** and **24KT Blue** are hired as Dinner Set and Soup Set only. The seven-piece list (Dinner Set, Soup Set, Chat Bowl Big / Small, Snack Plate Big / Small, Nasta Plate 9") belongs to the **Matt Black Series** alone. Before R3 all three designs showed all seven pieces | `collections.ts` → `MELAMINE_SET_PIECES`, `MATT_BLACK_SERIES_PIECES` | SHOWN | Right? |
+| 9.2 | Regular Melamine: **Matt** and **24KT Gold** now show Dinner Set and Soup Set. Before R3 they showed "Ask us which pieces are available" | `collectionSeeds["regular-melamine"].items` | SHOWN | Right? |
+| 9.3 | The melamine catalogue lines read "Dinner" and "Soup", sold together as a set. The site labels them "Dinner Set" and "Soup Set", as it has since R1 for the premium range and the same words as the bone china pieces | `MELAMINE_SET_PIECES`, `MATT_BLACK_SERIES_PIECES` | SHOWN | Is a melamine "Dinner" a dinner set, or a single dinner plate? If a plate, the labels should say so |
+| 9.4 | Chat & Snack Plates: the catalogue's eleven lines are eight entries in the data — Rectangular · Dessert Bowl · Snack Plate · Mug · Chat Plate (Small, Big) · Blue Handle · **Marble** (Small, Big) · **Matt** (Small, Big). Seven are shown; Marble and Matt now show their two sizes. Before R3 the sizes were hidden and the plain "Small" and "Big" lines had been read as sizes of the Snack Plate | `collectionSeeds["chat-and-snack-plates"].items` | SHOWN, one HIDDEN | See 9.5 and 9.6 |
+| 9.5 | The entry for the plain "Small" and "Big" lines is named "Chat Plate" by us, after the catalogue's heading "Chat Plates"; the catalogue gives those two lines no name. Because the name is ours the entry is not shown | `…items[4]` → `status: "unconfirmed"` | **HIDDEN** | What do you call the plain one? Then set `status: "available"` |
+| 9.6 | Marble and Matt are filed as **plates**, so they answer the "Plates" filter. This is the one value on the site read from a heading ("Chat Plates") rather than stated; the Matt Black Series has chat *bowls*, so these could be bowls | `CHAT_PLATE_SIZES` (`type: "plate"`) | SHOWN | Plates or bowls? |
+| 9.7 | Also hidden in Chat & Snack Plates: the material (assumed melamine) on all eight entries; that "Rectangular" is a plate. "Blue Handle" still lists no piece | `…items[*].assumed` | HIDDEN | Material? What is the Blue Handle piece? |
+
+### 9.2 Copy changed in R3
+
+| Collection | Now | Was |
+|---|---|---|
+| Premium Melamine | "Our premium melamine designs. Double Color and 24KT Blue are hired as dinner sets and soup sets; the Matt Black Series also comes as chat bowls, snack plates and a 9\" nasta plate." | "Our premium melamine designs, including the Matt Black Series. Hired as dinner sets, soup sets, chat bowls, snack plates and a 9\" nasta plate." |
+| Regular Melamine | "Matt Melamine and 24KT Gold Melamine — straightforward melamine service for everyday functions. Each is hired as a dinner set and a soup set." | "… Ask us which pieces are available in each." |
+
+### 9.3 Counts after R3
+
+Derived by `npm run test:catalogue`; nothing below is typed into the site. "Hidden" is
+in the code and not on the site.
+
+| Collection | Public | Hidden | Total | With photograph |
+|---|---:|---:|---:|---:|
+| Vintage & Heritage Silver | 5 | 0 | 5 | 0 |
+| Bone China | 7 | 2 | 9 | 5 |
+| Premium Melamine | 9 | 0 | 9 | 7 |
+| Regular Melamine | 2 | 0 | 2 | 0 |
+| Chat & Snack Plates | 7 | 1 | 8 | 0 |
+| Chafing Dishes & Buffet Display | 5 | 6 | 11 | 5 |
+| Cutlery & Serveware | 0 | 0 | 0 | 0 |
+| Glassware | 4 | 0 | 4 | 4 |
+| **Total** | 39 | 9 | 48 | 21 |
+
+Bone China's two hidden entries are "Yellow" and "Black-White" (§1, O2). Its nine
+entries are the catalogue's seven designs plus the two photographed designs that are
+not in the catalogue under those names (Haldi Ivory, Spiral Motif).
+
+### 9.4 Trust badges (`src/content/site.ts` → `trustBadges`)
+
+In the data, **rendered nowhere**. The home trust strip is still `home.trust` (§4).
+
+| # | Badge | `confirmed` | To confirm |
+|---|---|---|---|
+| 9.8 | "25+ Years of Heritage" | **false** | The brief's wording, but the family's first shop opened in **1977** — 49 years — and the home strip leads with 1977. Twenty-five years is the time in Vadodara (since 2001). Should this read "in Vadodara", or use the longer history? |
+| 9.9 | "Hotels & Caterers Trust Us" | **false** | The brief's wording. No hotel or caterer is named anywhere on the site (O12) |
+| 9.10 | "Complete Event Tableware" | **false** | Flagged by the brief itself. "Complete" is a claim: Cutlery & Serveware has no list yet and there is no linen or furniture |
+| 9.11 | "Careful Handling & On-time Delivery" | **false** | Flagged by the brief itself. Delivery and collection are themselves unconfirmed (O9) |
+

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "test:catalogue": "node scripts/test-catalogue.cjs",
     "verify": "bash scripts/verify.sh"
   },
   "dependencies": {

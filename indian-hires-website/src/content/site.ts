@@ -306,6 +306,32 @@ export const shell: ShellContent = {
 };
 
 // ---------------------------------------------------------------------------
+// Trust badges
+// ---------------------------------------------------------------------------
+
+export interface TrustBadge {
+  label: string;
+  /**
+   * False → the wording is still with the owner (docs/COPY_TO_CONFIRM.md §9).
+   * A badge that is not confirmed must not be rendered.
+   */
+  confirmed: boolean;
+}
+
+/**
+ * The four badges of the R3 brief, in its wording. Nothing renders them yet;
+ * the home page's trust strip is `home.trust` in home.ts. All four are with
+ * the owner: the first sits beside `brand.foundedYear` (1977), the second
+ * names no client. The GSTIN is never one of these.
+ */
+export const trustBadges: TrustBadge[] = [
+  { label: "25+ Years of Heritage", confirmed: false },
+  { label: "Hotels & Caterers Trust Us", confirmed: false },
+  { label: "Complete Event Tableware", confirmed: false },
+  { label: "Careful Handling & On-time Delivery", confirmed: false },
+];
+
+// ---------------------------------------------------------------------------
 // Metadata
 // ---------------------------------------------------------------------------
 

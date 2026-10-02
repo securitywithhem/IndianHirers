@@ -13,7 +13,7 @@ listed separately, with file and key and the original wording, in
 | O2 | Bone china photo ↔ name | "Yellow" is probably the "Haldi Ivory" photo and "Black-White" may be "Spiral Motif". Both names are held back (`status: "unconfirmed"`, not rendered) so no design is listed twice | Confirm or correct |
 | O3 | Six melamine photos have no owner name | They sit in Premium Melamine under descriptive names. "Double Color" and "24KT Blue" may be among them and are still listed separately | Owner's name for each, premium or regular, and whether the two duplicates should be merged |
 | O4 | Glassware kept as an eighth collection | Not in the owner's collection list, but four photographed pieces exist | Keep or remove; is "8 collections" right |
-| O5 | Chat & Snack Plates | Seven entries read from a short-hand list; material and sizes are not shown because they were inferred | What each item is, sizes, material |
+| O5 | Chat & Snack Plates | Eight entries since R3, from the catalogue's eleven lines; seven shown. Marble and Matt show Small / Big; material is not shown. The plain Small / Big entry has no name in the catalogue and is hidden (`status: "unconfirmed"`; `COPY_TO_CONFIRM.md` §9) | The name of the plain one; plates or bowls; material; what the Blue Handle piece is |
 | O6 | Chafing dishes | Six `status: "todo"` placeholders are hidden. Materials are not shown. The five photographed chafers' names and alt text still name metals (brass, copper, silver, gold) because they come from the generated `products.ts` | The six designs with photographs; the material and the business's name for each (then edit the `KEEP` table in `scripts/normalize-images.py` and re-run both scripts) |
 | O7 | Cutlery & Serveware | Collection has no items and shows an "ask us" state | Contents and photographs |
 | O8 | Heritage Silver | Five named pieces, no photographs; listed as text. Only the plates and cutlery are shown as silver-plated (the owner's own words) | Photographs; which other pieces are silver-plated |
@@ -63,3 +63,27 @@ listed separately, with file and key and the original wording, in
 | E14 | `scripts/contrast.mjs --check` is not part of `npm run verify` | 4 | Run by hand; output in `docs/evidence/R2/contrast.log` | Adding a step to `verify.sh` changes the harness — needs a yes |
 | E15 | `tailwind.config.ts` still carries shadcn's default `container` (2rem, 1400px), unused | — | Left as is; `shell` is the content column | Remove or align in a clean-up |
 | E16 | `ArchImage` must not be re-exported from the ornament barrel | 9 | Doing so added about 5 kB (the `next/image` client chunk) to `/founders`, `/testimonials` and `/contact` and put two of them over the 100 kB ceiling; reverted, comment left in `ornament/index.ts` | Nothing — recorded so it is not repeated |
+
+
+## Phase R3 — catalogue taxonomy and content layer
+
+### Needs the owner
+
+| # | Item | Where it shows | What is needed |
+|---|---|---|---|
+| O21 | **The R3 brief asks for rates in the data behind a `SHOW_PRICES` flag. Not built.** It reverses O16 and the `NoPricing` rule. This is a static site: anything in `src/content` is compiled into the JavaScript every visitor downloads, so a flag that hides rates in the UI still publishes them. No rate from the brief was written to any file | Nowhere. `scripts/test-catalogue.cjs` reads the content sources and fails on a price-shaped property or a rupee figure in a string | Confirm O16 stands. If rates are wanted, they need somewhere that is not shipped to the browser — a private sheet, or a build-time file outside `src/` |
+| O22 | Other things the R3 brief asks for that R1 had already settled differently. Kept as they are: (a) item status is `available` / `todo` / `unconfirmed`, not `live` / `placeholder` — `todo` is the brief's `placeholder`, and `unconfirmed` has no equivalent; (b) an item has one `image` with width, height and blur data, not `images[]`; (c) `products.ts` stays the generated photo manifest and was not rewritten by hand; (d) `env.ts` fallbacks stay empty rather than the real numbers | `src/content/collections.ts`, `src/lib/env.ts` | Say if any should be reopened |
+| O23 | The brief lists Vintage Silver-Plated (plates, cutlery, tableware) as a placeholder to hide. Its five entries are still public, as a text list with no tiles, as agreed in R1 iteration 2 | `/collections/heritage-silver` | Hide the list until photographed, or keep it? |
+| O24 | Trust badges are in the data, all four `confirmed: false`, and rendered nowhere; "25+ Years of Heritage" sits beside "1977" | `site.ts` → `trustBadges`; `COPY_TO_CONFIRM.md` §9.4 | Wording of all four, and where they should appear |
+
+### Engineering
+
+| # | Item | Rubric | State | Blocking |
+|---|---|---|---|---|
+| E17 | `npm run test:catalogue` is not part of `npm run verify` | — | Run by hand; output in `docs/evidence/R3/test-catalogue.log` | Adding a step to `verify.sh` changes the harness — needs a yes (same as E14) |
+| E18 | `public/images/catalogue/<collection>/<slug>-1.webp` is a naming convention only. Nothing reads that folder; photographs still reach the site through the `KEEP` table and the generated manifest | — | Documented in `scripts/extract-catalogue-images.md` §5 | Part of E10 |
+| E20 | Lighthouse and axe: **not measured** for R3 | 9, 10 | R3 changed data and added no component, style or client code; the build table is in `docs/evidence/R3/verify.log` and every route is inside its budget. The three routes whose piece lists changed were captured at four widths | Measure with the next phase that changes a page |
+| E21 | Catalogue rendering, seen in the R3 captures and not introduced by R3: the Matt Black Series' seven pieces are cut by `line-clamp-2` on the card (`ItemCard.tsx:92`); a text row repeats the name when a piece or finish label equals it — "Mug / Mug", "Marble / Marble" (`ItemRow.tsx:33`); at 390px the Piece filter group starts off-screen with no scroll cue (`FilterBar.tsx:54`), and Regular Melamine now has one | 5, 7 | Not fixed: component work, outside a content-layer phase | The next phase that touches the catalogue pages |
+| E22 | `src/lib/catalogue.ts` exports a `getCollection(slug: string)` that may return undefined and whose `items` are public only; `collections.ts` has a `getCollection(slug: CollectionSlug)` that always returns one, hidden entries included | — | Both names are deliberate (the brief's API; R1's) | Settle on one when the callers move (E19) |
+| E19 | `src/lib/catalogue.ts` has no caller yet | — | The catalogue pages still call `collections.ts` directly, and `QuoteSheet` builds its link from `whatsappMessages.basketQuote`, which `buildWhatsAppQuoteUrl` wraps | Switch the callers when those pages are next rewritten |
+
