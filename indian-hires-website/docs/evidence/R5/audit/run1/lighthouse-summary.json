@@ -1,0 +1,134 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/collections",
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/bone-china",
+    "perf": 89,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/premium-melamine",
+    "perf": 89,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/chafing-dishes",
+    "perf": 91,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.5 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/glassware",
+    "perf": 90,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/heritage-silver",
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/bone-china",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/premium-melamine",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/chafing-dishes",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/glassware",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/heritage-silver",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  }
+]

@@ -373,13 +373,34 @@ replaced copy, the earlier wording is quoted so it can be restored.
 
 ---
 
-## 11. Phase R6 — founders, gallery, contact
+## 11. Phase R5 — catalogue wording from the R5 brief
+
+The brief's own wording, or new copy it made necessary. Where it replaced copy, the
+earlier wording is quoted so it can be restored. All keys are in
+`src/content/collections.ts` → `catalogueCopy` unless another file is named.
 
 | # | Now | Key | Was | Status |
 |---|---|---|---|---|
-| 11.1 | A third card in "Meet the Family": **Jasvantlal Satilal Gabhawala**, role "Founder, Malad, Mumbai, 1977", "Set up the family's first, very small shop in Malad (East), Mumbai, in 1977, and later sent the same idea forward to Vadodara." | `founders.people.profiles[0]` | — (two cards) | NEW COPY, restating the story's first two paragraphs, so the page's "Three Generations" shows three people. Confirm the role and the wording |
-| 11.2 | Nikesh's role: **"Founder in Vadodara, 2001"** | `founders.people.profiles[1].role` | "Founder" | Changed: the story credits the 1977 shop to his father. Confirm (O11 also asks about the roles) |
-| 11.3 | Pull-quotes: "With nothing more than a handful of steel plates and a will to serve" · "Carried forward across generations, from grandfather to father to son." | `founders.story.sections[*].pullQuote` | — | Excerpts of the family's own story text, not new words (OPEN_ISSUES O35) |
-| 11.4 | Timeline entries kept off the page until a year is given: "Premium melamine and glassware" · "Through COVID" | `founders.milestones.items` (`status: "todo"`) | — | The years (O34) |
-| 11.5 | Enquiry success: "Thank you, your enquiry is with us" / "We will call or WhatsApp you on the number you gave, as soon as we can during working hours." / "Send another enquiry" | `contact.form.success` | — (toast only) | NEW COPY |
-| 11.6 | Phone error: "Enter a 10-digit Indian mobile number, with or without +91." | `contact.form.errors.phoneInvalid` | "Enter a valid phone number." | NEW COPY. Landlines are not accepted (the R6 brief asks for Indian 10-digit validation) — say if banquet desks should be able to give a landline |
+| 11.1 | Catalogue `h1`: **"Our collections"** | `landing.heading` | "Collections" | The brief's, in the site's sentence case |
+| 11.2 | Closing strip on `/collections`: "Not sure what you need?" / "WhatsApp us your guest count and we'll suggest a set." / button "Ask on WhatsApp" | `landing.suggest` | A text link, "Ask for a quote on WhatsApp", under the rates note (removed: the strip is the action now) | The brief's sentence, split into a heading and a line. The button uses the catalogue's existing label |
+| 11.3 | The strip's WhatsApp message: "Hello Indian Hirers, I'm not sure what I need. Could you suggest a set? / Number of guests: / Event date:" | `site.ts` → `whatsappMessages.suggestSet` | — | NEW COPY |
+| 11.4 | Tab labels, shortened so the row fits a laptop: "All" · "Vintage Collection" · "Bone China" · "Premium Melamine" · "Regular Melamine" · "Chat Plates" · "Chafing Dishes" · "Cutlery" · "Glassware" | `tabs.labels` | — | NEW. Four are shorter than the collection's title ("Vintage & Heritage Silver", "Chat & Snack Plates", "Chafing Dishes & Buffet Display", "Cutlery & Serveware"); the full title is still the page heading and the card title. **Confirmed by the owner, 3 Oct 2026**, with "Vintage Collection" in place of the first draft's "Heritage Silver" |
+| 11.5 | A collection with nothing listed (Cutlery & Serveware today): "Collection coming soon" / "WhatsApp us for current stock." Its count line on cards and above the heading still reads "Ask us for the list" | `emptyCollection` | "This list is not on the website yet" / "Tell us what you need and we will confirm what we hold for your date." | The brief's. **It says two things at once** — the collection is still to come, and there is stock to ask about. **Confirmed by the owner, 3 Oct 2026: keep "Collection coming soon"** |
+| 11.6 | An item whose pieces are not confirmed shows **"Full catalogue coming soon – WhatsApp us!"** in its details (and in its row, where a collection is a text list) | `item.detailPending` | Nothing was shown | The previous site's card message (`Docs/App_Flow.md`), kept word for word as the brief asks. Shown today on nine items: six Premium Melamine photographs with no confirmed pieces (O3), Tableware (O8), Rectangular and Blue Handle (O5) — it goes away item by item as §9.1's pieces are confirmed |
+| 11.7 | Quote list: the floating button reads "Quote list (2)" at every width (the owner's decision, 3 Oct 2026); the send button reads "Send on WhatsApp" | `basket.pillLabel`, `basket.send` | An icon with a count badge, named "Open your quote list, 2 items" · "Send list on WhatsApp" | The brief's |
+| 11.8 | Quote list field: label "Event date and guest count", help "Optional, up to 300 characters. It goes into the message with your list." In the message it is the last line: "Event date and guest count: …" | `basket.noteLabel`, `basket.noteHint`, `site.ts` → `whatsappMessages.basketQuote` | — | NEW COPY |
+| 11.10 | Filter reset reads "Clear filters", not the brief's "Clear all": the quote list has a "Clear list" beside it in the same session, and each says what it clears. After "Clear list" the announcement is "Quote list and event details cleared" | `filters.clear`, `basket.clearedAnnouncement` | "Quote list cleared" | Say if "Clear all" is wanted |
+| 11.9 | Breadcrumb: "Home" / "Collections" / the collection's title | `collectionPage.breadcrumbHome`, `.breadcrumbCollections` | A single back link, "All collections" | Not owner-facing |
+
+---
+
+## 12. Phase R6 — founders, gallery, contact
+
+| # | Now | Key | Was | Status |
+|---|---|---|---|---|
+| 12.1 | A third card in "Meet the Family": **Jasvantlal Satilal Gabhawala**, role "Founder, Malad, Mumbai, 1977", "Set up the family's first, very small shop in Malad (East), Mumbai, in 1977, and later sent the same idea forward to Vadodara." | `founders.people.profiles[0]` | — (two cards) | NEW COPY, restating the story's first two paragraphs, so the page's "Three Generations" shows three people. Confirm the role and the wording |
+| 12.2 | Nikesh's role: **"Founder in Vadodara, 2001"** | `founders.people.profiles[1].role` | "Founder" | Changed: the story credits the 1977 shop to his father. Confirm (O11 also asks about the roles) |
+| 12.3 | Pull-quotes: "With nothing more than a handful of steel plates and a will to serve" · "Carried forward across generations, from grandfather to father to son." | `founders.story.sections[*].pullQuote` | — | Excerpts of the family's own story text, not new words (OPEN_ISSUES O42) |
+| 12.4 | Timeline entries kept off the page until a year is given: "Premium melamine and glassware" · "Through COVID" | `founders.milestones.items` (`status: "todo"`) | — | The years (O41) |
+| 12.5 | Enquiry success: "Thank you, your enquiry is with us" / "We will call or WhatsApp you on the number you gave, as soon as we can during working hours." / "Send another enquiry" | `contact.form.success` | — (toast only) | NEW COPY |
+| 12.6 | Phone error: "Enter a 10-digit Indian mobile number, with or without +91." | `contact.form.errors.phoneInvalid` | "Enter a valid phone number." | NEW COPY. Landlines are not accepted (the R6 brief asks for Indian 10-digit validation) — say if banquet desks should be able to give a landline |

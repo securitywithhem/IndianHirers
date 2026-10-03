@@ -58,7 +58,7 @@ bottom bar (`scroll-padding-bottom`).
 - The floating WhatsApp button is shown **at every width** since R4 (PRD FR7); below
   `md` it sits 16px above the bar, which also carries WhatsApp. Below `md` it is hidden
   while the quote-basket button is on the page (`body:has([data-quote-button])`), so
-  there is never more than one round button on a phone.
+  there is never more than one floating button on a phone.
 - **Quote-basket button (catalogue routes):** put it in the free slot above those two:
 
   ```
@@ -74,8 +74,10 @@ bottom bar (`scroll-padding-bottom`).
   ```
 
   Below `md` that is 16px above the bottom bar; from `md` it is 16px above the WhatsApp
-  button (24 + 56 + 16 = 96px = `bottom-24`), right edges aligned. Keep it ≤ 56px wide on
-  desktop so the two read as one column.
+  button (24 + 56 + 16 = 96px = `bottom-24`), right edges aligned. Since R5 it is a 48px
+  pill with a visible label, "Quote list (n)" (`collections/QuoteBasket.tsx`), at every
+  width — the owner's decision; on a phone it lies over the right half of a card's
+  button when the two are level (the catalogue grid is one column there).
 - While the drawer is open the rest of `<body>` is `inert` and the page cannot scroll.
   A `SlidePanel` of your own needs the same contract — copy it from
   `src/components/layout/MobileDrawer.tsx`.

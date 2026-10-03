@@ -14,6 +14,7 @@ import type { BasketCopyView, BasketEntry } from "./types";
 
 /* Not copy: the key the list is stored under for the life of the tab. */
 const STORAGE_KEY = "indian-hirers:quote-list";
+const NOTE_STORAGE_KEY = "indian-hirers:quote-note";
 
 interface Announcement {
   text: string;
@@ -30,6 +31,9 @@ interface QuoteBasketValue {
   toggle: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
+  /** The visitor's own words: event date and guest count. Sent with the list. */
+  note: string;
+  setNote: (note: string) => void;
   announcement: Announcement;
 }
 
@@ -43,18 +47,18 @@ export function useQuoteBasket(): QuoteBasketValue {
 
 /* Storage can be blocked (private mode, a strict browser setting): reading or
  * writing then throws. The list still works for the life of the page. */
-function readStored(): unknown {
+function readStored(key: string): unknown {
   try {
-    const raw = window.sessionStorage.getItem(STORAGE_KEY);
+    const raw = window.sessionStorage.getItem(key);
     return raw === null ? null : JSON.parse(raw);
   } catch {
     return null;
   }
 }
 
-function writeStored(ids: readonly string[]): void {
+function writeStored(key: string, value: readonly string[] | string): void {
   try {
-    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+    window.sessionStorage.setItem(key, JSON.stringify(value));
   } catch {
     /* Nothing to do: the list simply does not survive a reload. */
   }
@@ -70,14 +74,18 @@ export interface QuoteBasketProviderProps {
 /**
  * The quote list: a client-side list of item ids, kept in React state and
  * mirrored to `sessionStorage` so it survives a reload and a move between
- * collections. Nothing is sent anywhere until the visitor taps "Send list on
- * WhatsApp" in the sheet.
+ * collections. Nothing is sent anywhere until the visitor taps "Send on WhatsApp"
+ * in the sheet.
  *
- * Only ids are stored. Names and labels come from `entries`, so nothing read
- * back from storage is ever shown or sent as text, and an unknown id is dropped.
+ * Of the items only ids are stored. Names and labels come from `entries`, so
+ * no item text read back from storage is ever shown or sent, and an unknown id
+ * is dropped. The note is the visitor's own text: it is kept as typed, cut to
+ * `copy.noteMaxLength`, and only ever rendered as a field value or
+ * URL-encoded into the message.
  */
 export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProviderProps) {
   const [ids, setIds] = useState<readonly string[]>([]);
+  const [note, setNoteState] = useState("");
   const [restored, setRestored] = useState(false);
   const restoreStarted = useRef(false);
   const [announcement, setAnnouncement] = useState<Announcement>({ text: "", seq: 0 });
@@ -88,7 +96,13 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
     if (restoreStarted.current) return;
     restoreStarted.current = true;
 
-    const stored = readStored();
+    const storedNote = readStored(NOTE_STORAGE_KEY);
+    if (typeof storedNote === "string") {
+      /* Anything typed before this effect ran wins over the stored note. */
+      setNoteState((current) => (current === "" ? storedNote.slice(0, copy.noteMaxLength) : current));
+    }
+
+    const stored = readStored(STORAGE_KEY);
     if (Array.isArray(stored)) {
       const known = stored.filter(
         (id): id is string => typeof id === "string" && Object.prototype.hasOwnProperty.call(entries, id),
@@ -97,11 +111,20 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
       setIds((current) => known.concat(current).filter((id, index, all) => all.indexOf(id) === index));
     }
     setRestored(true);
-  }, [entries]);
+  }, [copy.noteMaxLength, entries]);
 
   useEffect(() => {
-    if (restored) writeStored(ids);
+    if (restored) writeStored(STORAGE_KEY, ids);
   }, [ids, restored]);
+
+  useEffect(() => {
+    if (restored) writeStored(NOTE_STORAGE_KEY, note);
+  }, [note, restored]);
+
+  const setNote = useCallback(
+    (next: string) => setNoteState(next.slice(0, copy.noteMaxLength)),
+    [copy.noteMaxLength],
+  );
 
   const announce = useCallback((text: string) => {
     setAnnouncement((previous) => ({ text, seq: previous.seq + 1 }));
@@ -128,8 +151,10 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
     [announce, entries, ids],
   );
 
+  /* The note belongs to the list it was written for: both go together. */
   const clear = useCallback(() => {
     setIds([]);
+    setNoteState("");
     announce(copy.clearedAnnouncement);
   }, [announce, copy.clearedAnnouncement]);
 
@@ -142,9 +167,11 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
       toggle,
       remove,
       clear,
+      note,
+      setNote,
       announcement,
     }),
-    [announcement, clear, copy, entries, ids, remove, toggle],
+    [announcement, clear, copy, entries, ids, note, remove, setNote, toggle],
   );
 
   return <QuoteBasketContext.Provider value={value}>{children}</QuoteBasketContext.Provider>;

@@ -200,7 +200,7 @@ export const founders: FoundersContent = {
     profiles: [
       {
         // Restates the story's first paragraph; no new fact. Role wording is
-        // the builder's, from the story (docs/COPY_TO_CONFIRM.md §11).
+        // the builder's, from the story (docs/COPY_TO_CONFIRM.md §12).
         id: "jasvantlal",
         name: JASVANTLAL,
         role: `Founder, ${brand.foundedPlace}, ${brand.foundedYear}`,

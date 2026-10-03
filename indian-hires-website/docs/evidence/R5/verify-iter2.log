@@ -1,0 +1,80 @@
+
+> indian-hires-website@0.1.0 verify
+> bash scripts/verify.sh
+
+
+==> [1/4 lint] npm run lint
+
+> indian-hires-website@0.1.0 lint
+> next lint
+
+✔ No ESLint warnings or errors
+==> [1/4 lint] PASS
+
+==> [2/4 typecheck] npm run typecheck
+
+> indian-hires-website@0.1.0 typecheck
+> tsc --noEmit
+
+==> [2/4 typecheck] PASS
+
+==> [3/4 build] npm run build
+
+> indian-hires-website@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/27) ...
+   Generating static pages (6/27) 
+   Generating static pages (13/27) 
+   Generating static pages (20/27) 
+ ✓ Generating static pages (27/27)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    223 B           105 kB
+├ ○ /_not-found                          146 B          87.8 kB
+├ ○ /collections                         2.61 kB         107 kB
+├ ● /collections/[slug]                  3.62 kB         108 kB
+├   ├ /collections/heritage-silver
+├   ├ /collections/bone-china
+├   ├ /collections/premium-melamine
+├   └ [+5 more paths]
+├ ○ /contact                             1.22 kB        97.6 kB
+├ ○ /design-system                       184 B           102 kB
+├ ○ /founders                            218 B          99.9 kB
+├ ○ /gallery                             3.72 kB         109 kB
+├ ○ /products                            146 B          87.8 kB
+├ ● /products/[slug]                     146 B          87.8 kB
+├   ├ /products/vintage
+├   ├ /products/bone-china
+├   ├ /products/melamine
+├   └ [+2 more paths]
+├ ○ /robots.txt                          0 B                0 B
+├ ○ /sitemap.xml                         0 B                0 B
+└ ○ /testimonials                        218 B          99.9 kB
++ First Load JS shared by all            87.6 kB
+  ├ chunks/117-b72115bd05ca3009.js       31.7 kB
+  ├ chunks/fd9d1056-e43d8fe590e643ad.js  53.6 kB
+  └ other shared chunks (total)          2.27 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses getStaticProps)
+
+==> [3/4 build] PASS
+
+==> [4/4 tokens] node scripts/check-tokens.mjs
+check-tokens: scanned 113 files in src/components, src/app
+
+check-tokens: PASS — no raw colours or stock white/black outside the token files
+==> [4/4 tokens] PASS
+
+verify: ALL PASS

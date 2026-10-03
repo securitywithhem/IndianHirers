@@ -245,6 +245,69 @@ test("falls back to the contact page when no WhatsApp number is set", () => {
   );
 });
 
+test("a note is added after the list; a blank one is not", () => {
+  const items = [item("bone-china--rose-gold")];
+  assert.equal(
+    messageOf(buildWhatsAppQuoteUrl(items, "  14 Feb, 250 guests & family \n")),
+    "Hello Indian Hirers, I'd like a quote for:\n1. Rose Gold (Bone China)\n\nEvent date and guest count: 14 Feb, 250 guests & family"
+  );
+  assert.equal(buildWhatsAppQuoteUrl(items, "   "), buildWhatsAppQuoteUrl(items));
+  const text = buildWhatsAppQuoteUrl(items, "a&b #1?").slice(PREFIX.length);
+  assert.ok(!/[\s&#?+="]/.test(text), `unencoded character in: ${text}`);
+});
+
+// --- R5: ItemList JSON-LD and the sitemap ----------------------------------
+
+console.log("\nItemList JSON-LD and sitemap");
+
+/** Loads a module afresh with NEXT_PUBLIC_SITE_URL set (or unset). */
+function withSiteUrl(siteUrl, request) {
+  for (const key of Object.keys(require.cache)) {
+    if (key.startsWith(SRC)) delete require.cache[key];
+  }
+  if (siteUrl) process.env.NEXT_PUBLIC_SITE_URL = siteUrl;
+  else delete process.env.NEXT_PUBLIC_SITE_URL;
+  const loaded = require(request);
+  delete process.env.NEXT_PUBLIC_SITE_URL;
+  return loaded;
+}
+
+test("ItemList lists a collection's public items in order, with no price field", () => {
+  const { collectionItemListJsonLd } = withSiteUrl("", "@/lib/catalogue");
+  const collection = content.collections.find((c) => c.slug === "bone-china");
+  const shown = collection.items.filter((entry) => entry.status === "available");
+  const list = collectionItemListJsonLd(collection);
+  assert.equal(list["@type"], "ItemList");
+  assert.equal(list.name, "Bone China");
+  assert.equal(list.numberOfItems, shown.length);
+  assert.deepEqual(list.itemListElement.map((e) => e.name), shown.map((entry) => entry.name));
+  assert.deepEqual(list.itemListElement.map((e) => e.position), shown.map((_, i) => i + 1));
+  assert.ok(!("url" in list), "no url without a site URL");
+  assert.ok(list.itemListElement.every((e) => !("image" in e)), "no relative image URLs");
+  assert.ok(!/offers|price|"rate"|amount|currency|₹/i.test(JSON.stringify(list)), "price-shaped content");
+});
+
+test("ItemList carries absolute url and images once the site URL is set", () => {
+  const { collectionItemListJsonLd } = withSiteUrl("https://example.test/", "@/lib/catalogue");
+  const collection = content.collections.find((c) => c.slug === "bone-china");
+  const list = collectionItemListJsonLd(collection);
+  assert.equal(list.url, "https://example.test/collections/bone-china");
+  const images = list.itemListElement.filter((e) => "image" in e).map((e) => e.image);
+  assert.ok(images.length > 0);
+  assert.ok(images.every((src) => src.startsWith("https://example.test/images/")), images.join(" "));
+});
+
+test("the sitemap holds every collection URL", () => {
+  const sitemap = withSiteUrl("https://example.test", "@/app/sitemap").default;
+  const urls = sitemap().map((entry) => entry.url);
+  assert.ok(urls.includes("https://example.test/collections"));
+  for (const collection of content.collections) {
+    assert.ok(urls.includes(`https://example.test/collections/${collection.slug}`), collection.slug);
+  }
+  assert.equal(new Set(urls).size, urls.length, "a URL is listed twice");
+  assert.deepEqual(withSiteUrl("", "@/app/sitemap").default(), [], "no site URL, no entries");
+});
+
 // --- the owner's catalogue, line by line -----------------------------------
 
 console.log("\nowner's catalogue");

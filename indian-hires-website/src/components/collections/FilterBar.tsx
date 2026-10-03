@@ -23,10 +23,10 @@ export interface FilterBarProps {
  * the first paint, and the interactive catalogue renders the same markup with
  * handlers on the client.
  *
- * Below `md` every group sits in ONE row that scrolls sideways inside the page
- * gutter (a plain scroll; the page itself never scrolls sideways), so the
- * first cards stay on the first screen; from `md` each group is a row of its
- * own and the chips wrap.
+ * Each group is a row of its own, its label always on screen. Below `md` a
+ * row's chips scroll sideways, out to the right edge of the page, with scroll
+ * snap (a plain scroll; the page itself never scrolls sideways) — a chip cut
+ * by the edge is the cue that there are more. From `md` the chips wrap.
  */
 export function FilterBar({ facets, selection, copy, shown, onSelect, onClear }: FilterBarProps) {
   const filtered = facets.some((facet) => selection[facet.key] !== undefined);
@@ -34,7 +34,7 @@ export function FilterBar({ facets, selection, copy, shown, onSelect, onClear }:
   const chip = (facet: Facet, value: string | null, label: string) => {
     const pressed = (selection[facet.key] ?? null) === value;
     return (
-      <li key={value ?? ""} className="shrink-0">
+      <li key={value ?? ""} className="shrink-0 snap-start">
         <button
           type="button"
           aria-pressed={pressed}
@@ -50,8 +50,7 @@ export function FilterBar({ facets, selection, copy, shown, onSelect, onClear }:
 
   return (
     <div role="group" aria-label={copy.heading} className="flex flex-col gap-1 md:gap-3">
-      {/* The vertical padding keeps the focus ring inside the scroll box. */}
-      <div className="-mx-gutter flex gap-x-6 overflow-x-auto px-gutter py-1.5 md:mx-0 md:flex-col md:gap-y-3 md:overflow-visible md:p-0">
+      <div className="flex flex-col md:gap-3">
         {facets.map((facet) => {
           const labelId = `filter-${facet.key}`;
           return (
@@ -59,12 +58,13 @@ export function FilterBar({ facets, selection, copy, shown, onSelect, onClear }:
               key={facet.key}
               role="group"
               aria-labelledby={labelId}
-              className="flex shrink-0 items-center gap-3 md:shrink md:items-baseline md:gap-4"
+              className="flex items-center gap-2 md:items-baseline md:gap-4"
             >
-              <p id={labelId} className="type-small shrink-0 font-medium text-foreground md:w-20">
+              <p id={labelId} className="type-small w-16 shrink-0 font-medium text-foreground md:w-20">
                 {facet.label}
               </p>
-              <ul className="flex gap-2 md:flex-wrap">
+              {/* The padding keeps the focus ring inside the scroll box. */}
+              <ul className="-mr-gutter flex min-w-0 flex-1 snap-x snap-proximity scroll-pl-1 gap-2 overflow-x-auto py-1.5 pl-1 pr-gutter [scrollbar-width:none] md:mr-0 md:flex-wrap md:overflow-visible md:p-0 [&::-webkit-scrollbar]:hidden">
                 {chip(facet, null, copy.all)}
                 {facet.options.map((option) => chip(facet, option.value, option.label))}
               </ul>

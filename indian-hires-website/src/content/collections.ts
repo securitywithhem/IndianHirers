@@ -40,7 +40,7 @@ import {
   type ProductCategorySlug,
   type ProductImage,
 } from "./products";
-import { collectionPath, routes, type QuoteLine } from "./site";
+import { collectionPath, QUOTE_NOTE_LABEL, routes, type QuoteLine } from "./site";
 
 // ---------------------------------------------------------------------------
 // Guard
@@ -1296,15 +1296,38 @@ export interface CatalogueLandingCopy {
    * (WCAG 2.5.3); the tagline and the count describe the link.
    */
   cardLinkLabel: (collectionTitle: string) => string;
-  /** Closing note under the grid, followed by the WhatsApp link. */
+  /** Closing note under the grid. */
   footnote: string;
-  footnoteCta: string;
+  /** The "Not sure what you need?" strip that closes the page. */
+  suggest: SuggestCopy;
+}
+
+export interface SuggestCopy {
+  heading: string;
+  body: string;
+  /** Label of the WhatsApp button; the message is `whatsappMessages.suggestSet`. */
+  cta: string;
+}
+
+/** The sticky row of collection links on both catalogue routes. */
+export interface CollectionTabsCopy {
+  /** aria-label of the <nav>. Distinct from every other nav on the page. */
+  navLabel: string;
+  /** The first tab: the catalogue landing page. */
+  all: string;
+  /**
+   * Short tab label per collection, so the row fits a laptop without
+   * scrolling. The collection's full title is the page's `h1`.
+   */
+  labels: Record<CollectionSlug, string>;
 }
 
 export interface CollectionPageCopy {
   /** aria-label of the breadcrumb <nav>. */
   breadcrumbLabel: string;
-  backLabel: string;
+  /** First and second crumb; the third is the collection's title. */
+  breadcrumbHome: string;
+  breadcrumbCollections: string;
   /** Heading of the items grid, for assistive technology. */
   itemsHeading: (collectionTitle: string) => string;
   enquireHeading: (collectionTitle: string) => string;
@@ -1347,6 +1370,11 @@ export interface ItemCopy {
   viewDetailsLabel: (itemName: string) => string;
   /** Shown on items whose `image` is null. */
   photoPending: string;
+  /**
+   * Shown where an item's pieces have not been confirmed yet (`pieces` is
+   * empty): the wording of the previous site's card message (Docs/App_Flow.md).
+   */
+  detailPending: string;
   /** Accessible name of the crown placeholder. */
   placeholderAlt: (itemName: string) => string;
 }
@@ -1368,8 +1396,14 @@ export interface ItemDrawerCopy {
 export interface QuoteBasketCopy {
   title: string;
   lead: string;
-  /** aria-label of the button that opens the basket. */
-  openLabel: (count: number) => string;
+  /** Visible label, and so the name, of the floating pill that opens the basket. */
+  pillLabel: (count: number) => string;
+  /** Label of the free-text field in the sheet. */
+  noteLabel: string;
+  /** Help text under that field. States the limit below. */
+  noteHint: string;
+  /** Longest note kept or sent: enough for a date, a head count and a venue. */
+  noteMaxLength: number;
   closeLabel: string;
   count: (count: number) => string;
   emptyHeading: string;
@@ -1417,6 +1451,7 @@ export interface CatalogueCopy {
   item: ItemCopy;
   drawer: ItemDrawerCopy;
   basket: QuoteBasketCopy;
+  tabs: CollectionTabsCopy;
   /** For a collection with no public items (cutlery-and-serveware today). */
   emptyCollection: EmptyCollectionCopy;
   textOnly: TextOnlyCopy;
@@ -1432,10 +1467,13 @@ function countItems(count: number): string {
   return count === 1 ? "1 item" : `${count} items`;
 }
 
+/** Longest note the quote list keeps or sends; the hint under the field states it. */
+const QUOTE_NOTE_MAX_LENGTH = 300;
+
 export const catalogueCopy: CatalogueCopy = {
   landing: {
     eyebrow: "The catalogue",
-    heading: "Collections",
+    heading: "Our collections",
     lead: (collectionTotal) =>
       `Our crockery and tableware on hire, in ${collectionTotal} collections. Add what you like to a quote list and send it to us on WhatsApp.`,
     cardCount: countDesigns,
@@ -1443,11 +1481,16 @@ export const catalogueCopy: CatalogueCopy = {
     cardEmpty: "Ask us for the list",
     cardLinkLabel: (collectionTitle) => `${collectionTitle} collection`,
     footnote: "Rates depend on your dates, quantities and delivery location.",
-    footnoteCta: "Ask for a quote on WhatsApp",
+    suggest: {
+      heading: "Not sure what you need?",
+      body: "WhatsApp us your guest count and we'll suggest a set.",
+      cta: "Ask on WhatsApp",
+    },
   },
   collectionPage: {
     breadcrumbLabel: "Breadcrumb",
-    backLabel: "All collections",
+    breadcrumbHome: "Home",
+    breadcrumbCollections: "Collections",
     itemsHeading: (collectionTitle) => `${collectionTitle} designs`,
     enquireHeading: (collectionTitle) =>
       `Need ${collectionTitle} for a date?`,
@@ -1483,6 +1526,7 @@ export const catalogueCopy: CatalogueCopy = {
     askOnWhatsAppLabel: (itemName) => `Ask on WhatsApp about ${itemName}`,
     viewDetailsLabel: (itemName) => `${itemName} — view details`,
     photoPending: "Photograph to follow — ask us for a picture",
+    detailPending: "Full catalogue coming soon – WhatsApp us!",
     placeholderAlt: (itemName) => `${itemName} — photograph to follow`,
   },
   drawer: {
@@ -1498,27 +1542,41 @@ export const catalogueCopy: CatalogueCopy = {
   basket: {
     title: "Your quote list",
     lead: "Send this list to us on WhatsApp and we will reply with availability and rates.",
-    openLabel: (count) =>
-      count === 0
-        ? "Open your quote list"
-        : `Open your quote list, ${count === 1 ? "1 item" : `${count} items`}`,
+    pillLabel: (count) => `Quote list (${count})`,
+    noteLabel: QUOTE_NOTE_LABEL,
+    noteHint: `Optional, up to ${QUOTE_NOTE_MAX_LENGTH} characters. It goes into the message with your list.`,
+    noteMaxLength: QUOTE_NOTE_MAX_LENGTH,
     closeLabel: "Close quote list",
     count: (count) => (count === 1 ? "1 item" : `${count} items`),
     emptyHeading: "Your quote list is empty",
     emptyBody:
       "Add the designs you are interested in and send them to us in one message.",
     browseCta: "Browse the collections",
-    send: "Send list on WhatsApp",
+    send: "Send on WhatsApp",
     clear: "Clear list",
     removeItemLabel: (itemName) => `Remove ${itemName} from your quote list`,
     addedAnnouncement: (itemName) => `${itemName} added to your quote list`,
     removedAnnouncement: (itemName) =>
       `${itemName} removed from your quote list`,
-    clearedAnnouncement: "Quote list cleared",
+    clearedAnnouncement: "Quote list and event details cleared",
+  },
+  tabs: {
+    navLabel: "Browse by collection",
+    all: "All",
+    labels: {
+      "heritage-silver": "Vintage Collection",
+      "bone-china": "Bone China",
+      "premium-melamine": "Premium Melamine",
+      "regular-melamine": "Regular Melamine",
+      "chat-and-snack-plates": "Chat Plates",
+      "chafing-dishes": "Chafing Dishes",
+      "cutlery-and-serveware": "Cutlery",
+      glassware: "Glassware",
+    },
   },
   emptyCollection: {
-    heading: "This list is not on the website yet",
-    body: "Tell us what you need and we will confirm what we hold for your date.",
+    heading: "Collection coming soon",
+    body: "WhatsApp us for current stock.",
     cta: "Ask on WhatsApp",
   },
   textOnly: {

@@ -39,8 +39,8 @@ export interface CatalogueItemView {
   placeholderAlt: string;
   /** Null when the material has not been confirmed: the row is then left out. */
   material: string | null;
-  /** The confirmed finishes as one phrase; empty when there are none. */
-  finishSummary: string;
+  /** Labels of the confirmed finishes; empty when there are none. */
+  finishes: string[];
   /** Material and finishes as one line for the card, no word twice; may be empty. */
   specs: string;
   /** Confirmed piece labels; may be empty. */
@@ -59,6 +59,8 @@ export interface ItemCardCopy {
   ratesOnRequest: string;
   /** Visible text of the per-item WhatsApp action. */
   askOnWhatsApp: string;
+  /** Shown in a text row whose item has no confirmed pieces yet. */
+  detailPending: string;
 }
 
 export interface FilterCopyView {
@@ -83,6 +85,8 @@ export interface ItemDrawerCopyView {
   finishLabel: string;
   piecesHeading: string;
   photoPending: string;
+  /** Shown instead of the piece list when no piece is confirmed. */
+  detailPending: string;
   ratesOnRequest: string;
   askOnWhatsApp: string;
 }
@@ -120,8 +124,12 @@ export interface BasketCopyView {
   /** Visible label of the card toggle: not in the list / in the list. */
   addToQuote: string;
   added: string;
-  /** `openLabels[n]`: accessible name of the basket button holding `n` items. */
-  openLabels: string[];
+  /** Label and help text of the free-text field for the event date and guest count. */
+  noteLabel: string;
+  noteHint: string;
+  noteMaxLength: number;
+  /** `pillLabels[n]`: visible label of the floating pill holding `n` items. */
+  pillLabels: string[];
   /** `counts[n]`: "n items". */
   counts: string[];
 }

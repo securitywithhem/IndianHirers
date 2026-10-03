@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
-import dynamic from "next/dynamic";
+import { Suspense, lazy, useCallback, useRef, useState } from "react";
 import { ClipboardList } from "lucide-react";
 import { QuoteBasketAnnouncer, useQuoteBasket } from "./QuoteBasket";
 
@@ -12,20 +11,33 @@ import { QuoteBasketAnnouncer, useQuoteBasket } from "./QuoteBasket";
  * (scripts/import-cycles.mjs).
  */
 
+/*
+ * The pill, with its label at every width (the owner's decision, R5). Below
+ * `md` it takes the floating WhatsApp button's slot, 16px above the bottom
+ * bar (one slot higher where `:has()` is not supported and that button
+ * cannot step aside); from `md` it sits 16px above that button. On a phone
+ * it is about 160px wide and covers a right-column card's "Add to quote"
+ * while that button is level with it (docs/OPEN_ISSUES.md E35); the button
+ * is clear again a short scroll either way.
+ */
+const PILL_CLASS =
+  "type-button focus-ring fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-4 z-bar inline-flex min-h-12 items-center gap-2 rounded-full bg-primary py-2 pl-4 pr-5 text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover supports-[selector(:has(*))]:bottom-[calc(5rem+env(safe-area-inset-bottom))] md:bottom-24 md:right-6 md:supports-[selector(:has(*))]:bottom-24";
+
 const SHEET_ID = "quote-list-sheet";
 /* `id` of <main> in the root layout: where focus goes when the basket button
  * has gone (the list was emptied inside the sheet). */
 const MAIN_ID = "main-content";
 
 /* The sheet is fetched the first time the list is opened: it is never part of
- * the route's first load. */
-const QuoteSheet = dynamic(() => import("./QuoteSheet").then((loaded) => loaded.QuoteSheet), { ssr: false });
+ * the route's first load. `lazy`, not `next/dynamic`: it is only ever rendered
+ * after a click, so nothing needs the loader that `dynamic` would add here. */
+const QuoteSheet = lazy(() => import("./QuoteSheet").then((loaded) => ({ default: loaded.QuoteSheet })));
 
 /**
- * Floating button that opens the quote list, with a count badge. It sits in
- * the slot the shell reserves (src/components/shared/README.md → Fixed
- * elements): 16px above the mobile bottom bar below `md`, 16px above the
- * floating WhatsApp button from `md`, same 56px width.
+ * Floating pill that opens the quote list: "Quote list (n)". Its visible
+ * label is its name. It sits in the slot the shell reserves
+ * (src/components/shared/README.md → Fixed elements): 16px above the mobile
+ * bottom bar below `md`, 16px above the floating WhatsApp button from `md`.
  *
  * Hidden while the list is empty — an empty list has nothing to open, and the
  * cards carry the way in. It stays mounted while its sheet is open or closing
@@ -60,7 +72,6 @@ export function QuoteBasketButton() {
         <button
           ref={triggerRef}
           type="button"
-          aria-label={copy.openLabels[count] ?? copy.openLabels[0]}
           aria-haspopup="dialog"
           aria-expanded={open}
           aria-controls={open ? SHEET_ID : undefined}
@@ -72,18 +83,17 @@ export function QuoteBasketButton() {
             setSheetPresent(true);
             setOpen(true);
           }}
-          className="focus-ring fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-4 z-bar grid size-14 supports-[selector(:has(*))]:bottom-[calc(5rem+env(safe-area-inset-bottom))] place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover md:bottom-24 md:right-6 md:supports-[selector(:has(*))]:bottom-24"
+          className={PILL_CLASS}
         >
-          <ClipboardList aria-hidden="true" className="size-6" />
-          <span
-            aria-hidden="true"
-            className="type-caption absolute -right-1 -top-1 grid h-6 min-w-6 place-items-center rounded-full bg-accent px-1 font-semibold text-accent-foreground ring-2 ring-background"
-          >
-            {count}
-          </span>
+          <ClipboardList aria-hidden="true" className="size-5 shrink-0" />
+          {copy.pillLabels[count] ?? copy.pillLabels[0]}
         </button>
       ) : null}
-      {requested ? <QuoteSheet id={SHEET_ID} open={open} onClose={close} onExitComplete={onExitComplete} /> : null}
+      {requested ? (
+        <Suspense fallback={null}>
+          <QuoteSheet id={SHEET_ID} open={open} onClose={close} onExitComplete={onExitComplete} />
+        </Suspense>
+      ) : null}
     </>
   );
 }
