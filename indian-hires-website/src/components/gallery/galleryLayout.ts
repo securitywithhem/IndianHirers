@@ -71,3 +71,59 @@ export function interleaveByCollection<T extends { collection: CollectionSlug }>
   }
   return dealt;
 }
+
+/** Height of a frame, in tile widths. */
+const ASPECT_HEIGHT: Record<TileAspect, number> = { "1/1": 1, "4/5": 1.25, "3/4": 4 / 3 };
+
+/* The vertical gap between tiles (mb-2, 8px) in tile widths at a phone's
+ * column width (~170px). Only used to approximate where columns break. */
+const GAP = 0.05;
+
+/**
+ * Index of the first tile in each column, for `columns` columns. Mirrors the
+ * browser's column balancing: the shortest column height into which the
+ * tiles, laid in order, fit in `columns` columns, then the breaks that
+ * height gives. An approximation (the browser also rounds pixels), checked
+ * against the real layout in scripts/r6-pass.mjs.
+ */
+export function columnHeads(aspects: readonly TileAspect[], columns: number): number[] {
+  const heights = aspects.map((aspect) => ASPECT_HEIGHT[aspect] + GAP);
+  const breaks = (limit: number): number[] => {
+    const heads = [0];
+    let used = 0;
+    heights.forEach((height, index) => {
+      if (used + height > limit + 1e-9 && used > 0) {
+        heads.push(index);
+        used = 0;
+      }
+      used += height;
+    });
+    return heads;
+  };
+  let low = Math.max(...heights);
+  let high = heights.reduce((sum, height) => sum + height, 0);
+  for (let step = 0; step < 40; step += 1) {
+    const mid = (low + high) / 2;
+    if (breaks(mid).length <= columns) high = mid;
+    else low = mid;
+  }
+  return breaks(high);
+}
+
+/**
+ * The tiles that head a column on a phone (two columns) load eagerly, and the
+ * tallest of them is the route's single `priority` image: the largest image
+ * in a phone's first screen, so its LCP element. Only the phone layout is
+ * favoured: eager column heads for the wider layouts were measured to cost
+ * the phone (they are off its first screen and take its bandwidth), and the
+ * desktop scores 100 either way.
+ */
+export function firstScreenTiles(aspects: readonly TileAspect[]): { eager: number[]; priority: number } {
+  const phoneHeads = columnHeads(aspects, 2);
+  const eager = phoneHeads;
+  const priority = phoneHeads.reduce(
+    (best, index) => (ASPECT_HEIGHT[aspects[index] ?? "1/1"] > ASPECT_HEIGHT[aspects[best] ?? "1/1"] ? index : best),
+    phoneHeads[0] ?? 0,
+  );
+  return { eager, priority };
+}

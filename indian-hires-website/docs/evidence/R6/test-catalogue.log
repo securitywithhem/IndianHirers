@@ -20,6 +20,12 @@ buildWhatsAppQuoteUrl
   ok    the message is fully percent-encoded
   ok    an empty list gives the general enquiry
   ok    falls back to the contact page when no WhatsApp number is set
+  ok    a note is added after the list; a blank one is not
+
+ItemList JSON-LD and sitemap
+  ok    ItemList lists a collection's public items in order, with no price field
+  ok    ItemList carries absolute url and images once the site URL is set
+  ok    the sitemap holds every collection URL
 
 owner's catalogue
   ok    bone-china: every catalogue line present exactly once

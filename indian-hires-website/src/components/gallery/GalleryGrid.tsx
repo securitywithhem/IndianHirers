@@ -55,6 +55,8 @@ export interface GalleryGridProps {
   labels: GalleryLabels;
   /** Index of the one tile that is the route's LCP image, if this grid has it. */
   priorityIndex?: number;
+  /** Tiles that head a column at some width: loaded eagerly, not lazily. */
+  eagerIndices?: readonly number[];
 }
 
 /**
@@ -131,8 +133,9 @@ function aspectRatio(image: GalleryTile["image"]): string {
 
 /**
  * The gallery: a masonry of photographs (CSS columns), each a button that
- * opens the viewer. Every image below the first is lazy (`next/image`'s
- * default) and every frame is reserved before it loads.
+ * opens the viewer. The tiles that head a column at some width load eagerly
+ * (`eagerIndices`, one of them `priority`); every other image is lazy
+ * (`next/image`'s default). Every frame is reserved before it loads.
  *
  * Without JavaScript and under reduced motion it is simply the complete grid
  * (every box reserved by its photograph's own ratio, every image with a blur
@@ -149,7 +152,7 @@ function aspectRatio(image: GalleryTile["image"]): string {
  * - the position ("Image 3 of 21") is a polite live region;
  * - once closed, focus returns to the tile that opened it.
  */
-export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) {
+export function GalleryGrid({ tiles, labels, priorityIndex, eagerIndices = [] }: GalleryGridProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   /* The photograph is still shrinking back into its tile (engine only). */
   const [closing, setClosing] = useState(false);
@@ -381,6 +384,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                   placeholder="blur"
                   blurDataURL={tile.image.blurDataURL}
                   priority={index === priorityIndex}
+                  loading={index !== priorityIndex && eagerIndices.includes(index) ? "eager" : undefined}
                   className="object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-safe:ease-royal motion-safe:group-hover:scale-104"
                 />
               </Source>

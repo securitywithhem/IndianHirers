@@ -1,6 +1,6 @@
 import { GalleryCta } from "@/components/gallery/GalleryCta";
 import { GalleryGrid, type GalleryLabels, type GalleryTile } from "@/components/gallery/GalleryGrid";
-import { interleaveByCollection, nearestAspect, TILE_SIZES, tileAspect } from "@/components/gallery/galleryLayout";
+import { firstScreenTiles, interleaveByCollection, nearestAspect, TILE_SIZES, tileAspect } from "@/components/gallery/galleryLayout";
 import { SectionHeading } from "@/components/ornament";
 import { Band } from "@/components/shared/Band";
 import { PageHero } from "@/components/shared/PageHero";
@@ -38,6 +38,10 @@ const rangeTiles: GalleryTile[] = interleaveByCollection(galleryPhotos).map((pho
   sizes: TILE_SIZES,
 }));
 
+/* The column heads at 2, 3 and 4 columns load eagerly; the tallest one on a
+ * phone is the route's one priority image (its LCP element). */
+const firstScreen = firstScreenTiles(rangeTiles.map((tile) => tile.aspect));
+
 /** Photographs taken at events. There are none yet, and nothing stands in for them. */
 const eventTiles: GalleryTile[] = eventPhotos.map((photo, index) => ({
   id: `event-${photo.id}`,
@@ -56,8 +60,12 @@ export default function GalleryPage() {
       <PageHero eyebrow={gallery.eyebrow} heading={gallery.heading} lead={gallery.lead} />
 
       <Band tone="ivory" aria-label={gallery.gridLabel}>
-        {/* The first tile is the first photograph on screen at every width: the route's one priority image. */}
-        <GalleryGrid tiles={rangeTiles} labels={labels} priorityIndex={0} />
+        <GalleryGrid
+          tiles={rangeTiles}
+          labels={labels}
+          priorityIndex={firstScreen.priority}
+          eagerIndices={firstScreen.eager}
+        />
       </Band>
 
       {eventTiles.length > 0 ? (

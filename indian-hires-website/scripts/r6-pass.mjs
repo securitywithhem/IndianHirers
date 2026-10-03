@@ -53,7 +53,7 @@ const overflowOf = (page) =>
   check("gallery: tiles render in a CSS-columns list", count > 0, `${count} tiles`);
 
   const lazy = await page.$$eval("ul.columns-2 img", (imgs) => imgs.filter((img) => img.loading === "lazy").length);
-  check("gallery: every image but the first is lazy", lazy === count - 1, `${lazy} of ${count} lazy`);
+  check("gallery: all but the phone's two column heads are lazy", lazy === count - 2, `${lazy} of ${count} lazy`);
 
   const alts = await page.$$eval("ul.columns-2 img", (imgs) => imgs.map((img) => img.alt.trim()));
   check("gallery: every image has alt text", alts.every((alt) => alt.length >= 12));
@@ -134,6 +134,29 @@ const overflowOf = (page) =>
   await swipe(box.x + box.width * 0.15, box.x + box.width * 0.85);
   check("gallery 390: swipe right goes back", (await position()) === before);
   await shot(page, "gallery-390-lightbox");
+  await context.close();
+}
+
+// ---- Gallery: the computed column heads match the real layout ---------------
+for (const width of [390]) {
+  const { context, page } = await open("/gallery", { width, mobile: width < 700 });
+  const heads = await page.evaluate(() => {
+    const tiles = [...document.querySelectorAll("ul.columns-2 > li")];
+    const firstByColumn = new Map();
+    tiles.forEach((li, index) => {
+      const left = Math.round(li.getBoundingClientRect().left);
+      if (!firstByColumn.has(left)) firstByColumn.set(left, index);
+    });
+    return [...firstByColumn.values()].map((index) => {
+      const img = tiles[index].querySelector("img");
+      return { index, loading: img.loading, priority: img.getAttribute("fetchpriority") };
+    });
+  });
+  check(
+    `gallery ${width}: every column head loads eagerly`,
+    heads.every((head) => head.loading !== "lazy"),
+    heads.map((head) => `#${head.index}:${head.loading}${head.priority ? "/" + head.priority : ""}`).join(" "),
+  );
   await context.close();
 }
 

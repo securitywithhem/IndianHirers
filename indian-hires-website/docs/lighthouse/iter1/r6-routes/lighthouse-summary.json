@@ -1,0 +1,83 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/founders",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.4 s",
+    "lcpMs": 2383.2155,
+    "cls": "0",
+    "tbt": "20 ms",
+    "runs": [
+      {
+        "perf": 97,
+        "lcp": "2.5 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.5 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/gallery",
+    "run": 3,
+    "perf": 93,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.3 s",
+    "lcpMs": 3270.9480000000003,
+    "cls": "0",
+    "tbt": "40 ms",
+    "runs": [
+      {
+        "perf": 93,
+        "lcp": "3.0 s"
+      },
+      {
+        "perf": 95,
+        "lcp": "2.9 s"
+      },
+      {
+        "perf": 93,
+        "lcp": "3.3 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/testimonials",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 66,
+    "lcp": "2.3 s",
+    "lcpMs": 2342.2045,
+    "cls": "0",
+    "tbt": "40 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      }
+    ]
+  }
+]
