@@ -142,9 +142,10 @@ Not deployed in this phase. To deploy:
 
    | Variable | Value | If empty |
    |---|---|---|
-   | `NEXT_PUBLIC_PHONE` | `+919825037478` | no primary phone link anywhere |
-   | `NEXT_PUBLIC_PHONE_ALT` | `+918734090908` | no second phone link |
-   | `NEXT_PUBLIC_WHATSAPP` | `919825037478` (digits only, with 91) | WhatsApp buttons fall back to the contact page |
+   | `NEXT_PUBLIC_PHONE` | `+918734090908` (primary; also the WhatsApp number) | no primary phone link anywhere |
+   | `NEXT_PUBLIC_PHONE_ALT` | `+919825037478` | no second phone link |
+   | `NEXT_PUBLIC_PHONE_JAY` | `+919925515029` (Jay Gabhawala, optional) | his number is not shown |
+   | `NEXT_PUBLIC_WHATSAPP` | `918734090908` (digits only, with 91) | WhatsApp buttons fall back to the contact page |
    | `NEXT_PUBLIC_EMAIL` | `indianhires@gmail.com` | no email link |
    | `NEXT_PUBLIC_WEB3FORMS_KEY` | the access key from web3forms.com (free; sends to the email it was created with) | the enquiry form is hidden; WhatsApp and call buttons are shown instead |
    | `NEXT_PUBLIC_MAP_EMBED_URL` | Google Maps → Share → Embed a map → the `src` of the iframe | an "Open in Google Maps" link replaces the map |

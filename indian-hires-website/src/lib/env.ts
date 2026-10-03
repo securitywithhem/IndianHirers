@@ -15,6 +15,8 @@ export interface Env {
   phone: string;
   /** Second phone, international format. */
   phoneAlt: string;
+  /** Jay Gabhawala's own number, international format. Optional: empty → not shown. */
+  phoneJay: string;
   /** WhatsApp number, digits only with country code (wa.me format). */
   whatsapp: string;
   email: string;
@@ -34,6 +36,7 @@ export const env: Env = {
   web3FormsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "",
   phone: process.env.NEXT_PUBLIC_PHONE || "",
   phoneAlt: process.env.NEXT_PUBLIC_PHONE_ALT || "",
+  phoneJay: process.env.NEXT_PUBLIC_PHONE_JAY || "",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "",
   email: process.env.NEXT_PUBLIC_EMAIL || "",
   mapEmbedUrl: process.env.NEXT_PUBLIC_MAP_EMBED_URL || "",

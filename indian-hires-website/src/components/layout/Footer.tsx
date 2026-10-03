@@ -29,10 +29,21 @@ const ICON_CLASS = "size-4 shrink-0 text-hairline";
 export function Footer() {
   const { footer } = shell;
   const contacts = [
-    { label: footer.phoneLabel, href: telUrl(env.phone), text: formatPhone(env.phone), Icon: Phone },
-    { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), Icon: Phone },
-    { label: footer.emailLabel, href: mailtoUrl(env.email), text: env.email, Icon: Mail },
+    { label: footer.phoneLabel, href: telUrl(env.phone), text: formatPhone(env.phone), note: null, Icon: Phone },
+    { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), note: null, Icon: Phone },
+    {
+      label: footer.phoneJayLabel,
+      href: telUrl(env.phoneJay),
+      text: formatPhone(env.phoneJay),
+      note: footer.phoneJayName,
+      Icon: Phone,
+    },
+    { label: footer.emailLabel, href: mailtoUrl(env.email), text: env.email, note: null, Icon: Mail },
   ].filter((contact) => contact.text !== "");
+  const offices = [
+    { label: footer.officeLabel, lines: brand.address.lines },
+    { label: footer.highwayOfficeLabel, lines: brand.highwayOffice.lines },
+  ];
   const socials = [
     { label: footer.social.instagram, href: env.instagramUrl, Icon: Instagram },
     { label: footer.social.facebook, href: env.facebookUrl, Icon: Facebook },
@@ -90,25 +101,29 @@ export function Footer() {
             <h2 className={HEADING_CLASS}>{footer.contactHeading}</h2>
             <div className="flex flex-col gap-2">
               <dl className="flex flex-col gap-2">
-                <div className="pb-2 pt-3">
-                  <dt className="sr-only">{footer.addressLabel}</dt>
-                  <dd>
-                    <address className="type-small not-italic text-muted-foreground">
-                      {brand.address.lines.map((line) => (
-                        <span key={line} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </address>
-                  </dd>
-                </div>
-                {contacts.map(({ label, href, text, Icon }) => (
+                {offices.map(({ label, lines }) => (
+                  <div key={label} className="flex flex-col gap-1 pb-2 pt-3">
+                    <dt className="type-caption text-kicker">{label}</dt>
+                    <dd>
+                      <address className="type-small not-italic text-muted-foreground">
+                        {lines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </address>
+                    </dd>
+                  </div>
+                ))}
+                {contacts.map(({ label, href, text, note, Icon }) => (
                   <div key={label}>
                     <dt className="sr-only">{label}</dt>
                     <dd>
                       <AppLink href={href} className={LINK_CLASS}>
                         <Icon aria-hidden="true" className={ICON_CLASS} />
                         {text}
+                        {/* Whose number it is, as part of the link's name. */}
+                        {note === null ? null : <span className="text-muted-foreground">{note}</span>}
                       </AppLink>
                     </dd>
                   </div>

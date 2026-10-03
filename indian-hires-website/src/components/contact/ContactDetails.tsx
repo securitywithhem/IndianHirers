@@ -41,10 +41,11 @@ function DetailRow({ icon: Icon, label, children }: DetailRowProps) {
 }
 
 /**
- * Every way to reach the business, in one list: both phones, WhatsApp, email,
- * the address, hours and the towns served. Phone, WhatsApp and email come from
- * `env` through `src/lib/links.ts`; a detail that is not configured is left
- * out rather than shown empty. The address is the brand's single definition.
+ * Every way to reach the business, in one list: the phones (Jay's by name),
+ * WhatsApp, email, both offices, hours and the towns served. Phone, WhatsApp
+ * and email come from `env` through `src/lib/links.ts`; a detail that is not
+ * configured is left out rather than shown empty. The addresses are the
+ * brand's single definitions (`brand.address`, `brand.highwayOffice`).
  */
 export function ContactDetails({ className }: ContactDetailsProps) {
   const { details, map } = contact;
@@ -78,6 +79,14 @@ export function ContactDetails({ className }: ContactDetailsProps) {
           </DetailRow>
         )}
 
+        {env.phoneJay === "" ? null : (
+          <DetailRow icon={Phone} label={details.phoneJay.label}>
+            <ButtonLink href={telUrl(env.phoneJay)} variant="link">
+              {formatPhone(env.phoneJay)}
+            </ButtonLink>
+          </DetailRow>
+        )}
+
         {env.whatsapp === "" ? null : (
           <DetailRow icon={MessageCircle} label={details.whatsapp.label}>
             <ButtonLink href={whatsappUrl(details.whatsapp.message)} variant="link">
@@ -104,6 +113,24 @@ export function ContactDetails({ className }: ContactDetailsProps) {
           </address>
           {/* With a map below, the link sits under the map instead. */}
           {hasMap ? null : mapLink}
+        </DetailRow>
+
+        <DetailRow icon={MapPin} label={details.highwayOffice.label}>
+          <address className="py-2 not-italic">
+            {details.highwayOffice.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </address>
+          {/* The embedded map shows the office; this office has its own link. */}
+          <ButtonLink
+            href={mapSearchUrl(details.highwayOffice.mapQuery)}
+            aria-label={details.highwayOffice.mapLinkLabel}
+            variant="link"
+          >
+            {map.openLabel}
+          </ButtonLink>
         </DetailRow>
 
         <DetailRow icon={Clock} label={details.hours.label}>
