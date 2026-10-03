@@ -11,12 +11,17 @@ const HEADING_ID = "home-cta-heading";
  * The closing maroon band: one question, and the two ways to answer it. It
  * meets the footer directly (§5.2). The numbers come from `env` through the
  * shared buttons.
+ *
+ * A gold-gradient hairline closes the band above; the one below it is the
+ * footer's own top edge.
  */
 export function HomeClosingCta() {
   const { closingCta } = home;
 
   return (
     <Band tone="maroon" glow aria-labelledby={HEADING_ID}>
+      {/* Positioned against the band (the shell is not a positioned box). */}
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gold-gradient" />
       <Reveal className="flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-4 text-center">
           <SectionHeading

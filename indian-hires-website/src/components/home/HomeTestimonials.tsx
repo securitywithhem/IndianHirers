@@ -46,11 +46,11 @@ export function HomeTestimonials() {
 
           return (
             <StaggerItem as="li" key={testimonial.id}>
-              <figure className="flex h-full flex-col gap-5 rounded-card border border-hairline/40 bg-card p-5 text-card-foreground shadow-card md:p-6">
-                <blockquote className="type-body grow text-foreground">
+              <figure className="flex h-full flex-col gap-5 border-l-2 border-hairline pl-5 md:pl-6">
+                <blockquote className="type-lead grow text-foreground">
                   <p>{testimonial.quote}</p>
                 </blockquote>
-                <figcaption className="flex flex-col gap-1 border-t border-hairline/40 pt-4">
+                <figcaption className="flex flex-col gap-1">
                   <span className="type-h4 text-heading">{testimonial.name}</span>
                   {credit ? <span className="type-small text-muted-foreground">{credit}</span> : null}
                 </figcaption>

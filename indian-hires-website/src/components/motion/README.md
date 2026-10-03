@@ -114,7 +114,7 @@ that is filtered on the client use `LayoutItem` instead (below), not both.
 | `as` | `"div" \| "span" \| "li"` | `"div"` | |
 | `children` | `ReactNode` | — | anything containing a `CrownDivider`; omit for a single hairline |
 | `className` | `string` | — | wrapper: width and spacing |
-| `lineClassName` | `string` | — | the standalone hairline (default `h-px bg-hairline`) |
+| `lineClassName` | `string` | — | the standalone hairline (defaults `h-px w-full bg-hairline origin-center`; pass `origin-left` to draw it from its start, as the "how hiring works" steps do) |
 | `delay` | `number` (ms) | `0` | |
 
 `scaleX` 0 → 1, 600ms, `ease-royal`, 120ms after it enters, once. For a heading that also
@@ -277,6 +277,14 @@ library — it works before any lazy chunk loads. Reduce: appears / disappears a
 It is only the motion shell. You own the dialog contract in `.claude/rules/a11y.md`:
 focus in, focus trap, `Esc`, focus back to the trigger, `inert` + scroll lock on the
 background. Because it is portalled, the theme class goes in `className`.
+
+**Staggered contents (R4).** Anything inside the panel marked `data-slide-item=""` follows
+the surface in: fade + 16px rise, 350ms, `ease-royal`, 60ms apart, starting 140ms after
+the panel opens. Give each its position with `style={{ "--slide-item": index }}`; positions
+past the sixth enter with the sixth. CSS only (`globals.css`, `motion-slide-item`). While
+the panel leaves, the items have no animation and ride out with it. Reduce: no animation,
+the items are simply there. The mobile nav drawer uses it for its links; its contact actions stay out of the sequence,
+so a control that can take focus is never invisible.
 
 ## useScrolled — header state
 
