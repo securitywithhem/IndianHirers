@@ -1,0 +1,110 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/founders",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.5 s",
+    "lcpMs": 2459.56775,
+    "cls": "0",
+    "tbt": "40 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.5 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/gallery",
+    "run": 1,
+    "perf": 90,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.2 s",
+    "lcpMs": 3192.9366,
+    "cls": "0",
+    "tbt": "200 ms",
+    "runs": [
+      {
+        "perf": 90,
+        "lcp": "3.2 s"
+      },
+      {
+        "perf": 97,
+        "lcp": "2.6 s"
+      },
+      {
+        "perf": 86,
+        "lcp": "3.8 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/testimonials",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 63,
+    "lcp": "2.3 s",
+    "lcpMs": 2341.7313,
+    "cls": "0",
+    "tbt": "10 ms",
+    "runs": [
+      {
+        "perf": 97,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/chafing-dishes",
+    "run": 2,
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "lcpMs": 2825.0371399047854,
+    "cls": "0",
+    "tbt": "30 ms",
+    "runs": [
+      {
+        "perf": 95,
+        "lcp": "2.9 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      }
+    ]
+  }
+]

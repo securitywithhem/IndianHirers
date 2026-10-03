@@ -38,6 +38,7 @@ owner's catalogue
   ok    no rupee figure in any string a visitor can reach
   ok    trust badges: none is renderable until the owner confirms it
   ok    every gallery photograph has alt text that describes it
+  ok    founders: pull-quotes are the story's own words, away from their source; todo milestones have no year
 
 Entries per collection
 

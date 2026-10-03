@@ -1,0 +1,10 @@
+mobile   /                                Perf 96  A11y 100  BP 100  SEO 100  LCP 2.8 s  CLS 0  TBT 20 ms  runs 98/2.2 s · 96/2.8 s · 96/2.8 s
+mobile   /collections                     Perf 97  A11y 100  BP 100  SEO 100  LCP 2.6 s  CLS 0  TBT 20 ms  runs 97/2.6 s · 97/2.6 s · 97/2.6 s
+mobile   /collections/bone-china          Perf 96  A11y 100  BP 100  SEO 100  LCP 2.8 s  CLS 0  TBT 40 ms  runs 95/2.7 s · 99/2.1 s · 96/2.8 s
+mobile   /contact                         Perf 98  A11y 100  BP 100  SEO 100  LCP 2.3 s  CLS 0  TBT 30 ms  runs 98/2.3 s · 98/2.3 s · 98/2.3 s
+desktop  /                                Perf 100  A11y 100  BP 100  SEO 100  LCP 0.6 s  CLS 0  TBT 0 ms  runs 100/0.6 s · 100/0.6 s · 100/0.6 s
+desktop  /collections                     Perf 100  A11y 100  BP 100  SEO 100  LCP 0.6 s  CLS 0  TBT 0 ms  runs 100/0.6 s · 100/0.6 s · 100/0.6 s
+desktop  /collections/bone-china          Perf 100  A11y 100  BP 100  SEO 100  LCP 0.6 s  CLS 0  TBT 0 ms  runs 100/0.7 s · 100/0.6 s · 100/0.6 s
+desktop  /contact                         Perf 100  A11y 100  BP 100  SEO 100  LCP 0.5 s  CLS 0  TBT 0 ms  runs 100/0.5 s · 100/0.5 s · 100/0.5 s
+
+lighthouse: summary → /tmp/claude-0/-home-user-IndianHirers/209d80dc-c2aa-5086-af6d-a0c03b467f6c/scratchpad/qa2/lighthouse/lighthouse-summary.json
