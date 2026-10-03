@@ -198,4 +198,31 @@ The live list, with what each one is waiting for, is `docs/OPEN_ISSUES.md`. Copy
 waiting for the owner's confirmation, with the original wording, is
 `docs/COPY_TO_CONFIRM.md`. The state at the end of the redesign is summarised below.
 
-<!-- OPEN-ISSUES-SUMMARY -->
+### What only the owner can unblock
+
+| Need | Why it matters | Issues |
+|---|---|---|
+| Event photographs, better product shots, founder portraits, a transparent logo, a share-quality hero photograph | The gallery shows product shots only (PRD FR4); the founders page shows crown cameos; rubric item 1 (luxury feel) is held at 3 by the photography | O13, O40, E58 |
+| A decision on the floating WhatsApp button on phones | It covers content as the page scrolls; rubric item 7 is held at 3 by it. A proposal is in E59 | O31, E59 |
+| Real testimonials, with permission to name the customer | /testimonials and the home section are empty by design (FR5) | O12, O44 |
+| The Web3Forms key, the map embed URL, the live domain | The form is hidden without the key; the map shows a fallback; canonicals, the sitemap and the share image need the domain | O14, O15, O1 |
+| Confirm hours and service areas, the founders' roles and wording, the timeline years, delivery and collection | Shown as carried over or as the builder's restatement of the story | O10, O43, O11, COPY §12, O41, O9 |
+| Hosting plan | Redirects and image optimisation need a host; Vercel Hobby is non-commercial — Pro, or static export | E54 |
+| Approve the gallery's 700ms zoom (or 350ms) | The motion rule's exception was extended without approval | O46 |
+| Catalogue facts: photo↔name matches, metals of the chafers, unnamed melamine, glassware, cutlery contents | Several designs are hidden or carry descriptive names | O2–O8 |
+
+### Small fixes left at the end of R6 (no owner input needed)
+
+E61 a gutter for the floating button from 768px · E62 spread the three weak gallery
+photographs · E63 trim letterbox bars at source and show whole photographs in the viewer
+· E64 an inline message when an enquiry fails to send · E65 a pull-quote style of its own ·
+E66 one spelling of "Malad" · E67 the badge colour pair in `a11y.md`.
+
+### Measured, and what is not
+
+Final build: Lighthouse Performance ≥ 95 on every route's mobile median, 100 on
+desktop; Accessibility 100; SEO 100 except /testimonials (`noindex` by design); axe 0;
+every route within its JavaScript budget (`docs/evidence/R6/README.md`). Not met: LCP
+under 2.5 s on four routes under localhost slow-4G simulation — measure on the
+deployed site (E60). Not done: a screen-reader pass (E40), a real form submission, a
+look at the live map (E49).

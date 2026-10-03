@@ -1,0 +1,83 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/founders",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.4 s",
+    "lcpMs": 2438.22,
+    "cls": "0",
+    "tbt": "30 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.5 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/testimonials",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 63,
+    "lcp": "2.3 s",
+    "lcpMs": 2287.667625,
+    "cls": "0",
+    "tbt": "30 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/chafing-dishes",
+    "run": 3,
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "lcpMs": 2810.9927399047847,
+    "cls": "0",
+    "tbt": "20 ms",
+    "runs": [
+      {
+        "perf": 99,
+        "lcp": "2.1 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      }
+    ]
+  }
+]
