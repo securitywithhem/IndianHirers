@@ -48,18 +48,29 @@ bottom bar (`scroll-padding-bottom`).
 |---|---|---|---|---|
 | Header | always | `top-0 inset-x-0` | height 72px (`h-header`) | `z-header` (50) |
 | Mobile bottom bar | below `md` | `bottom-0 inset-x-0` | height `4rem + env(safe-area-inset-bottom)` | `z-bar` (40) |
-| Floating WhatsApp (in its own `<aside>` landmark) | from `md` | `bottom-6 right-6` | 56px circle (`size-14`) | `z-bar` (40) |
+| Floating WhatsApp (in its own `<aside>` landmark) | always (R4) | below `md`: `right-4`, 16px above the bar (`bottom-[calc(5rem+env(safe-area-inset-bottom))]`) · from `md`: `bottom-6 right-6` | 56px circle (`size-14`) | `z-bar` (40) |
 | Skip link | while focused | `left-4`, 8px below the header | 48px tall | `z-drawer` (60) |
 | Mobile drawer, any `SlidePanel` | when open | `inset-0` | — | `z-drawer` (60) |
 | Lightbox | when open | `inset-0` | — | `z-lightbox` (70) |
 
 - `<body>` has `pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0` — exactly the bar's
   height — so the bar never covers the end of the page. Do not add your own bottom spacer.
-- The floating WhatsApp button is **hidden below `md`** (the bar carries WhatsApp there).
+- The floating WhatsApp button is shown **at every width** since R4 (PRD FR7); below
+  `md` it sits 16px above the bar, which also carries WhatsApp. Below `md` it is hidden
+  while the quote-basket button is on the page (`body:has([data-quote-button])`), so
+  there is never more than one round button on a phone.
 - **Quote-basket button (catalogue routes):** put it in the free slot above those two:
 
   ```
   fixed z-bar right-4 bottom-[calc(5rem+env(safe-area-inset-bottom))] md:right-6 md:bottom-24
+  ```
+
+  Below `md` that is the floating WhatsApp button's own slot, which it gives up; the
+  button carries `data-quote-button` for that. Without `:has()` support it falls back to
+  one slot higher:
+
+  ```
+  bottom-[calc(9.5rem+env(safe-area-inset-bottom))]
   ```
 
   Below `md` that is 16px above the bottom bar; from `md` it is 16px above the WhatsApp

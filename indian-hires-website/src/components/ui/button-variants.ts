@@ -34,7 +34,9 @@ export const buttonVariants = cva(
         /* §7.1a gold. A gold fill that does not flip with the scope: the
          * invitation-card action on ivory. `gold-sheen` carries maroon-950
          * type (7.48 at its darkest point); never ivory type on gold. */
-        gold: "btn-sheen gold-sheen justify-center text-center text-maroon-950 motion-safe:active:translate-y-px",
+        /* The gold-700 edge is the button's boundary on ivory (5.93:1), where
+         * the fill alone is 2.21:1; on maroon it disappears into the fill. */
+        gold: "btn-sheen gold-sheen justify-center text-center border border-gold-700 text-maroon-950 motion-safe:active:translate-y-px",
         /* §7.2 secondary (outline). The label is the `link` role, not
          * `primary`: maroon-700 on ivory either way, but gold-300 rather than
          * gold-500 inside `.theme-dark`, where gold-500 type over a candle

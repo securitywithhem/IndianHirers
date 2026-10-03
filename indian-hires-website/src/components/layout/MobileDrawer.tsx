@@ -1,6 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -30,6 +38,11 @@ export interface MobileDrawerProps {
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+/** Position in the drawer's entrance sequence (`[data-slide-item]`, globals.css). */
+function slideItem(index: number): CSSProperties {
+  return { "--slide-item": index } as CSSProperties;
+}
+
 /* Tailwind's `lg`: from here the desktop nav replaces the drawer. */
 const DESKTOP_QUERY = "(min-width: 1024px)";
 
@@ -44,6 +57,12 @@ const DESKTOP_QUERY = "(min-width: 1024px)";
  * - Esc, the close button, the backdrop and following a link all close it;
  * - while open, everything else on the page is `inert` and cannot scroll;
  * - once closed, focus returns to the trigger.
+ *
+ * The links are set in the display face at `type-h2` (32px at 390px) and
+ * follow the panel in one at a time (`data-slide-item`: fade + 16px rise,
+ * 60ms apart). The contact actions are not part of it: they are in place as
+ * the panel arrives, so no focusable control is ever unseen. Under reduced
+ * motion the links are simply there.
  */
 export function MobileDrawer({ id, nav, labels, brand, children }: MobileDrawerProps) {
   const [open, setOpen] = useState(false);
@@ -172,14 +191,14 @@ export function MobileDrawer({ id, nav, labels, brand, children }: MobileDrawerP
 
         <nav aria-label={labels.nav} className="border-t border-hairline/40 py-4" onClick={closeOnLink}>
           <ul className="flex flex-col gap-2">
-            {nav.map((item) => {
+            {nav.map((item, index) => {
               const current = currentState(pathname, item.href);
               return (
-                <li key={item.href}>
+                <li key={item.href} data-slide-item="" style={slideItem(index)}>
                   <Link
                     href={item.href}
                     aria-current={current}
-                    className="type-h3 focus-ring flex min-h-12 items-center rounded-sm text-foreground transition-colors duration-hover ease-royal hover:text-link aria-[current]:text-link"
+                    className="type-h2 focus-ring flex min-h-14 items-center rounded-sm text-foreground transition-colors duration-hover ease-royal hover:text-link aria-[current]:text-link"
                   >
                     {item.label}
                   </Link>

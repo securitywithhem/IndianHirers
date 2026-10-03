@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { brand, mainNav, routes, shell, whatsappMessages } from "@/content/site";
+import { whatsappUrl } from "@/lib/links";
 import { BrandLogo } from "@/components/shared/BrandLogo";
 import { ButtonLink } from "@/components/shared/ButtonLink";
 import { CallButton } from "@/components/shared/CallButton";
@@ -19,8 +20,11 @@ const DRAWER_ID = "site-menu";
  * `HeaderFrame`); a page must therefore start with `<PageHero>` or a
  * `<Band underHeader>` in a maroon tone.
  *
- * Below `md` the header carries only the logo and the menu button — Call,
- * WhatsApp and Enquire live in the bottom bar there.
+ * From `md` the header's one action is the gold "Get a quote" button, which
+ * opens WhatsApp with a quote request to fill in (gold fill and maroon-950
+ * type in both header states). Below
+ * `md` the header carries only the logo and the menu button — Call, WhatsApp
+ * and Enquire live in the bottom bar there.
  */
 export function Header() {
   const { header } = shell;
@@ -47,8 +51,13 @@ export function Header() {
       </nav>
 
       <div className="flex items-center gap-2">
-        <ButtonLink href={header.enquireCta.href} size="sm" className="hidden md:inline-flex">
-          {header.enquireCta.label}
+        <ButtonLink
+          href={whatsappUrl(whatsappMessages.quoteRequest())}
+          variant="gold"
+          size="sm"
+          className="hidden md:inline-flex"
+        >
+          {header.quoteCta.label}
         </ButtonLink>
 
         <MobileDrawer
