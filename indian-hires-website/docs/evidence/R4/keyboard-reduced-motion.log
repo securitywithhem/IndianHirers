@@ -1,0 +1,48 @@
+PASS  1280 first Tab stop is the skip link  — {"tag":"A","text":"Skip to content","href":"#main-content"}
+      1280 tab order after skip link: IHIndian Hirers | Home | Collections | Our story | Gallery | Contact | Get a quote (opens in a new tab) | WhatsApp for a quote (opens in a new tab
+PASS  1280 header order: logo, nav, Get a quote
+PASS  Get a quote opens WhatsApp with the quote request  — https://wa.me/919825037478?text=Hello%20
+PASS  skip link moves focus to #main-content  — main-content
+PASS  one h1, the tagline  — ["An Occasion\nwith Dignity"]
+PASS  390 drawer trigger aria-expanded=false
+PASS  390 aria-expanded=true, aria-controls set
+PASS  390 focus moved to the close button  — {"tag":"BUTTON","text":"Close menu","href":null}
+PASS  390 dialog is modal and labelled
+PASS  390 drawer links are display face at 32px, ≥44px tall  — {"font":"32.0055px","family":"__Cormorant_Garamond_682e08","h":56}
+PASS  390 drawer stagger present  — motion-slide-item
+PASS  390 Tab ×12 stays inside the drawer
+PASS  390 Shift+Tab stays inside the drawer
+PASS  390 page scroll locked and background inert  — {"overflow":"hidden","inert":true}
+PASS  390 Esc closes, focus back on the trigger  — {"tag":"BUTTON","text":"Open menu","href":null}
+PASS  390 scroll and inert restored
+PASS  390 floating WhatsApp sits above the bottom bar  — {"barTop":780,"barH":64,"fabBottom":764,"fabW":56,"pad":"64px"}
+PASS  390 body reserves the bar's height  — {"barTop":780,"barH":64,"fabBottom":764,"fabW":56,"pad":"64px"}
+PASS  390 reduced-motion drawer trigger aria-expanded=false
+PASS  390 reduced-motion aria-expanded=true, aria-controls set
+PASS  390 reduced-motion focus moved to the close button  — {"tag":"BUTTON","text":"Close menu","href":null}
+PASS  390 reduced-motion dialog is modal and labelled
+PASS  390 reduced-motion drawer links are display face at 32px, ≥44px tall  — {"font":"32.0055px","family":"__Cormorant_Garamond_682e08","h":56}
+PASS  390 reduced-motion drawer stagger absent  — none
+PASS  390 reduced-motion Tab ×12 stays inside the drawer
+PASS  390 reduced-motion Shift+Tab stays inside the drawer
+PASS  390 reduced-motion page scroll locked and background inert  — {"overflow":"hidden","inert":true}
+PASS  390 reduced-motion Esc closes, focus back on the trigger  — {"tag":"BUTTON","text":"Open menu","href":null}
+PASS  390 reduced-motion scroll and inert restored
+PASS  390 reduced-motion floating WhatsApp sits above the bottom bar  — {"barTop":780,"barH":64,"fabBottom":764,"fabW":56,"pad":"64px"}
+PASS  390 reduced-motion body reserves the bar's height  — {"barTop":780,"barH":64,"fabBottom":764,"fabW":56,"pad":"64px"}
+PASS  reduced motion: no content left at opacity 0  — 0 element(s)
+PASS  reduced motion: no reveal or draw observer attached  — 0
+PASS  reduced motion: WhatsApp ring still and invisible  — none/0
+      counter text under reduced motion: "n/a"
+PASS  900 header order: logo, Get a quote, menu button  — IHIndian Hirers | Get a quote (opens in a new tab) | Open menu
+PASS  900 drawer opens from the keyboard and traps focus
+PASS  900 Esc closes, focus back on the trigger
+PASS  390 collection, empty list: floating WhatsApp shown
+PASS  390 collection, item in list: floating WhatsApp hidden
+PASS  390 collection: quote-list button 16px above the bar  — {"quoteTop":708,"quoteBottom":764,"barTop":780}
+PASS  390 collection: all 7 card buttons take a tap at centre and right edge when scrolled to mid-screen  — 0 blocked
+      capture (worst case, a card button level with the round button): docs/evidence/R4/iter2/states/state-quote-button-390.png
+PASS  1280 collection: both buttons shown, quote list 16px above WhatsApp  — {"quoteBottom":804,"fabTop":820}
+PASS  CLS on / at 390 (load, fonts, bar entrance, full scroll) < 0.05  — 0.0000
+
+0 failure(s)

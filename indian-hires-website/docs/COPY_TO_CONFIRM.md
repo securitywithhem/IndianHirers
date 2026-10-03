@@ -348,3 +348,25 @@ In the data, **rendered nowhere**. The home trust strip is still `home.trust` (�
 | 9.10 | "Complete Event Tableware" | **false** | Flagged by the brief itself. "Complete" is a claim: Cutlery & Serveware has no list yet and there is no linen or furniture |
 | 9.11 | "Careful Handling & On-time Delivery" | **false** | Flagged by the brief itself. Delivery and collection are themselves unconfirmed (O9) |
 
+---
+
+## 10. Phase R4 — home page and shell wording from the R4 brief
+
+Everything here is the brief's own wording, or a rewrite it made necessary. Where it
+replaced copy, the earlier wording is quoted so it can be restored.
+
+| # | Now | Key | Was | Status |
+|---|---|---|---|---|
+| 10.1 | Home `h1`: **"An Occasion with Dignity"** (the tagline, on two lines) | `home.hero.headline` (split from `brand.tagline`) | "Since 1977, one family has laid the table." (4.4) | The brief's. 1977 is still stated in the eyebrow, the lead and the trust strip |
+| 10.2 | Hero eyebrow stays "Since 1977 · Vadodara since 2001" | `home.hero.eyebrow` | — | **The brief's "SINCE 25 YEARS · VADODARA" was not used**: the business dates from 1977; 25 years is the time in Vadodara, which the eyebrow already says (same point as 9.8) |
+| 10.3 | Hero buttons: "WhatsApp for a quote" · "Explore collections" (the brief's words, in the site's sentence case) | `home.hero.primaryCta.label`, `.secondaryCta.label` | "Enquire on WhatsApp" · "See the collections" | The brief's labels. Order and colours unchanged (OPEN_ISSUES O25) |
+| 10.4 | Header button, from 768px: "Get a quote" — opens WhatsApp with a quote request to fill in: "Hello Indian Hirers, I'd like a quote for crockery on hire. / Event date: / Number of guests: / Pieces or designs:" | `shell.header.quoteCta`, `whatsappMessages.quoteRequest` | "Enquire", to the contact page | The label is the brief's; the message is NEW COPY, so this button does a different job from the general enquiry buttons beside it |
+| 10.5 | Menu and footer link: "Our story". The page title is now "Our Story — A Family Business Since 1977"; the route is still `/founders` and the page's `h1` is unchanged ("Three Generations, One Promise") | `site.ts` → `NAV_ITEMS`, `routeMetadata["/founders"]` | "Founders" · "Founders — A Family Business Since 1977" | The brief's |
+| 10.6 | Heritage teaser link: "Read our story" | `home.heritage.link.label` | "Read the founders' story" | The brief's |
+| 10.7 | How hiring works — titles: "Choose your pieces" · "WhatsApp us the quantity and date" · "We deliver and collect" | `home.howItWorks.steps[*].title` | "Tell us what you need" · "We confirm pieces, quantities and dates" · "Delivered clean, collected after" | The brief's titles |
+| 10.8 | Step 1 body: "Browse the collections and add the designs you like to your quote list." | `home.howItWorks.steps[0].body` | 4.3 | NEW COPY (the quote list is the one on the collection pages) |
+| 10.9 | Step 2 body: "Send us your list with the quantities, your event date and your guest count. We confirm what is available and the rates." | `home.howItWorks.steps[1].body` | 4.2 | NEW COPY |
+| 10.10 | Step 3 body unchanged; **"We deliver and collect" is still unconfirmed** | `home.howItWorks.steps[2]` | — | See 4.1 and OPEN_ISSUES O9 |
+| 10.11 | Closing band heading: "Planning an event? Let us set the table." | `home.closingCta.heading` | "Planning an event?" | The brief's |
+| 10.12 | Footer social links: accessible names "Indian Hirers on Instagram" / "Indian Hirers on Facebook". **Not shown** until `NEXT_PUBLIC_INSTAGRAM_URL` / `NEXT_PUBLIC_FACEBOOK_URL` are set | `shell.footer.social`, `src/lib/env.ts` | — | NEW. Which profiles exist? |
+| 10.13 | Landmark label of the floating button: "WhatsApp shortcut" | `shell.floatingWhatsApp.regionLabel` | it shared "Quick contact" with the bottom bar | Not owner-facing |

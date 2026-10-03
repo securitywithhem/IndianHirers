@@ -1,0 +1,138 @@
+[
+  {
+    "route": "/",
+    "perf": [
+      96,
+      96,
+      94
+    ],
+    "perfMedian": 96,
+    "lcp": [
+      2.79,
+      2.78,
+      3.03
+    ],
+    "lcpMedian": 2.79,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/collections",
+    "perf": [
+      98,
+      97,
+      92
+    ],
+    "perfMedian": 97,
+    "lcp": [
+      2.48,
+      2.56,
+      3.34
+    ],
+    "lcpMedian": 2.56,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/collections/bone-china",
+    "perf": [
+      95,
+      86,
+      86
+    ],
+    "perfMedian": 86,
+    "lcp": [
+      2.86,
+      4.27,
+      4.28
+    ],
+    "lcpMedian": 4.27,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/collections/chafing-dishes",
+    "perf": [
+      88,
+      88,
+      88
+    ],
+    "perfMedian": 88,
+    "lcp": [
+      3.87,
+      3.86,
+      3.86
+    ],
+    "lcpMedian": 3.86,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/founders",
+    "perf": [
+      99,
+      99,
+      97
+    ],
+    "perfMedian": 99,
+    "lcp": [
+      2.26,
+      2.26,
+      2.57
+    ],
+    "lcpMedian": 2.26,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/gallery",
+    "perf": [
+      95,
+      83,
+      95
+    ],
+    "perfMedian": 95,
+    "lcp": [
+      2.94,
+      4.69,
+      2.94
+    ],
+    "lcpMedian": 2.94,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/testimonials",
+    "perf": [
+      97,
+      97,
+      97
+    ],
+    "perfMedian": 97,
+    "lcp": [
+      2.57,
+      2.57,
+      2.57
+    ],
+    "lcpMedian": 2.57,
+    "cls": 0,
+    "a11y": 100
+  },
+  {
+    "route": "/contact",
+    "perf": [
+      98,
+      98,
+      98
+    ],
+    "perfMedian": 98,
+    "lcp": [
+      2.33,
+      2.33,
+      2.33
+    ],
+    "lcpMedian": 2.33,
+    "cls": 0,
+    "a11y": 100
+  }
+]

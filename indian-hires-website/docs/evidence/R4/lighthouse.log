@@ -1,0 +1,8 @@
+mobile /                              Perf 96/96/94 median 96   LCP 2.79/2.78/3.03 median 2.79s   CLS 0   A11y 100
+mobile /collections                   Perf 98/97/92 median 97   LCP 2.48/2.56/3.34 median 2.56s   CLS 0   A11y 100
+mobile /collections/bone-china        Perf 95/86/86 median 86   LCP 2.86/4.27/4.28 median 4.27s   CLS 0   A11y 100
+mobile /collections/chafing-dishes    Perf 88/88/88 median 88   LCP 3.87/3.86/3.86 median 3.86s   CLS 0   A11y 100
+mobile /founders                      Perf 99/99/97 median 99   LCP 2.26/2.26/2.57 median 2.26s   CLS 0   A11y 100
+mobile /gallery                       Perf 95/83/95 median 95   LCP 2.94/4.69/2.94 median 2.94s   CLS 0   A11y 100
+mobile /testimonials                  Perf 97/97/97 median 97   LCP 2.57/2.57/2.57 median 2.57s   CLS 0   A11y 100
+mobile /contact                       Perf 98/98/98 median 98   LCP 2.33/2.33/2.33 median 2.33s   CLS 0   A11y 100
