@@ -12,8 +12,8 @@ const HEADING_ID = "founders-story-heading";
  * follows the story.
  *
  * Pull-quotes — excerpts of the story's own words, set large on a gold rule —
- * sit between paragraphs, away from the sentence they repeat. It repeats text the reader has just met, so it is hidden
- * from assistive technology.
+ * sit between paragraphs, away from the sentence they repeat. Each repeats words
+ * that are in the story, so it is hidden from assistive technology.
  *
  * Outline: the story region's `h2` is visually hidden (the page `h1` already
  * introduces it), its titled chapters are `h3`; the timeline is its own `h2`.

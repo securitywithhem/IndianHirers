@@ -51,8 +51,8 @@ export interface ContactFormProps {
 }
 
 /**
- * The enquiry form: react-hook-form + zod, posted to Web3Forms, answered with
- * a toast. Validation is ours, not the browser's (`noValidate`): each error is
+ * The enquiry form: react-hook-form + zod, posted to Web3Forms; a sent
+ * enquiry is answered by the thank-you panel, a failure by a toast. Validation is ours, not the browser's (`noValidate`): each error is
  * text under its field, linked with `aria-describedby`, in a polite live
  * region, and a failed submit moves focus to the first invalid field.
  *
