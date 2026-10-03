@@ -209,6 +209,9 @@ measured at their worst point.
 | ivory-300 on candle-glow peak over maroon-800 | 6.42 | measured | |
 | gold-300 on candle-glow peak over maroon-800 | 6.07 | measured | |
 | gold-500 on candle-glow peak over maroon-800 | 4.22 | measured | **not allowed as text over the glow** (icons and lines only) |
+| ivory-50 / ivory-300 / gold-300 on candle-glow peak over maroon-950 | 12.08 / 8.33 / 7.88 | measured | the hero, and the footer's top edge (R4) |
+| gold-500 icons on candle-glow peak over maroon-950 | 5.47 | measured | footer contact icons (UI, floor 3:1) |
+| gold-700 edge of the gold button on ivory-50 / the solid header | 5.93 / 4.83 | measured | the button's boundary where its fill alone is 2.21 (R4) |
 | espresso-600 on surface-linen over ivory-100 | 6.18 | measured | at a crossing of the weave; it costs up to 0.6 |
 | gold-700 on surface-linen over ivory-100 | 4.92 | measured | at a crossing of the weave — the thinnest text pair on ivory |
 | ivory-50 on a primary button under the sheen's peak (maroon-700 / maroon-800) | 5.58 / 6.41 | measured | `--sheen-sweep` peaks at 30% gold-300 |
