@@ -1,0 +1,159 @@
+{
+  "status": "ok",
+  "summary": "Architecture: 18 communities, 0 community pairs, 0 warning(s)",
+  "communities": [
+    {
+      "id": 16,
+      "name": "content-collection",
+      "size": 141,
+      "cohesion": 0.4521,
+      "dominant_language": "typescript"
+    },
+    {
+      "id": 5,
+      "name": "collections-props",
+      "size": 72,
+      "cohesion": 0.2326,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 11,
+      "name": "motion-props",
+      "size": 70,
+      "cohesion": 0.1959,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 13,
+      "name": "shared-props",
+      "size": 33,
+      "cohesion": 0.2562,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 17,
+      "name": "lib-url",
+      "size": 27,
+      "cohesion": 0.125,
+      "dominant_language": "typescript"
+    },
+    {
+      "id": 6,
+      "name": "contact-contact",
+      "size": 21,
+      "cohesion": 0.2969,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 8,
+      "name": "gallery-gallery",
+      "size": 19,
+      "cohesion": 0.0862,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 12,
+      "name": "ornament-crown",
+      "size": 19,
+      "cohesion": 0.3273,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 10,
+      "name": "layout-mobile",
+      "size": 16,
+      "cohesion": 0.0752,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 7,
+      "name": "founders-founder",
+      "size": 11,
+      "cohesion": 0.1667,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 2,
+      "name": "design-system-scope",
+      "size": 8,
+      "cohesion": 0.3711,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 9,
+      "name": "home-home",
+      "size": 8,
+      "cohesion": 0.0145,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 15,
+      "name": "ui-chip",
+      "size": 8,
+      "cohesion": 0.0667,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 1,
+      "name": "slug-page",
+      "size": 7,
+      "cohesion": 0.0274,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 3,
+      "name": "app-root",
+      "size": 6,
+      "cohesion": 0.0,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 4,
+      "name": "slug-legacy",
+      "size": 4,
+      "cohesion": 0.0588,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 14,
+      "name": "testimonials-testimonial-card-props",
+      "size": 4,
+      "cohesion": 0.0556,
+      "dominant_language": "tsx"
+    },
+    {
+      "id": 18,
+      "name": "validations-contact-form-values",
+      "size": 2,
+      "cohesion": 0.0,
+      "dominant_language": "typescript"
+    }
+  ],
+  "cross_community_edges": [],
+  "warnings": [],
+  "cross_community_edges_total": 0,
+  "truncated": false,
+  "_hints": {
+    "next_steps": [
+      {
+        "tool": "list_communities_tool",
+        "suggestion": "Drill into individual communities"
+      },
+      {
+        "tool": "detect_changes_tool",
+        "suggestion": "See how recent changes affect the architecture"
+      },
+      {
+        "tool": "list_flows_tool",
+        "suggestion": "Explore execution flows"
+      }
+    ],
+    "related": [],
+    "warnings": []
+  },
+  "context_savings": {
+    "estimated": true,
+    "saved_tokens": 16678,
+    "saved_percent": 97
+  }
+}

@@ -24,11 +24,21 @@ export interface ContactDetails {
   phone: ContactLabel;
   /** Second phone — value and href from env.phoneAlt. */
   phoneAlt: ContactLabel;
+  /** Jay Gabhawala's number — value and href from env.phoneJay. */
+  phoneJay: ContactLabel;
   /** WhatsApp — href from `whatsappUrl(message)`; `action` is the link text. */
   whatsapp: ContactLabel & { action: string; message: string };
   /** Email — value and href from env.email. */
   email: ContactLabel;
+  /** The office in Akota. */
   address: ContactLabel & { lines: string[] };
+  /** The highway office at Dashrath, with its own "Open in Google Maps" link. */
+  highwayOffice: ContactLabel & {
+    lines: string[];
+    mapQuery: string;
+    /** Accessible name of its map link: starts with the visible `map.openLabel`. */
+    mapLinkLabel: string;
+  };
   /** Carried over from the previous site — owner to confirm it is still current. */
   hours: ContactLabel & { value: string };
   /** Carried over from the previous site — owner to confirm it is still current. */
@@ -106,8 +116,8 @@ export interface ContactFormContent {
   sending: string;
   success: FormSuccess;
   errors: ContactFormErrors;
+  /** A sent enquiry is confirmed by the `success` panel, not a toast. */
   toasts: {
-    success: FormToast;
     error: FormToast;
     /** Shown when no Web3Forms key is set. Visitor-safe: points to WhatsApp and phone. */
     notConfigured: FormToast;
@@ -182,15 +192,22 @@ export const contact: ContactContent = {
     "Have an event coming up? Message us on WhatsApp or call us with your date and guest count.",
   detailsHeading: "Contact details",
   details: {
-    phone: { label: "Phone" },
+    phone: { label: "Phone and WhatsApp" },
     phoneAlt: { label: "Second phone" },
+    phoneJay: { label: "Jay Gabhawala" },
     whatsapp: {
       label: "WhatsApp",
       action: "Message us on WhatsApp",
       message: whatsappMessages.general(),
     },
     email: { label: "Email" },
-    address: { label: "Address", lines: brand.address.lines },
+    address: { label: "Office", lines: brand.address.lines },
+    highwayOffice: {
+      label: "Highway office",
+      lines: brand.highwayOffice.lines,
+      mapQuery: `${brand.name}, ${brand.highwayOffice.oneLine}`,
+      mapLinkLabel: "Open in Google Maps: highway office",
+    },
     hours: { label: "Hours", value: HOURS },
     serviceAreas: { label: "Service areas", value: SERVICE_AREAS },
   },
@@ -251,10 +268,6 @@ export const contact: ContactContent = {
       messageTooLong: `Please keep your message under ${contactLimits.messageMax} characters.`,
     },
     toasts: {
-      success: {
-        title: "Enquiry sent",
-        description: "Thank you. We will get back to you as soon as we can.",
-      },
       error: {
         title: "Your enquiry could not be sent",
         description:

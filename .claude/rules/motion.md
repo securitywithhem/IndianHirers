@@ -76,4 +76,6 @@ No `ease-in` on entrances. No bounce or elastic — it reads as playful, not dig
   in place the permitted ≤ 200ms opacity fades are instant under reduced motion.
 - **Card hover (owner's brief).** The card image zoom runs 700ms (`duration-zoom`, scale
   1.04) and the card lift 350ms; both are `motion-safe:` and outside the 150–200ms hover
-  row, which still applies to colour and focus changes.
+  row, which still applies to colour and focus changes. The gallery's photograph tiles
+  (R6) use the same zoom — **pending the owner's approval (OPEN_ISSUES O46)**: added by
+  the builder, not by the owner's brief. If refused, the tiles take `duration-enter`.

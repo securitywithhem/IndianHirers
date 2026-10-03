@@ -27,9 +27,10 @@ IndianHirers/                 ← git root; Claude Code starts here
 | Mark | **Gabhawalas** (crest reads "IH Gabhawalas") |
 | Tagline | **An Occasion with Dignity** |
 | City | Vadodara, Gujarat |
-| Phones | 9825037478 (primary, WhatsApp) · 8734090908 |
+| Phones | 8734090908 (primary, WhatsApp) · 9825037478 · 9925515029 (Jay Gabhawala) |
 | Email | indianhires@gmail.com |
-| Address | 3-4 Sandalwood Residency, Nr Urmi Char Rasta, Akota, Vadodara – 390020 |
+| Office | 3-4 Sandalwood Residency, Nr Urmi Char Rasta, Akota, Vadodara – 390020 |
+| Highway office | Plot No. 137, Bruhshellz Industrial Park, Opp GSFC Township Gate, Dashrath, Vadodara – 391740 |
 | GSTIN | 24AABPG5066D1Z8 — **footer only**, never as a trust badge |
 
 History: founded 1977 in Malad, Mumbai; in Vadodara since 2001; three generations.

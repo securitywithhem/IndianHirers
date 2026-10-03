@@ -46,7 +46,10 @@ export interface Brand {
   region: string;
   /** "Vadodara, Gujarat" */
   cityRegion: string;
+  /** The office in Akota: the main address (structured data, the map). */
   address: BrandAddress;
+  /** The highway office (godown) at Dashrath. */
+  highwayOffice: BrandAddress;
   /** Footer only. Never presented as a trust badge. */
   gstin: string;
   foundedYear: number;
@@ -70,6 +73,15 @@ const ADDRESS_LINES: string[] = [
   `${CITY} – ${POSTAL_CODE}`,
 ];
 
+const HIGHWAY_LINE_1 = "Plot No. 137, Bruhshellz Industrial Park";
+const HIGHWAY_LINE_2 = "Opp GSFC Township Gate, Dashrath";
+const HIGHWAY_POSTAL_CODE = "391740";
+const HIGHWAY_LINES: string[] = [
+  HIGHWAY_LINE_1,
+  HIGHWAY_LINE_2,
+  `${CITY} – ${HIGHWAY_POSTAL_CODE}`,
+];
+
 export const brand: Brand = {
   name: "Indian Hirers",
   mark: "Gabhawalas",
@@ -85,6 +97,15 @@ export const brand: Brand = {
     locality: CITY,
     region: REGION,
     postalCode: POSTAL_CODE,
+    country: "IN",
+  },
+  highwayOffice: {
+    lines: HIGHWAY_LINES,
+    oneLine: HIGHWAY_LINES.join(", "),
+    street: `${HIGHWAY_LINE_1}, ${HIGHWAY_LINE_2}`,
+    locality: CITY,
+    region: REGION,
+    postalCode: HIGHWAY_POSTAL_CODE,
     country: "IN",
   },
   gstin: "24AABPG5066D1Z8",
@@ -239,14 +260,18 @@ export interface FloatingWhatsAppContent {
 export interface FooterContent {
   /** One line under the brand name. */
   blurb: string;
-  /** Screen-reader label of the address inside the Contact column. */
-  addressLabel: string;
+  /** Visible label over each address in the Contact column. */
+  officeLabel: string;
+  highwayOfficeLabel: string;
   navHeading: string;
   /** aria-label of the footer <nav>. */
   navLabel: string;
   contactHeading: string;
   phoneLabel: string;
   phoneAltLabel: string;
+  /** Screen-reader label of Jay's number; `phoneJayName` is shown beside it. */
+  phoneJayLabel: string;
+  phoneJayName: string;
   emailLabel: string;
   whatsappLabel: string;
   gstinLabel: string;
@@ -306,12 +331,15 @@ export const shell: ShellContent = {
   },
   footer: {
     blurb: `Crockery and event tableware on hire. In ${brand.city} since ${brand.vadodaraSinceYear}.`,
-    addressLabel: "Address",
+    officeLabel: "Office",
+    highwayOfficeLabel: "Highway office",
     navHeading: "Quick links",
     navLabel: "Footer",
     contactHeading: "Contact",
-    phoneLabel: "Phone",
+    phoneLabel: "Phone and WhatsApp",
     phoneAltLabel: "Second phone",
+    phoneJayLabel: "Jay Gabhawala's phone",
+    phoneJayName: "Jay Gabhawala",
     emailLabel: "Email",
     whatsappLabel: "Message us on WhatsApp",
     gstinLabel: "GSTIN",
@@ -511,6 +539,8 @@ export interface LocalBusinessJsonLd {
   description: string;
   foundingDate: string;
   address: PostalAddressJsonLd;
+  /** The highway office, as a second location of the same business. */
+  department: { "@type": "LocalBusiness"; name: string; address: PostalAddressJsonLd };
   areaServed: string;
   telephone?: string[];
   email?: string;
@@ -526,8 +556,19 @@ export interface LocalBusinessJsonLd {
  * Opening hours are deliberately left out until the owner confirms them
  * (docs/COPY_TO_CONFIRM.md).
  */
+function postalAddress(address: BrandAddress): PostalAddressJsonLd {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: address.street,
+    addressLocality: address.locality,
+    addressRegion: address.region,
+    postalCode: address.postalCode,
+    addressCountry: address.country,
+  };
+}
+
 export function localBusinessJsonLd(): LocalBusinessJsonLd {
-  const phones: string[] = [env.phone, env.phoneAlt].filter(
+  const phones: string[] = [env.phone, env.phoneAlt, env.phoneJay].filter(
     (phone) => phone !== ""
   );
 
@@ -539,13 +580,11 @@ export function localBusinessJsonLd(): LocalBusinessJsonLd {
     slogan: brand.tagline,
     description: SITE_DESCRIPTION,
     foundingDate: String(brand.foundedYear),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: brand.address.street,
-      addressLocality: brand.address.locality,
-      addressRegion: brand.address.region,
-      postalCode: brand.address.postalCode,
-      addressCountry: brand.address.country,
+    address: postalAddress(brand.address),
+    department: {
+      "@type": "LocalBusiness",
+      name: `${brand.name} — ${shell.footer.highwayOfficeLabel}`,
+      address: postalAddress(brand.highwayOffice),
     },
     areaServed: brand.cityRegion,
     ...(phones.length > 0 ? { telephone: phones } : {}),

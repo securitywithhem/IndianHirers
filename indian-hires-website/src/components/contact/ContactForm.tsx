@@ -35,7 +35,7 @@ function isAccepted(result: unknown): boolean {
 
 /* Loaded on first use: the toaster is its own chunk (see Providers), and this
  * keeps the toast code out of the form's as well. */
-async function notify(kind: "success" | "error", message: FormToast): Promise<void> {
+async function notify(kind: "error", message: FormToast): Promise<void> {
   const { toast } = await import("sonner");
   toast[kind](message.title, { description: message.description });
 }
@@ -51,8 +51,8 @@ export interface ContactFormProps {
 }
 
 /**
- * The enquiry form: react-hook-form + zod, posted to Web3Forms, answered with
- * a toast. Validation is ours, not the browser's (`noValidate`): each error is
+ * The enquiry form: react-hook-form + zod, posted to Web3Forms; a sent
+ * enquiry is answered by the thank-you panel, a failure by a toast. Validation is ours, not the browser's (`noValidate`): each error is
  * text under its field, linked with `aria-describedby`, in a polite live
  * region, and a failed submit moves focus to the first invalid field.
  *
@@ -121,8 +121,9 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
 
       if (response.ok && isAccepted(result)) {
         reset(EMPTY_VALUES);
+        /* The thank-you panel says it; a toast as well would repeat it over
+           the page (critique-iter2 m5). Errors still come as toasts. */
         setSent(true);
-        await notify("success", copy.toasts.success);
       } else {
         await notify("error", copy.toasts.error);
       }

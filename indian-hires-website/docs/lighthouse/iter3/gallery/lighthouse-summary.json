@@ -1,0 +1,37 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/gallery",
+    "run": 4,
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "lcpMs": 2789.6378,
+    "cls": "0",
+    "tbt": "60 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.4 s"
+      },
+      {
+        "perf": 95,
+        "lcp": "3.0 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      },
+      {
+        "perf": 93,
+        "lcp": "3.2 s"
+      }
+    ]
+  }
+]

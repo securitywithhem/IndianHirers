@@ -1,0 +1,218 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/",
+    "run": 3,
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "lcpMs": 2805.314856390381,
+    "cls": "0",
+    "tbt": "20 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.2 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections",
+    "run": 2,
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.6 s",
+    "lcpMs": 2578.533625,
+    "cls": "0",
+    "tbt": "20 ms",
+    "runs": [
+      {
+        "perf": 97,
+        "lcp": "2.6 s"
+      },
+      {
+        "perf": 97,
+        "lcp": "2.6 s"
+      },
+      {
+        "perf": 97,
+        "lcp": "2.6 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/bone-china",
+    "run": 3,
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.8 s",
+    "lcpMs": 2752.6114661987303,
+    "cls": "0",
+    "tbt": "40 ms",
+    "runs": [
+      {
+        "perf": 95,
+        "lcp": "2.7 s"
+      },
+      {
+        "perf": 99,
+        "lcp": "2.1 s"
+      },
+      {
+        "perf": 96,
+        "lcp": "2.8 s"
+      }
+    ]
+  },
+  {
+    "preset": "mobile",
+    "route": "/contact",
+    "run": 2,
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.3 s",
+    "lcpMs": 2314.3491249999997,
+    "cls": "0",
+    "tbt": "30 ms",
+    "runs": [
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      },
+      {
+        "perf": 98,
+        "lcp": "2.3 s"
+      }
+    ]
+  },
+  {
+    "preset": "desktop",
+    "route": "/",
+    "run": 2,
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "lcpMs": 618.5363063903808,
+    "cls": "0",
+    "tbt": "0 ms",
+    "runs": [
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      }
+    ]
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections",
+    "run": 2,
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "lcpMs": 597.48695,
+    "cls": "0",
+    "tbt": "0 ms",
+    "runs": [
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      }
+    ]
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/bone-china",
+    "run": 2,
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "lcpMs": 607.2191161987305,
+    "cls": "0",
+    "tbt": "0 ms",
+    "runs": [
+      {
+        "perf": 100,
+        "lcp": "0.7 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.6 s"
+      }
+    ]
+  },
+  {
+    "preset": "desktop",
+    "route": "/contact",
+    "run": 2,
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.5 s",
+    "lcpMs": 508.73637499999995,
+    "cls": "0",
+    "tbt": "0 ms",
+    "runs": [
+      {
+        "perf": 100,
+        "lcp": "0.5 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.5 s"
+      },
+      {
+        "perf": 100,
+        "lcp": "0.5 s"
+      }
+    ]
+  }
+]

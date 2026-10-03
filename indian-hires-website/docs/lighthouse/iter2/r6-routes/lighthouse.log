@@ -1,0 +1,6 @@
+mobile   /founders                        Perf 98  A11y 100  BP 100  SEO 100  LCP 2.5 s  CLS 0  TBT 40 ms  runs 98/2.4 s · 98/2.5 s · 98/2.4 s
+mobile   /gallery                         Perf 90  A11y 100  BP 100  SEO 100  LCP 3.2 s  CLS 0  TBT 200 ms  runs 90/3.2 s · 97/2.6 s · 86/3.8 s
+mobile   /testimonials                    Perf 98  A11y 100  BP 100  SEO 63  LCP 2.3 s  CLS 0  TBT 10 ms  runs 97/2.3 s · 98/2.3 s · 98/2.3 s
+mobile   /collections/chafing-dishes      Perf 96  A11y 100  BP 100  SEO 100  LCP 2.8 s  CLS 0  TBT 30 ms  runs 95/2.9 s · 96/2.8 s · 96/2.8 s
+
+lighthouse: summary → /tmp/claude-0/-home-user-IndianHirers/209d80dc-c2aa-5086-af6d-a0c03b467f6c/scratchpad/qa2/lighthouse/r6-routes/lighthouse-summary.json

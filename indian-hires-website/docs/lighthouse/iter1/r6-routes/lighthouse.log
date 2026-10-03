@@ -1,0 +1,5 @@
+mobile   /founders                        Perf 98  A11y 100  BP 100  SEO 100  LCP 2.4 s  CLS 0  TBT 20 ms  runs 97/2.5 s · 98/2.4 s · 98/2.5 s
+mobile   /gallery                         Perf 93  A11y 100  BP 100  SEO 100  LCP 3.3 s  CLS 0  TBT 40 ms  runs 93/3.0 s · 95/2.9 s · 93/3.3 s
+mobile   /testimonials                    Perf 98  A11y 100  BP 100  SEO 66  LCP 2.3 s  CLS 0  TBT 40 ms  runs 98/2.3 s · 98/2.3 s · 98/2.3 s
+
+lighthouse: summary → /tmp/claude-0/-home-user-IndianHirers/209d80dc-c2aa-5086-af6d-a0c03b467f6c/scratchpad/lighthouse/r6-routes/lighthouse-summary.json

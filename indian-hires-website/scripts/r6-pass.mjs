@@ -53,7 +53,7 @@ const overflowOf = (page) =>
   check("gallery: tiles render in a CSS-columns list", count > 0, `${count} tiles`);
 
   const lazy = await page.$$eval("ul.columns-2 img", (imgs) => imgs.filter((img) => img.loading === "lazy").length);
-  check("gallery: every image but the first is lazy", lazy === count - 1, `${lazy} of ${count} lazy`);
+  check("gallery: all but the phone's two column heads are lazy", lazy === count - 2, `${lazy} of ${count} lazy`);
 
   const alts = await page.$$eval("ul.columns-2 img", (imgs) => imgs.map((img) => img.alt.trim()));
   check("gallery: every image has alt text", alts.every((alt) => alt.length >= 12));
@@ -137,6 +137,29 @@ const overflowOf = (page) =>
   await context.close();
 }
 
+// ---- Gallery: the computed column heads match the real layout ---------------
+for (const width of [390]) {
+  const { context, page } = await open("/gallery", { width, mobile: width < 700 });
+  const heads = await page.evaluate(() => {
+    const tiles = [...document.querySelectorAll("ul.columns-2 > li")];
+    const firstByColumn = new Map();
+    tiles.forEach((li, index) => {
+      const left = Math.round(li.getBoundingClientRect().left);
+      if (!firstByColumn.has(left)) firstByColumn.set(left, index);
+    });
+    return [...firstByColumn.values()].map((index) => {
+      const img = tiles[index].querySelector("img");
+      return { index, loading: img.loading, priority: img.getAttribute("fetchpriority") };
+    });
+  });
+  check(
+    `gallery ${width}: every column head loads eagerly`,
+    heads.every((head) => head.loading !== "lazy"),
+    heads.map((head) => `#${head.index}:${head.loading}${head.priority ? "/" + head.priority : ""}`).join(" "),
+  );
+  await context.close();
+}
+
 // ---- Contact ---------------------------------------------------------------
 {
   const { context, page } = await open("/contact", { width: 390, mobile: true });
@@ -211,11 +234,25 @@ const overflowOf = (page) =>
   check("contact: the success heading is on screen, clear of the header and bottom bar", inView);
   check("contact: success panel shows the crown", (await page.locator(".crown-draw svg").count()) > 0);
   const toast = await page.locator("[data-sonner-toast]").count();
-  check("contact: a Sonner toast confirms it", toast > 0);
+  check("contact: no toast repeats the success panel", toast === 0);
   await shot(page, "contact-390-success");
   await page.getByRole("button", { name: /another/i }).click();
   await page.waitForTimeout(500);
   check("contact: 'send another' brings back an empty form", (await page.locator('input[name="name"]').inputValue()) === "");
+
+  /* A failed send: the form stays filled and a Sonner toast says so. */
+  await page.unroute("https://api.web3forms.com/submit");
+  await page.route("https://api.web3forms.com/submit", (route) =>
+    route.fulfill({ status: 500, contentType: "application/json", body: JSON.stringify({ success: false }) }),
+  );
+  await page.locator('input[name="name"]').fill("Audit Visitor");
+  await page.locator('input[name="phone"]').fill("98250 37478");
+  await page.locator('textarea[name="message"]').fill("Two hundred guests, bone china dinner sets, Akota.");
+  await page.locator("form[aria-labelledby]").getByRole("button").click();
+  await page.waitForTimeout(1500);
+  check("contact: a failed send shows a Sonner toast", (await page.locator("[data-sonner-toast]").count()) > 0);
+  check("contact: a failed send keeps what was typed", (await page.locator('input[name="name"]').inputValue()) === "Audit Visitor");
+  await shot(page, "contact-390-send-failed");
   await context.close();
 }
 

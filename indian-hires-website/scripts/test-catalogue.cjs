@@ -16,7 +16,7 @@ const path = require("node:path");
 const ts = require("typescript");
 
 const SRC = path.resolve(__dirname, "../src");
-const WHATSAPP = "919825037478";
+const WHATSAPP = "918734090908";
 
 // --- load .ts sources and the "@/..." alias --------------------------------
 
@@ -444,6 +444,29 @@ test("every gallery photograph has alt text that describes it", () => {
     assert.ok(alt.length >= 12, `${photo.id}: alt text "${alt}" is missing or too short`);
     assert.ok(!/^(image|photo|picture) of\b/i.test(alt), `${photo.id}: alt text starts "image of"`);
     assert.ok(!/\.(webp|jpe?g|png|avif)\b/i.test(alt), `${photo.id}: alt text is a file name`);
+  }
+});
+
+test("founders: pull-quotes are the story's own words, away from their source; todo milestones have no year", () => {
+  const { founders } = require("@/content/founders");
+  const story = founders.story.sections.flatMap((section) => section.paragraphs).join(" ").toLowerCase();
+  const quotes = founders.story.sections.flatMap((section) =>
+    section.pullQuotes.map((quote) => ({ ...quote, section }))
+  );
+  assert.ok(quotes.length > 0, "no pull-quote");
+  for (const quote of quotes) {
+    const text = quote.text.toLowerCase();
+    assert.ok(story.includes(text), `pull-quote is not in the story: ${quote.text}`);
+    const before = quote.section.paragraphs[quote.afterParagraph];
+    assert.ok(before !== undefined, `${quote.section.id}: no paragraph ${quote.afterParagraph}`);
+    const after = quote.section.paragraphs[quote.afterParagraph + 1] ?? "";
+    assert.ok(
+      !before.toLowerCase().includes(text) && !after.toLowerCase().includes(text),
+      `pull-quote sits beside the sentence it repeats: ${quote.text}`
+    );
+  }
+  for (const milestone of founders.milestones.items) {
+    assert.equal(milestone.year === null, milestone.status === "todo", `${milestone.title}: year and status disagree`);
   }
 });
 

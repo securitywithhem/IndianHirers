@@ -1,0 +1,200 @@
+# SEO output with NEXT_PUBLIC_SITE_URL=https://www.indianhirers.example (a placeholder domain; scratch build, port 3002)
+
+## <head> metadata: /
+<meta name="description" content="Indian Hirers hires out bone china, melamine, glassware and chafing dishes to hotels, caterers and wedding planners. A family business since 1977, in Vadodara, Gujarat since 2001."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.indianhirers.example"/>
+<meta property="og:title" content="Indian Hirers — Crockery &amp; Tableware on Hire in Vadodara"/>
+<meta property="og:description" content="Indian Hirers hires out bone china, melamine, glassware and chafing dishes to hotels, caterers and wedding planners. A family business since 1977, in Vadodara, Gujarat since 2001."/>
+<meta property="og:url" content="https://www.indianhirers.example"/>
+<meta property="og:site_name" content="Indian Hirers"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Indian Hirers — An Occasion with Dignity"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Indian Hirers — Crockery &amp; Tableware on Hire in Vadodara"/>
+<meta name="twitter:description" content="Indian Hirers hires out bone china, melamine, glassware and chafing dishes to hotels, caterers and wedding planners. A family business since 1977, in Vadodara, Gujarat since 2001."/>
+<meta name="twitter:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+
+## <head> metadata: /founders
+<meta name="description" content="From a small shop in Malad, Mumbai, in 1977 to Vadodara in 2001: the story of the Gabhawala family and three generations of Indian Hirers."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.indianhirers.example/founders"/>
+<meta property="og:title" content="Our Story — A Family Business Since 1977 | Indian Hirers"/>
+<meta property="og:description" content="From a small shop in Malad, Mumbai, in 1977 to Vadodara in 2001: the story of the Gabhawala family and three generations of Indian Hirers."/>
+<meta property="og:url" content="https://www.indianhirers.example/founders"/>
+<meta property="og:site_name" content="Indian Hirers"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Indian Hirers — An Occasion with Dignity"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Our Story — A Family Business Since 1977 | Indian Hirers"/>
+<meta name="twitter:description" content="From a small shop in Malad, Mumbai, in 1977 to Vadodara in 2001: the story of the Gabhawala family and three generations of Indian Hirers."/>
+<meta name="twitter:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+
+## <head> metadata: /gallery
+<meta name="description" content="Photographs of the crockery, glassware and chafing dishes Indian Hirers holds for hire in Vadodara."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.indianhirers.example/gallery"/>
+<meta property="og:title" content="Gallery — The Range, Close Up | Indian Hirers"/>
+<meta property="og:description" content="Photographs of the crockery, glassware and chafing dishes Indian Hirers holds for hire in Vadodara."/>
+<meta property="og:url" content="https://www.indianhirers.example/gallery"/>
+<meta property="og:site_name" content="Indian Hirers"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Indian Hirers — An Occasion with Dignity"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Gallery — The Range, Close Up | Indian Hirers"/>
+<meta name="twitter:description" content="Photographs of the crockery, glassware and chafing dishes Indian Hirers holds for hire in Vadodara."/>
+<meta name="twitter:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+
+## <head> metadata: /contact
+<meta name="description" content="Call, WhatsApp or send an enquiry to Indian Hirers, 3-4 Sandalwood Residency, Nr Urmi Char Rasta, Akota, Vadodara – 390020."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.indianhirers.example/contact"/>
+<meta property="og:title" content="Contact — Call, WhatsApp or Enquire in Vadodara | Indian Hirers"/>
+<meta property="og:description" content="Call, WhatsApp or send an enquiry to Indian Hirers, 3-4 Sandalwood Residency, Nr Urmi Char Rasta, Akota, Vadodara – 390020."/>
+<meta property="og:url" content="https://www.indianhirers.example/contact"/>
+<meta property="og:site_name" content="Indian Hirers"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Indian Hirers — An Occasion with Dignity"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Contact — Call, WhatsApp or Enquire in Vadodara | Indian Hirers"/>
+<meta name="twitter:description" content="Call, WhatsApp or send an enquiry to Indian Hirers, 3-4 Sandalwood Residency, Nr Urmi Char Rasta, Akota, Vadodara – 390020."/>
+<meta name="twitter:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+
+## <head> metadata: /testimonials
+<meta name="description" content="What customers say about hiring from Indian Hirers, Vadodara."/>
+<meta name="robots" content="noindex, follow"/>
+<meta property="og:title" content="Testimonials | Indian Hirers"/>
+<meta property="og:description" content="What customers say about hiring from Indian Hirers, Vadodara."/>
+<meta property="og:url" content="https://www.indianhirers.example/testimonials"/>
+<meta property="og:site_name" content="Indian Hirers"/>
+<meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Indian Hirers — An Occasion with Dignity"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Testimonials | Indian Hirers"/>
+<meta name="twitter:description" content="What customers say about hiring from Indian Hirers, Vadodara."/>
+<meta name="twitter:image" content="https://www.indianhirers.example/images/brand/og-image.png"/>
+
+## /robots.txt
+User-Agent: *
+Allow: /
+
+Sitemap: https://www.indianhirers.example/sitemap.xml
+
+## /sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://www.indianhirers.example/</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/founders</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/gallery</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/contact</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/heritage-silver</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/bone-china</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/premium-melamine</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/regular-melamine</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/chat-and-snack-plates</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/chafing-dishes</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/cutlery-and-serveware</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://www.indianhirers.example/collections/glassware</loc>
+<lastmod>2026-10-03T08:01:36.065Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+</urlset>
+
+## og:image fetch
+200 image/png 93232 bytes

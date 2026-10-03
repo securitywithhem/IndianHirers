@@ -1,0 +1,185 @@
+%% Final dependency graph, Phase R6 (3 Oct 2026). Generated from code-review-graph's
+%% import edges, aggregated by route, component folder and content/lib file; label = import count.
+%% Companions: final.json / final.html / final.report.md (graphify, AST),
+%% final.architecture.json (code-review-graph), final.cycles.txt / final.cycles.json (0 cycles).
+flowchart LR
+  subgraph APP["src/app"]
+    N0["app/collections"]
+    N1["app/contact"]
+    N2["app/design-system"]
+    N3["app/founders"]
+    N4["app/gallery"]
+    N5["app/layout"]
+    N6["app/products"]
+    N7["app/testimonials"]
+  end
+  subgraph COMPONENTS["src/components"]
+    N8["components/Providers.tsx"]
+    N9["components/collections"]
+    N10["components/contact"]
+    N11["components/founders"]
+    N12["components/gallery"]
+    N13["components/home"]
+    N14["components/layout"]
+    N15["components/motion"]
+    N16["components/ornament"]
+    N17["components/shared"]
+    N18["components/testimonials"]
+    N19["components/ui"]
+  end
+  subgraph CONTENT["src/content"]
+    N20["content/collections"]
+    N21["content/contact"]
+    N22["content/designSystem"]
+    N23["content/founders"]
+    N24["content/gallery"]
+    N25["content/home"]
+    N26["content/notFound"]
+    N27["content/products"]
+    N28["content/site"]
+    N29["content/testimonialList"]
+    N30["content/testimonials"]
+    N31["content/types"]
+  end
+  subgraph LIB["src/lib"]
+    N32["lib/catalogue"]
+    N33["lib/cx"]
+    N34["lib/env"]
+    N35["lib/links"]
+    N36["lib/serverImageProps"]
+    N37["lib/useMotionPreference"]
+    N38["lib/utils"]
+    N39["lib/validations"]
+  end
+  N0 -->|15| N9
+  N0 -->|2| N15
+  N0 -->|1| N16
+  N0 -->|10| N17
+  N0 -->|2| N20
+  N0 -->|2| N28
+  N0 -->|1| N32
+  N1 -->|2| N10
+  N1 -->|3| N17
+  N1 -->|1| N21
+  N1 -->|1| N28
+  N2 -->|2| N16
+  N2 -->|4| N17
+  N2 -->|2| N19
+  N2 -->|1| N22
+  N2 -->|1| N33
+  N2 -->|1| N34
+  N3 -->|3| N11
+  N3 -->|2| N17
+  N3 -->|1| N23
+  N3 -->|1| N28
+  N4 -->|3| N12
+  N4 -->|1| N16
+  N4 -->|3| N17
+  N4 -->|1| N24
+  N4 -->|1| N28
+  N5 -->|1| N8
+  N5 -->|7| N13
+  N5 -->|4| N14
+  N5 -->|1| N15
+  N5 -->|1| N16
+  N5 -->|6| N17
+  N5 -->|1| N20
+  N5 -->|1| N26
+  N5 -->|4| N28
+  N5 -->|3| N34
+  N5 -->|2| N35
+  N5 -->|1| N38
+  N6 -->|2| N20
+  N7 -->|1| N17
+  N7 -->|2| N18
+  N7 -->|1| N28
+  N7 -->|1| N30
+  N8 -->|1| N19
+  N9 -->|4| N15
+  N9 -->|1| N17
+  N9 -->|5| N19
+  N9 -->|3| N20
+  N9 -->|1| N27
+  N9 -->|4| N28
+  N9 -->|2| N33
+  N9 -->|2| N35
+  N10 -->|2| N16
+  N10 -->|3| N17
+  N10 -->|4| N19
+  N10 -->|3| N21
+  N10 -->|2| N34
+  N10 -->|2| N35
+  N10 -->|2| N38
+  N10 -->|1| N39
+  N11 -->|3| N15
+  N11 -->|3| N16
+  N11 -->|5| N17
+  N11 -->|6| N23
+  N11 -->|1| N27
+  N11 -->|1| N36
+  N11 -->|2| N38
+  N12 -->|2| N15
+  N12 -->|1| N16
+  N12 -->|3| N17
+  N12 -->|1| N20
+  N12 -->|1| N24
+  N12 -->|1| N33
+  N12 -->|1| N37
+  N13 -->|7| N15
+  N13 -->|6| N16
+  N13 -->|15| N17
+  N13 -->|1| N20
+  N13 -->|7| N25
+  N13 -->|1| N30
+  N13 -->|1| N38
+  N14 -->|3| N15
+  N14 -->|1| N16
+  N14 -->|8| N17
+  N14 -->|4| N28
+  N14 -->|1| N33
+  N14 -->|1| N34
+  N14 -->|4| N35
+  N14 -->|1| N38
+  N15 -->|7| N33
+  N15 -->|8| N37
+  N16 -->|6| N33
+  N17 -->|3| N16
+  N17 -->|5| N19
+  N17 -->|1| N20
+  N17 -->|4| N28
+  N17 -->|2| N34
+  N17 -->|3| N35
+  N17 -->|8| N38
+  N18 -->|1| N15
+  N18 -->|1| N16
+  N18 -->|9| N17
+  N18 -->|3| N30
+  N19 -->|5| N33
+  N20 -->|1| N27
+  N20 -->|1| N28
+  N21 -->|1| N28
+  N21 -->|1| N34
+  N22 -->|1| N20
+  N22 -->|1| N27
+  N22 -->|1| N28
+  N23 -->|1| N27
+  N23 -->|1| N28
+  N24 -->|1| N20
+  N24 -->|1| N27
+  N24 -->|1| N28
+  N25 -->|1| N20
+  N25 -->|1| N23
+  N25 -->|1| N28
+  N25 -->|1| N35
+  N26 -->|1| N28
+  N28 -->|1| N29
+  N28 -->|1| N34
+  N30 -->|1| N28
+  N30 -->|1| N29
+  N32 -->|1| N20
+  N32 -->|1| N28
+  N32 -->|1| N31
+  N32 -->|1| N34
+  N32 -->|1| N35
+  N35 -->|1| N34
+  N39 -->|1| N21

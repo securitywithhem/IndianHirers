@@ -1,0 +1,9 @@
+Import cycles in src/, from code-review-graph 2.3.9's IMPORTS_FROM edges
+(targets resolved to files; Tarjan strongly connected components). Phase R6, 3 Oct 2026.
+
+files with internal imports: 111 · internal import edges: 422
+cycles: 0
+
+Cross-check: node scripts/import-cycles.mjs (regex over src/, includes import()) found
+one cycle before R6's fix - components/collections/QuoteBasket.tsx <-> QuoteSheet.tsx,
+through a dynamic import - and none after it (docs/graphs/final.cycles.json).

@@ -55,6 +55,8 @@ export interface GalleryGridProps {
   labels: GalleryLabels;
   /** Index of the one tile that is the route's LCP image, if this grid has it. */
   priorityIndex?: number;
+  /** Tiles that head a column at some width: loaded eagerly, not lazily. */
+  eagerIndices?: readonly number[];
 }
 
 /**
@@ -125,14 +127,17 @@ const MAX_WIDTH = "48rem";
  * `requestIdleCallback` does not exist. */
 const IDLE_FALLBACK_MS = 1500;
 
-function aspectRatio(image: GalleryTile["image"]): string {
-  return `${image.width} / ${image.height}`;
-}
+/* Width over height of each frame. The viewer shows a photograph in the same
+ * frame as its tile (cropped to it, `object-cover`): the tile grows into the
+ * viewer without changing shape, and the pipeline's blurred letterbox bars on
+ * tall photographs stay outside the frame. */
+const ASPECT_RATIO: Record<TileAspect, number> = { "1/1": 1, "4/5": 4 / 5, "3/4": 3 / 4 };
 
 /**
  * The gallery: a masonry of photographs (CSS columns), each a button that
- * opens the viewer. Every image below the first is lazy (`next/image`'s
- * default) and every frame is reserved before it loads.
+ * opens the viewer. The tiles that head a column at some width load eagerly
+ * (`eagerIndices`, one of them `priority`); every other image is lazy
+ * (`next/image`'s default). Every frame is reserved before it loads.
  *
  * Without JavaScript and under reduced motion it is simply the complete grid
  * (every box reserved by its photograph's own ratio, every image with a blur
@@ -149,7 +154,7 @@ function aspectRatio(image: GalleryTile["image"]): string {
  * - the position ("Image 3 of 21") is a polite live region;
  * - once closed, focus returns to the tile that opened it.
  */
-export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) {
+export function GalleryGrid({ tiles, labels, priorityIndex, eagerIndices = [] }: GalleryGridProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   /* The photograph is still shrinking back into its tile (engine only). */
   const [closing, setClosing] = useState(false);
@@ -381,6 +386,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                   placeholder="blur"
                   blurDataURL={tile.image.blurDataURL}
                   priority={index === priorityIndex}
+                  loading={index !== priorityIndex && eagerIndices.includes(index) ? "eager" : undefined}
                   className="object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-safe:ease-royal motion-safe:group-hover:scale-104"
                 />
               </Source>
@@ -428,7 +434,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                 )}
                 {current === undefined ? null : (
                   <div key="stage" className="pointer-events-none relative row-start-2 grid place-items-center px-4">
-                    {/* Sized here, from the photograph's own ratio, so the box
+                    {/* Sized here, from the tile's own frame, so the box
                         that zooms never changes shape. */}
                     <div
                       onPointerDown={onSwipeStart}
@@ -436,8 +442,8 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                       onPointerCancel={onSwipeCancel}
                       className="touch-pan-y"
                       style={{
-                        aspectRatio: aspectRatio(current.image),
-                        width: `min(100%, ${MAX_WIDTH}, calc((100dvh - ${CHROME_HEIGHT}) * ${current.image.width / current.image.height}))`,
+                        aspectRatio: String(ASPECT_RATIO[current.aspect]),
+                        width: `min(100%, ${MAX_WIDTH}, calc((100dvh - ${CHROME_HEIGHT}) * ${ASPECT_RATIO[current.aspect]}))`,
                       }}
                     >
                       <Target
@@ -453,7 +459,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                           sizes="(min-width: 800px) 768px, calc(100vw - 32px)"
                           placeholder="blur"
                           blurDataURL={current.image.blurDataURL}
-                          className="size-full object-contain"
+                          className="size-full object-cover"
                         />
                       </Target>
                     </div>
