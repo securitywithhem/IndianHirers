@@ -127,9 +127,11 @@ const MAX_WIDTH = "48rem";
  * `requestIdleCallback` does not exist. */
 const IDLE_FALLBACK_MS = 1500;
 
-function aspectRatio(image: GalleryTile["image"]): string {
-  return `${image.width} / ${image.height}`;
-}
+/* Width over height of each frame. The viewer shows a photograph in the same
+ * frame as its tile (cropped to it, `object-cover`): the tile grows into the
+ * viewer without changing shape, and the pipeline's blurred letterbox bars on
+ * tall photographs stay outside the frame. */
+const ASPECT_RATIO: Record<TileAspect, number> = { "1/1": 1, "4/5": 4 / 5, "3/4": 3 / 4 };
 
 /**
  * The gallery: a masonry of photographs (CSS columns), each a button that
@@ -432,7 +434,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex, eagerIndices = [] }:
                 )}
                 {current === undefined ? null : (
                   <div key="stage" className="pointer-events-none relative row-start-2 grid place-items-center px-4">
-                    {/* Sized here, from the photograph's own ratio, so the box
+                    {/* Sized here, from the tile's own frame, so the box
                         that zooms never changes shape. */}
                     <div
                       onPointerDown={onSwipeStart}
@@ -440,8 +442,8 @@ export function GalleryGrid({ tiles, labels, priorityIndex, eagerIndices = [] }:
                       onPointerCancel={onSwipeCancel}
                       className="touch-pan-y"
                       style={{
-                        aspectRatio: aspectRatio(current.image),
-                        width: `min(100%, ${MAX_WIDTH}, calc((100dvh - ${CHROME_HEIGHT}) * ${current.image.width / current.image.height}))`,
+                        aspectRatio: String(ASPECT_RATIO[current.aspect]),
+                        width: `min(100%, ${MAX_WIDTH}, calc((100dvh - ${CHROME_HEIGHT}) * ${ASPECT_RATIO[current.aspect]}))`,
                       }}
                     >
                       <Target
@@ -457,7 +459,7 @@ export function GalleryGrid({ tiles, labels, priorityIndex, eagerIndices = [] }:
                           sizes="(min-width: 800px) 768px, calc(100vw - 32px)"
                           placeholder="blur"
                           blurDataURL={current.image.blurDataURL}
-                          className="size-full object-contain"
+                          className="size-full object-cover"
                         />
                       </Target>
                     </div>

@@ -106,8 +106,8 @@ export interface ContactFormContent {
   sending: string;
   success: FormSuccess;
   errors: ContactFormErrors;
+  /** A sent enquiry is confirmed by the `success` panel, not a toast. */
   toasts: {
-    success: FormToast;
     error: FormToast;
     /** Shown when no Web3Forms key is set. Visitor-safe: points to WhatsApp and phone. */
     notConfigured: FormToast;
@@ -251,10 +251,6 @@ export const contact: ContactContent = {
       messageTooLong: `Please keep your message under ${contactLimits.messageMax} characters.`,
     },
     toasts: {
-      success: {
-        title: "Enquiry sent",
-        description: "Thank you. We will get back to you as soon as we can.",
-      },
       error: {
         title: "Your enquiry could not be sent",
         description:

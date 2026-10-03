@@ -30,12 +30,19 @@ export interface StorySection {
   /** Null for the opening section, which runs straight on from the hero. */
   heading: string | null;
   paragraphs: string[];
-  /**
-   * A pull-quote set large after the section: an exact excerpt of the
-   * paragraphs above (`scripts/test-catalogue.cjs` checks it), never new
-   * words and never attributed to anyone. Null for none.
-   */
-  pullQuote: string | null;
+  /** Pull-quotes set large inside this section. */
+  pullQuotes: PullQuote[];
+}
+
+/**
+ * An exact excerpt of the story (`scripts/test-catalogue.cjs` checks it),
+ * never new words and never attributed to anyone. Placed away from the
+ * sentence it repeats, so it reads as emphasis, not as a repeated line.
+ */
+export interface PullQuote {
+  text: string;
+  /** Index of the section paragraph it follows. */
+  afterParagraph: number;
 }
 
 export interface FounderProfile {
@@ -79,7 +86,7 @@ export interface FoundersCta {
 export interface StoryYears {
   /** "By 2015, he had introduced bone china on rental". */
   boneChinaIntroduced: number;
-  /** "In 2023, Jay Nikesh Gabhawala … stepped into the family business". */
+  /** `In ${storyYears.thirdGenerationJoined}, Jay Nikesh Gabhawala … stepped into the family business". */
   thirdGenerationJoined: number;
 }
 
@@ -135,15 +142,20 @@ export const founders: FoundersContent = {
           `In ${brand.vadodaraSinceYear}, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.`,
           `By ${storyYears.boneChinaIntroduced}, he had introduced bone china on rental — a bold step that set us apart in the market. The years that followed brought steady growth. Then came COVID, and the two years after it were some of the hardest the business had ever faced. But Nikesh held firm, kept the business alive, and rebuilt it piece by piece. Today, his dedication since ${brand.vadodaraSinceYear} — built on the foundation his father laid in Mumbai decades earlier — stands as the bedrock of everything we are.`,
         ],
-        pullQuote: "With nothing more than a handful of steel plates and a will to serve",
+        pullQuotes: [
+          // The story's closing line, set after its opening paragraph.
+          { text: "Carried forward across generations, from grandfather to father to son.", afterParagraph: 0 },
+          // From the 2001 paragraph, set after the next one.
+          { text: "With nothing more than a handful of steel plates and a will to serve", afterParagraph: 2 },
+        ],
       },
       {
         id: "growing-together",
         heading: "Growing Together",
         paragraphs: [
-          "In 2023, Jay Nikesh Gabhawala, Nikesh's elder son, stepped into the family business to support his father through its next chapter. Together, they have grown the business steadily, bringing fresh energy and renewed ambition to a legacy that now spans three generations. Under their combined leadership, Indian Hirers serves hotels and caterers across Gujarat from Vadodara, with quality crockery and dependable service. What began as a very small shop in Malad, Mumbai, in 1977 is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son.",
+          `In ${storyYears.thirdGenerationJoined}, Jay Nikesh Gabhawala, Nikesh's elder son, stepped into the family business to support his father through its next chapter. Together, they have grown the business steadily, bringing fresh energy and renewed ambition to a legacy that now spans three generations. Under their combined leadership, Indian Hirers serves hotels and caterers across Gujarat from Vadodara, with quality crockery and dependable service. What began as a very small shop in Malad, Mumbai, in ${brand.foundedYear} is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son.`,
         ],
-        pullQuote: "Carried forward across generations, from grandfather to father to son.",
+        pullQuotes: [],
       },
     ],
   },
@@ -155,13 +167,13 @@ export const founders: FoundersContent = {
     heading: "Milestones",
     items: [
       {
-        year: 1977,
+        year: brand.foundedYear,
         title: "A very small shop in Malad",
         body: "Mr. Jasvantlal Satilal Gabhawala sets up the family's first shop in Malad (East), Mumbai.",
         status: "shown",
       },
       {
-        year: 2001,
+        year: brand.vadodaraSinceYear,
         title: "A new chapter in Vadodara",
         body: "Nikesh Jasvantlal Gabhawala starts a small shop of his own in Vadodara, hiring out utensils, steel plates and simple melamine plates for local events.",
         status: "shown",
@@ -204,7 +216,7 @@ export const founders: FoundersContent = {
         id: "jasvantlal",
         name: JASVANTLAL,
         role: `Founder, ${brand.foundedPlace}, ${brand.foundedYear}`,
-        description: `Set up the family's first, very small shop in Malad (East), Mumbai, in ${brand.foundedYear}, and later sent the same idea forward to ${brand.city}.`,
+        description: `Set up the family's first, very small shop in ${brand.foundedPlace}, in ${brand.foundedYear}, and later sent the same idea forward to ${brand.city}.`,
         portrait: null,
         portraitAlt: `Portrait of ${JASVANTLAL}`,
       },

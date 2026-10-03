@@ -1,6 +1,6 @@
 import { GalleryCta } from "@/components/gallery/GalleryCta";
 import { GalleryGrid, type GalleryLabels, type GalleryTile } from "@/components/gallery/GalleryGrid";
-import { firstScreenTiles, interleaveByCollection, nearestAspect, TILE_SIZES, tileAspect } from "@/components/gallery/galleryLayout";
+import { firstScreenTiles, galleryOrder, nearestAspect, TILE_SIZES, tileAspect } from "@/components/gallery/galleryLayout";
 import { SectionHeading } from "@/components/ornament";
 import { Band } from "@/components/shared/Band";
 import { PageHero } from "@/components/shared/PageHero";
@@ -23,8 +23,9 @@ const labels: GalleryLabels = {
   next: lightbox.next,
 };
 
-/** The range: every photographed catalogue piece, the collections dealt out in turn. */
-const rangeTiles: GalleryTile[] = interleaveByCollection(galleryPhotos).map((photo, index) => ({
+/** The range: every photographed catalogue piece, the collections dealt out in
+ * turn, in the order that ends the columns most evenly; weak backdrops last. */
+const rangeTiles: GalleryTile[] = galleryOrder(galleryPhotos, (photo) => tileAspect(photo.collection)).map((photo, index) => ({
   id: photo.id,
   image: photo.image,
   caption: photo.caption,
@@ -38,8 +39,8 @@ const rangeTiles: GalleryTile[] = interleaveByCollection(galleryPhotos).map((pho
   sizes: TILE_SIZES,
 }));
 
-/* The column heads at 2, 3 and 4 columns load eagerly; the tallest one on a
- * phone is the route's one priority image (its LCP element). */
+/* The two column heads on a phone load eagerly; the taller is the route's one
+ * priority image (its LCP element). */
 const firstScreen = firstScreenTiles(rangeTiles.map((tile) => tile.aspect));
 
 /** Photographs taken at events. There are none yet, and nothing stands in for them. */

@@ -42,10 +42,15 @@ export function MilestoneTimeline({ className }: MilestoneTimelineProps) {
                 </span>
 
                 <div className={cn("flex flex-col gap-1", !last && "pb-10")}>
-                  <p className="type-stat text-heading">
-                    <time dateTime={String(milestone.year)}>{milestone.year}</time>
-                  </p>
-                  <h3 className="type-h4 text-foreground">{milestone.title}</h3>
+                  {/* The year is part of the heading, so heading navigation
+                      hears "1977, A very small shop in Malad". Set at h3 size,
+                      below the section's h2, with tabular numerals. */}
+                  <h3 className="flex flex-col gap-1">
+                    <time dateTime={String(milestone.year)} className="type-h3 tabular-nums text-heading">
+                      {milestone.year}
+                    </time>
+                    <span className="type-h4 text-foreground">{milestone.title}</span>
+                  </h3>
                   <p className="type-small max-w-measure-tight text-muted-foreground">{milestone.body}</p>
                 </div>
               </StaggerItem>

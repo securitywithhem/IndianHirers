@@ -127,3 +127,63 @@ export function firstScreenTiles(aspects: readonly TileAspect[]): { eager: numbe
   );
   return { eager, priority };
 }
+
+/**
+ * Photographs whose backdrop lets the piece down (a red cloth, gravel and a
+ * plastic sheet, a shop shelf). They stay in the gallery — they are the only
+ * pictures of those designs — but go last, so they close the final column
+ * instead of standing in the first screen. Ids are catalogue item ids.
+ * Remove an id once its design is re-photographed (OPEN_ISSUES O13).
+ */
+const WEAK_BACKDROP: readonly string[] = [
+  "chafing-dishes--silver-carved-stand",
+  "chafing-dishes--gold-hammered-square",
+  "chafing-dishes--brass-round",
+];
+
+function permutations<T>(items: readonly T[]): T[][] {
+  if (items.length <= 1) return [items.slice()];
+  return items.flatMap((item, index) =>
+    permutations([...items.slice(0, index), ...items.slice(index + 1)]).map((rest) => [item, ...rest]),
+  );
+}
+
+/** How unevenly the columns end: tallest minus shortest, in tile widths. */
+function columnSpread(aspects: readonly TileAspect[], columns: number): number {
+  const heads = columnHeads(aspects, columns);
+  const totals = heads.map((start, column) =>
+    aspects
+      .slice(start, heads[column + 1] ?? aspects.length)
+      .reduce((sum, aspect) => sum + ASPECT_HEIGHT[aspect] + GAP, 0),
+  );
+  return Math.max(...totals) - Math.min(...totals);
+}
+
+/**
+ * The gallery's order. The photographs are dealt out one collection at a time
+ * (see `interleaveByCollection`), in whichever order of collections ends the
+ * columns most evenly at three and four columns; the weak-backdrop shots
+ * follow. Deterministic: ties keep the first order tried.
+ */
+export function galleryOrder<T extends { id: string; collection: CollectionSlug }>(
+  photos: readonly T[],
+  aspectOf: (photo: T) => TileAspect,
+): T[] {
+  const strong = photos.filter((photo) => !WEAK_BACKDROP.includes(photo.id));
+  const weak = photos.filter((photo) => WEAK_BACKDROP.includes(photo.id));
+  const collections = Array.from(new Set(strong.map((photo) => photo.collection)));
+
+  let best: T[] = [...interleaveByCollection(strong), ...weak];
+  let bestScore = Number.POSITIVE_INFINITY;
+  for (const order of permutations(collections)) {
+    const ranked = [...strong].sort((a, b) => order.indexOf(a.collection) - order.indexOf(b.collection));
+    const candidate = [...interleaveByCollection(ranked), ...weak];
+    const aspects = candidate.map(aspectOf);
+    const score = columnSpread(aspects, 4) + columnSpread(aspects, 3);
+    if (score < bestScore - 1e-9) {
+      best = candidate;
+      bestScore = score;
+    }
+  }
+  return best;
+}
