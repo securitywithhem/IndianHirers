@@ -18,7 +18,8 @@ export function FoundersPeople() {
 
       <Stagger
         as="ul"
-        className="mx-auto mt-10 grid max-w-4xl gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:gap-8"
+        /* Three generations: one column, centred, until three fit side by side. */
+        className="mx-auto mt-10 grid max-w-md gap-4 md:mt-14 md:gap-6 lg:max-w-6xl lg:grid-cols-3 lg:gap-8"
       >
         {people.profiles.map((profile) => (
           <StaggerItem as="li" key={profile.id}>

@@ -117,7 +117,7 @@ export function ContactDetails({ className }: ContactDetailsProps) {
 
       {hasMap ? (
         <div className="flex flex-col gap-2">
-          <ContactMap src={env.mapEmbedUrl} title={map.title} />
+          <ContactMap src={env.mapEmbedUrl} title={map.title} addressLines={details.address.lines} />
           {mapLink}
         </div>
       ) : null}

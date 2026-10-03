@@ -49,7 +49,7 @@ export function Footer() {
       <div className="shell">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.3fr] lg:gap-12">
           <div className="flex flex-col items-start gap-4 md:col-span-2 lg:col-span-1">
-            <BrandLogo size="footer" />
+            <BrandLogo size="footer" decorative />
             <div className="flex flex-col gap-2">
               <p className="type-h3 text-heading">{brand.name}</p>
               {/* Not `type-eyebrow`: that would uppercase a tagline whose casing is fixed. */}

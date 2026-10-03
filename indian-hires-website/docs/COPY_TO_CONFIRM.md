@@ -370,3 +370,16 @@ replaced copy, the earlier wording is quoted so it can be restored.
 | 10.11 | Closing band heading: "Planning an event? Let us set the table." | `home.closingCta.heading` | "Planning an event?" | The brief's |
 | 10.12 | Footer social links: accessible names "Indian Hirers on Instagram" / "Indian Hirers on Facebook". **Not shown** until `NEXT_PUBLIC_INSTAGRAM_URL` / `NEXT_PUBLIC_FACEBOOK_URL` are set | `shell.footer.social`, `src/lib/env.ts` | — | NEW. Which profiles exist? |
 | 10.13 | Landmark label of the floating button: "WhatsApp shortcut" | `shell.floatingWhatsApp.regionLabel` | it shared "Quick contact" with the bottom bar | Not owner-facing |
+
+---
+
+## 11. Phase R6 — founders, gallery, contact
+
+| # | Now | Key | Was | Status |
+|---|---|---|---|---|
+| 11.1 | A third card in "Meet the Family": **Jasvantlal Satilal Gabhawala**, role "Founder, Malad, Mumbai, 1977", "Set up the family's first, very small shop in Malad (East), Mumbai, in 1977, and later sent the same idea forward to Vadodara." | `founders.people.profiles[0]` | — (two cards) | NEW COPY, restating the story's first two paragraphs, so the page's "Three Generations" shows three people. Confirm the role and the wording |
+| 11.2 | Nikesh's role: **"Founder in Vadodara, 2001"** | `founders.people.profiles[1].role` | "Founder" | Changed: the story credits the 1977 shop to his father. Confirm (O11 also asks about the roles) |
+| 11.3 | Pull-quotes: "With nothing more than a handful of steel plates and a will to serve" · "Carried forward across generations, from grandfather to father to son." | `founders.story.sections[*].pullQuote` | — | Excerpts of the family's own story text, not new words (OPEN_ISSUES O35) |
+| 11.4 | Timeline entries kept off the page until a year is given: "Premium melamine and glassware" · "Through COVID" | `founders.milestones.items` (`status: "todo"`) | — | The years (O34) |
+| 11.5 | Enquiry success: "Thank you, your enquiry is with us" / "We will call or WhatsApp you on the number you gave, as soon as we can during working hours." / "Send another enquiry" | `contact.form.success` | — (toast only) | NEW COPY |
+| 11.6 | Phone error: "Enter a 10-digit Indian mobile number, with or without +91." | `contact.form.errors.phoneInvalid` | "Enter a valid phone number." | NEW COPY. Landlines are not accepted (the R6 brief asks for Indian 10-digit validation) — say if banquet desks should be able to give a landline |

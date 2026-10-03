@@ -107,6 +107,9 @@ const overflowOf = (page) =>
     Number(getComputedStyle(document.querySelector("ul.columns-2 > li button > span[aria-hidden] > span")).opacity),
   );
   check("gallery 390 touch: captions always visible", opacity === 1);
+  await page.evaluate(() => window.scrollTo(0, 420));
+  await page.waitForTimeout(500);
+  await shot(page, "gallery-390-touch-captions");
   await page.locator("ul.columns-2 > li button").first().tap();
   await page.waitForTimeout(900);
   const position = () => page.locator('[role="dialog"] [aria-live="polite"]').textContent();
@@ -161,6 +164,11 @@ const overflowOf = (page) =>
     ? await page.evaluate((ids) => ids.split(" ").map((id) => document.getElementById(id)?.textContent ?? "").join(" ").trim(), described)
     : null;
   check("contact: error is linked with aria-describedby", errorText !== null && errorText.length > 0, String(errorText));
+  const floatingHidden = await page.evaluate(() => {
+    const link = document.querySelector('aside a[href^="https://wa.me/"]');
+    return link !== null && getComputedStyle(link).display === "none";
+  });
+  check("contact 390: floating WhatsApp steps aside while a field has focus", floatingHidden);
   await shot(page, "contact-390-errors");
 
   const phone = form.locator('input[name="phone"]');
@@ -229,7 +237,7 @@ const overflowOf = (page) =>
   check("founders: timeline shows only stated years", years.join(",") === "1977,2001,2015,2023", years.join(","));
   check("founders: no TODO text reaches the page", !(await page.content()).includes("TODO"));
   const medallions = await page.locator("main .rounded-full.ring-1").count();
-  check("founders: two circular portraits", medallions === 2, `${medallions}`);
+  check("founders: three circular portraits, one per generation", medallions === 3, `${medallions}`);
   const quotes = await page.locator("main aside[aria-hidden] p").count();
   check("founders: pull-quotes present (hidden from AT)", quotes === 2, `${quotes}`);
   await context.close();

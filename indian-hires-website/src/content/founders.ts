@@ -39,7 +39,7 @@ export interface StorySection {
 }
 
 export interface FounderProfile {
-  id: "nikesh" | "jay";
+  id: "jasvantlal" | "nikesh" | "jay";
   name: string;
   role: string;
   /** A third-person description. Not a quotation — never render in quote marks. */
@@ -106,6 +106,7 @@ export interface FoundersContent {
 // Content
 // ---------------------------------------------------------------------------
 
+const JASVANTLAL = "Jasvantlal Satilal Gabhawala";
 const NIKESH = "Nikesh Jasvantlal Gabhawala";
 const JAY = "Jay Nikesh Gabhawala";
 
@@ -130,8 +131,8 @@ export const founders: FoundersContent = {
         id: "beginnings",
         heading: null,
         paragraphs: [
-          "Our story begins in 1977, in Malad (East), Mumbai — where Nikesh's father, Mr. Jasvantlal Satilal Gabhawala, set up a very small shop that would plant the seed for everything that followed. It was here that the family first learned the business of serving others, one small order at a time.",
-          "In 2001, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.",
+          `Our story begins in ${brand.foundedYear}, in Malad (East), Mumbai — where Nikesh's father, Mr. Jasvantlal Satilal Gabhawala, set up a very small shop that would plant the seed for everything that followed. It was here that the family first learned the business of serving others, one small order at a time.`,
+          `In ${brand.vadodaraSinceYear}, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.`,
           `By ${storyYears.boneChinaIntroduced}, he had introduced bone china on rental — a bold step that set us apart in the market. The years that followed brought steady growth. Then came COVID, and the two years after it were some of the hardest the business had ever faced. But Nikesh held firm, kept the business alive, and rebuilt it piece by piece. Today, his dedication since ${brand.vadodaraSinceYear} — built on the foundation his father laid in Mumbai decades earlier — stands as the bedrock of everything we are.`,
         ],
         pullQuote: "With nothing more than a handful of steel plates and a will to serve",
@@ -198,9 +199,20 @@ export const founders: FoundersContent = {
     heading: "Meet the Family",
     profiles: [
       {
+        // Restates the story's first paragraph; no new fact. Role wording is
+        // the builder's, from the story (docs/COPY_TO_CONFIRM.md §11).
+        id: "jasvantlal",
+        name: JASVANTLAL,
+        role: `Founder, ${brand.foundedPlace}, ${brand.foundedYear}`,
+        description: `Set up the family's first, very small shop in Malad (East), Mumbai, in ${brand.foundedYear}, and later sent the same idea forward to ${brand.city}.`,
+        portrait: null,
+        portraitAlt: `Portrait of ${JASVANTLAL}`,
+      },
+      {
         id: "nikesh",
         name: NIKESH,
-        role: "Founder",
+        // Was "Founder": the story credits the 1977 shop to his father.
+        role: `Founder in ${brand.city}, ${brand.vadodaraSinceYear}`,
         description: `Built the foundation of ${brand.name} piece by piece since ${brand.vadodaraSinceYear}, with dedication and a will to serve.`,
         portrait: null,
         portraitAlt: `Portrait of ${NIKESH}`,

@@ -82,8 +82,6 @@ export interface GalleryContent {
   lead: string;
   /** aria-label of the photo grid. */
   gridLabel: string;
-  /** Filter chip for "every collection". */
-  allLabel: string;
   lightbox: LightboxCopy;
   /** Heading of the event-photo section; unused while `eventPhotos` is empty. */
   eventsHeading: string;
@@ -101,7 +99,6 @@ export const gallery: GalleryContent = {
   heading: "The range, close up",
   lead: "Photographs of the crockery, glassware and chafing dishes we hold. Open any picture for a closer look.",
   gridLabel: "Photographs of the range",
-  allLabel: "All",
   lightbox: {
     label: "Photograph viewer",
     close: "Close viewer",
