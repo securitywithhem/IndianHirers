@@ -149,7 +149,7 @@ export function collectionPath(slug: string): string {
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: routes.home },
   { label: "Collections", href: routes.collections },
-  { label: "Founders", href: routes.founders },
+  { label: "Our story", href: routes.founders },
   { label: "Gallery", href: routes.gallery },
   { label: "Testimonials", href: routes.testimonials },
   { label: "Contact", href: routes.contact },
@@ -190,6 +190,12 @@ export interface HeaderContent {
   homeLinkLabel?: string;
   /** aria-label of the desktop <nav>. */
   primaryNavLabel: string;
+  /**
+   * The header's gold button, from `md`. It opens WhatsApp with
+   * `whatsappMessages.quoteRequest()`; only the label lives here.
+   */
+  quoteCta: { label: string };
+  /** First action in the drawer: the contact page. */
   enquireCta: CtaLink;
   openMenuLabel: string;
   closeMenuLabel: string;
@@ -222,6 +228,8 @@ export interface BottomBarContent {
 }
 
 export interface FloatingWhatsAppContent {
+  /** aria-label of the landmark the button sits in. */
+  regionLabel: string;
   /** The button is an icon with no visible text, so this is its whole name. */
   ariaLabel: string;
   /** Tooltip (title attribute). */
@@ -231,7 +239,8 @@ export interface FloatingWhatsAppContent {
 export interface FooterContent {
   /** One line under the brand name. */
   blurb: string;
-  addressHeading: string;
+  /** Screen-reader label of the address inside the Contact column. */
+  addressLabel: string;
   navHeading: string;
   /** aria-label of the footer <nav>. */
   navLabel: string;
@@ -241,6 +250,11 @@ export interface FooterContent {
   emailLabel: string;
   whatsappLabel: string;
   gstinLabel: string;
+  /**
+   * Social profiles. A profile is rendered only when its env var is set
+   * (`env.instagramUrl`, `env.facebookUrl`); with neither, the list is absent.
+   */
+  social: { listLabel: string; instagram: string; facebook: string };
   copyright: (year: number) => string;
 }
 
@@ -266,6 +280,7 @@ export const shell: ShellContent = {
   },
   header: {
     primaryNavLabel: "Primary",
+    quoteCta: { label: "Get a quote" },
     enquireCta: { label: "Enquire", href: routes.contact },
     openMenuLabel: "Open menu",
     closeMenuLabel: "Close menu",
@@ -285,12 +300,13 @@ export const shell: ShellContent = {
     enquire: { label: "Enquire" },
   },
   floatingWhatsApp: {
+    regionLabel: "WhatsApp shortcut",
     ariaLabel: `Message ${brand.name} on WhatsApp`,
     title: "Message us on WhatsApp",
   },
   footer: {
     blurb: `Crockery and event tableware on hire. In ${brand.city} since ${brand.vadodaraSinceYear}.`,
-    addressHeading: "Address",
+    addressLabel: "Address",
     navHeading: "Quick links",
     navLabel: "Footer",
     contactHeading: "Contact",
@@ -299,6 +315,11 @@ export const shell: ShellContent = {
     emailLabel: "Email",
     whatsappLabel: "Message us on WhatsApp",
     gstinLabel: "GSTIN",
+    social: {
+      listLabel: "Social profiles",
+      instagram: `${brand.name} on Instagram`,
+      facebook: `${brand.name} on Facebook`,
+    },
     copyright: (year: number) =>
       `© ${year} ${brand.name}. All rights reserved.`,
   },
@@ -414,7 +435,7 @@ export const routeMetadata: Record<MetadataKey, RouteMetadata> = {
     index: true,
   },
   "/founders": {
-    title: `Founders — A Family Business Since ${brand.foundedYear}`,
+    title: `Our Story — A Family Business Since ${brand.foundedYear}`,
     description: `From a small shop in ${brand.foundedPlace}, in ${brand.foundedYear} to ${brand.city} in ${brand.vadodaraSinceYear}: the story of the Gabhawala family and three generations of ${brand.name}.`,
     path: "/founders",
     index: true,
@@ -544,8 +565,13 @@ export interface QuoteLine {
 }
 
 export interface WhatsAppMessages {
-  /** Header, footer, bottom bar, floating button, hero, closing CTA. */
+  /** Footer, bottom bar, floating button, hero, closing CTA. */
   general: () => string;
+  /**
+   * The header's "Get a quote": the three things a quote needs, as blanks to
+   * fill in, so it does a different job from the general enquiry beside it.
+   */
+  quoteRequest: () => string;
   /** One catalogue item. */
   itemQuote: (item: { name: string }, collectionTitle: string) => string;
   /** The quote basket: every item with its collection, one per line. */
@@ -565,6 +591,13 @@ export interface WhatsAppMessages {
 export const whatsappMessages: WhatsAppMessages = {
   general: () =>
     `Hello ${brand.name}, I'd like to enquire about crockery on hire for my event.`,
+  quoteRequest: () =>
+    [
+      `Hello ${brand.name}, I'd like a quote for crockery on hire.`,
+      "Event date: ",
+      "Number of guests: ",
+      "Pieces or designs: ",
+    ].join("\n"),
   itemQuote: (item, collectionTitle) =>
     `Hello ${brand.name}, I'd like a quote for: ${item.name} (${collectionTitle})`,
   basketQuote: (lines) =>

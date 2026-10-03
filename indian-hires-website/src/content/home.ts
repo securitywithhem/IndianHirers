@@ -48,7 +48,10 @@ export interface HeroImage {
 
 export interface HomeHero {
   eyebrow: string;
-  /** Two or three short lines, revealed one at a time. Together they are the h1. */
+  /**
+   * The brand tagline, one entry per visual line, revealed one at a time.
+   * Together they are the h1.
+   */
   headline: string[];
   lead: string;
   primaryCta: WhatsAppCta;
@@ -101,7 +104,7 @@ export interface HomeHeritage {
 }
 
 export interface HowStep {
-  id: "enquire" | "confirm" | "deliver";
+  id: "choose" | "quote" | "deliver";
   title: string;
   body: string;
 }
@@ -204,6 +207,13 @@ const FEATURED_COLLECTIONS: CollectionSlug[] = collectionsWithPhotograph
 // ---------------------------------------------------------------------------
 
 const ENQUIRE_ON_WHATSAPP = "Enquire on WhatsApp";
+
+/**
+ * The h1 is the tagline (R4 brief), broken before "with" so each line has
+ * its own mask: "An Occasion" / "with Dignity". Split from `brand.tagline`,
+ * never retyped; a tagline without that word stays on one line.
+ */
+const HERO_HEADLINE: string[] = brand.tagline.split(/ (?=with )/);
 const HERO_EYEBROW = `Since ${brand.foundedYear} · ${brand.city} since ${brand.vadodaraSinceYear}`;
 
 const displayPhone = formatPhone();
@@ -212,13 +222,13 @@ const CALL_LABEL = displayPhone ? `Call ${displayPhone}` : "Call us";
 export const home: HomeContent = {
   hero: {
     eyebrow: HERO_EYEBROW,
-    headline: [`Since ${brand.foundedYear},`, "one family has", "laid the table."],
+    headline: HERO_HEADLINE,
     lead: `Bone china, melamine, glassware and chafing dishes on hire for hotels, caterers and wedding planners. A family business in its third generation, in ${brand.city} since ${brand.vadodaraSinceYear}.`,
     primaryCta: {
-      label: ENQUIRE_ON_WHATSAPP,
+      label: "WhatsApp for a quote",
       message: whatsappMessages.general(),
     },
-    secondaryCta: { label: "See the collections", href: routes.collections },
+    secondaryCta: { label: "Explore collections", href: routes.collections },
     image: HERO_IMAGE,
   },
 
@@ -272,29 +282,29 @@ export const home: HomeContent = {
   heritage: {
     heading: `From ${brand.foundedLocality} to ${brand.city}`,
     body: `The family's first shop opened in ${brand.foundedPlace}, in ${brand.foundedYear}. In ${brand.vadodaraSinceYear} Nikesh Gabhawala brought the business to ${brand.city}, starting with steel plates and simple melamine. Bone china followed in ${storyYears.boneChinaIntroduced}, and in ${storyYears.thirdGenerationJoined} his son Jay joined him.`,
-    link: { label: "Read the founders' story", href: routes.founders },
+    link: { label: "Read our story", href: routes.founders },
   },
 
-  // Step 3: that the business delivers is carried over from the previous
-  // site; "clean" and "collected after" are not confirmed — see
-  // docs/COPY_TO_CONFIRM.md §4.
+  // The three titles are the R4 brief's. Step 3: that the business delivers is
+  // carried over from the previous site; "clean" and "collected" are not
+  // confirmed — see docs/COPY_TO_CONFIRM.md §4 and §10.
   howItWorks: {
     eyebrow: "How hiring works",
     heading: "Three steps from enquiry to event",
     steps: [
       {
-        id: "enquire",
-        title: "Tell us what you need",
-        body: "Send us the designs you like, your event date and your guest count on WhatsApp, or call us.",
+        id: "choose",
+        title: "Choose your pieces",
+        body: "Browse the collections and add the designs you like to your quote list.",
       },
       {
-        id: "confirm",
-        title: "We confirm pieces, quantities and dates",
-        body: "We check what is available for your dates and confirm the pieces, the quantities and the rates with you.",
+        id: "quote",
+        title: "WhatsApp us the quantity and date",
+        body: "Send us your list with the quantities, your event date and your guest count. We confirm what is available and the rates.",
       },
       {
         id: "deliver",
-        title: "Delivered clean, collected after",
+        title: "We deliver and collect",
         body: "The crockery is delivered clean and ready to use, and collected once your event is over.",
       },
     ],
@@ -307,7 +317,7 @@ export const home: HomeContent = {
   },
 
   closingCta: {
-    heading: "Planning an event?",
+    heading: "Planning an event? Let us set the table.",
     body: "Tell us the date, the guest count and the designs you like. We will reply with availability and rates.",
     whatsapp: {
       label: ENQUIRE_ON_WHATSAPP,
