@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { Band } from "@/components/shared/Band";
-import { ButtonLink } from "@/components/shared/ButtonLink";
 import { CollectionTile } from "@/components/shared/CollectionTile";
 import { PageHero } from "@/components/shared/PageHero";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { pageMetadata } from "@/components/shared/pageMetadata";
 import { Crown, CrownPlaceholder, SectionHeading } from "@/components/ornament";
 import { Stagger, StaggerItem } from "@/components/motion";
+import { Breadcrumb } from "@/components/collections/Breadcrumb";
 import { CatalogueIsland } from "@/components/collections/CatalogueIsland";
+import { CollectionTabs } from "@/components/collections/CollectionTabs";
 import { CollectionTextRow } from "@/components/collections/CollectionTextRow";
 import { QuoteBasketButton } from "@/components/collections/QuoteBasket";
 import { StaticCatalogue } from "@/components/collections/StaticCatalogue";
@@ -29,6 +29,7 @@ import {
   findCollection,
 } from "@/content/collections";
 import { collectionMetadata, routeMetadata, routes, whatsappMessages } from "@/content/site";
+import { collectionItemListJsonLd } from "@/lib/catalogue";
 
 interface CollectionPageProps {
   params: { slug: string };
@@ -38,8 +39,9 @@ const ITEMS_HEADING_ID = "collection-items-heading";
 const OTHERS_HEADING_ID = "other-collections-heading";
 const ENQUIRE_HEADING_ID = "collection-enquire-heading";
 
-/* The grid is two columns at 390px: its first row is what the first screen shows. */
-const FIRST_ROW_ON_PHONE = 2;
+/* One photograph is preloaded: the first card's, the largest picture on the
+ * first screen of a phone. A second preload only competes with it. */
+const PRIORITY_PHOTOGRAPHS = 1;
 
 /* Only the eight collections exist; any other slug is a 404, not a render. */
 export const dynamicParams = false;
@@ -73,7 +75,7 @@ export default function CollectionPage({ params }: CollectionPageProps) {
     /* Nothing photographed → a text list, not a grid of blank tiles. */
     layout: photographed ? "grid" : "list",
     priorityIds: items
-      .slice(0, FIRST_ROW_ON_PHONE)
+      .slice(0, PRIORITY_PHOTOGRAPHS)
       .filter((item) => item.image !== null)
       .map((item) => item.id),
     placeholder: <CrownPlaceholder aspect="1/1" className="h-full" />,
@@ -81,25 +83,35 @@ export default function CollectionPage({ params }: CollectionPageProps) {
   /* The interactive catalogue is only fetched where there is something for it
    * to do: filters to apply, or cards whose details open in the drawer. */
   const interactive = catalogue.layout === "grid" || catalogue.facets.length > 0;
+  /* `<` is escaped so no string in the schema can close the script element. */
+  const itemListJsonLd = JSON.stringify(collectionItemListJsonLd(collection)).replace(/</g, "\\u003c");
 
   return (
     <>
+      {items.length > 0 ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: itemListJsonLd }} />
+      ) : null}
       <PageHero
         eyebrow={collectionCountLabel(collection)}
-        heading={collection.title}
+        /* "& Word" stays together, so a line never ends on the ampersand. */
+        heading={collection.title.replace(/& /g, "&\u00a0")}
         lead={collection.tagline}
         before={
-          <nav aria-label={collectionPage.breadcrumbLabel}>
-            <ButtonLink href={routes.collections} variant="link" size="sm">
-              <ArrowLeft aria-hidden="true" />
-              {collectionPage.backLabel}
-            </ButtonLink>
-          </nav>
+          <Breadcrumb
+            label={collectionPage.breadcrumbLabel}
+            trail={[
+              { label: collectionPage.breadcrumbHome, href: routes.home },
+              { label: collectionPage.breadcrumbCollections, href: routes.collections },
+              { label: collection.title },
+            ]}
+          />
         }
       >
         {/* From `md`. On a phone the tagline alone leads, so the first pieces are on the first screen. */}
         <p className="type-body hidden max-w-measure text-foreground md:block">{collection.description}</p>
       </PageHero>
+
+      <CollectionTabs current={collection.slug} />
 
       {items.length > 0 ? (
         <Band
@@ -129,8 +141,8 @@ export default function CollectionPage({ params }: CollectionPageProps) {
       ) : (
         <Band tone="ivory" linen aria-labelledby={ITEMS_HEADING_ID}>
           <div className="mx-auto flex max-w-measure flex-col items-center gap-4 rounded-card border border-hairline/40 bg-card p-6 text-center text-card-foreground shadow-card md:p-10">
-            <Crown className="h-8 text-hairline" />
-            <h2 id={ITEMS_HEADING_ID} className="type-h3 text-heading">
+            <Crown size="lg" className="text-hairline" />
+            <h2 id={ITEMS_HEADING_ID} className="type-h2 text-heading">
               {emptyCollection.heading}
             </h2>
             <p className="type-body text-muted-foreground">{emptyCollection.body}</p>

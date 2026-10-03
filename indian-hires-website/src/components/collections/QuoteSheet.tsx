@@ -7,7 +7,8 @@ import { SlidePanel } from "@/components/motion";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { whatsappUrl } from "@/lib/links";
 import { shell, whatsappMessages, type QuoteLine } from "@/content/site";
-import { TEXT_ACTION_CLASS } from "./classes";
+import { Label } from "@/components/ui/label";
+import { NOTE_FIELD_CLASS, TEXT_ACTION_CLASS } from "./classes";
 import { OutboundLink } from "./OutboundLink";
 import { QuoteBasketAnnouncer, useQuoteBasket } from "./QuoteBasket";
 import { useModalDialog, usePanelSide } from "./useModalDialog";
@@ -22,19 +23,25 @@ export interface QuoteSheetProps {
 }
 
 const TITLE_ID = "quote-list-title";
+const NOTE_ID = "quote-list-note";
+const NOTE_HINT_ID = "quote-list-note-hint";
+const REMOVE = "data-remove-item";
 
 /**
- * The quote list: every item with its collection, a remove control each,
- * "Clear list", and one action — send the list on WhatsApp. The message is
- * `whatsappMessages.basketQuote(lines)`; the link is `whatsappUrl(message)`,
- * which is the contact page when no number is configured.
+ * The quote list: every item with its collection, a remove control each, a
+ * free-text field for the event date and guest count, "Clear list", and one
+ * action — send it all on WhatsApp as a single message. The message is
+ * `whatsappMessages.basketQuote(lines, note)`, the builder behind
+ * `buildWhatsAppQuoteUrl` in `@/lib/catalogue`; the link is
+ * `whatsappUrl(message)`, which is the contact page when no number is
+ * configured.
  *
  * Loaded the first time the list is opened (it is the only catalogue client
  * component that reads `@/content/site`, for the message builder), so none of
  * it is part of the route's first load.
  */
 export function QuoteSheet({ id, open, onClose, onExitComplete }: QuoteSheetProps) {
-  const { ids, entries, copy, remove, clear } = useQuoteBasket();
+  const { ids, entries, copy, remove, clear, note, setNote } = useQuoteBasket();
   const panelRef = useRef<HTMLDivElement>(null);
   const side = usePanelSide();
   useModalDialog(open, panelRef, onClose);
@@ -53,10 +60,16 @@ export function QuoteSheet({ id, open, onClose, onExitComplete }: QuoteSheetProp
     collectionTitle: entry.collectionTitle,
   }));
 
-  /* Removing a row removes the button that had focus; keep focus in the dialog. */
+  /* Removing a row removes the button that had focus. Focus goes to the remove
+   * button of the row that takes its place (or the one before it); with the
+   * list empty, to the close button. */
   const removeItem = (itemId: string) => {
+    const panel = panelRef.current;
+    const rows = Array.from(panel?.querySelectorAll<HTMLElement>(`[${REMOVE}]`) ?? []);
+    const index = rows.findIndex((row) => row.getAttribute(REMOVE) === itemId);
+    const next = rows[index + 1] ?? rows[index - 1] ?? panel?.querySelector<HTMLElement>("button");
     remove(itemId);
-    panelRef.current?.querySelector<HTMLElement>("button")?.focus({ preventScroll: true });
+    next?.focus({ preventScroll: true });
   };
 
   return (
@@ -100,6 +113,7 @@ export function QuoteSheet({ id, open, onClose, onExitComplete }: QuoteSheetProp
                 <button
                   type="button"
                   aria-label={entry.removeLabel}
+                  data-remove-item={itemId}
                   onClick={() => removeItem(itemId)}
                   className="focus-ring grid size-11 shrink-0 place-items-center rounded-md text-muted-foreground transition-colors duration-hover ease-royal hover:text-foreground"
                 >
@@ -108,6 +122,21 @@ export function QuoteSheet({ id, open, onClose, onExitComplete }: QuoteSheetProp
               </li>
             ))}
           </ul>
+          <div className="flex flex-col gap-2">
+            <Label htmlFor={NOTE_ID}>{copy.noteLabel}</Label>
+            <textarea
+              id={NOTE_ID}
+              rows={3}
+              maxLength={copy.noteMaxLength}
+              value={note}
+              onChange={(event) => setNote(event.target.value)}
+              aria-describedby={NOTE_HINT_ID}
+              className={NOTE_FIELD_CLASS}
+            />
+            <p id={NOTE_HINT_ID} className="type-caption text-muted-foreground">
+              {copy.noteHint}
+            </p>
+          </div>
           <div className="mt-auto flex flex-col gap-2 pt-2">
             <div className="flex items-center justify-between gap-4">
               <p className="type-small text-muted-foreground">{copy.counts[listed.length]}</p>
@@ -116,7 +145,7 @@ export function QuoteSheet({ id, open, onClose, onExitComplete }: QuoteSheetProp
               </button>
             </div>
             <OutboundLink
-              href={whatsappUrl(whatsappMessages.basketQuote(lines))}
+              href={whatsappUrl(whatsappMessages.basketQuote(lines, note))}
               newTabNote={shell.newTabNote}
               className={buttonVariants({ variant: "whatsapp" })}
             >

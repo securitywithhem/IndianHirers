@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MessageCircle, X } from "lucide-react";
 import { SlidePanel } from "@/components/motion";
 import { buttonVariants } from "@/components/ui/button-variants";
+import { ChipTag } from "@/components/ui/chip";
 import { OutboundLink } from "./OutboundLink";
 import { QuoteBasketAnnouncer } from "./QuoteBasket";
 import { QuoteToggle } from "./QuoteToggle";
@@ -98,7 +99,7 @@ export function ItemDrawer({ item, copy, newTabNote, placeholder, onClose, onExi
       </div>
 
       {/* Only what has been confirmed: an unknown material, finish or piece list is left out. */}
-      <dl className="type-small grid grid-cols-[auto_1fr] gap-x-6 gap-y-1">
+      <dl className="type-small grid grid-cols-[auto_1fr] items-center gap-x-6 gap-y-2">
         <dt className="text-muted-foreground">{copy.collectionLabel}</dt>
         <dd className="text-foreground">{copy.collectionTitle}</dd>
         {shown.material !== null ? (
@@ -107,10 +108,14 @@ export function ItemDrawer({ item, copy, newTabNote, placeholder, onClose, onExi
             <dd className="text-foreground">{shown.material}</dd>
           </>
         ) : null}
-        {shown.finishSummary ? (
+        {shown.finishes.length > 0 ? (
           <>
             <dt className="text-muted-foreground">{copy.finishLabel}</dt>
-            <dd className="text-foreground">{shown.finishSummary}</dd>
+            <dd className="flex flex-wrap gap-2">
+              {shown.finishes.map((finish) => (
+                <ChipTag key={finish}>{finish}</ChipTag>
+              ))}
+            </dd>
           </>
         ) : null}
       </dl>
@@ -126,15 +131,20 @@ export function ItemDrawer({ item, copy, newTabNote, placeholder, onClose, onExi
             ))}
           </ul>
         </div>
-      ) : null}
+      ) : (
+        /* Nothing confirmed yet: the previous site's card message, as a note. */
+        <p role="note" className="type-small rounded-lg border border-hairline/40 bg-muted px-4 py-3 text-foreground">
+          {copy.detailPending}
+        </p>
+      )}
 
       <div className="mt-auto flex flex-col gap-3 border-t border-hairline/40 pt-4">
         <p className="type-caption text-kicker">{copy.ratesOnRequest}</p>
+        <QuoteToggle itemId={shown.id} describedBy={TITLE_ID} className="w-full" />
         <OutboundLink href={shown.askHref} newTabNote={newTabNote} className={buttonVariants({ variant: "whatsapp" })}>
           <MessageCircle aria-hidden="true" />
           {copy.askOnWhatsApp}
         </OutboundLink>
-        <QuoteToggle itemId={shown.id} describedBy={TITLE_ID} className="w-full" />
       </div>
 
       <QuoteBasketAnnouncer />

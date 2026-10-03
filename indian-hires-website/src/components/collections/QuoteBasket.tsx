@@ -1,7 +1,9 @@
 "use client";
 
 import {
+  Suspense,
   createContext,
+  lazy,
   useCallback,
   useContext,
   useEffect,
@@ -10,12 +12,24 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import dynamic from "next/dynamic";
 import { ClipboardList } from "lucide-react";
 import type { BasketCopyView, BasketEntry } from "./types";
 
+/*
+ * The pill, with its label at every width (the owner's decision, R5). Below
+ * `md` it takes the floating WhatsApp button's slot, 16px above the bottom
+ * bar (one slot higher where `:has()` is not supported and that button
+ * cannot step aside); from `md` it sits 16px above that button. On a phone
+ * it is about 160px wide and covers a right-column card's "Add to quote"
+ * while that button is level with it (docs/OPEN_ISSUES.md E35); the button
+ * is clear again a short scroll either way.
+ */
+const PILL_CLASS =
+  "type-button focus-ring fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-4 z-bar inline-flex min-h-12 items-center gap-2 rounded-full bg-primary py-2 pl-4 pr-5 text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover supports-[selector(:has(*))]:bottom-[calc(5rem+env(safe-area-inset-bottom))] md:bottom-24 md:right-6 md:supports-[selector(:has(*))]:bottom-24";
+
 /* Not copy: the key the list is stored under for the life of the tab. */
 const STORAGE_KEY = "indian-hirers:quote-list";
+const NOTE_STORAGE_KEY = "indian-hirers:quote-note";
 const SHEET_ID = "quote-list-sheet";
 /* `id` of <main> in the root layout: where focus goes when the basket button
  * has gone (the list was emptied inside the sheet). */
@@ -36,6 +50,9 @@ interface QuoteBasketValue {
   toggle: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
+  /** The visitor's own words: event date and guest count. Sent with the list. */
+  note: string;
+  setNote: (note: string) => void;
   announcement: Announcement;
 }
 
@@ -49,18 +66,18 @@ export function useQuoteBasket(): QuoteBasketValue {
 
 /* Storage can be blocked (private mode, a strict browser setting): reading or
  * writing then throws. The list still works for the life of the page. */
-function readStored(): unknown {
+function readStored(key: string): unknown {
   try {
-    const raw = window.sessionStorage.getItem(STORAGE_KEY);
+    const raw = window.sessionStorage.getItem(key);
     return raw === null ? null : JSON.parse(raw);
   } catch {
     return null;
   }
 }
 
-function writeStored(ids: readonly string[]): void {
+function writeStored(key: string, value: readonly string[] | string): void {
   try {
-    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+    window.sessionStorage.setItem(key, JSON.stringify(value));
   } catch {
     /* Nothing to do: the list simply does not survive a reload. */
   }
@@ -76,14 +93,18 @@ export interface QuoteBasketProviderProps {
 /**
  * The quote list: a client-side list of item ids, kept in React state and
  * mirrored to `sessionStorage` so it survives a reload and a move between
- * collections. Nothing is sent anywhere until the visitor taps "Send list on
- * WhatsApp" in the sheet.
+ * collections. Nothing is sent anywhere until the visitor taps "Send on WhatsApp"
+ * in the sheet.
  *
- * Only ids are stored. Names and labels come from `entries`, so nothing read
- * back from storage is ever shown or sent as text, and an unknown id is dropped.
+ * Of the items only ids are stored. Names and labels come from `entries`, so
+ * no item text read back from storage is ever shown or sent, and an unknown id
+ * is dropped. The note is the visitor's own text: it is kept as typed, cut to
+ * `copy.noteMaxLength`, and only ever rendered as a field value or
+ * URL-encoded into the message.
  */
 export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProviderProps) {
   const [ids, setIds] = useState<readonly string[]>([]);
+  const [note, setNoteState] = useState("");
   const [restored, setRestored] = useState(false);
   const restoreStarted = useRef(false);
   const [announcement, setAnnouncement] = useState<Announcement>({ text: "", seq: 0 });
@@ -94,7 +115,13 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
     if (restoreStarted.current) return;
     restoreStarted.current = true;
 
-    const stored = readStored();
+    const storedNote = readStored(NOTE_STORAGE_KEY);
+    if (typeof storedNote === "string") {
+      /* Anything typed before this effect ran wins over the stored note. */
+      setNoteState((current) => (current === "" ? storedNote.slice(0, copy.noteMaxLength) : current));
+    }
+
+    const stored = readStored(STORAGE_KEY);
     if (Array.isArray(stored)) {
       const known = stored.filter(
         (id): id is string => typeof id === "string" && Object.prototype.hasOwnProperty.call(entries, id),
@@ -103,11 +130,20 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
       setIds((current) => known.concat(current).filter((id, index, all) => all.indexOf(id) === index));
     }
     setRestored(true);
-  }, [entries]);
+  }, [copy.noteMaxLength, entries]);
 
   useEffect(() => {
-    if (restored) writeStored(ids);
+    if (restored) writeStored(STORAGE_KEY, ids);
   }, [ids, restored]);
+
+  useEffect(() => {
+    if (restored) writeStored(NOTE_STORAGE_KEY, note);
+  }, [note, restored]);
+
+  const setNote = useCallback(
+    (next: string) => setNoteState(next.slice(0, copy.noteMaxLength)),
+    [copy.noteMaxLength],
+  );
 
   const announce = useCallback((text: string) => {
     setAnnouncement((previous) => ({ text, seq: previous.seq + 1 }));
@@ -134,8 +170,10 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
     [announce, entries, ids],
   );
 
+  /* The note belongs to the list it was written for: both go together. */
   const clear = useCallback(() => {
     setIds([]);
+    setNoteState("");
     announce(copy.clearedAnnouncement);
   }, [announce, copy.clearedAnnouncement]);
 
@@ -148,9 +186,11 @@ export function QuoteBasketProvider({ entries, copy, children }: QuoteBasketProv
       toggle,
       remove,
       clear,
+      note,
+      setNote,
       announcement,
     }),
-    [announcement, clear, copy, entries, ids, remove, toggle],
+    [announcement, clear, copy, entries, ids, note, remove, setNote, toggle],
   );
 
   return <QuoteBasketContext.Provider value={value}>{children}</QuoteBasketContext.Provider>;
@@ -174,14 +214,15 @@ export function QuoteBasketAnnouncer() {
 }
 
 /* The sheet is fetched the first time the list is opened: it is never part of
- * the route's first load. */
-const QuoteSheet = dynamic(() => import("./QuoteSheet").then((loaded) => loaded.QuoteSheet), { ssr: false });
+ * the route's first load. `lazy`, not `next/dynamic`: it is only ever rendered
+ * after a click, so nothing needs the loader that `dynamic` would add here. */
+const QuoteSheet = lazy(() => import("./QuoteSheet").then((loaded) => ({ default: loaded.QuoteSheet })));
 
 /**
- * Floating button that opens the quote list, with a count badge. It sits in
- * the slot the shell reserves (src/components/shared/README.md → Fixed
- * elements): 16px above the mobile bottom bar below `md`, 16px above the
- * floating WhatsApp button from `md`, same 56px width.
+ * Floating pill that opens the quote list: "Quote list (n)". Its visible
+ * label is its name. It sits in the slot the shell reserves
+ * (src/components/shared/README.md → Fixed elements): 16px above the mobile
+ * bottom bar below `md`, 16px above the floating WhatsApp button from `md`.
  *
  * Hidden while the list is empty — an empty list has nothing to open, and the
  * cards carry the way in. It stays mounted while its sheet is open or closing
@@ -216,7 +257,6 @@ export function QuoteBasketButton() {
         <button
           ref={triggerRef}
           type="button"
-          aria-label={copy.openLabels[count] ?? copy.openLabels[0]}
           aria-haspopup="dialog"
           aria-expanded={open}
           aria-controls={open ? SHEET_ID : undefined}
@@ -228,18 +268,17 @@ export function QuoteBasketButton() {
             setSheetPresent(true);
             setOpen(true);
           }}
-          className="focus-ring fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-4 z-bar grid size-14 supports-[selector(:has(*))]:bottom-[calc(5rem+env(safe-area-inset-bottom))] place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover md:bottom-24 md:right-6 md:supports-[selector(:has(*))]:bottom-24"
+          className={PILL_CLASS}
         >
-          <ClipboardList aria-hidden="true" className="size-6" />
-          <span
-            aria-hidden="true"
-            className="type-caption absolute -right-1 -top-1 grid h-6 min-w-6 place-items-center rounded-full bg-accent px-1 font-semibold text-accent-foreground ring-2 ring-background"
-          >
-            {count}
-          </span>
+          <ClipboardList aria-hidden="true" className="size-5 shrink-0" />
+          {copy.pillLabels[count] ?? copy.pillLabels[0]}
         </button>
       ) : null}
-      {requested ? <QuoteSheet id={SHEET_ID} open={open} onClose={close} onExitComplete={onExitComplete} /> : null}
+      {requested ? (
+        <Suspense fallback={null}>
+          <QuoteSheet id={SHEET_ID} open={open} onClose={close} onExitComplete={onExitComplete} />
+        </Suspense>
+      ) : null}
     </>
   );
 }

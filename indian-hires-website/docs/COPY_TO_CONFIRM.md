@@ -370,3 +370,24 @@ replaced copy, the earlier wording is quoted so it can be restored.
 | 10.11 | Closing band heading: "Planning an event? Let us set the table." | `home.closingCta.heading` | "Planning an event?" | The brief's |
 | 10.12 | Footer social links: accessible names "Indian Hirers on Instagram" / "Indian Hirers on Facebook". **Not shown** until `NEXT_PUBLIC_INSTAGRAM_URL` / `NEXT_PUBLIC_FACEBOOK_URL` are set | `shell.footer.social`, `src/lib/env.ts` | — | NEW. Which profiles exist? |
 | 10.13 | Landmark label of the floating button: "WhatsApp shortcut" | `shell.floatingWhatsApp.regionLabel` | it shared "Quick contact" with the bottom bar | Not owner-facing |
+
+---
+
+## 11. Phase R5 — catalogue wording from the R5 brief
+
+The brief's own wording, or new copy it made necessary. Where it replaced copy, the
+earlier wording is quoted so it can be restored. All keys are in
+`src/content/collections.ts` → `catalogueCopy` unless another file is named.
+
+| # | Now | Key | Was | Status |
+|---|---|---|---|---|
+| 11.1 | Catalogue `h1`: **"Our collections"** | `landing.heading` | "Collections" | The brief's, in the site's sentence case |
+| 11.2 | Closing strip on `/collections`: "Not sure what you need?" / "WhatsApp us your guest count and we'll suggest a set." / button "Ask on WhatsApp" | `landing.suggest` | A text link, "Ask for a quote on WhatsApp", under the rates note (removed: the strip is the action now) | The brief's sentence, split into a heading and a line. The button uses the catalogue's existing label |
+| 11.3 | The strip's WhatsApp message: "Hello Indian Hirers, I'm not sure what I need. Could you suggest a set? / Number of guests: / Event date:" | `site.ts` → `whatsappMessages.suggestSet` | — | NEW COPY |
+| 11.4 | Tab labels, shortened so the row fits a laptop: "All" · "Vintage Collection" · "Bone China" · "Premium Melamine" · "Regular Melamine" · "Chat Plates" · "Chafing Dishes" · "Cutlery" · "Glassware" | `tabs.labels` | — | NEW. Four are shorter than the collection's title ("Vintage & Heritage Silver", "Chat & Snack Plates", "Chafing Dishes & Buffet Display", "Cutlery & Serveware"); the full title is still the page heading and the card title. **Confirmed by the owner, 3 Oct 2026**, with "Vintage Collection" in place of the first draft's "Heritage Silver" |
+| 11.5 | A collection with nothing listed (Cutlery & Serveware today): "Collection coming soon" / "WhatsApp us for current stock." Its count line on cards and above the heading still reads "Ask us for the list" | `emptyCollection` | "This list is not on the website yet" / "Tell us what you need and we will confirm what we hold for your date." | The brief's. **It says two things at once** — the collection is still to come, and there is stock to ask about. **Confirmed by the owner, 3 Oct 2026: keep "Collection coming soon"** |
+| 11.6 | An item whose pieces are not confirmed shows **"Full catalogue coming soon – WhatsApp us!"** in its details (and in its row, where a collection is a text list) | `item.detailPending` | Nothing was shown | The previous site's card message (`Docs/App_Flow.md`), kept word for word as the brief asks. Shown today on nine items: six Premium Melamine photographs with no confirmed pieces (O3), Tableware (O8), Rectangular and Blue Handle (O5) — it goes away item by item as §9.1's pieces are confirmed |
+| 11.7 | Quote list: the floating button reads "Quote list (2)" at every width (the owner's decision, 3 Oct 2026); the send button reads "Send on WhatsApp" | `basket.pillLabel`, `basket.send` | An icon with a count badge, named "Open your quote list, 2 items" · "Send list on WhatsApp" | The brief's |
+| 11.8 | Quote list field: label "Event date and guest count", help "Optional, up to 300 characters. It goes into the message with your list." In the message it is the last line: "Event date and guest count: …" | `basket.noteLabel`, `basket.noteHint`, `site.ts` → `whatsappMessages.basketQuote` | — | NEW COPY |
+| 11.10 | Filter reset reads "Clear filters", not the brief's "Clear all": the quote list has a "Clear list" beside it in the same session, and each says what it clears. After "Clear list" the announcement is "Quote list and event details cleared" | `filters.clear`, `basket.clearedAnnouncement` | "Quote list cleared" | Say if "Clear all" is wanted |
+| 11.9 | Breadcrumb: "Home" / "Collections" / the collection's title | `collectionPage.breadcrumbHome`, `.breadcrumbCollections` | A single back link, "All collections" | Not owner-facing |

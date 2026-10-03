@@ -50,7 +50,10 @@ export function ItemCard({ item, copy, headingLevel, placeholder, href, onOpen, 
 
   return (
     <article className="card-royal group flex h-full flex-col rounded-card border border-hairline/40 bg-card text-card-foreground shadow-card">
-      <div className="relative aspect-square overflow-hidden rounded-t-card bg-muted">
+      {/* 4:3 below `md` (the owner's decision, R5): two cards a row on a phone, and
+          more of each card on the first screen. The photographs are square, so
+          `object-cover` trims their top and bottom there. Square from `md`. */}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-card bg-muted md:aspect-square">
         {image ? (
           <Image
             src={image.src}

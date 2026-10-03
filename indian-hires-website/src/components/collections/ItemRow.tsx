@@ -31,6 +31,7 @@ export function ItemRow({ item, copy, headingLevel }: ItemRowProps) {
         </Heading>
         {item.specs ? <p className="type-small text-muted-foreground">{item.specs}</p> : null}
         {item.piecesSummary ? <p className="type-small text-muted-foreground">{item.piecesSummary}</p> : null}
+        {item.pieces.length === 0 ? <p className="type-small text-foreground">{copy.detailPending}</p> : null}
         <p className="type-caption text-kicker">{copy.ratesOnRequest}</p>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-x-6 gap-y-2">

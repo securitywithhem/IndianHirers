@@ -1,0 +1,132 @@
+
+1. Deep link
+      unfiltered: Golden Rim | Green Golden | White | Haldi Ivory | Spiral Motif | Clay Craft Golden | Rose Gold
+      ?finish=gold: Golden Rim | Green Golden | Clay Craft Golden
+PASS  ?finish=gold shows a subset of the collection  — 3 of 7
+PASS  every card shown has a Gold finish  — Bone china, Gold | Bone china, Gold | Bone china, Gold
+PASS  the Gold chip is selected (aria-pressed) and nothing else in Finish  — Gold | All
+PASS  result count is in a polite live region  — Showing 3 of 7 designs
+PASS  Clear filters restores the collection and the URL  — http://localhost:3001/collections/bone-china
+PASS  an unknown filter value is ignored
+
+2. Keyboard only, 1280px
+PASS  1280 skip link lands in main
+PASS  1280 breadcrumb is the first stop in main  — 1 Tab
+PASS  1280 collection tabs follow the breadcrumb  — 2 Tab
+PASS  1280 Tab reaches the Gold filter chip  — 10 Tab
+PASS  1280 Space presses the chip; focus stays on it  — {"tag":"BUTTON","text":"Gold","pressed":"true","inDialog":false}
+PASS  1280 the URL carries ?finish=gold  — http://localhost:3001/collections/bone-china?finish=gold
+PASS  1280 Tab reaches the first card's title link  — 9 Tab → Golden Rim
+PASS  1280 Enter opens the item dialog; focus on its close button  — {"tag":"BUTTON","text":"Close details","pressed":null,"inDialog":true}
+PASS  1280 dialog is modal and named after the item
+PASS  1280 the page behind is inert
+PASS  1280 dialog shows finish chips and the piece list
+PASS  1280 Tab stays inside the dialog  — Add to quote | Ask on WhatsApp (opens in a new tab) | Close details
+PASS  1280 Tab reaches "Add to quote" in the dialog
+PASS  1280 Enter adds the item; the button reads "Added", pressed  — {"tag":"BUTTON","text":"Added","pressed":"true","inDialog":true}
+PASS  1280 the addition is announced inside the dialog  — Golden Rim added to your quote list
+PASS  1280 "Ask on WhatsApp" is in the dialog's tab order
+PASS  1280 Esc closes; focus returns to the card's title link  — {"tag":"A","text":"Golden Rim","pressed":null,"inDialog":false}
+PASS  1280 the filter survives the dialog  — http://localhost:3001/collections/bone-china?finish=gold
+PASS  1280 the pill reads "Quote list (1)", and that is its name  — Quote list (1)
+PASS  1280 Tab reaches the pill straight after the catalogue  — 9 Tab
+PASS  1280 Enter opens the quote list; focus on its close button  — {"tag":"BUTTON","text":"Close quote list","pressed":null,"inDialog":true}
+PASS  1280 the pill reports aria-expanded
+PASS  1280 the list holds the item with a named remove button
+PASS  1280 Tab reaches the event-details field
+PASS  1280 the field has a visible label and a hint
+PASS  1280 Tab reaches "Send on WhatsApp"
+      message: "Hello Indian Hirers, I'd like a quote for:\n1. Golden Rim (Bone China)\n\nEvent date and guest count: 14 Feb 2027, 250 guests"
+PASS  1280 one pre-filled message: the item, its collection and the note
+PASS  1280 Esc closes the list; focus returns to the quote button  — {"tag":"BUTTON","text":"Quote list (1)","pressed":null,"inDialog":false}
+PASS  1280 after a reload the list is restored from sessionStorage
+PASS  1280 …and so is the note
+PASS  1280 removing a row moves focus to the next row's remove button  — {"tag":"BUTTON","text":"Remove Clay Craft Golden from your quote list","pressed":null,"inDialog":true}
+PASS  1280 "Clear list" also clears the event details
+
+2. Keyboard only, 390px
+PASS  390 skip link lands in main
+PASS  390 breadcrumb is the first stop in main  — 1 Tab
+PASS  390 collection tabs follow the breadcrumb  — 2 Tab
+PASS  390 Tab reaches the Gold filter chip  — 10 Tab
+PASS  390 Space presses the chip; focus stays on it  — {"tag":"BUTTON","text":"Gold","pressed":"true","inDialog":false}
+PASS  390 the URL carries ?finish=gold  — http://localhost:3001/collections/bone-china?finish=gold
+PASS  390 Tab reaches the first card's title link  — 9 Tab → Golden Rim
+PASS  390 Enter opens the item dialog; focus on its close button  — {"tag":"BUTTON","text":"Close details","pressed":null,"inDialog":true}
+PASS  390 dialog is modal and named after the item
+PASS  390 the page behind is inert
+PASS  390 dialog shows finish chips and the piece list
+PASS  390 Tab stays inside the dialog  — Add to quote | Ask on WhatsApp (opens in a new tab) | Close details
+PASS  390 Tab reaches "Add to quote" in the dialog
+PASS  390 Enter adds the item; the button reads "Added", pressed  — {"tag":"BUTTON","text":"Added","pressed":"true","inDialog":true}
+PASS  390 the addition is announced inside the dialog  — Golden Rim added to your quote list
+PASS  390 "Ask on WhatsApp" is in the dialog's tab order
+PASS  390 Esc closes; focus returns to the card's title link  — {"tag":"A","text":"Golden Rim","pressed":null,"inDialog":false}
+PASS  390 the filter survives the dialog  — http://localhost:3001/collections/bone-china?finish=gold
+PASS  390 the pill reads "Quote list (1)", and that is its name  — Quote list (1)
+PASS  390 Tab reaches the pill straight after the catalogue  — 9 Tab
+PASS  390 the quote button sits 16px above the bottom bar; the floating WhatsApp button has stepped aside  — {"pillBottom":764,"barTop":780,"fabShown":false}
+NOTE  390 card actions whose centre is under the pill when scrolled level with it: 2 of 6 (pill 159px wide)
+PASS  390 the grid is two columns on a phone and the photograph box is 4:3  — {"columns":2,"ratio":1.33}
+PASS  390 Enter opens the quote list; focus on its close button  — {"tag":"BUTTON","text":"Close quote list","pressed":null,"inDialog":true}
+PASS  390 the pill reports aria-expanded
+PASS  390 the list holds the item with a named remove button
+PASS  390 Tab reaches the event-details field
+PASS  390 the field has a visible label and a hint
+PASS  390 Tab reaches "Send on WhatsApp"
+      message: "Hello Indian Hirers, I'd like a quote for:\n1. Golden Rim (Bone China)\n\nEvent date and guest count: 14 Feb 2027, 250 guests"
+PASS  390 one pre-filled message: the item, its collection and the note
+PASS  390 Esc closes the list; focus returns to the quote button  — {"tag":"BUTTON","text":"Quote list (1)","pressed":null,"inDialog":false}
+PASS  390 after a reload the list is restored from sessionStorage
+PASS  390 …and so is the note
+PASS  390 removing a row moves focus to the next row's remove button  — {"tag":"BUTTON","text":"Remove Clay Craft Golden from your quote list","pressed":null,"inDialog":true}
+PASS  390 "Clear list" also clears the event details
+
+   sessionStorage blocked
+PASS  with storage blocked the list still works for the life of the page
+
+3. Structure
+PASS  /collections: one h1, "Our collections"  — ["Our collections"]
+PASS  /collections: nine tabs, "All" is the current page
+PASS  390: the tab row scrolls sideways with snap, sticky, tabs ≥ 44px  — {"scrolls":true,"snap":"x","sticky":"sticky","minTab":44}
+PASS  390: the first tab's label starts on the page gutter  — {"tab":20,"h2":57.125}
+PASS  390: scrolled, the tabs sit directly under the header (header + tabs + bottom bar = 193px of 844)  — {"header":72,"bar":64,"tabsTop":72,"tabs":57}
+PASS  1280: scrolled, the tabs sit directly under the header, opaque, all nine in view  — {"headerBottom":72,"tabsTop":72,"bg":"rgb(251, 245, 234)","fits":true}
+PASS  /collections: the "Not sure what you need?" strip opens WhatsApp asking for the guest count  — https://wa.me/919825037478?text=Hello Indian Hirers, I'm not sure what I need. Could you s
+PASS  /collections: no sideways page scroll at 390
+PASS  390: the current tab (the last one) is scrolled into view  — {"text":"Glassware","left":278.453125,"right":369.890625}
+PASS  390: a current tab that is already in view leaves the row where it is  — 0
+PASS  390: breadcrumb shows Home / Collections on one line; the title is the h1 below  — Home / Collections
+PASS  1280: breadcrumb Home / Collections / title, the last one current  — Home / Collections / Glassware
+PASS  collection page: ItemList JSON-LD with every item, no price  — Highball Tumbler | Wine Glass | Rocks Tumbler | Straight Water Tumbler
+PASS  collection page: no sideways page scroll at 390
+PASS  empty collection: "Collection coming soon" with a WhatsApp action  — Collection coming soon
+PASS  empty collection: no ItemList
+PASS  an item with no pieces confirmed shows the App_Flow message
+PASS  an unknown collection is a 404  — 404
+
+   Reduced motion
+PASS  390 reduced motion: the filter applies at once, nothing is animating 150ms later  — 0 running
+PASS  390 reduced motion: the item dialog is in place within 150ms  — {"x":0,"y":138.828125,"width":390,"height":705.171875}
+PASS  390 reduced motion: Esc closes it and focus returns to the card
+PASS  390 reduced motion: the quote list opens with focus on its close button
+PASS  390 reduced motion: Esc closes it and focus returns to the quote button
+PASS  1280 reduced motion: the filter applies at once, nothing is animating 150ms later  — 0 running
+PASS  1280 reduced motion: the item dialog is in place within 150ms  — {"x":832,"y":0,"width":448,"height":900}
+PASS  1280 reduced motion: Esc closes it and focus returns to the card
+PASS  1280 reduced motion: the quote list opens with focus on its close button
+PASS  1280 reduced motion: Esc closes it and focus returns to the quote button
+
+4. axe
+PASS  axe /collections @390: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china?finish=gold @390: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china item dialog open @390: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china quote list open @390: 0 serious/critical (0 of any impact)
+PASS  axe /collections/cutlery-and-serveware @390: 0 serious/critical (0 of any impact)
+PASS  axe /collections @1280: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china?finish=gold @1280: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china item dialog open @1280: 0 serious/critical (0 of any impact)
+PASS  axe /collections/bone-china quote list open @1280: 0 serious/critical (0 of any impact)
+PASS  axe /collections/cutlery-and-serveware @1280: 0 serious/critical (0 of any impact)
+
+collections-pass: ALL PASS

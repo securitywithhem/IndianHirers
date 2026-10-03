@@ -43,9 +43,22 @@ function toItemView(item: CatalogueItem, collection: Collection): CatalogueItemV
   const pieces = item.pieces.map((piece) => piece.label);
   const material = item.material === null ? null : materialLabels[item.material];
   const finishes = item.finishes.map((finish) => finishLabels[finish]);
+  /* On a card the name is the line above. A label that is already a whole
+   * word or phrase of it, singular or plural, is not printed again: "Mug"
+   * under "Mug", "Serving Spoon" under "Serving Spoons", "Silver-plated" and
+   * "Cutlery" under "Silver-Plated Cutlery". "Gold" under "Golden Rim" stays. */
+  const name = item.name.toLowerCase();
+  const repeatsName = (label: string) => {
+    const at = name.indexOf(label.toLowerCase());
+    if (at === -1) return false;
+    const before = name.charAt(at - 1);
+    const after = name.slice(at + label.length).replace(/^s(?![a-z])/, "");
+    return !/[a-z0-9]/.test(before) && !/^[a-z0-9]/.test(after);
+  };
   /* Brass in brass is said once. */
   const specs = (material === null ? finishes : [material, ...finishes]).filter(
-    (label, index, all) => all.findIndex((other) => other.toLowerCase() === label.toLowerCase()) === index,
+    (label, index, all) =>
+      !repeatsName(label) && all.findIndex((other) => other.toLowerCase() === label.toLowerCase()) === index,
   );
   const askHref = whatsappUrl(whatsappMessages.itemQuote(item, collection.title));
 
@@ -55,10 +68,15 @@ function toItemView(item: CatalogueItem, collection: Collection): CatalogueItemV
     image: item.image,
     placeholderAlt: itemCopy.placeholderAlt(item.name),
     material,
-    finishSummary: listFormat.format(finishes),
+    finishes,
     specs: listFormat.format(specs),
     pieces,
-    piecesSummary: listFormat.format(pieces),
+    /* Nor is a piece that the line above already says: "Glass" under "Glass". */
+    piecesSummary: listFormat.format(
+      pieces.filter(
+        (label) => !repeatsName(label) && !specs.some((spec) => spec.toLowerCase() === label.toLowerCase()),
+      ),
+    ),
     askHref,
     askLabel: linkLabel(itemCopy.askOnWhatsAppLabel(item.name), askHref),
     dialogLabel: drawer.label(item.name),
@@ -125,7 +143,11 @@ export function collectionCopyView(collection: Collection): CatalogueCopyView {
   }
 
   return {
-    card: { ratesOnRequest: item.ratesOnRequest, askOnWhatsApp: item.askOnWhatsApp },
+    card: {
+      ratesOnRequest: item.ratesOnRequest,
+      askOnWhatsApp: item.askOnWhatsApp,
+      detailPending: item.detailPending,
+    },
     filters: {
       heading: filters.heading,
       all: filters.all,
@@ -144,6 +166,7 @@ export function collectionCopyView(collection: Collection): CatalogueCopyView {
       finishLabel: drawer.finishLabel,
       piecesHeading: drawer.piecesHeading,
       photoPending: item.photoPending,
+      detailPending: item.detailPending,
       ratesOnRequest: item.ratesOnRequest,
       askOnWhatsApp: item.askOnWhatsApp,
     },
@@ -175,10 +198,10 @@ export function basketEntries(): Record<string, BasketEntry> {
 
 export function basketCopyView(): BasketCopyView {
   const { basket, item } = catalogueCopy;
-  const openLabels: string[] = [];
+  const pillLabels: string[] = [];
   const counts: string[] = [];
   for (let count = 0; count <= allPublicItems.length; count += 1) {
-    openLabels.push(basket.openLabel(count));
+    pillLabels.push(basket.pillLabel(count));
     counts.push(basket.count(count));
   }
 
@@ -195,7 +218,10 @@ export function basketCopyView(): BasketCopyView {
     clearedAnnouncement: basket.clearedAnnouncement,
     addToQuote: item.addToQuote,
     added: item.added,
-    openLabels,
+    noteLabel: basket.noteLabel,
+    noteHint: basket.noteHint,
+    noteMaxLength: basket.noteMaxLength,
+    pillLabels,
     counts,
   };
 }

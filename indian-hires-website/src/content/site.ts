@@ -558,6 +558,12 @@ export function localBusinessJsonLd(): LocalBusinessJsonLd {
 // WhatsApp message builders
 // ---------------------------------------------------------------------------
 
+/**
+ * Label of the quote list's free-text field, and of the line it becomes in
+ * the WhatsApp message. One string, so the two cannot drift apart.
+ */
+export const QUOTE_NOTE_LABEL = "Event date and guest count";
+
 /** One line of a quote request: a catalogue item and the collection it is in. */
 export interface QuoteLine {
   name: string;
@@ -574,8 +580,13 @@ export interface WhatsAppMessages {
   quoteRequest: () => string;
   /** One catalogue item. */
   itemQuote: (item: { name: string }, collectionTitle: string) => string;
-  /** The quote basket: every item with its collection, one per line. */
-  basketQuote: (lines: QuoteLine[]) => string;
+  /**
+   * The quote basket: every item with its collection, one per line, then the
+   * visitor's own note (event date and guest count) when there is one.
+   */
+  basketQuote: (lines: QuoteLine[], note?: string) => string;
+  /** The catalogue's "Not sure what you need?" strip: blanks to fill in. */
+  suggestSet: () => string;
   /** A whole collection, including ones with nothing listed yet. */
   collectionEnquiry: (collectionTitle: string) => string;
   /** Gallery page: ask for more photographs. */
@@ -600,16 +611,23 @@ export const whatsappMessages: WhatsAppMessages = {
     ].join("\n"),
   itemQuote: (item, collectionTitle) =>
     `Hello ${brand.name}, I'd like a quote for: ${item.name} (${collectionTitle})`,
-  basketQuote: (lines) =>
-    lines.length === 0
-      ? whatsappMessages.general()
-      : [
-          `Hello ${brand.name}, I'd like a quote for:`,
-          ...lines.map(
-            (line, index) =>
-              `${index + 1}. ${line.name} (${line.collectionTitle})`
-          ),
-        ].join("\n"),
+  basketQuote: (lines, note = "") => {
+    if (lines.length === 0) return whatsappMessages.general();
+    const details = note.trim();
+    return [
+      `Hello ${brand.name}, I'd like a quote for:`,
+      ...lines.map(
+        (line, index) => `${index + 1}. ${line.name} (${line.collectionTitle})`
+      ),
+      ...(details === "" ? [] : ["", `${QUOTE_NOTE_LABEL}: ${details}`]),
+    ].join("\n");
+  },
+  suggestSet: () =>
+    [
+      `Hello ${brand.name}, I'm not sure what I need. Could you suggest a set?`,
+      "Number of guests: ",
+      "Event date: ",
+    ].join("\n"),
   collectionEnquiry: (collectionTitle) =>
     `Hello ${brand.name}, I'd like to know what you have in ${collectionTitle}.`,
   photoRequest: () =>

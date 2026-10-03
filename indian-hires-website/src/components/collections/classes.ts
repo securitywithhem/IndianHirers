@@ -16,7 +16,15 @@ export const TOGGLE_CLASS =
 /** §7.5 filter chip. The recipe lives with the `Chip` primitive; one string, one place. */
 export { CHIP_CLASS } from "@/components/ui/chip";
 
-/** Two columns on a phone, three from `md`, four from `lg`. `relative` is for `LayoutPresence`. */
+/** §7.8 field recipe at three lines: the quote sheet's note. Written out, since `Textarea`'s `min-h-32` cannot be overridden without tailwind-merge. */
+export const NOTE_FIELD_CLASS =
+  "type-body focus-ring min-h-24 w-full min-w-0 rounded-lg border border-input bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground";
+
+/** A tab of the sticky collection row: 44px tall, the current one in maroon over a maroon rule (the rule carries state, so it is not gold). */
+export const COLLECTION_TAB_CLASS =
+  "type-small focus-ring relative inline-flex min-h-11 items-center whitespace-nowrap rounded-sm px-3 text-muted-foreground transition-colors duration-hover ease-royal after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:rounded-full after:bg-primary after:opacity-0 hover:text-foreground aria-[current=page]:font-medium aria-[current=page]:text-heading aria-[current=page]:after:opacity-100";
+
+/** Two columns on a phone (the owner's decision, R5, after trying one), three from `md`, four from `lg`. `relative` is for `LayoutPresence`. */
 export const ITEM_GRID_CLASS = "relative grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8";
 
 /** The text list of a collection without photographs: one ivory panel, hairlines between rows. */

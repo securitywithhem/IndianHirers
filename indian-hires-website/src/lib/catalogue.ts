@@ -7,7 +7,7 @@ import {
   publicItems,
   toQuoteLine,
 } from "@/content/collections";
-import { whatsappMessages } from "@/content/site";
+import { collectionPath, whatsappMessages } from "@/content/site";
 import type {
   CatalogueItem,
   Collection,
@@ -16,7 +16,8 @@ import type {
   Material,
   PieceType,
 } from "@/content/types";
-import { whatsappUrl } from "@/lib/links";
+import { env } from "@/lib/env";
+import { absoluteUrl, whatsappUrl } from "@/lib/links";
 
 /**
  * Queries over the catalogue in `src/content/collections.ts`.
@@ -68,11 +69,58 @@ export function getFeatured(): CatalogueItem[] {
 
 /**
  * WhatsApp link that asks for a quote on `items`, one per line with its
- * collection. Hidden items are dropped. An empty list gives the general
- * enquiry message. Falls back to the contact page when no WhatsApp number is
- * configured.
+ * collection, followed by `note` (the visitor's event date and guest count)
+ * when it is not blank. Hidden items are dropped. An empty list gives the
+ * general enquiry message. Falls back to the contact page when no WhatsApp
+ * number is configured.
+ *
+ * The quote sheet builds its link from the same message builder
+ * (`whatsappMessages.basketQuote`) without importing this module, which
+ * would put the whole catalogue in the browser.
  */
-export function buildWhatsAppQuoteUrl(items: CatalogueItem[]): string {
+export function buildWhatsAppQuoteUrl(items: CatalogueItem[], note = ""): string {
   const quotable = items.filter((item) => item.status === "available");
-  return whatsappUrl(whatsappMessages.basketQuote(quotable.map(toQuoteLine)));
+  return whatsappUrl(whatsappMessages.basketQuote(quotable.map(toQuoteLine), note));
+}
+
+export interface ListItemJsonLd {
+  "@type": "ListItem";
+  position: number;
+  name: string;
+  image?: string;
+}
+
+export interface ItemListJsonLd {
+  "@context": "https://schema.org";
+  "@type": "ItemList";
+  name: string;
+  description: string;
+  numberOfItems: number;
+  url?: string;
+  itemListElement: ListItemJsonLd[];
+}
+
+/**
+ * schema.org `ItemList` for a collection page: its public items, in display
+ * order. No offers and no prices. `url` and `image` need an absolute address,
+ * so they are left out until NEXT_PUBLIC_SITE_URL is set.
+ */
+export function collectionItemListJsonLd(collection: Collection): ItemListJsonLd {
+  const items = publicItems(collection);
+  const absolute = env.siteUrl !== "";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: collection.title,
+    description: collection.description,
+    numberOfItems: items.length,
+    ...(absolute ? { url: absoluteUrl(collectionPath(collection.slug)) } : {}),
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      ...(absolute && item.image !== null ? { image: absoluteUrl(item.image.src) } : {}),
+    })),
+  };
 }
