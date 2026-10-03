@@ -1,5 +1,5 @@
-import { Crown } from "@/components/ornament";
 import type { FounderProfile } from "@/content/founders";
+import { FounderPortrait } from "./FounderPortrait";
 
 export interface FounderCardProps {
   profile: FounderProfile;
@@ -8,24 +8,17 @@ export interface FounderCardProps {
 }
 
 /**
- * One member of the family: role, name, and a third-person description.
+ * One member of the family: portrait, role, name, and a third-person
+ * description.
  *
  * The description is NOT a quotation, so there are no quote marks and no
- * `<blockquote>`. There are no portraits yet either, and nothing stands in
- * for one — no stock photograph, no product photograph, no empty frame: the
- * crown and the name carry the card.
- *
- * TODO(owner portraits): `profile.portrait` is null for every profile today,
- * so this card renders no image and the route ships no image code. When a
- * portrait is supplied, add a `FounderPortrait` component beside this file
- * (`next/image` in an `<ArchFrame aspect="4/5" framed>`, `alt` from
- * `profile.portraitAlt`, `sizes="160px"`, blur placeholder) and render it here
- * in place of the crown when `profile.portrait !== null`.
+ * `<blockquote>`. Without a photograph the portrait is the crown medallion
+ * (see `FounderPortrait`); a supplied portrait replaces it with no change here.
  */
 export function FounderCard({ profile, headingLevel: Heading }: FounderCardProps) {
   return (
     <article className="flex h-full flex-col items-center gap-4 rounded-card border border-hairline/40 bg-card p-6 text-center text-card-foreground shadow-card md:p-8">
-      <Crown className="h-10 text-hairline" />
+      <FounderPortrait profile={profile} />
 
       <div className="flex flex-col items-center gap-2">
         <p className="type-eyebrow text-kicker">{profile.role}</p>

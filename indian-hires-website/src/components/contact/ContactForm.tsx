@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type HTMLAttributes } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type HTMLAttributes } from "react";
 import { Controller, useForm, type Control, type FieldErrors } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Crown } from "@/components/ornament/Crown";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -54,6 +56,11 @@ export interface ContactFormProps {
  * text under its field, linked with `aria-describedby`, in a polite live
  * region, and a failed submit moves focus to the first invalid field.
  *
+ * While sending, the button shows a spinner (still under reduced motion) and
+ * the form is `aria-busy`. Once Web3Forms accepts the enquiry the form gives
+ * way to a thank-you panel with the crown; focus moves to its heading, and
+ * its button brings back an empty form.
+ *
  * Every string comes from `contact.form`. No entrance animation (motion rule).
  */
 export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
@@ -62,6 +69,7 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const busy = useRef(false);
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const { control, register, handleSubmit, reset, setValue } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -113,6 +121,7 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
 
       if (response.ok && isAccepted(result)) {
         reset(EMPTY_VALUES);
+        setSent(true);
         await notify("success", copy.toasts.success);
       } else {
         await notify("error", copy.toasts.error);
@@ -130,6 +139,10 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
     if (first !== undefined) document.getElementById(fieldId(first))?.focus();
   }
 
+  if (sent) {
+    return <ContactSuccess onAgain={() => setSent(false)} />;
+  }
+
   return (
     <form
       ref={formRef}
@@ -140,6 +153,7 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
       method="post"
       action={WEB3FORMS_ENDPOINT}
       aria-labelledby={labelledBy}
+      aria-busy={sending}
       onSubmit={handleSubmit(onValid, onInvalid)}
       className="flex flex-col gap-5"
     >
@@ -170,9 +184,42 @@ export function ContactForm({ accessKey, labelledBy }: ContactFormProps) {
       <FormRow control={control} name="message" id={fieldId("message")} multiline />
 
       <Button type="submit" aria-disabled={sending} className="w-full sm:w-auto sm:self-start">
+        {sending ? <Loader2 aria-hidden="true" className="size-5 motion-safe:animate-spin" /> : null}
         {sending ? copy.sending : copy.submit}
       </Button>
     </form>
+  );
+}
+
+/** The thank-you panel that replaces the form once an enquiry is accepted. */
+function ContactSuccess({ onAgain }: { onAgain: () => void }) {
+  const { success } = contact.form;
+
+  /* Stable ref callback, run once when the panel mounts. The panel is much
+     shorter than the form it replaces, so it is first brought to the middle
+     of the screen (instantly; under the fixed header otherwise), then its
+     heading takes focus so a screen reader announces it and the keyboard
+     continues from here. */
+  const focusOnMount = useCallback((node: HTMLHeadingElement | null) => {
+    if (node === null) return;
+    node.scrollIntoView({ block: "center" });
+    node.focus({ preventScroll: true });
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center gap-5 py-6 text-center">
+      <div aria-hidden="true" className="crown-draw text-hairline">
+        <Crown size="xl" />
+      </div>
+      <span aria-hidden="true" className="rule-double w-16" />
+      <h3 ref={focusOnMount} tabIndex={-1} className="type-h3 max-w-heading-wide text-heading outline-none">
+        {success.heading}
+      </h3>
+      <p className="type-body max-w-measure-tight text-muted-foreground">{success.body}</p>
+      <Button type="button" variant="outline" onClick={onAgain}>
+        {success.again}
+      </Button>
+    </div>
   );
 }
 

@@ -72,6 +72,14 @@ export interface FormUnavailable {
   body: string;
 }
 
+/** Shown in place of the form once an enquiry has been accepted. */
+export interface FormSuccess {
+  heading: string;
+  body: string;
+  /** Button that brings the empty form back. */
+  again: string;
+}
+
 export interface ContactFormContent {
   heading: string;
   lead: string;
@@ -96,6 +104,7 @@ export interface ContactFormContent {
   };
   submit: string;
   sending: string;
+  success: FormSuccess;
   errors: ContactFormErrors;
   toasts: {
     success: FormToast;
@@ -132,8 +141,6 @@ export interface ContactContent {
 export interface ContactLimits {
   nameMin: number;
   nameMax: number;
-  phoneMin: number;
-  phoneMax: number;
   messageMin: number;
   messageMax: number;
 }
@@ -145,8 +152,6 @@ export interface ContactLimits {
 export const contactLimits: ContactLimits = {
   nameMin: 2,
   nameMax: 80,
-  phoneMin: 10,
-  phoneMax: 15,
   messageMin: 10,
   messageMax: 1000,
 };
@@ -158,6 +163,8 @@ export const contactLimits: ContactLimits = {
  */
 export const hasEnquiryForm: boolean = env.web3FormsKey !== "";
 
+// TODO(owner): confirm the hours (docs/OPEN_ISSUES.md O10). They are a
+// placeholder until then.
 // Both carried over from the previous site — the owner is to confirm they
 // are still current (docs/COPY_TO_CONFIRM.md §6). The previous site's list of
 // service areas ended with a forward-looking phrase; only the named cities
@@ -165,7 +172,7 @@ export const hasEnquiryForm: boolean = env.web3FormsKey !== "";
 const HOURS = "Mon–Sat: 9:00 AM – 7:00 PM";
 const SERVICE_AREAS = "Vadodara · Ahmedabad · Surat · Bharuch · Anand";
 
-const PHONE_INVALID = "Enter a valid phone number.";
+const PHONE_INVALID = "Enter a 10-digit Indian mobile number, with or without +91.";
 
 export const contact: ContactContent = {
   eyebrow: "Contact",
@@ -231,6 +238,11 @@ export const contact: ContactContent = {
     },
     submit: "Send enquiry",
     sending: "Sending…",
+    success: {
+      heading: "Thank you, your enquiry is with us",
+      body: "We will call or WhatsApp you on the number you gave, as soon as we can during working hours.",
+      again: "Send another enquiry",
+    },
     errors: {
       nameTooShort: "Please enter your full name.",
       nameTooLong: `Please keep your name under ${contactLimits.nameMax} characters.`,

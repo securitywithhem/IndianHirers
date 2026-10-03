@@ -1,6 +1,6 @@
 import { GalleryCta } from "@/components/gallery/GalleryCta";
 import { GalleryGrid, type GalleryLabels, type GalleryTile } from "@/components/gallery/GalleryGrid";
-import { galleryLayout, holdsUpLarge } from "@/components/gallery/galleryLayout";
+import { interleaveByCollection, nearestAspect, TILE_SIZES, tileAspect } from "@/components/gallery/galleryLayout";
 import { SectionHeading } from "@/components/ornament";
 import { Band } from "@/components/shared/Band";
 import { PageHero } from "@/components/shared/PageHero";
@@ -23,11 +23,8 @@ const labels: GalleryLabels = {
   next: lightbox.next,
 };
 
-/* Only photographs that hold up at double size are enlarged. */
-const rangeLayout = galleryLayout(galleryPhotos.map((photo) => holdsUpLarge(photo.collection)));
-
-/** The range: every photographed catalogue piece, in catalogue order. */
-const rangeTiles: GalleryTile[] = galleryPhotos.map((photo, index) => ({
+/** The range: every photographed catalogue piece, the collections dealt out in turn. */
+const rangeTiles: GalleryTile[] = interleaveByCollection(galleryPhotos).map((photo, index) => ({
   id: photo.id,
   image: photo.image,
   caption: photo.caption,
@@ -37,12 +34,9 @@ const rangeTiles: GalleryTile[] = galleryPhotos.map((photo, index) => ({
     href: collectionPath(photo.collection),
     label: lightbox.viewCollection(photo.collectionTitle),
   },
-  className: rangeLayout[index]?.className ?? "",
-  sizes: rangeLayout[index]?.sizes ?? "",
+  aspect: tileAspect(photo.collection),
+  sizes: TILE_SIZES,
 }));
-
-/* An event photograph is supplied for this page, so any of them may be enlarged. */
-const eventLayout = galleryLayout(eventPhotos.map(() => true));
 
 /** Photographs taken at events. There are none yet, and nothing stands in for them. */
 const eventTiles: GalleryTile[] = eventPhotos.map((photo, index) => ({
@@ -52,8 +46,8 @@ const eventTiles: GalleryTile[] = eventPhotos.map((photo, index) => ({
   openLabel: lightbox.openLabel(photo.caption),
   positionLabel: lightbox.position(index + 1, eventPhotos.length),
   link: null,
-  className: eventLayout[index]?.className ?? "",
-  sizes: eventLayout[index]?.sizes ?? "",
+  aspect: nearestAspect(photo.image.width, photo.image.height),
+  sizes: TILE_SIZES,
 }));
 
 export default function GalleryPage() {

@@ -10,7 +10,7 @@ import { Crown, CrownPlaceholder, SectionHeading } from "@/components/ornament";
 import { Stagger, StaggerItem } from "@/components/motion";
 import { CatalogueIsland } from "@/components/collections/CatalogueIsland";
 import { CollectionTextRow } from "@/components/collections/CollectionTextRow";
-import { QuoteBasketButton } from "@/components/collections/QuoteBasket";
+import { QuoteBasketButton } from "@/components/collections/QuoteBasketButton";
 import { StaticCatalogue } from "@/components/collections/StaticCatalogue";
 import { collectionCopyView, collectionFacets, collectionItemViews } from "@/components/collections/catalogueView";
 import {

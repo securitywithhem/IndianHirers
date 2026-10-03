@@ -1,0 +1,50 @@
+
+getCollections, getCollection
+  ok    eight collections, in display order
+  ok    getCollection finds a slug and returns undefined for an unknown one
+
+getItems
+  ok    no query returns every public item and nothing hidden
+  ok    collection filter
+  ok    hidden entries are never returned
+  ok    no hidden entry leaves the module through a collection
+  ok    material filter
+  ok    finish filter matches any of an item's finishes
+  ok    pieceType filter
+  ok    criteria combine with AND
+  ok    getFeatured returns public, photographed items
+
+buildWhatsAppQuoteUrl
+  ok    one item per numbered line, with its collection
+  ok    hidden items are dropped from the message
+  ok    the message is fully percent-encoded
+  ok    an empty list gives the general enquiry
+  ok    falls back to the contact page when no WhatsApp number is set
+
+owner's catalogue
+  ok    bone-china: every catalogue line present exactly once
+  ok    premium-melamine: every catalogue line present exactly once
+  ok    regular-melamine: every catalogue line present exactly once
+  ok    chat-and-snack-plates: every catalogue line present exactly once
+  ok    chat plates: the catalogue's eleven lines map to eight entries, none extra
+  ok    placeholders: silver-plated range, six chafing dish designs, cutlery & serveware
+  ok    no price-shaped property in the content sources
+  ok    no rupee figure in any string a visitor can reach
+  ok    trust badges: none is renderable until the owner confirms it
+  ok    every gallery photograph has alt text that describes it
+
+Entries per collection
+
+| Collection | Public | Hidden | Total | With photograph |
+|---|---:|---:|---:|---:|
+| Vintage & Heritage Silver | 5 | 0 | 5 | 0 |
+| Bone China | 7 | 2 | 9 | 5 |
+| Premium Melamine | 9 | 0 | 9 | 7 |
+| Regular Melamine | 2 | 0 | 2 | 0 |
+| Chat & Snack Plates | 7 | 1 | 8 | 0 |
+| Chafing Dishes & Buffet Display | 5 | 6 | 11 | 5 |
+| Cutlery & Serveware | 0 | 0 | 0 | 0 |
+| Glassware | 4 | 0 | 4 | 4 |
+| **Total** | 39 | 9 | 48 | 21 |
+
+test-catalogue: ALL PASS

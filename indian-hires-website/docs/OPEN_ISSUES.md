@@ -124,3 +124,31 @@ What the brief asks for and was **not** built is below, with the reason.
 | E30 | The gold button has no hover feedback under reduced motion: its only hover effect is the sheen, which is off there (critique-iter1 F14) | 4, 6 | Not changed — it predates R4 and there is no second gold fill token to step to | A hover token for the gold fill (design-architect) |
 | E31 | E21 (catalogue card clamp, repeated labels, the filter row's missing scroll cue at 390px) is still open | 5, 7 | R4 touched the catalogue only to place the quote-list button; the card and filter components were not rewritten | The next phase that rewrites the catalogue pages |
 | E32 | No screen-reader pass; animated states (line draw, drawer stagger) were checked by computed style, not by eye or video | 6, 10 | Scripted checks only (`scripts/keyboard-pass.mjs`) | A manual pass on a phone (E6) |
+
+
+## Phase R6 — founders, gallery, testimonials, contact, 404, final audit
+
+The R6 brief, like R4's, was written before R1 built these five routes. R6 closed the
+gaps (`docs/evidence/R6/README.md`). What the brief asks for and was **not** built, or
+could not be checked, is below.
+
+### Needs the owner
+
+| # | Item | Where it shows | What is needed |
+|---|---|---|---|
+| O33 | **Founder portraits.** The brief asks for two circular, warm-toned portraits. The circular frame is built and tested with a stand-in photograph (`founders-portrait-photo` check, then reverted); with no portrait supplied it shows a maroon cameo with the gold crown, which stands for no one | `/founders` → Meet the Family | Two portraits (O13). Set `portrait` on each profile in `src/content/founders.ts` |
+| O34 | **Timeline years the story does not give.** "Premium melamine and glassware" and "Through COVID" are in the data as `status: "todo"` with no year and are not shown. The timeline shows 1977, 2001, 2015, 2023 | `src/content/founders.ts` → `milestones` | The two years (or say they should stay out) |
+| O35 | **Pull-quotes** on /founders are excerpts of the family's own story text, set large; no new words and no attribution to a person. The brief's "pull-quotes" could also mean quotations from the family, which do not exist (O29) | `/founders` | Approve, or supply a sentence in the family's own words |
+| O36 | **Opening hours** remain the previous site's, marked `TODO(owner)` (O10) | `/contact` | Confirm or correct |
+| O37 | **Testimonials.** The gold-left-border card and the reviews JSON-LD are built, but there are no testimonials (O12), so the page keeps its honest empty state and neither has ever rendered | `/testimonials` | Real testimonials. Then check the card by eye (as E26) |
+| O38 | **Tap on a gallery tile opens the viewer**, rather than a first tap showing the caption and a second opening it. On touch screens the caption is always shown instead (`@media (hover: none)`), so it is visible without a tap | `/gallery` | Say if the two-tap behaviour is wanted |
+
+### Engineering
+
+| # | Item | Rubric | State | Blocking |
+|---|---|---|---|---|
+| E34 | **The map was not seen.** This session's egress policy refuses `www.google.com` (403 at the proxy), so the embed could not load in any capture or Lighthouse run; the iframe's `loading="lazy"`, `title` and reserved 4:3 box were checked in the DOM (`r6-pass`) | 1, 9 | Look at `/contact` on the deployed site |
+| E35 | `scripts/verify.sh` guards port 3001 with `lsof`, which cannot see the listener in the cloud container: a stale `next start` survived and served an old build for one round of R6 captures (discarded and retaken) | — | In this container, stop servers by process (`pkill -f "[n]ext-server"`) and confirm with `curl` before verify. Making verify use `curl` too changes the harness — needs a yes (as E14) |
+| E36 | `src/lib/serverImageProps.ts` reproduces `next/image`'s `getImageProps` from two internal Next.js modules, because importing anything from `next/image` adds the 5 kB `<Image>` chunk to `/founders` (99.9 → 105 kB, over its 100 kB budget) | 9 | Re-check against `next/dist/shared/lib/image-external.js` on any Next.js upgrade |
+| E37 | The full-page 390px gallery capture shows tile captions mid-transition (clipped, pale); viewport captures of the same state on an emulated touch device are correct (`docs/evidence/R6/iter1/states/gallery-390-touch-captions.png`) | — | A capture artefact of `fullPage` screenshots, not a site defect |
+| E38 | Import cycle `QuoteBasket` ⇄ `QuoteSheet` (pre-R6) found by `scripts/import-cycles.mjs` and removed: `QuoteBasketButton` is now its own module | — | Fixed in R6 |

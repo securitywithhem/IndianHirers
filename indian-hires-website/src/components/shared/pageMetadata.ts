@@ -15,22 +15,27 @@ import { routeMetadata, siteMetadata, type RouteMetadata } from "@/content/site"
  *   `noindex` to every 404 response, and a second tag would duplicate it.
  * - Canonical and `og:url` are emitted only when NEXT_PUBLIC_SITE_URL is set —
  *   there is no fallback domain.
- * - `og:image` is emitted only when `siteMetadata.ogImage.src` exists.
+ * - `og:image` is emitted only when `siteMetadata.ogImage.src` exists and
+ *   NEXT_PUBLIC_SITE_URL is set (it must resolve to an absolute URL; without
+ *   `metadataBase` Next.js would point it at localhost).
  *
  * Next.js replaces `openGraph` and `twitter` wholesale per segment, so the
  * site-level fields are repeated here rather than inherited.
  */
+/** The share image for `openGraph.images`, or undefined when it cannot be absolute. */
+export function shareImages(): { url: string; width: number; height: number; alt: string }[] | undefined {
+  const { ogImage } = siteMetadata;
+  if (ogImage.src === null || env.siteUrl === "") return undefined;
+  return [{ url: ogImage.src, width: ogImage.width, height: ogImage.height, alt: ogImage.alt }];
+}
+
 export function pageMetadata(route: RouteMetadata): Metadata {
   const isDefaultTitle = route.title === siteMetadata.defaultTitle;
   const fullTitle = isDefaultTitle
     ? route.title
     : siteMetadata.titleTemplate.replace("%s", route.title);
   const hasSiteUrl = env.siteUrl !== "";
-  const { ogImage } = siteMetadata;
-  const images =
-    ogImage.src === null
-      ? undefined
-      : [{ url: ogImage.src, width: ogImage.width, height: ogImage.height, alt: ogImage.alt }];
+  const images = shareImages();
 
   return {
     title: isDefaultTitle ? { absolute: route.title } : route.title,

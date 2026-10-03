@@ -372,6 +372,18 @@ test("trust badges: none is renderable until the owner confirms it", () => {
   assert.ok(badges.every((badge) => badge.confirmed === false));
 });
 
+test("every gallery photograph has alt text that describes it", () => {
+  const { galleryPhotos, eventPhotos } = require("@/content/gallery");
+  const photos = [...galleryPhotos, ...eventPhotos];
+  assert.ok(photos.length > 0, "the gallery is empty");
+  for (const photo of photos) {
+    const alt = photo.image.alt.trim();
+    assert.ok(alt.length >= 12, `${photo.id}: alt text "${alt}" is missing or too short`);
+    assert.ok(!/^(image|photo|picture) of\b/i.test(alt), `${photo.id}: alt text starts "image of"`);
+    assert.ok(!/\.(webp|jpe?g|png|avif)\b/i.test(alt), `${photo.id}: alt text is a file name`);
+  }
+});
+
 // --- counts ----------------------------------------------------------------
 
 console.log("\nEntries per collection\n");

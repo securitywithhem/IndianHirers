@@ -10,6 +10,10 @@ const HEADING_ID = "founders-story-heading";
  * From `md` the timeline stays in view while the story is read; below that it
  * follows the story.
  *
+ * Each chapter may end in a pull-quote: an excerpt of its own words set large
+ * on a gold rule. It repeats text the reader has just met, so it is hidden
+ * from assistive technology.
+ *
  * Outline: the story region's `h2` is visually hidden (the page `h1` already
  * introduces it), its titled chapters are `h3`; the timeline is its own `h2`.
  */
@@ -41,6 +45,11 @@ export function FoundersStory() {
                 {paragraph}
               </p>
             ))}
+            {section.pullQuote === null ? null : (
+              <aside aria-hidden="true" className="mt-4 border-l-2 border-hairline py-1 pl-6 md:pl-8">
+                <p className="type-h3 max-w-heading-wide text-heading">{section.pullQuote}</p>
+              </aside>
+            )}
           </div>
         ))}
       </section>

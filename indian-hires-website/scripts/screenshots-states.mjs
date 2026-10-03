@@ -15,7 +15,7 @@ const outDir = resolve(process.argv[2] ?? "docs/evidence/states");
 const base = process.argv[3] ?? "http://localhost:3001";
 mkdirSync(outDir, { recursive: true });
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 const problems = [];
 
 async function state(name, width, path, act) {

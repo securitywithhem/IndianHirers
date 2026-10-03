@@ -10,6 +10,11 @@
  * `npm run verify` has built) and say which server the numbers came from.
  * Results are printed as a table and written as JSON to AUDIT_OUT (default
  * docs/evidence/audit).
+ *
+ * Optional: LH_RUNS=3 runs Lighthouse that many times per route and preset and
+ * reports the median by performance score (every run's JSON is kept);
+ * LH_PRESETS=mobile limits the presets; PW_CHROMIUM / CHROME_PATH point at a
+ * Chromium binary when Playwright's own is not installed.
  */
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -26,7 +31,7 @@ const slug = (route) => (route === "/" ? "home" : route.slice(1).replace(/\//g, 
 if (mode === "axe") {
   const { chromium } = await import("playwright");
   const { default: AxeBuilder } = await import("@axe-core/playwright");
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
   let total = 0;
   const report = {};
   for (const width of [390, 1280]) {
@@ -60,43 +65,58 @@ if (mode === "axe") {
   console.log(`\naxe: ${total} violation group(s) across ${ROUTES.length} routes × 2 widths → ${outDir}/axe.json`);
 } else if (mode === "lighthouse") {
   const rows = [];
-  for (const preset of ["mobile", "desktop"]) {
+  const runs = Number(process.env.LH_RUNS ?? 1);
+  const presets = (process.env.LH_PRESETS ?? "mobile,desktop").split(",");
+  for (const preset of presets) {
     for (const route of ROUTES) {
-      const file = `${outDir}/lh-${preset}-${slug(route)}.json`;
-      const args = [
-        "lighthouse",
-        base + route,
-        "--quiet",
-        "--output=json",
-        `--output-path=${file}`,
-        "--only-categories=performance,accessibility,best-practices,seo",
-        "--chrome-flags=--headless=new --no-sandbox",
-      ];
-      if (preset === "desktop") args.push("--preset=desktop");
-      try {
-        execFileSync("npx", args, { stdio: ["ignore", "ignore", "pipe"], timeout: 180_000 });
-        const lhr = JSON.parse(readFileSync(file, "utf8"));
-        const score = (id) => Math.round((lhr.categories[id]?.score ?? 0) * 100);
-        const audit = (id) => lhr.audits[id]?.displayValue ?? "—";
-        rows.push({
-          preset,
-          route,
-          perf: score("performance"),
-          a11y: score("accessibility"),
-          bp: score("best-practices"),
-          seo: score("seo"),
-          lcp: audit("largest-contentful-paint"),
-          cls: audit("cumulative-layout-shift"),
-          tbt: audit("total-blocking-time"),
-        });
-      } catch (error) {
-        rows.push({ preset, route, error: String(error).slice(0, 160) });
+      const results = [];
+      let failure = null;
+      for (let run = 1; run <= runs; run += 1) {
+        const file = `${outDir}/lh-${preset}-${slug(route)}${runs > 1 ? `-run${run}` : ""}.json`;
+        const args = [
+          "lighthouse",
+          base + route,
+          "--quiet",
+          "--output=json",
+          `--output-path=${file}`,
+          "--only-categories=performance,accessibility,best-practices,seo",
+          "--chrome-flags=--headless=new --no-sandbox",
+        ];
+        if (preset === "desktop") args.push("--preset=desktop");
+        try {
+          execFileSync("npx", args, { stdio: ["ignore", "ignore", "pipe"], timeout: 180_000 });
+          const lhr = JSON.parse(readFileSync(file, "utf8"));
+          const score = (id) => Math.round((lhr.categories[id]?.score ?? 0) * 100);
+          const audit = (id) => lhr.audits[id]?.displayValue ?? "—";
+          results.push({
+            preset,
+            route,
+            run,
+            perf: score("performance"),
+            a11y: score("accessibility"),
+            bp: score("best-practices"),
+            seo: score("seo"),
+            lcp: audit("largest-contentful-paint"),
+            lcpMs: lhr.audits["largest-contentful-paint"]?.numericValue ?? null,
+            cls: audit("cumulative-layout-shift"),
+            tbt: audit("total-blocking-time"),
+          });
+        } catch (error) {
+          failure = String(error).slice(0, 160);
+        }
       }
-      const r = rows.at(-1);
+      if (results.length === 0) {
+        rows.push({ preset, route, error: failure });
+        console.log(`${preset.padEnd(8)} ${route.padEnd(32)} ERROR ${failure}`);
+        continue;
+      }
+      const sorted = [...results].sort((a, b) => a.perf - b.perf);
+      const median = sorted[Math.floor((sorted.length - 1) / 2)];
+      const r = { ...median, runs: results.map(({ perf, lcp }) => ({ perf, lcp })) };
+      rows.push(r);
+      const all = results.length > 1 ? `  runs ${results.map((x) => `${x.perf}/${x.lcp}`).join(" · ")}` : "";
       console.log(
-        r.error
-          ? `${preset.padEnd(8)} ${route.padEnd(32)} ERROR ${r.error}`
-          : `${preset.padEnd(8)} ${route.padEnd(32)} Perf ${r.perf}  A11y ${r.a11y}  BP ${r.bp}  SEO ${r.seo}  LCP ${r.lcp}  CLS ${r.cls}  TBT ${r.tbt}`
+        `${preset.padEnd(8)} ${route.padEnd(32)} Perf ${r.perf}  A11y ${r.a11y}  BP ${r.bp}  SEO ${r.seo}  LCP ${r.lcp}  CLS ${r.cls}  TBT ${r.tbt}${all}`
       );
     }
   }

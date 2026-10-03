@@ -36,7 +36,7 @@ const ROUTES = process.env.SHOT_ROUTES
     ];
 
 mkdirSync(outDir, { recursive: true });
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 const failures = [];
 
 /** Scroll through the page so lazy images and in-view reveals have fired. */

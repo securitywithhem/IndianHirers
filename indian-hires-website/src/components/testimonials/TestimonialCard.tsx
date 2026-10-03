@@ -1,4 +1,3 @@
-import { Crown } from "@/components/ornament";
 import type { Testimonial } from "@/content/testimonials";
 
 export interface TestimonialCardProps {
@@ -12,14 +11,15 @@ export interface TestimonialCardProps {
  * credited by. A real quotation, so it is a `<blockquote>` inside a
  * `<figure>`; the attribution is the `<figcaption>`. Parts the customer left
  * out (role, organisation, city) are simply not rendered.
+ *
+ * The card's left edge is a gold rule, as on the home page preview.
  */
 export function TestimonialCard({ testimonial, separator }: TestimonialCardProps) {
   const { quote, name, role, organisation, city } = testimonial;
   const position = [role, organisation].filter((part): part is string => part !== null).join(separator);
 
   return (
-    <figure className="flex h-full flex-col gap-6 rounded-card border border-hairline/40 bg-card p-6 text-card-foreground shadow-card md:p-8">
-      <Crown className="h-6 text-hairline" />
+    <figure className="flex h-full flex-col gap-6 rounded-card border border-l-2 border-hairline/40 border-l-hairline bg-card p-6 text-card-foreground shadow-card md:p-8">
       <blockquote className="flex-1">
         <p className="type-lead max-w-measure text-foreground">{quote}</p>
       </blockquote>
