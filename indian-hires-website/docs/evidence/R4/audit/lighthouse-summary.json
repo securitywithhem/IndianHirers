@@ -1,0 +1,178 @@
+[
+  {
+    "preset": "mobile",
+    "route": "/",
+    "perf": 95,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.9 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections",
+    "perf": 97,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/bone-china",
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/collections/chafing-dishes",
+    "perf": 92,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "3.4 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/founders",
+    "perf": 99,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.3 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/gallery",
+    "perf": 96,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.9 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/testimonials",
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 66,
+    "lcp": "2.3 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "mobile",
+    "route": "/contact",
+    "perf": 98,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "2.3 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.8 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/bone-china",
+    "perf": 99,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.9 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/collections/chafing-dishes",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.7 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/founders",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/gallery",
+    "perf": 99,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "1.0 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/testimonials",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 66,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  },
+  {
+    "preset": "desktop",
+    "route": "/contact",
+    "perf": 100,
+    "a11y": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": "0.6 s",
+    "cls": "0",
+    "tbt": "0 ms"
+  }
+]

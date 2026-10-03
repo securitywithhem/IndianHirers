@@ -318,7 +318,7 @@ Fluid between 390px and 1440px viewport width with `clamp()`; fixed outside that
 
 | Class | Family / weight | 390px | 1440px+ | Line height | Tracking | Use |
 |---|---|---|---|---|---|---|
-| `type-display` | Cormorant 600 | 40px | 72px | 1.05 | -0.01em | the page `h1` |
+| `type-display` | Cormorant 600 | 44px | 72px | 1.05 | -0.01em | the page `h1` (floor raised from 40px in R4, to match `type-stat`) |
 | `type-h2` | Cormorant 600 | 32px | 52px | 1.1 | -0.005em | section headings |
 | `type-h3` | Cormorant 600 | 24px | 32px | 1.2 | 0 | sub-sections, feature titles |
 | `type-h4` | Cormorant 600 | 20px | 24px | 1.25 | 0 | card titles |
@@ -407,7 +407,8 @@ Rules:
 - Two ivory sections in a row alternate `bg-background` and `bg-muted`. Never two
   identical tones back to back without a `<CrownDivider>` between them.
 - The closing CTA (maroon-800) meets the footer (maroon-950) directly; the tone step
-  and a `border-t border-hairline/40` on the footer separate them.
+  and the footer's top edge separate them — a 1px `bg-gold-gradient` hairline with a
+  `candle-glow` centred on it, the upper half clipped by the footer (R4).
 - `surface-linen` on at most two sections per page.
 
 ### 5.3 Radius
@@ -758,7 +759,7 @@ icons `text-primary`. The page reserves its height (`pb-20 md:pb-0` on `body`, a
 | Maroon band | `theme-dark relative isolate overflow-hidden bg-background py-section` (+ candle glow layer) |
 | Hero | `theme-dark relative isolate overflow-hidden bg-maroon-950 pt-header`, content in `shell pb-section pt-section-sm` |
 | Inner-page header band | `theme-dark bg-background pt-header`, content in `shell py-section-sm` |
-| Footer | `theme-dark border-t border-hairline/40 bg-maroon-950 pt-section-sm` |
+| Footer | `theme-dark relative isolate overflow-hidden bg-maroon-950 pt-section-sm`, with the gradient hairline and glow of 5.2 as its first two children; three columns from `lg` (the house · quick links · contact with the address) |
 | Ivory panel inside a maroon band | `theme-light rounded-card bg-card p-6 md:p-8` |
 
 **Hero layout.** Maroon-950 band, candle glow behind the headline, the banquet
@@ -1033,3 +1034,24 @@ asked for lives.
 | components in `src/components/ui/` | ornaments in `ornament/`, primitives in `ui/`, composed pieces in `shared/` | the R1 layout; nothing is duplicated under a second name |
 | `/design-system`, dev-only, not in the sitemap, noindex | `src/app/design-system/page.tsx` | added in R2; answers 404 in a build |
 
+---
+
+## 13. The R4 brief and this system
+
+The R4 brief ("Global Layout, Home Page & Motion Primitives") was also written before
+R1. Built in R4, and now part of this specification:
+
+| The brief asked for | In this system |
+|---|---|
+| Header CTA "Get a Quote", gold, opens WhatsApp | `ButtonLink variant="gold" size="sm"` from `md`; label in `shell.header.quoteCta` ("Get a quote" — sentence case, as every other label); message `whatsappMessages.quoteRequest()`. The gold variant has a 1px `gold-700` edge, its boundary on ivory (5.93) |
+| Drawer links in Cormorant at 32px, staggered in | `type-h2` (32px at 390px), `data-slide-item` — 60ms apart, 350ms, after the panel |
+| Footer: candle-glow top edge, crown, three columns, socials hidden without an env value | 5.2 and 7.11 above; socials from `env.instagramUrl` / `env.facebookUrl` |
+| Floating WhatsApp kept on phones, above the bottom bar | recipe 7.3, with `bottom-[calc(5rem+env(safe-area-inset-bottom))]` below `md`; the quote-list button sits one slot higher |
+| `h1` "An Occasion with Dignity" | `home.hero.headline`, split from `brand.tagline` |
+| Trust strip with gold icons | a `size-7 text-hairline` lucide icon over each figure, `aria-hidden` |
+| Asymmetric arch tiles | from `lg` every second tile stands 40px lower (a static transform on a wrapper) |
+| Steps joined by a drawn gold line | `<DrawLine lineClassName="origin-left">` from `md`; a static gold bead at each step, on the line, not in the list items |
+| Closing band with gold-gradient hairlines | a `bg-gold-gradient` hairline on its top edge; the footer's edge is the lower one |
+
+Not built, with reasons: `indian-hires-website/docs/OPEN_ISSUES.md`, Phase R4 (O25–O32,
+E23–E27).

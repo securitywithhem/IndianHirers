@@ -220,12 +220,15 @@ export function QuoteBasketButton() {
           aria-haspopup="dialog"
           aria-expanded={open}
           aria-controls={open ? SHEET_ID : undefined}
+          /* Below `md` the floating WhatsApp button steps aside for this one
+           * (layout/FloatingWhatsApp.tsx reads the marker with `:has()`). */
+          data-quote-button=""
           onClick={() => {
             setRequested(true);
             setSheetPresent(true);
             setOpen(true);
           }}
-          className="focus-ring fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-bar grid size-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover md:bottom-24 md:right-6"
+          className="focus-ring fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-4 z-bar grid size-14 supports-[selector(:has(*))]:bottom-[calc(5rem+env(safe-area-inset-bottom))] place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-colors duration-hover ease-royal hover:bg-primary-hover md:bottom-24 md:right-6 md:supports-[selector(:has(*))]:bottom-24"
         >
           <ClipboardList aria-hidden="true" className="size-6" />
           <span

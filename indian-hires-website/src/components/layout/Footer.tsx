@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MessageCircle, Phone } from "lucide-react";
 import { brand, footerNav, shell, whatsappMessages } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { env } from "@/lib/env";
@@ -13,9 +13,15 @@ const LINK_CLASS =
 const ICON_CLASS = "size-4 shrink-0 text-hairline";
 
 /**
- * Site footer (Docs/UI_UX_V2.md §7.11): the deepest maroon band. Everything
- * in it comes from `@/content/site` and `env`; a contact detail that is not
- * configured is left out rather than replaced by a guess.
+ * Site footer (Docs/UI_UX_V2.md §7.11): the deepest maroon band, in three
+ * columns from `lg` — the house, quick links, contact. Everything in it comes
+ * from `@/content/site` and `env`; a contact detail or a social profile that
+ * is not configured is left out rather than replaced by a guess.
+ *
+ * Its top edge is a gold-gradient hairline with candle light falling from it:
+ * the glow is centred on the edge and the band clips its upper half. Text
+ * under it is on `maroon-950`, darker than the `maroon-800` the glow's
+ * contrast pairs are computed on.
  *
  * The GSTIN appears here and nowhere else, as small print — never as a badge.
  * No entrance animation in the footer (motion README).
@@ -27,12 +33,22 @@ export function Footer() {
     { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), Icon: Phone },
     { label: footer.emailLabel, href: mailtoUrl(env.email), text: env.email, Icon: Mail },
   ].filter((contact) => contact.text !== "");
+  const socials = [
+    { label: footer.social.instagram, href: env.instagramUrl, Icon: Instagram },
+    { label: footer.social.facebook, href: env.facebookUrl, Icon: Facebook },
+  ].filter((social) => social.href !== "");
 
   return (
-    <footer className="theme-dark border-t border-hairline/40 bg-maroon-950 pt-section-sm">
+    <footer className="theme-dark relative isolate overflow-hidden bg-maroon-950 pt-section-sm">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gold-gradient" />
+      <div
+        aria-hidden="true"
+        className="candle-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 -translate-y-1/2"
+      />
+
       <div className="shell">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1.1fr] lg:gap-8">
-          <div className="flex flex-col items-start gap-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.3fr] lg:gap-12">
+          <div className="flex flex-col items-start gap-4 md:col-span-2 lg:col-span-1">
             <BrandLogo size="footer" />
             <div className="flex flex-col gap-2">
               <p className="type-h3 text-heading">{brand.name}</p>
@@ -40,6 +56,21 @@ export function Footer() {
               <p className="type-small font-medium text-kicker">{brand.tagline}</p>
             </div>
             <p className="type-small max-w-measure-tight text-muted-foreground">{footer.blurb}</p>
+            {socials.length > 0 ? (
+              <ul aria-label={footer.social.listLabel} className="-ml-3 flex gap-2">
+                {socials.map(({ label, href, Icon }) => (
+                  <li key={label}>
+                    <AppLink
+                      href={href}
+                      aria-label={label}
+                      className="focus-ring grid size-11 place-items-center rounded-md text-foreground transition-colors duration-hover ease-royal hover:text-link"
+                    >
+                      <Icon aria-hidden="true" className="size-5" />
+                    </AppLink>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
 
           <nav aria-label={footer.navLabel} className="flex flex-col gap-2">
@@ -59,6 +90,18 @@ export function Footer() {
             <h2 className={HEADING_CLASS}>{footer.contactHeading}</h2>
             <div className="flex flex-col gap-2">
               <dl className="flex flex-col gap-2">
+                <div className="pb-2 pt-3">
+                  <dt className="sr-only">{footer.addressLabel}</dt>
+                  <dd>
+                    <address className="type-small not-italic text-muted-foreground">
+                      {brand.address.lines.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </address>
+                  </dd>
+                </div>
                 {contacts.map(({ label, href, text, Icon }) => (
                   <div key={label}>
                     <dt className="sr-only">{label}</dt>
@@ -77,24 +120,14 @@ export function Footer() {
               </AppLink>
             </div>
           </div>
-
-          <div className="flex flex-col gap-4">
-            <h2 className={HEADING_CLASS}>{footer.addressHeading}</h2>
-            <address className="type-small not-italic text-muted-foreground">
-              {brand.address.lines.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </address>
-          </div>
         </div>
 
         <CrownDivider className="mt-section-sm" />
 
-        {/* Left-aligned on purpose: the floating WhatsApp button sits over the
-            bottom-right corner from `md` and must not cover the small print. */}
-        <div className="type-caption flex flex-col gap-2 py-6 text-muted-foreground md:flex-row md:items-center md:gap-8">
+        {/* Kept clear of the floating WhatsApp button: left-aligned from `md`
+            (the button sits over the bottom-right corner), and with room on
+            the right below `md`, where it floats above the bottom bar. */}
+        <div className="type-caption flex flex-col gap-2 py-6 pr-16 text-muted-foreground md:flex-row md:items-center md:gap-8 md:pr-0">
           <p>{footer.copyright(new Date().getFullYear())}</p>
           <p>
             {footer.gstinLabel} {brand.gstin}

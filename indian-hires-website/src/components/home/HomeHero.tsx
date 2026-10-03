@@ -16,7 +16,8 @@ const ARCH_SIZES = "(min-width: 1280px) 488px, (min-width: 1024px) 38vw, (min-wi
 /**
  * The maroon band the page opens on (Docs/UI_UX_V2.md §7.11 "Hero layout"):
  * copy and actions first, the photograph in a mehrab arch beside them from
- * `lg` and under them below it. No text sits over the photograph.
+ * `lg` and under them below it. No text sits over the photograph. The `h1`
+ * is the brand tagline.
  *
  * It slides under the fixed header, which is transparent here.
  *

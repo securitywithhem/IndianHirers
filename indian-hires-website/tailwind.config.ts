@@ -123,7 +123,8 @@ const config = {
       /* Fluid scale: 390px → 1440px. Prefer the `.type-*` classes in
        * globals.css, which add the family and survive tailwind-merge. */
       fontSize: {
-        display: ["clamp(2.5rem, 1.757rem + 3.048vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.01em", fontWeight: "600" }],
+        /* Floor 44px (R4): the h1 is never smaller than the stat numerals. */
+        display: ["clamp(2.75rem, 2.1rem + 2.667vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.01em", fontWeight: "600" }],
         h2: ["clamp(2rem, 1.536rem + 1.905vw, 3.25rem)", { lineHeight: "1.1", letterSpacing: "-0.005em", fontWeight: "600" }],
         h3: ["clamp(1.5rem, 1.314rem + 0.762vw, 2rem)", { lineHeight: "1.2", fontWeight: "600" }],
         h4: ["clamp(1.25rem, 1.157rem + 0.381vw, 1.5rem)", { lineHeight: "1.25", fontWeight: "600" }],

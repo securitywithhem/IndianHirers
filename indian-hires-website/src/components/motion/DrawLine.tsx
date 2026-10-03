@@ -5,10 +5,11 @@ import { cx } from "@/lib/cx";
 import { useMotionPreference } from "@/lib/useMotionPreference";
 import { observeReveal } from "./observe";
 
-/* Height, width and colour are zero-specificity defaults (`:where`), so a
- * utility in `lineClassName` always wins without tailwind-merge. */
+/* Height, width, colour and origin are zero-specificity defaults (`:where`),
+ * so a utility in `lineClassName` always wins without tailwind-merge
+ * (`origin-left` draws the line from its start instead of its centre). */
 const LINE_CLASS =
-  "block origin-center [:where(&)]:h-px [:where(&)]:w-full [:where(&)]:bg-hairline";
+  "block [:where(&)]:origin-center [:where(&)]:h-px [:where(&)]:w-full [:where(&)]:bg-hairline";
 
 export type DrawLineTag = "div" | "span" | "li";
 

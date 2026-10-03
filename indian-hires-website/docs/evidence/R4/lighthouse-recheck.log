@@ -1,0 +1,20 @@
+/collections/chafing-dishes    Perf 98 LCP 2.22 FCP 1.07 | 
+/collections/chafing-dishes    Perf 95 LCP 2.86 FCP 1.06 | 
+/collections/chafing-dishes    Perf 89 LCP 3.79 FCP 1.05 | li > article.card-royal > div.relative > img.object-cover
+/collections/chafing-dishes    Perf 90 LCP 3.64 FCP 1.06 | li > article.card-royal > div.relative > img.object-cover
+/collections/chafing-dishes    Perf 96 LCP 2.79 FCP 1.06 | 
+/collections/bone-china        Perf 88 LCP 3.98 FCP 1.06 | li > article.card-royal > div.relative > img.object-cover
+/collections/bone-china        Perf 89 LCP 3.82 FCP 1.06 | li > article.card-royal > div.relative > img.object-cover
+/collections/bone-china        Perf 95 LCP 2.86 FCP 1.06 | 
+/collections/bone-china        Perf 95 LCP 2.86 FCP 1.06 | 
+/collections/bone-china        Perf 85 LCP 4.34 FCP 1.05 | li > article.card-royal > div.relative > img.object-cover
+webp /collections/chafing-dishes    Perf 95 LCP 2.94 | 
+webp /collections/chafing-dishes    Perf 88 LCP 3.86 | li > article.card-royal > div.relative > img.object-cover
+webp /collections/chafing-dishes    Perf 95 LCP 2.94 | 
+webp /collections/chafing-dishes    Perf 95 LCP 2.94 | 
+webp /collections/chafing-dishes    Perf 88 LCP 3.86 | li > article.card-royal > div.relative > img.object-cover
+webp /collections/bone-china        Perf 96 LCP 2.86 | 
+webp /collections/bone-china        Perf 95 LCP 2.93 | 
+webp /collections/bone-china        Perf 95 LCP 2.86 | 
+webp /collections/bone-china        Perf 88 LCP 3.97 | li > article.card-royal > div.relative > img.object-cover
+webp /collections/bone-china        Perf 88 LCP 3.97 | li > article.card-royal > div.relative > img.object-cover

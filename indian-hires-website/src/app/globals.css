@@ -494,6 +494,17 @@
  * JS-side copies of the numbers: src/components/motion/tokens.ts.
  * ========================================================================== */
 
+@keyframes motion-slide-item {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes motion-page-fade {
   from {
     opacity: 0;
@@ -572,6 +583,15 @@
   }
   [data-slide-panel="animated"][data-side="bottom"][data-state="closed"] > [data-slide-surface] {
     transform: translate3d(0, 100%, 0);
+  }
+
+  /* Inside a <SlidePanel>: `[data-slide-item]`s follow the surface in, 60ms
+   * apart (`--slide-item` is the position, capped at six by the builder).
+   * `backwards`: hidden only until its turn, nothing left on it afterwards.
+   * While the panel leaves they have no animation and ride out with it. */
+  [data-slide-panel="animated"][data-state="open"] [data-slide-item] {
+    animation: motion-slide-item 350ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+    animation-delay: calc(140ms + min(var(--slide-item, 0), 5) * 60ms);
   }
 
   /* <PageFade>: incoming page on a client navigation. */

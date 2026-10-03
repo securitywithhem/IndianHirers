@@ -22,6 +22,10 @@ export interface Env {
   mapEmbedUrl: string;
   /** Canonical origin, no trailing slash, e.g. https://example.com. */
   siteUrl: string;
+  /** Instagram profile URL. Optional: empty → no Instagram link in the footer. */
+  instagramUrl: string;
+  /** Facebook page URL. Optional: empty → no Facebook link in the footer. */
+  facebookUrl: string;
   /** True under `next dev` only. Gates pages that must not exist in a build (`/design-system`). */
   isDevelopment: boolean;
 }
@@ -34,6 +38,8 @@ export const env: Env = {
   email: process.env.NEXT_PUBLIC_EMAIL || "",
   mapEmbedUrl: process.env.NEXT_PUBLIC_MAP_EMBED_URL || "",
   siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/+$/, ""),
+  instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
+  facebookUrl: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
   isDevelopment: process.env.NODE_ENV === "development",
 };
 

@@ -20,10 +20,15 @@ const legacyRedirects = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // WebP only. AVIF was measured in R4 and gave no gain on `/` (96, LCP
+    // 2.78s either way on localhost), so the second format was not kept.
     formats: ["image/webp"],
     // 320 added to Next's defaults: a 2-column card on a phone is ~165–180 CSS px
     // wide, so at 1.75–2x it needs ~320px, and the default list jumps 256 → 384.
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 320, 384],
+    // 520 (R4): the home hero's arch is 72vw on a phone — 297 CSS px at 412px,
+    // 519px at 1.75x — and the next candidate up was 640, a third more bytes
+    // on the route's LCP image.
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 320, 384, 520],
     // No remotePatterns: every image is now a local asset under /public.
     // The placehold.co allowance is gone along with the last placeholder.
   },
