@@ -391,3 +391,16 @@ earlier wording is quoted so it can be restored. All keys are in
 | 11.8 | Quote list field: label "Event date and guest count", help "Optional, up to 300 characters. It goes into the message with your list." In the message it is the last line: "Event date and guest count: …" | `basket.noteLabel`, `basket.noteHint`, `site.ts` → `whatsappMessages.basketQuote` | — | NEW COPY |
 | 11.10 | Filter reset reads "Clear filters", not the brief's "Clear all": the quote list has a "Clear list" beside it in the same session, and each says what it clears. After "Clear list" the announcement is "Quote list and event details cleared" | `filters.clear`, `basket.clearedAnnouncement` | "Quote list cleared" | Say if "Clear all" is wanted |
 | 11.9 | Breadcrumb: "Home" / "Collections" / the collection's title | `collectionPage.breadcrumbHome`, `.breadcrumbCollections` | A single back link, "All collections" | Not owner-facing |
+
+---
+
+## 12. Phase R6 — founders, gallery, contact
+
+| # | Now | Key | Was | Status |
+|---|---|---|---|---|
+| 12.1 | A third card in "Meet the Family": **Jasvantlal Satilal Gabhawala**, role "Founder, Malad, Mumbai, 1977", "Set up the family's first, very small shop in Malad (East), Mumbai, in 1977, and later sent the same idea forward to Vadodara." | `founders.people.profiles[0]` | — (two cards) | NEW COPY, restating the story's first two paragraphs, so the page's "Three Generations" shows three people. Confirm the role and the wording |
+| 12.2 | Nikesh's role: **"Founder in Vadodara, 2001"** | `founders.people.profiles[1].role` | "Founder" | Changed: the story credits the 1977 shop to his father. Confirm (O11 also asks about the roles) |
+| 12.3 | Pull-quotes: "With nothing more than a handful of steel plates and a will to serve" · "Carried forward across generations, from grandfather to father to son." | `founders.story.sections[*].pullQuote` | — | Excerpts of the family's own story text, not new words (OPEN_ISSUES O42) |
+| 12.4 | Timeline entries kept off the page until a year is given: "Premium melamine and glassware" · "Through COVID" | `founders.milestones.items` (`status: "todo"`) | — | The years (O41) |
+| 12.5 | Enquiry success: "Thank you, your enquiry is with us" / "We will call or WhatsApp you on the number you gave, as soon as we can during working hours." / "Send another enquiry" | `contact.form.success` | — (toast only) | NEW COPY |
+| 12.6 | Phone error: "Enter a 10-digit Indian mobile number, with or without +91." | `contact.form.errors.phoneInvalid` | "Enter a valid phone number." | NEW COPY. Landlines are not accepted (the R6 brief asks for Indian 10-digit validation) — say if banquet desks should be able to give a landline |

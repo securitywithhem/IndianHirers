@@ -22,7 +22,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <Toaster position="top-center" />
+      {/* Below the fixed 72px header, so a toast never covers the logo or the nav. */}
+      <Toaster position="top-center" offset={{ top: 88 }} mobileOffset={{ top: 84 }} />
     </>
   );
 }

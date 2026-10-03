@@ -9,7 +9,7 @@
 import { chromium } from "playwright";
 const outDir = process.argv[2] ?? null;
 const base = process.argv[3] ?? "http://localhost:3001";
-const b = await chromium.launch();
+const b = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 let fails = 0;
 const check = (name, ok, detail = "") => { if (!ok) fails++; console.log(`${ok ? "PASS" : "FAIL"}  ${name}${detail ? "  — " + detail : ""}`); };
 const active = (p) => p.evaluate(() => { const e = document.activeElement; return { tag: e.tagName, text: (e.getAttribute("aria-label") || e.textContent || "").trim().slice(0, 40), href: e.getAttribute("href") }; });

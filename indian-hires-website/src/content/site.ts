@@ -407,8 +407,10 @@ export const siteMetadata: SiteMetadata = {
     "event tableware hire Gujarat",
     "catering crockery hire",
   ],
+  // Made by scripts/make-og-image.py (the logo on maroon). Emitted only when
+  // NEXT_PUBLIC_SITE_URL is set: og:image must be an absolute URL.
   ogImage: {
-    src: null,
+    src: "/images/brand/og-image.png",
     alt: `${brand.name} — ${brand.tagline}`,
     width: 1200,
     height: 630,

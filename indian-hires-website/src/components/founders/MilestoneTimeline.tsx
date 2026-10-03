@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Stagger, StaggerItem } from "@/components/motion";
-import { founders } from "@/content/founders";
+import { founders, type Milestone } from "@/content/founders";
 
 const HEADING_ID = "founders-milestones-heading";
 
@@ -12,9 +12,14 @@ export interface MilestoneTimelineProps {
 /**
  * The dates the story states, in order, on a gold rail. An ordered list: the
  * sequence is the point. Every entry restates the story; nothing here is new.
+ * From 1977 in Malad to the third generation joining in Vadodara.
  */
 export function MilestoneTimeline({ className }: MilestoneTimelineProps) {
-  const { heading, items } = founders.milestones;
+  const { heading } = founders.milestones;
+  /* A `todo` entry has no year yet and is not shown (src/content/founders.ts). */
+  const items = founders.milestones.items.filter(
+    (milestone): milestone is Milestone & { year: number } => milestone.status === "shown" && milestone.year !== null,
+  );
 
   return (
     <section aria-labelledby={HEADING_ID} className={className}>

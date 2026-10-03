@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
   type ComponentType,
+  type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
@@ -16,6 +17,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cx } from "@/lib/cx";
 import { getMotionPreference } from "@/lib/useMotionPreference";
+import type { TileAspect } from "./galleryLayout";
 import type {
   SharedZoomBackdropProps,
   SharedZoomPresenceProps,
@@ -27,7 +29,7 @@ export interface GalleryTile {
   /** Unique on the page: it is also the shared-zoom id. */
   id: string;
   image: { src: string; alt: string; width: number; height: number; blurDataURL: string };
-  /** Shown under the photograph in the viewer. */
+  /** Slides up over the tile on hover and focus (always shown on touch screens), and sits under the photograph in the viewer. */
   caption: string;
   /** aria-label of the tile button. */
   openLabel: string;
@@ -35,8 +37,8 @@ export interface GalleryTile {
   positionLabel: string;
   /** Link from the viewer to where the piece lives; null when there is none. */
   link: { href: string; label: string } | null;
-  /** Grid span classes and image `sizes`, from `galleryLayout()`. */
-  className: string;
+  /** The tile's frame and its image `sizes`, from `galleryLayout.ts`. */
+  aspect: TileAspect;
   sizes: string;
 }
 
@@ -93,6 +95,26 @@ const PLAIN_KIT: ZoomKit = {
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 const TILE_INDEX = "data-tile-index";
 
+const ASPECT_CLASS: Record<TileAspect, string> = {
+  "1/1": "aspect-square",
+  "4/5": "aspect-[4/5]",
+  "3/4": "aspect-[3/4]",
+};
+
+/* A horizontal drag at least this long (CSS px), and clearly more horizontal
+ * than vertical, turns the viewer one photograph. */
+const SWIPE_MIN = 48;
+
+/* Hidden below the tile until hover or keyboard focus; always shown where
+ * there is no hover (touch screens). Under reduced motion it only fades. */
+const CAPTION_CLASS = [
+  "theme-dark hero-scrim type-small absolute inset-x-0 bottom-0 px-3 pb-3 pt-5 text-left text-foreground",
+  "translate-y-full opacity-0 motion-reduce:translate-y-0",
+  "motion-safe:transition-[transform,opacity] motion-safe:duration-enter motion-safe:ease-royal",
+  "group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
+  "[@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100",
+].join(" ");
+
 /* The viewer's fixed rows: a bar for the close button, the photograph, and
  * the caption with the pager. The photograph's box is sized from these, so it
  * is the same box whether or not the bars are on screen. */
@@ -108,7 +130,9 @@ function aspectRatio(image: GalleryTile["image"]): string {
 }
 
 /**
- * The gallery: a grid of photographs, each a button that opens the viewer.
+ * The gallery: a masonry of photographs (CSS columns), each a button that
+ * opens the viewer. Every image below the first is lazy (`next/image`'s
+ * default) and every frame is reserved before it loads.
  *
  * Without JavaScript and under reduced motion it is simply the complete grid
  * (every box reserved by its photograph's own ratio, every image with a blur
@@ -118,8 +142,9 @@ function aspectRatio(image: GalleryTile["image"]): string {
  * The viewer is the dialog contract from `.claude/rules/a11y.md`:
  * - `role="dialog"`, `aria-modal`, labelled; portalled to `<body>`, above everything;
  * - focus moves to the close button and Tab is trapped inside;
- * - Esc, the close button and the scrim close it; Left / Right move between
- *   photographs, as do the previous / next buttons; nothing advances by itself;
+ * - Esc, the close button and the scrim close it; Left / Right, a horizontal
+ *   swipe on the photograph, and the previous / next buttons move between
+ *   photographs; nothing advances by itself;
  * - while open, the rest of the page is `inert` and does not scroll;
  * - the position ("Image 3 of 21") is a polite live region;
  * - once closed, focus returns to the tile that opened it.
@@ -141,6 +166,8 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
   const restoreFocus = useRef(false);
   /* Index of the tile that had focus when the engine was swapped in. */
   const focusAfterSwap = useRef<number | null>(null);
+  /* Where a touch or pen drag on the open photograph began. */
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
 
   const animated = kit !== PLAIN_KIT;
   const total = tiles.length;
@@ -215,6 +242,26 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
   );
 
   const handleExitComplete = useCallback(() => setClosing(false), []);
+
+  const onSwipeStart = useCallback((event: ReactPointerEvent) => {
+    swipeStart.current = event.pointerType === "mouse" ? null : { x: event.clientX, y: event.clientY };
+  }, []);
+
+  const onSwipeEnd = useCallback(
+    (event: ReactPointerEvent) => {
+      const start = swipeStart.current;
+      swipeStart.current = null;
+      if (start === null) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (Math.abs(dx) >= SWIPE_MIN && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+    },
+    [step],
+  );
+
+  const onSwipeCancel = useCallback(() => {
+    swipeStart.current = null;
+  }, []);
 
   /* Stable ref callback: runs once, when the close button mounts. */
   const focusOnMount = useCallback((node: HTMLButtonElement | null) => {
@@ -310,9 +357,9 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
 
   return (
     <Provider>
-      <ul ref={listRef} className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-3 lg:grid-cols-4">
+      <ul ref={listRef} className="columns-2 gap-2 sm:columns-3 md:gap-3 lg:columns-4">
         {tiles.map((tile, index) => (
-          <li key={tile.id} className={tile.className} style={{ aspectRatio: aspectRatio(tile.image) }}>
+          <li key={tile.id} className="mb-2 break-inside-avoid md:mb-3">
             <button
               type="button"
               aria-label={tile.openLabel}
@@ -323,21 +370,24 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                 setClosing(false);
                 setOpenIndex(index);
               }}
-              className="focus-ring group block size-full rounded-card"
+              className={cx("focus-ring group relative block w-full rounded-card", ASPECT_CLASS[tile.aspect])}
             >
-              <Source id={tile.id} className="size-full overflow-hidden rounded-card bg-muted">
+              <Source id={tile.id} className="relative size-full overflow-hidden rounded-card bg-muted">
                 <Image
                   src={tile.image.src}
                   alt={tile.image.alt}
-                  width={tile.image.width}
-                  height={tile.image.height}
+                  fill
                   sizes={tile.sizes}
                   placeholder="blur"
                   blurDataURL={tile.image.blurDataURL}
                   priority={index === priorityIndex}
-                  className="size-full object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-safe:ease-royal motion-safe:group-hover:scale-104"
+                  className="object-cover motion-safe:transition-transform motion-safe:duration-zoom motion-safe:ease-royal motion-safe:group-hover:scale-104"
                 />
               </Source>
+              {/* Repeats the button's name, so it is hidden from assistive technology. */}
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-card">
+                <span className={CAPTION_CLASS}>{tile.caption}</span>
+              </span>
             </button>
           </li>
         ))}
@@ -381,6 +431,10 @@ export function GalleryGrid({ tiles, labels, priorityIndex }: GalleryGridProps) 
                     {/* Sized here, from the photograph's own ratio, so the box
                         that zooms never changes shape. */}
                     <div
+                      onPointerDown={onSwipeStart}
+                      onPointerUp={onSwipeEnd}
+                      onPointerCancel={onSwipeCancel}
+                      className="touch-pan-y"
                       style={{
                         aspectRatio: aspectRatio(current.image),
                         width: `min(100%, ${MAX_WIDTH}, calc((100dvh - ${CHROME_HEIGHT}) * ${current.image.width / current.image.height}))`,

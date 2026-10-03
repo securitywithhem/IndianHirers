@@ -14,7 +14,8 @@
  *   invitation to speak to the family — and is not indexed
  *   (site.ts → routeMetadata, derived from `hasTestimonials`).
  */
-import { routes, whatsappMessages, type CtaLink } from "./site";
+import { brand, routes, whatsappMessages, type CtaLink } from "./site";
+import { testimonials } from "./testimonialList";
 
 export { hasTestimonials, testimonials } from "./testimonialList";
 export type { Testimonial } from "./testimonialList";
@@ -70,3 +71,39 @@ export const testimonialsPage: TestimonialsPageContent = {
   },
   attributionSeparator: ", ",
 };
+
+// ---------------------------------------------------------------------------
+// Structured data
+// ---------------------------------------------------------------------------
+
+export interface ReviewJsonLd {
+  "@type": "Review";
+  author: { "@type": "Person"; name: string };
+  reviewBody: string;
+}
+
+export interface TestimonialsJsonLd {
+  "@context": "https://schema.org";
+  "@type": "LocalBusiness";
+  name: string;
+  review: ReviewJsonLd[];
+}
+
+/**
+ * schema.org reviews for /testimonials, built from the real list. Returns
+ * null while the list is empty, so no structured data is emitted for reviews
+ * that do not exist. No rating is given: the customers gave words, not stars.
+ */
+export function testimonialsJsonLd(): TestimonialsJsonLd | null {
+  if (testimonials.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: brand.name,
+    review: testimonials.map((testimonial) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: testimonial.name },
+      reviewBody: testimonial.quote,
+    })),
+  };
+}

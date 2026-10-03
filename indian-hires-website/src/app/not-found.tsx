@@ -25,7 +25,7 @@ export default function NotFound() {
            * it. The page's heading is the `h1` below. */
           <div aria-hidden="true" className="crown-draw flex flex-col items-center gap-3 text-hairline">
             <Crown className="h-12" />
-            <p className="type-stat gold-sheen bg-clip-text text-transparent">{code}</p>
+            <p className="type-stat text-kicker">{code}</p>
           </div>
         }
       />

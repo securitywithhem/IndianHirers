@@ -10,7 +10,7 @@ import { Breadcrumb } from "@/components/collections/Breadcrumb";
 import { CatalogueIsland } from "@/components/collections/CatalogueIsland";
 import { CollectionTabs } from "@/components/collections/CollectionTabs";
 import { CollectionTextRow } from "@/components/collections/CollectionTextRow";
-import { QuoteBasketButton } from "@/components/collections/QuoteBasket";
+import { QuoteBasketButton } from "@/components/collections/QuoteBasketButton";
 import { StaticCatalogue } from "@/components/collections/StaticCatalogue";
 import { collectionCopyView, collectionFacets, collectionItemViews } from "@/components/collections/catalogueView";
 import {

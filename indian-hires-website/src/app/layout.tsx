@@ -5,16 +5,13 @@ import { cn } from "@/lib/utils";
 import { env } from "@/lib/env";
 import { localBusinessJsonLd, shell, siteMetadata } from "@/content/site";
 import { Providers } from "@/components/Providers";
+import { shareImages } from "@/components/shared/pageMetadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomBar } from "@/components/layout/MobileBottomBar";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 
-const { ogImage } = siteMetadata;
-const shareImages =
-  ogImage.src === null
-    ? undefined
-    : [{ url: ogImage.src, width: ogImage.width, height: ogImage.height, alt: ogImage.alt }];
+const images = shareImages();
 
 /*
  * Site-wide defaults. Each page sets its own title, description, canonical and
@@ -40,13 +37,13 @@ export const metadata: Metadata = {
     siteName: siteMetadata.siteName,
     title: siteMetadata.defaultTitle,
     description: siteMetadata.description,
-    ...(shareImages ? { images: shareImages } : {}),
+    ...(images ? { images } : {}),
   },
   twitter: {
-    card: shareImages ? "summary_large_image" : "summary",
+    card: images ? "summary_large_image" : "summary",
     title: siteMetadata.defaultTitle,
     description: siteMetadata.description,
-    ...(shareImages ? { images: shareImages.map((image) => image.url) } : {}),
+    ...(images ? { images: images.map((image) => image.url) } : {}),
   },
   robots: { index: true, follow: true },
 };

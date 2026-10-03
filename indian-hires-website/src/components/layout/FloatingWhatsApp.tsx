@@ -20,6 +20,9 @@ import { AppLink } from "@/components/shared/AppLink";
  * a browser without it keeps both, the quote-list button one slot higher.
  * From `md` the quote-list button sits in the slot above this one. See
  * src/components/shared/README.md.
+ * Below `md` it also steps aside while a form field has focus (the enquiry
+ * form), so it never sits over the field being typed in or its error; the
+ * bottom bar keeps WhatsApp in reach.
  *
  * The ring pulses once every 6s (`transform` + `opacity`); under reduced
  * motion it stays at `opacity-0`. Icon and ring are never light on the green.
@@ -33,7 +36,7 @@ export function FloatingWhatsApp() {
         href={whatsappUrl(whatsappMessages.general())}
         aria-label={floatingWhatsApp.ariaLabel}
         title={floatingWhatsApp.title}
-        className="focus-ring fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-bar isolate grid size-14 place-items-center rounded-full bg-whatsapp text-espresso-900 shadow-lift motion-safe:transition-transform motion-safe:duration-hover motion-safe:ease-royal motion-safe:hover:-translate-y-0.5 max-md:[body:has([data-quote-button])_&]:hidden md:bottom-6 md:right-6"
+        className="focus-ring fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-bar isolate grid size-14 place-items-center rounded-full bg-whatsapp text-espresso-900 shadow-lift motion-safe:transition-transform motion-safe:duration-hover motion-safe:ease-royal motion-safe:hover:-translate-y-0.5 max-md:[body:has([data-quote-button])_&]:hidden max-md:[body:has(main_:is(input,textarea,select):focus)_&]:hidden md:bottom-6 md:right-6"
       >
         <span
           aria-hidden="true"

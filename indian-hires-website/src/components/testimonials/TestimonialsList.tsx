@@ -5,7 +5,7 @@ import { Band } from "@/components/shared/Band";
 import { ButtonLink } from "@/components/shared/ButtonLink";
 import { PageHero } from "@/components/shared/PageHero";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
-import { testimonials, testimonialsPage } from "@/content/testimonials";
+import { testimonials, testimonialsJsonLd, testimonialsPage } from "@/content/testimonials";
 import { TestimonialCard } from "./TestimonialCard";
 
 const HERO_HEADING_ID = "testimonials-heading";
@@ -15,12 +15,23 @@ const CTA_HEADING_ID = "testimonials-cta-heading";
  * /testimonials once the owner has supplied real, attributed testimonials
  * (`testimonials` in src/content/testimonials.ts). Not rendered while that
  * list is empty — see `TestimonialsEmpty`.
+ *
+ * Cards rise in one after another (`Stagger`; static under reduced motion),
+ * and the real reviews are also given to search engines as JSON-LD.
  */
 export function TestimonialsList() {
   const { eyebrow, heading, lead, cta, attributionSeparator } = testimonialsPage;
+  const jsonLd = testimonialsJsonLd();
 
   return (
     <>
+      {jsonLd === null ? null : (
+        <script
+          type="application/ld+json"
+          /* `<` is escaped so no customer's words can close the script element. */
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        />
+      )}
       <PageHero eyebrow={eyebrow} heading={heading} lead={lead} headingId={HERO_HEADING_ID} />
 
       <Band tone="ivory" linen aria-labelledby={HERO_HEADING_ID}>

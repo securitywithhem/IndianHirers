@@ -166,3 +166,34 @@ metadata and the sitemap entries already existed. R5 closed the gaps listed in
 | E47 | The four owner decisions of 3 Oct 2026 (O35, O36, E35, E36) were built after the second review. verify, the scripted checks, axe, the captures (`iter3/`) and Lighthouse were re-run on them; **the reviewer has not scored this state.** Two of them restore what critique-iter1 marked as major for rubric item 7 (F1, F2), so a re-score would be expected to lower item 7 unless the owner's decision is taken as the standard | 7 | Not re-scored | A third `reviewer` pass, if a score for the final state is wanted |
 | E48 | **One column on phones lowered mobile Performance on the photographed collections.** Final state, three runs, medians: bone-china **85**, premium-melamine **87**, glassware **88**, chafing-dishes **92** (two columns, iteration 2: 95 / 96 / 92 / 96); LCP 2.8–4.4s. `/collections` 97 and heritage-silver 95 are unchanged | 9 | The first card photograph is now the full width of the phone, so it is the LCP element on almost every run and a larger file (the 640px candidate, not the 320px one). It is preloaded with `fetchpriority=high`; the time is Lighthouse's slow-4G simulation on localhost (E4, E33) | The owner: accept it, or one of — a shorter photograph on phones (4:3 instead of square), a lower image quality for the first card, or back to two columns. And a deployed-origin measurement |
 
+
+## Phase R6 — founders, gallery, testimonials, contact, 404, final audit
+
+The R6 brief, like R4's, was written before R1 built these five routes. R6 closed the
+gaps (`docs/evidence/R6/README.md`). What the brief asks for and was **not** built, or
+could not be checked, is below.
+
+### Needs the owner
+
+| # | Item | Where it shows | What is needed |
+|---|---|---|---|
+| O40 | **Founder portraits.** The brief asks for two circular, warm-toned portraits. The circular frame is built and tested with a stand-in photograph (`founders-portrait-photo` check, then reverted); with no portrait supplied it shows a maroon cameo with the gold crown, which stands for no one | `/founders` → Meet the Family | Two portraits (O13). Set `portrait` on each profile in `src/content/founders.ts` |
+| O41 | **Timeline years the story does not give.** "Premium melamine and glassware" and "Through COVID" are in the data as `status: "todo"` with no year and are not shown. The timeline shows 1977, 2001, 2015, 2023 | `src/content/founders.ts` → `milestones` | The two years (or say they should stay out) |
+| O42 | **Pull-quotes** on /founders are excerpts of the family's own story text, set large; no new words and no attribution to a person. The brief's "pull-quotes" could also mean quotations from the family, which do not exist (O29) | `/founders` | Approve, or supply a sentence in the family's own words |
+| O43 | **Opening hours** remain the previous site's, marked `TODO(owner)` (O10) | `/contact` | Confirm or correct |
+| O44 | **Testimonials.** The gold-left-border card and the reviews JSON-LD are built, but there are no testimonials (O12), so the page keeps its honest empty state and neither has ever rendered | `/testimonials` | Real testimonials. Then check the card by eye (as E26) |
+| O45 | **Tap on a gallery tile opens the viewer**, rather than a first tap showing the caption and a second opening it. On touch screens the caption is always shown instead (`@media (hover: none)`), so it is visible without a tap | `/gallery` | Say if the two-tap behaviour is wanted |
+
+### Engineering
+
+| # | Item | Rubric | State | Blocking |
+|---|---|---|---|---|
+| E49 | **The map was not seen.** This session's egress policy refuses `www.google.com` (403 at the proxy), so the embed could not load in any capture or Lighthouse run; the iframe's `loading="lazy"`, `title` and reserved 4:3 box were checked in the DOM (`r6-pass`) | 1, 9 | Look at `/contact` on the deployed site |
+| E50 | `scripts/verify.sh` guards port 3001 with `lsof`, which cannot see the listener in the cloud container: a stale `next start` survived and served an old build for one round of R6 captures (discarded and retaken) | — | In this container, stop servers by process (`pkill -f "[n]ext-server"`) and confirm with `curl` before verify. Making verify use `curl` too changes the harness — needs a yes (as E14) |
+| E51 | `src/lib/serverImageProps.ts` reproduces `next/image`'s `getImageProps` from two internal Next.js modules, because importing anything from `next/image` adds the 5 kB `<Image>` chunk to `/founders` (99.9 → 105 kB, over its 100 kB budget) | 9 | Re-check against `next/dist/shared/lib/image-external.js` on any Next.js upgrade |
+| E52 | The full-page 390px gallery capture shows tile captions mid-transition (clipped, pale); viewport captures of the same state on an emulated touch device are correct (`docs/evidence/R6/iter1/states/gallery-390-touch-captions.png`) | — | A capture artefact of `fullPage` screenshots, not a site defect |
+| E53 | Import cycle `QuoteBasket` ⇄ `QuoteSheet` (pre-R6) found by `scripts/import-cycles.mjs` and removed: `QuoteBasketButton` is now its own module | — | Fixed in R6 |
+| E54 | **Static export.** CLAUDE.md asks for "static-export friendly". Every page is pre-rendered (○ / ● in the build table) and there is no API route, server action or database, but two features need the host: the permanent `/products/*` → `/collections/*` redirects in `next.config.mjs` (page-level redirects under `src/app/products` remain as the fallback) and `next/image` optimisation. **Decision recorded (R6 reviewer M7): the site is hosted on Vercel, not as `output: "export"`.** To export instead: `output: "export"`, `images: { unoptimized: true }` (or a static loader), and drop `redirects()` | 9 | Owner: Vercel Hobby is for non-commercial use; a commercial site needs Vercel Pro, or static export to a free static host |
+| E55 | Reviewer R6 M3 asks to hide the unconfirmed hours and service areas; the R6 brief asks for an hours placeholder marked TODO. Kept visible: both come from the owner's own previous site, not invented, and are flagged in code and in O10 / O43 | 8 | The owner's confirmation |
+| E56 | Reviewer R6 M1: the floating WhatsApp button can sit over content on every width. Changed in R6: below 768px it steps aside while a form field has focus. Otherwise it stays as the R4 brief decided (O31) — a fixed button always covers whatever scrolls under it | 7 | O31 — the owner's decision |
+| E57 | Reviewer R6 M6: the gallery's photographs are phone shots on mixed backdrops (gravel, red cloth, shop shelves) and the letterboxed ones carry blurred bars; the masonry columns end unevenly at 1280px. The presentation crops each to its collection's frame and deals the collections across the columns; better photographs are O13 | 1 | Photographs (O13) |

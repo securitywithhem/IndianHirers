@@ -6,7 +6,7 @@ import { pageMetadata } from "@/components/shared/pageMetadata";
 import { Stagger, StaggerItem } from "@/components/motion";
 import { CollectionTabs } from "@/components/collections/CollectionTabs";
 import { CollectionTextRow } from "@/components/collections/CollectionTextRow";
-import { QuoteBasketButton } from "@/components/collections/QuoteBasket";
+import { QuoteBasketButton } from "@/components/collections/QuoteBasketButton";
 import { COLLECTION_TILE_GRID_CLASS, COLLECTION_TILE_SIZES } from "@/components/collections/classes";
 import {
   catalogueCopy,

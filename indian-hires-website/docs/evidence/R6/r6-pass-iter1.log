@@ -1,0 +1,71 @@
+PASS  gallery: tiles render in a CSS-columns list  — 21 tiles
+PASS  gallery: every image but the first is lazy  — 20 of 21 lazy
+PASS  gallery: every image has alt text
+PASS  gallery: caption hidden at rest (pointer device)
+PASS  gallery: caption slides up on hover
+PASS  gallery: caption shown on keyboard focus
+PASS  gallery: Enter opens the viewer dialog
+PASS  gallery: focus moves to the close button  — Close viewer
+PASS  gallery: ArrowRight moves to the next photograph  — Image 3 of 21 → Image 4 of 21
+PASS  gallery: ArrowLeft moves back
+PASS  gallery: Esc closes the viewer
+PASS  gallery: focus returns to the tile that opened it  — 2
+PASS  gallery 390 touch: captions always visible
+PASS  gallery 390: swipe left shows the next photograph  — Image 1 of 21 → Image 2 of 21
+PASS  gallery 390: swipe right goes back
+PASS  contact: map iframe is lazy and titled
+PASS  contact: both phone numbers are links  — tel:+919825037478, tel:+918734090908
+PASS  contact: WhatsApp link present
+PASS  contact: email link present
+PASS  contact: empty submit marks the three required fields invalid  — 3
+PASS  contact: focus moves to the first invalid field  — name
+PASS  contact: error is linked with aria-describedby  — Please enter your full name.
+PASS  contact: phone "12345" is rejected
+PASS  contact: phone "5825037478" is rejected
+PASS  contact: phone "98250374781" is rejected
+PASS  contact: phone "abcdefghij" is rejected
+PASS  contact: phone "9825037478" is accepted
+PASS  contact: phone "+91 98250 37478" is accepted
+PASS  contact: phone "098250-37478" is accepted
+PASS  contact: phone "91 8734090908" is accepted
+PASS  contact: sending shows a spinner and aria-busy  — aria-busy=true
+PASS  contact: success panel replaces the form; its heading has focus  — Thank you, your enquiry is with us
+PASS  contact: the success heading is on screen, clear of the header and bottom bar
+PASS  contact: success panel shows the crown
+PASS  contact: a Sonner toast confirms it
+PASS  contact: 'send another' brings back an empty form
+PASS  404: links to Home and Collections  — /, /collections, /contact
+PASS  404: crown ornament present
+PASS  founders: one h1
+PASS  founders: timeline shows only stated years  — 1977,2001,2015,2023
+PASS  founders: no TODO text reaches the page
+PASS  founders: two circular portraits  — 2
+PASS  founders: pull-quotes present (hidden from AT)  — 2
+PASS  320px /: no horizontal scroll  — 0px
+PASS  200% zoom /: no horizontal scroll  — 0px
+PASS  reduced motion /: all content visible
+PASS  320px /collections: no horizontal scroll  — 0px
+PASS  200% zoom /collections: no horizontal scroll  — 0px
+PASS  reduced motion /collections: all content visible
+PASS  320px /collections/bone-china: no horizontal scroll  — 0px
+PASS  200% zoom /collections/bone-china: no horizontal scroll  — 0px
+PASS  reduced motion /collections/bone-china: all content visible
+PASS  320px /founders: no horizontal scroll  — 0px
+PASS  200% zoom /founders: no horizontal scroll  — 0px
+PASS  reduced motion /founders: all content visible
+PASS  320px /gallery: no horizontal scroll  — 0px
+PASS  200% zoom /gallery: no horizontal scroll  — 0px
+PASS  reduced motion /gallery: all content visible
+PASS  320px /testimonials: no horizontal scroll  — 0px
+PASS  200% zoom /testimonials: no horizontal scroll  — 0px
+PASS  reduced motion /testimonials: all content visible
+PASS  320px /contact: no horizontal scroll  — 0px
+PASS  200% zoom /contact: no horizontal scroll  — 0px
+PASS  reduced motion /contact: all content visible
+PASS  320px /no-such-page: no horizontal scroll  — 0px
+PASS  200% zoom /no-such-page: no horizontal scroll  — 0px
+PASS  reduced motion /no-such-page: all content visible
+PASS  robots.txt allows crawling  — User-Agent: * Allow: /  
+PASS  sitemap.xml answers 200
+
+r6-pass: ALL PASS
