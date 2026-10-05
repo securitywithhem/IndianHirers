@@ -30,7 +30,7 @@ export function Footer() {
   const { footer } = shell;
   const contacts = [
     { label: footer.phoneLabel, href: telUrl(env.phone), text: formatPhone(env.phone), note: null, Icon: Phone },
-    { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), note: null, Icon: Phone },
+    { label: footer.phoneAltLabel, href: telUrl(env.phoneAlt), text: formatPhone(env.phoneAlt), note: footer.phoneAltName, Icon: Phone },
     {
       label: footer.phoneJayLabel,
       href: telUrl(env.phoneJay),

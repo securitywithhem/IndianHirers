@@ -138,9 +138,9 @@ export const founders: FoundersContent = {
         id: "beginnings",
         heading: null,
         paragraphs: [
-          `Our story begins in ${brand.foundedYear}, in Malad (East), Mumbai — where Nikesh's father, Mr. Jasvantlal Satilal Gabhawala, set up a very small shop that would plant the seed for everything that followed. It was here that the family first learned the business of serving others, one small order at a time.`,
-          `In ${brand.vadodaraSinceYear}, after Nikesh Jasvantlal Gabhawala's marriage, his father decided it was time to carry the same concept forward — this time to Vadodara, Gujarat. With nothing more than a handful of steel plates and a will to serve, Nikesh started this new chapter from a small shop of his own. In the beginning, he offered utensils, steel plates, and simple melamine plates on rental for local events. Slowly and steadily, he upgraded to premium-quality melamine and added glassware to the collection, building trust one order at a time.`,
-          `By ${storyYears.boneChinaIntroduced}, he had introduced bone china on rental — a bold step that set us apart in the market. The years that followed brought steady growth. Then came COVID, and the two years after it were some of the hardest the business had ever faced. But Nikesh held firm, kept the business alive, and rebuilt it piece by piece. Today, his dedication since ${brand.vadodaraSinceYear} — built on the foundation his father laid in Mumbai decades earlier — stands as the bedrock of everything we are.`,
+          `Our journey didn't start with a grand vision of luxury; it started with the simple desire to serve. In ${brand.foundedYear}, Mr. Jasvantlal Satilal Gabhawala opened a very small shop in Malad, Mumbai. We learned the fundamentals of this business from the ground up, fulfilling small orders and understanding exactly what it takes to make an event run smoothly. Those early days taught us that hospitality is entirely about reliability and genuine care.`,
+          `In ${brand.vadodaraSinceYear}, Nikesh Jasvantlal Gabhawala brought this ethos to Vadodara. He started with nothing more than a handful of steel plates and a drive to build something lasting. Over the years, as the scale of events in Gujarat grew, so did we. Nikesh carefully expanded the inventory from basic utensils to premium melamine and fine glassware. He built the business not through marketing, but by consistently delivering on his promises to local caterers and event hosts.`,
+          `By ${storyYears.boneChinaIntroduced}, we saw a shift in how people celebrated and became one of the first to introduce fine bone china on rental—a decision that redefined the standard for premium events in the region. Like many businesses, the years during the pandemic tested everything we had built. But Nikesh refused to let the legacy fade. He kept the business afloat through the hardest seasons and rebuilt our operations piece by piece, ensuring that our standard of quality was never compromised.`,
         ],
         pullQuotes: [
           // The story's closing line, set after its opening paragraph.
@@ -153,7 +153,7 @@ export const founders: FoundersContent = {
         id: "growing-together",
         heading: "Growing Together",
         paragraphs: [
-          `In ${storyYears.thirdGenerationJoined}, Jay Nikesh Gabhawala, Nikesh's elder son, stepped into the family business to support his father through its next chapter. Together, they have grown the business steadily, bringing fresh energy and renewed ambition to a legacy that now spans three generations. Under their combined leadership, Indian Hirers serves hotels and caterers across Gujarat from Vadodara, with quality crockery and dependable service. What began as a very small shop in Malad, Mumbai, in ${brand.foundedYear} is now a growing name across Gujarat — carried forward across generations, from grandfather to father to son.`,
+          `In ${storyYears.thirdGenerationJoined}, the third generation stepped in. Jay Nikesh Gabhawala joined his father, bringing fresh energy to expand our operations. Today, we are the trusted crockery partner for Gujarat's finest hotels, restaurants, and caterers. From a tiny shop in Mumbai in ${brand.foundedYear} to a premier rental service, our work remains rooted in the exact same principle we started with: providing impeccable quality and dependable service, carried forward from grandfather, to father, to son.`,
         ],
         pullQuotes: [],
       },
@@ -216,7 +216,7 @@ export const founders: FoundersContent = {
         id: "jasvantlal",
         name: JASVANTLAL,
         role: `Founder, ${brand.foundedPlace}, ${brand.foundedYear}`,
-        description: `Set up the family's first, very small shop in ${brand.foundedPlace}, in ${brand.foundedYear}, and later sent the same idea forward to ${brand.city}.`,
+        description: `Laid the humble foundation for a legacy of service with a very small shop in ${brand.foundedPlace}, in ${brand.foundedYear}, planting the seed that would eventually span across Gujarat.`,
         portrait: null,
         portraitAlt: `Portrait of ${JASVANTLAL}`,
       },
@@ -225,7 +225,7 @@ export const founders: FoundersContent = {
         name: NIKESH,
         // Was "Founder": the story credits the 1977 shop to his father.
         role: `Founder in ${brand.city}, ${brand.vadodaraSinceYear}`,
-        description: `Built the foundation of ${brand.name} piece by piece since ${brand.vadodaraSinceYear}, with dedication and a will to serve.`,
+        description: `The architect of our Vadodara operations since ${brand.vadodaraSinceYear}. Through sheer resilience and an uncompromising eye for quality, he elevated the business into a trusted name in luxury tableware.`,
         portrait: null,
         portraitAlt: `Portrait of ${NIKESH}`,
       },
@@ -234,7 +234,7 @@ export const founders: FoundersContent = {
         name: JAY,
         role: "Partner",
         description:
-          "Stepped in to support the family legacy, bringing fresh energy and renewed ambition to grow the business across Gujarat.",
+          "Stepped in to champion the family legacy, infusing modern ambition and fresh energy to expand our premier services across the hospitality sector in Gujarat.",
         portrait: null,
         portraitAlt: `Portrait of ${JAY}`,
       },

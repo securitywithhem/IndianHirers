@@ -13,7 +13,7 @@ const PHONE_SEPARATORS = /[\s\-.()]/g;
 
 /**
  * An Indian mobile number: ten digits starting 6–9, optionally after +91, 91
- * or a trunk 0. "98250 37478", "+91 98250-37478" and "098250 37478" pass.
+ * or a trunk 0. "87340 90908", "+91 87340-90908" and "087340 90908" pass.
  */
 const INDIAN_MOBILE = /^(?:\+?91|0)?[6-9]\d{9}$/;
 

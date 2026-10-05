@@ -3,6 +3,7 @@ import { HeritageTeaser } from "@/components/home/HeritageTeaser";
 import { HomeClosingCta } from "@/components/home/HomeClosingCta";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
+import { HomeClients } from "@/components/home/HomeClients";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { pageMetadata } from "@/components/shared/pageMetadata";
@@ -24,6 +25,7 @@ export default function Home() {
       <HeritageTeaser />
       <HowItWorks />
       <HomeTestimonials />
+      <HomeClients />
       <HomeClosingCta />
     </>
   );

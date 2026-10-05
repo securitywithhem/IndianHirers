@@ -269,6 +269,7 @@ export interface FooterContent {
   contactHeading: string;
   phoneLabel: string;
   phoneAltLabel: string;
+  phoneAltName: string;
   /** Screen-reader label of Jay's number; `phoneJayName` is shown beside it. */
   phoneJayLabel: string;
   phoneJayName: string;
@@ -337,7 +338,8 @@ export const shell: ShellContent = {
     navLabel: "Footer",
     contactHeading: "Contact",
     phoneLabel: "Phone and WhatsApp",
-    phoneAltLabel: "Second phone",
+    phoneAltLabel: "Nikesh Gabhawala's phone",
+    phoneAltName: "Nikesh Gabhawala",
     phoneJayLabel: "Jay Gabhawala's phone",
     phoneJayName: "Jay Gabhawala",
     emailLabel: "Email",

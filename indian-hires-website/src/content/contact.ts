@@ -193,7 +193,7 @@ export const contact: ContactContent = {
   detailsHeading: "Contact details",
   details: {
     phone: { label: "Phone and WhatsApp" },
-    phoneAlt: { label: "Second phone" },
+    phoneAlt: { label: "Nikesh Gabhawala" },
     phoneJay: { label: "Jay Gabhawala" },
     whatsapp: {
       label: "WhatsApp",

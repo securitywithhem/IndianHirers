@@ -254,6 +254,11 @@ const config = {
           from: { transform: "translate3d(0, calc(100% + 1rem), 0)" },
           to: { transform: "translate3d(0, 0, 0)" },
         },
+        // Continuous horizontal marquee for client logos/text.
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - 2rem))" }, // 2rem matches the gap-x-8
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -269,6 +274,7 @@ const config = {
         "enter-rise": `enter-rise 500ms ${EASE_ROYAL} backwards`,
         "enter-fade": `enter-fade 400ms ${EASE_ROYAL} backwards`,
         "bar-rise": `bar-rise 500ms ${EASE_ROYAL} 1200ms backwards`,
+        marquee: "marquee 50s linear infinite",
       },
     },
   },
