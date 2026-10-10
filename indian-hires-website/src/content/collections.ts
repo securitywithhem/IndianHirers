@@ -67,23 +67,23 @@ export type NoPricing = {
 export type CollectionSlug =
   | "heritage-silver"
   | "bone-china"
-  | "premium-melamine"
-  | "regular-melamine"
+  | "melamine"
   | "chat-and-snack-plates"
   | "chafing-dishes"
   | "cutlery-and-serveware"
-  | "glassware";
+  | "glassware"
+  | "wooden-plates";
 
 /** Display order of the collections. */
 export const collectionSlugs: CollectionSlug[] = [
   "heritage-silver",
   "bone-china",
-  "premium-melamine",
-  "regular-melamine",
+  "melamine",
   "chat-and-snack-plates",
   "chafing-dishes",
   "cutlery-and-serveware",
   "glassware",
+  "wooden-plates",
 ];
 
 export type Material =
@@ -331,10 +331,12 @@ const manifestHome: Record<ProductCategorySlug, ManifestHome> = {
   // Only the plates and the cutlery are confirmed silver-plated.
   vintage: { collection: "heritage-silver", material: null },
   "bone-china": { collection: "bone-china", material: "bone-china" },
-  melamine: { collection: "premium-melamine", material: "melamine" },
+  melamine: { collection: "melamine", material: "melamine" },
   glassware: { collection: "glassware", material: "glass" },
   // Chafing dish materials are unconfirmed.
   "chafing-dishes": { collection: "chafing-dishes", material: null },
+  // Wood is not in the Material union; the material is left unset.
+  wooden: { collection: "wooden-plates", material: null },
 };
 
 /**
@@ -442,23 +444,53 @@ const CHAFING_DISH_PIECES: Piece[] = [
 
 const GLASS_PIECES: Piece[] = [{ type: "glass", label: "Glass" }];
 
-/**
- * TODO(owner): six chafing-dish designs still to be supplied. Replace each
- * placeholder's slug, name, material and finishes, add its photograph (see
- * scripts/extract-catalogue-images.md §5), then set status "available".
- * While status is "todo" these are excluded by `publicItems` and every other
- * public helper, so they cannot appear on the site.
- */
-const CHAFING_DISH_PLACEHOLDERS: ItemSeed[] = [1, 2, 3, 4, 5, 6].map(
-  (n): ItemSeed => ({
-    slug: `todo-design-${n}`,
-    name: `TODO chafing dish design ${n}`,
-    material: null,
-    finishes: [],
+const NEW_CHAFING_DISHES: ItemSeed[] = [
+  {
+    slug: "antique-bronze-vessel",
+    name: "Ornate Antique Bronze Vessel",
+    material: "brass",
+    finishes: ["brass"],
     pieces: CHAFING_DISH_PIECES,
-    status: "todo",
-  })
-);
+    photo: { category: "chafing-dishes", slug: "antique-bronze-vessel" },
+    status: "available",
+  },
+  {
+    slug: "golden-ribbed-serving-pot",
+    name: "Ornate Golden Ribbed Serving Pot",
+    material: "brass",
+    finishes: ["gold"],
+    pieces: CHAFING_DISH_PIECES,
+    photo: { category: "chafing-dishes", slug: "golden-ribbed-serving-pot" },
+    status: "available",
+  },
+  {
+    slug: "golden-urn-pedestal",
+    name: "Ornate Golden Urn on Pedestal",
+    material: "brass",
+    finishes: ["gold"],
+    pieces: CHAFING_DISH_PIECES,
+    photo: { category: "chafing-dishes", slug: "golden-urn-pedestal" },
+    status: "available",
+  },
+  {
+    slug: "hammered-brass-chafing-dish",
+    name: "Ornate Hammered Brass Chafing Dish",
+    material: "brass",
+    finishes: ["brass"],
+    pieces: CHAFING_DISH_PIECES,
+    photo: { category: "chafing-dishes", slug: "hammered-brass-chafing-dish" },
+    status: "available",
+  },
+  {
+    slug: "golden-brass-canister",
+    name: "Golden Brass Canister",
+    material: "brass",
+    finishes: ["brass", "gold"],
+    pieces: CHAFING_DISH_PIECES,
+    photo: { category: "chafing-dishes", slug: "golden-brass-canister" },
+    status: "available",
+  },
+];
 
 const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
   // No photographs yet. The owner's list reads "silver-plated plates,
@@ -470,7 +502,7 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
     tagline: "Silver-plated service for the formal table",
     description:
       "Silver-plated plates and silver-plated cutlery, with serving spoons, trays and tableware, for weddings and formal dinners. Ask us on WhatsApp which pieces are available for your date.",
-    heroFrom: null,
+    heroFrom: "vintage",
     countAs: "items",
     items: [
       {
@@ -616,32 +648,28 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         pieces: BONE_CHINA_PIECES,
         photo: { category: "bone-china", slug: "spiral-motif" },
       },
+      {
+        // Photographed piece. A new design: the owner's name is not in the
+        // catalogue, so this name was chosen from the photograph.
+        slug: "black-scallop",
+        name: "Black Scallop",
+        material: "bone-china",
+        finishes: [],
+        assumed: { finishes: ["black", "gold"] },
+        pieces: BONE_CHINA_PIECES,
+        photo: { category: "bone-china", slug: "black-scallop" },
+      },
     ],
   },
 
-  "premium-melamine": {
-    title: "Premium Melamine",
-    tagline: "Melamine with a finer finish",
+  melamine: {
+    title: "Melamine",
+    tagline: "Hard-wearing melamine service for every function",
     description:
-      'Our premium melamine designs. Double Color and 24KT Blue are hired as dinner sets and soup sets; the Matt Black Series also comes as chat bowls, snack plates and a 9" nasta plate.',
+      'Our melamine designs. The Matt Black Series also comes as chat bowls, snack plates and a 9" nasta plate.',
     heroFrom: "melamine",
     countAs: "designs",
     items: [
-      {
-        slug: "double-color",
-        name: "Double Color",
-        material: "melamine",
-        // The two colours have not been supplied.
-        finishes: [],
-        pieces: MELAMINE_SET_PIECES,
-      },
-      {
-        slug: "24kt-blue",
-        name: "24KT Blue",
-        material: "melamine",
-        finishes: ["blue"],
-        pieces: MELAMINE_SET_PIECES,
-      },
       {
         // MATCHED: same name as the manifest's "Matt Black Melamine".
         slug: "matt-black-series",
@@ -657,8 +685,26 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
       // without the word "Melamine" (the manifest has "Blue Rim Melamine
       // Set" and so on). Those names are not the owner's, so they confirm no
       // finish; the finishes and the pieces read off the photographs are in
-      // `assumed`. Whether each belongs in Premium or Regular Melamine is TO
+      // `assumed`. Whether each is a melamine design the owner lists is TO
       // CONFIRM.
+      {
+        slug: "blue-matt",
+        name: "Blue Matt",
+        material: "melamine",
+        finishes: ["blue", "matt"],
+        pieces: MELAMINE_SET_PIECES,
+        photo: { category: "melamine", slug: "blue-matt" },
+        status: "available",
+      },
+      {
+        slug: "white-matt",
+        name: "White Matt",
+        material: "melamine",
+        finishes: ["white", "matt"],
+        pieces: MELAMINE_SET_PIECES,
+        photo: { category: "melamine", slug: "white-matt" },
+        status: "available",
+      },
       {
         slug: "blue-rim",
         name: "Blue Rim",
@@ -667,81 +713,6 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
         pieces: [],
         assumed: { finishes: ["blue"], pieces: PHOTOGRAPHED_MELAMINE_PIECES },
         photo: { category: "melamine", slug: "blue-rim" },
-      },
-      {
-        slug: "sky-blue",
-        name: "Sky Blue",
-        material: "melamine",
-        finishes: [],
-        pieces: [],
-        assumed: { finishes: ["blue"], pieces: PHOTOGRAPHED_MELAMINE_PIECES },
-        photo: { category: "melamine", slug: "sky-blue" },
-      },
-      {
-        slug: "ribbed-white",
-        name: "Ribbed White",
-        material: "melamine",
-        finishes: [],
-        pieces: [],
-        assumed: { finishes: ["white"], pieces: PHOTOGRAPHED_MELAMINE_PIECES },
-        photo: { category: "melamine", slug: "ribbed-white" },
-      },
-      {
-        slug: "textured-ivory",
-        name: "Textured Ivory",
-        material: "melamine",
-        finishes: [],
-        pieces: [],
-        assumed: { finishes: ["ivory"], pieces: PHOTOGRAPHED_MELAMINE_PIECES },
-        photo: { category: "melamine", slug: "textured-ivory" },
-      },
-      {
-        slug: "gold-medallion",
-        name: "Gold Medallion",
-        material: "melamine",
-        finishes: [],
-        pieces: [],
-        assumed: { finishes: ["gold"], pieces: PHOTOGRAPHED_MELAMINE_PIECES },
-        photo: { category: "melamine", slug: "gold-medallion" },
-      },
-      {
-        slug: "blue-gold-border",
-        name: "Blue & Gold Border",
-        material: "melamine",
-        finishes: [],
-        pieces: [],
-        assumed: {
-          finishes: ["blue", "gold"],
-          pieces: PHOTOGRAPHED_MELAMINE_PIECES,
-        },
-        photo: { category: "melamine", slug: "blue-gold-border" },
-      },
-    ],
-  },
-
-  "regular-melamine": {
-    title: "Regular Melamine",
-    tagline: "Everyday melamine service",
-    description:
-      "Matt Melamine and 24KT Gold Melamine — straightforward melamine service for everyday functions. Each is hired as a dinner set and a soup set.",
-    heroFrom: null,
-    countAs: "designs",
-    // The owner's names are "Matt Melamine" and "24KT Gold Melamine"; inside
-    // this collection they are shown without the word "Melamine".
-    items: [
-      {
-        slug: "matt-melamine",
-        name: "Matt",
-        material: "melamine",
-        finishes: ["matt"],
-        pieces: MELAMINE_SET_PIECES,
-      },
-      {
-        slug: "24kt-gold-melamine",
-        name: "24KT Gold",
-        material: "melamine",
-        finishes: ["gold"],
-        pieces: MELAMINE_SET_PIECES,
       },
     ],
   },
@@ -858,54 +829,46 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
     heroFrom: "chafing-dishes",
     countAs: "designs",
     items: [
-      {
-        slug: "brass-round",
-        material: null,
-        finishes: [],
-        assumed: { material: "brass", finishes: ["brass"] },
-        pieces: CHAFING_DISH_PIECES,
-        photo: { category: "chafing-dishes", slug: "brass-round" },
-      },
-      {
-        slug: "silver-carved-stand",
-        material: null,
-        finishes: [],
-        assumed: { material: "steel", finishes: ["silver"] },
-        pieces: CHAFING_DISH_PIECES,
-        photo: { category: "chafing-dishes", slug: "silver-carved-stand" },
-      },
-      {
-        slug: "gold-hammered-square",
-        material: null,
-        finishes: [],
-        assumed: { material: "steel", finishes: ["gold"] },
-        pieces: CHAFING_DISH_PIECES,
-        photo: { category: "chafing-dishes", slug: "gold-hammered-square" },
-      },
-      {
-        slug: "brass-handi",
-        material: null,
-        finishes: [],
-        assumed: { material: "brass", finishes: ["brass"] },
-        pieces: CHAFING_DISH_PIECES,
-        photo: { category: "chafing-dishes", slug: "brass-handi" },
-        featured: true,
-      },
-      {
-        slug: "copper-ribbed-dome",
-        material: null,
-        finishes: [],
-        assumed: { material: "copper", finishes: ["copper"] },
-        pieces: CHAFING_DISH_PIECES,
-        photo: { category: "chafing-dishes", slug: "copper-ribbed-dome" },
-        featured: true,
-      },
-      ...CHAFING_DISH_PLACEHOLDERS,
+      ...NEW_CHAFING_DISHES,
     ],
   },
 
   // TODO(owner): no items supplied yet. The collection page shows
   // `catalogueCopy.emptyCollection` until this list has entries.
+  "wooden-plates": {
+    title: "Wooden Plates",
+    tagline: "Warm, natural wooden plates and bowls",
+    description:
+      "Wooden plates and small bowls in natural wood, and a wooden platter display. The owner has not yet listed the sizes or the sets they come in.",
+    heroFrom: "wooden",
+    countAs: "items",
+    items: [
+      {
+        slug: "wooden-plates",
+        name: "Wooden Plates",
+        material: null,
+        finishes: [],
+        pieces: [],
+        assumed: {
+          pieces: [
+            { type: "plate", label: "Plate" },
+            { type: "bowl", label: "Bowl" },
+          ],
+        },
+        photo: { category: "wooden", slug: "wooden-plates" },
+      },
+      {
+        slug: "wooden-platters-display",
+        name: "Wooden Plates Display",
+        material: null,
+        finishes: [],
+        pieces: [],
+        assumed: { pieces: [{ type: "plate", label: "Platter" }] },
+        photo: { category: "wooden", slug: "wooden-platters-display" },
+      },
+    ],
+  },
+
   "cutlery-and-serveware": {
     title: "Cutlery & Serveware",
     tagline: "Cutlery and serving pieces",
@@ -913,7 +876,8 @@ const collectionSeeds: Record<CollectionSlug, CollectionSeed> = {
       "Cutlery and serving pieces to go with the crockery. The list is not on the website yet — tell us what you need and we will confirm what we hold.",
     heroFrom: null,
     countAs: "items",
-    items: [],
+    items: [
+    ],
   },
 
   // Not in the owner's list of collections. Kept because four photographed
@@ -1081,11 +1045,11 @@ function buildCollection(slug: CollectionSlug): Collection {
 const collectionsBySlug: Record<CollectionSlug, Collection> = {
   "heritage-silver": buildCollection("heritage-silver"),
   "bone-china": buildCollection("bone-china"),
-  "premium-melamine": buildCollection("premium-melamine"),
-  "regular-melamine": buildCollection("regular-melamine"),
+  melamine: buildCollection("melamine"),
   "chat-and-snack-plates": buildCollection("chat-and-snack-plates"),
   "chafing-dishes": buildCollection("chafing-dishes"),
   "cutlery-and-serveware": buildCollection("cutlery-and-serveware"),
+  "wooden-plates": buildCollection("wooden-plates"),
   glassware: buildCollection("glassware"),
 };
 
@@ -1566,12 +1530,12 @@ export const catalogueCopy: CatalogueCopy = {
     labels: {
       "heritage-silver": "Vintage Collection",
       "bone-china": "Bone China",
-      "premium-melamine": "Premium Melamine",
-      "regular-melamine": "Regular Melamine",
+      melamine: "Melamine",
       "chat-and-snack-plates": "Chat Plates",
       "chafing-dishes": "Chafing Dishes",
       "cutlery-and-serveware": "Cutlery",
       glassware: "Glassware",
+      "wooden-plates": "Wooden Plates",
     },
   },
   emptyCollection: {
@@ -1589,12 +1553,12 @@ export const catalogueCopy: CatalogueCopy = {
     // collection without photographs shows.
     "heritage-silver": null,
     "bone-china": null,
-    "premium-melamine": null,
-    "regular-melamine": null,
+    melamine: null,
     "chat-and-snack-plates": null,
     "chafing-dishes":
       "More chafing dish designs are available on request — ask us for the full list.",
     "cutlery-and-serveware": null,
     glassware: null,
+    "wooden-plates": null,
   },
 };

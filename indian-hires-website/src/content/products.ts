@@ -31,6 +31,7 @@ export type ProductCategorySlug =
   | "bone-china"
   | "melamine"
   | "glassware"
+  | "wooden"
   | "chafing-dishes";
 
 export interface ProductImage {
@@ -68,9 +69,17 @@ export const productCategories: ProductCategory[] = [
     tagline: "Real silver-plated service",
     description:
       "Our newest range — genuine silver-plated plates and service pieces, for weddings and formal dinners where the table itself should be the centrepiece. Photography is in progress; ask us for available pieces and quantities.",
-    cover: null,
+    cover: {
+      src: "/images/products/vintage/cover.webp",
+      alt: "Ornate silverware: engraved trays, a covered vessel and hammered bowls on a dark backdrop",
+      width: 1086,
+      height: 1086,
+      blurDataURL:
+        "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQABAAA4BaJQBOgMXhtq9FwxwAAP7vhdt8l6WRHccPm1l54vPLEwdReCoAgS5UvrSuqJ8YGXCtodW2lIovoTdTWDVMbReS0XKiCoXuu3Q3/BmJXunQ2L0QyPAfkOQAAAA=",
+    },
     comingSoon: true,
-    products: [],
+    products: [
+    ],
   },
   {
     slug: "bone-china",
@@ -94,10 +103,10 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/bone-china/golden-rim.webp",
           alt: "Bone china dinner plate, side plate and bowls with a woven gold rim",
-          width: 1184,
-          height: 1184,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQABAAA4BaJZwAApQDKarX49WAAP7vkvmfdPlz5wsH2oc9AIviJIWGECgqdJL3xifR+zTYnx8geUbLJFNavUSP7lzqa7zFc34OaJVYxYk7AV+7eS1ay8AA",
+            "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQABAAA4BaJZgCdAEQ1xXZmYKP0wAA/pjHgCYm4gTYAym/D84RarjvETPUaRGZkrOKepjn1f+RQ6XtKYBlijQrx2ZrrJCviBje+zYeux1aZduhX3GDkP5ztDlZ0Gj6ESnwM2KAEtWEAAAA",
         },
       },
       {
@@ -107,10 +116,10 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/bone-china/emerald-gold.webp",
           alt: "Bone china place setting with emerald green and gold patterned borders",
-          width: 1043,
-          height: 1043,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQABAAA4BaJZQAD5FMeipGwEfaAAD+8YEirIju+RfY/gm9PBPnWZo8ysZxAfJtyncyrPRzkqhujwkE2iRCS4Vl66VS/9+5eCpnt/UFFkxXVzIaogsyXk2nXX+v2Zkad1gAAA==",
+            "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQABAAA4BaJZACdAEebtpJsLrGJKAA/teIemQ3SOPyI8eaZWgmElFvC1U6b2YYgS7w2kWMGBBLpCuT20QdSGrl+4sCVa7VocvRfTEphvBfVOiXfvK89992Iw3RzNs9AAA=",
         },
       },
       {
@@ -120,10 +129,10 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/bone-china/haldi-ivory.webp",
           alt: "Warm ivory bone china plates, cup and bowls edged with a fine gold line",
-          width: 1108,
-          height: 1108,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQAgCdASoQABAAA4BaJbACdAEfwHDoW8b87AAA/sKGpu9hegSn/pz03GS6+u2mxeKMsd11QOxtHXg0fd9nr3q3mXmN2qEeJd5gzH03D/VFKmI+Ka23CUovFpORT3NDECar/Y4rlAAAAA==",
+            "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQABAAA4BaJZACdAEfwGc6Ft+TAAD+5/4QsadXc4OTQCkuMq2htf72ui7VqAqdO7ZI0qh6kKq8IkPvGcmo1JVJ0rmMP9/64WyzJwTTX0AAAA==",
         },
       },
       {
@@ -133,10 +142,10 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/bone-china/classic-white.webp",
           alt: "Plain white bone china dinner plate, side plate and serving bowls",
-          width: 1148,
-          height: 1148,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQABAAA4BaJZwAAxZMb/sU8IAA/vNe6bnK/T+70OBf31/tYt3uxUwAX9UnRIKw885lls4zotzKkd1mdJHdapBMsscmMXdnIzSKahxRruuiD6hs1IJDAAAA",
+            "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABwAgCdASoQABAAA4BaJZwC7AYv12s3ALlPCklAAN5kH+2bP2Wvl4j1vdqouUHuWjPmw4P7Z1GKaIDBxKLQAEzty1XEcb+DZHZlLT3zTtFz5D5cegBRiEKCJxP6pvrdf/sAm1YP1v4Ki6uAAAA=",
         },
       },
       {
@@ -146,10 +155,23 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/bone-china/spiral-motif.webp",
           alt: "White bone china set decorated with black spiral motifs",
-          width: 996,
-          height: 996,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoQABAAA4BaJZwAD5ORdOPk0HD5uAAA/sKGs5HgNStcs+3GngmjzkBPyGXA48TmD5hMHHR9RMQNtz9s4mCovO996SSMoRzsEyRyeESWIkEA6c5/UvuCcWtQcUWsKwAA",
+            "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoQABAAA4BaJZwAD5DxdOO3+MMymAD6mXuINvrPrJ3k4mA0bAst5U+ggJ7tWuksVxDQYRkAJb3tiDZ/r7O9lS5deB1LnEXqE9EScXUNorFtRXLTSKwaJmFkI19X9J73v3cLY9W2AAA=",
+        },
+      },
+      {
+        slug: "black-scallop",
+        name: "Black Scallop Bone China",
+        category: "bone-china",
+        image: {
+          src: "/images/products/bone-china/black-scallop.webp",
+          alt: "Bone china dinner plate, side plate, cup and saucer and bowl with a black scallop lattice border and a fine gold rim",
+          width: 1086,
+          height: 1086,
+          blurDataURL:
+            "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQABAAA4BaJYwCdAEfStppO+yNAAD+6laZECdDD1fO/c07pTYU0jmxxVPLttLYu60DIzkWbrl63CNTxkIdcZxemQ6ViXroOH+Zk/EuTPGVktVyQvZK3OHXUbAruyqAAAA=",
         },
       },
     ],
@@ -161,12 +183,12 @@ export const productCategories: ProductCategory[] = [
     description:
       "Lightweight, chip-resistant and stackable. Melamine takes the volume of a large function without the breakage risk of ceramic, in finishes from matt black to gold medallion.",
     cover: {
-      src: "/images/products/melamine/blue-gold-border.webp",
-      alt: "Melamine dinner service with a blue geometric and gold border",
+      src: "/images/products/melamine/blue-rim.webp",
+      alt: "Melamine place setting with a fine blue rim, cutlery, bowls and cups",
       width: 1200,
       height: 1200,
       blurDataURL:
-        "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQABAAA4BaJaQAAxZnzpD78h5UMoAA/ubQjxuUDCIKNFM2qvjuba+CIfjvUB9kUZ9vQhJ8t8Tbhpkxl/uRJ/RGRRoPBOdb9KGkutvvMVCvHC4ZD4I2k/GWd0AAAA==",
+        "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAAA4BaJZQCw7YvN2upm4B94gAA/i/FuDWHGcLmJ7TEdG+M0ka955Tm/wiBuqH+5OFxZAvy/YnAa/li76ax2B8JcXBaPTb6e6fM7nzdEO8s+ERSi26PqiHrFblaHysRYcy2LdAAAA==",
     },
     products: [
       {
@@ -176,10 +198,36 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/melamine/matt-black.webp",
           alt: "Matt black melamine charger, dinner plate and two bowls",
-          width: 1174,
-          height: 1174,
+          width: 1200,
+          height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoQABAAA4BaJZwAAxbQYrSTKIaYAAD8/faXkLyyxoqYilH/Ary0Zu9ceoULvnihy10dSIuG/oYsQrxuDw2rhQWGRj9SnE0MI/AYdCgA",
+            "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAAA4BaJZQCw7Efk/1AcfMKa4AAzjuJacdB/VBAxkJPBAtSk19OSCtLxqrXIVAMPRhUlvKq1d7dPyymBdULJhQdqftBOzy9Fz2LPSgU9F4HZmkAAA==",
+        },
+      },
+      {
+        slug: "blue-matt",
+        name: "Blue Matt Melamine Set",
+        category: "melamine",
+        image: {
+          src: "/images/products/melamine/blue-matt.webp",
+          alt: "Blue matt melamine plates and bowls",
+          width: 1200,
+          height: 1200,
+          blurDataURL:
+            "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQABAAA4BaJZQCw7DwoftX8NUoAADgC68Ng3d0n2yGrjkNYmMbiUXy/Z3RMrDomBvlrSqdPoVKT1ExfcNkBP2q1l9SXs8dymwKgcNRHtdIjx+C/qNfL6DJdGlVgsAsMiPRAWdDGAAAAA==",
+        },
+      },
+      {
+        slug: "white-matt",
+        name: "White Matt Melamine Set",
+        category: "melamine",
+        image: {
+          src: "/images/products/melamine/white-matt.webp",
+          alt: "White matt melamine plates and bowls",
+          width: 1200,
+          height: 1200,
+          blurDataURL:
+            "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQABAAA4BaJZQCw7EfwHVuyTq7yGwAzfARtejwJ4nVL6iqt8jCI3HJNdxTGqYVWEG9S+SxS34ypnm5Ii1hsfVKdmtvwkTPoVHBW4O/E082c0u4pYkmZiSI4QAAAA==",
         },
       },
       {
@@ -189,75 +237,10 @@ export const productCategories: ProductCategory[] = [
         image: {
           src: "/images/products/melamine/blue-rim.webp",
           alt: "Melamine place setting with a fine blue rim, cutlery, bowls and cups",
-          width: 960,
-          height: 960,
-          blurDataURL:
-            "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQABAAA4BaJaQAAXDDR/sQAP7HIuo6UUtpiGf7WKJiNZcaYg/d/uPIcbVO0tKeXQsuEL5GJvPe11ytTuDq0vFvQAA=",
-        },
-      },
-      {
-        slug: "sky-blue",
-        name: "Sky Blue Melamine Set",
-        category: "melamine",
-        image: {
-          src: "/images/products/melamine/sky-blue.webp",
-          alt: "Melamine place setting with a light blue banded border and cutlery",
-          width: 960,
-          height: 960,
-          blurDataURL:
-            "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQABAAA4BaJZwAAf8fLo8KgAD+xyGHyREddNCN9stK5GJfEyP2ZzUVw6HdUzBqf4HyHn/yjwGkZie8a+z0Dfctjyvve6/2WBwAAA==",
-        },
-      },
-      {
-        slug: "ribbed-white",
-        name: "Ribbed White Melamine",
-        category: "melamine",
-        image: {
-          src: "/images/products/melamine/ribbed-white.webp",
-          alt: "Ribbed off-white melamine plates and bowls",
-          width: 1193,
-          height: 1193,
-          blurDataURL:
-            "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQABAAA4BaJYgCdAD1kkjsU2qAAP4FtY6AkZEOM5j9CzK2J/uVwx6wd3jHZ1WHl7MRxvRDQ5we4gx9yXPPK4FNoGj1xD4/1KtqyKIe/iiT3U3AAAA=",
-        },
-      },
-      {
-        slug: "textured-ivory",
-        name: "Textured Ivory Melamine",
-        category: "melamine",
-        image: {
-          src: "/images/products/melamine/textured-ivory.webp",
-          alt: "Ivory melamine plates with a brushed linear texture and matching bowls",
           width: 1200,
           height: 1200,
           blurDataURL:
-            "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQABAAA4BaJaQAAuR6fETZVDgA/upWw5k4h2WdWYVhK+0H80rvOowrURZXzeYzPZNT6QMDgpg12iOeJaiZ2Rm/r8cmFxZs4dJ/bAzjVl2kMAAA",
-        },
-      },
-      {
-        slug: "gold-medallion",
-        name: "Gold Medallion Melamine",
-        category: "melamine",
-        image: {
-          src: "/images/products/melamine/gold-medallion.webp",
-          alt: "Pale melamine plates and bowls with a gold medallion motif",
-          width: 1200,
-          height: 1200,
-          blurDataURL:
-            "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQABAAA4BaJaQAD4zNtwaFaInQGhAA/vG0RtoiMUWcJ2fsyzTdOW9fB8Ub6v5fyGD8Ml0FPiRPNhk9JaTTvhkZPX9hDWxFjkT1un5ep0UatFps1KgVoKAA",
-        },
-      },
-      {
-        slug: "blue-gold-border",
-        name: "Blue & Gold Border Melamine",
-        category: "melamine",
-        image: {
-          src: "/images/products/melamine/blue-gold-border.webp",
-          alt: "Melamine dinner service with a blue geometric and gold border",
-          width: 1200,
-          height: 1200,
-          blurDataURL:
-            "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABQAgCdASoQABAAA4BaJaQAAxZnzpD78h5UMoAA/ubQjxuUDCIKNFM2qvjuba+CIfjvUB9kUZ9vQhJ8t8Tbhpkxl/uRJ/RGRRoPBOdb9KGkutvvMVCvHC4ZD4I2k/GWd0AAAA==",
+            "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQABAAA4BaJZQCw7YvN2upm4B94gAA/i/FuDWHGcLmJ7TEdG+M0ka955Tm/wiBuqH+5OFxZAvy/YnAa/li76ax2B8JcXBaPTb6e6fM7nzdEO8s+ERSi26PqiHrFblaHysRYcy2LdAAAA==",
         },
       },
     ],
@@ -332,83 +315,126 @@ export const productCategories: ProductCategory[] = [
     ],
   },
   {
+    slug: "wooden",
+    name: "Wooden Plates",
+    tagline: "Warm, natural wood for a relaxed table",
+    description:
+      "Wooden plates, bowls and platters in natural wood. An earthy option alongside the melamine and bone china ranges.",
+    cover: {
+      src: "/images/products/wooden/wooden-plates.webp",
+      alt: "Round natural wooden plates and small bowls on a dark backdrop",
+      width: 1086,
+      height: 1086,
+      blurDataURL:
+        "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQAgCdASoQABAAA4BaJbACdGaA2wAGYCR4Ru8UQAD+6PD5YZ366eP8JvnU8/yz7VWso1RHdL2o1PKN6i1HUvJzTEMZRBrSF6FcpttgWyOqnqrkv9GEo7w1p9OTa24vh8JuadMi8AA=",
+    },
+    products: [
+      {
+        slug: "wooden-plates",
+        name: "Wooden Plates",
+        category: "wooden",
+        image: {
+          src: "/images/products/wooden/wooden-plates.webp",
+          alt: "Round natural wooden plates and small bowls on a dark backdrop",
+          width: 1086,
+          height: 1086,
+          blurDataURL:
+            "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQAgCdASoQABAAA4BaJbACdGaA2wAGYCR4Ru8UQAD+6PD5YZ366eP8JvnU8/yz7VWso1RHdL2o1PKN6i1HUvJzTEMZRBrSF6FcpttgWyOqnqrkv9GEo7w1p9OTa24vh8JuadMi8AA=",
+        },
+      },
+      {
+        slug: "wooden-platters-display",
+        name: "Wooden Plates Display",
+        category: "wooden",
+        image: {
+          src: "/images/products/wooden/wooden-platters-display.webp",
+          alt: "Scalloped wooden platters and a wooden bowl beside a gold tiered stand",
+          width: 1086,
+          height: 1086,
+          blurDataURL:
+            "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQABAAA4BaJbACdACvWb64AAD+70t8yywDndvXrZ/F7R2pu+/pAgdMDYRC0QAKZus9UzwwJa+iK0L16QHbGh3mDdnoI2ogtq7t2kr69HLX+BA5XIA9ZQiqPCXYeAAA",
+        },
+      },
+    ],
+  },
+  {
     slug: "chafing-dishes",
     name: "Chafing Dishes",
     tagline: "Keeping the buffet hot",
     description:
       "Brass, copper and silver chafers in round, square and handi forms — including carved-stand pieces for front-of-house buffet lines.",
     cover: {
-      src: "/images/products/chafing-dishes/brass-handi.webp",
-      alt: "Large rounded brass handi chafing dish with a scrolled lid handle",
-      width: 1179,
-      height: 1179,
+      src: "/images/products/chafing-dishes/golden-urn-pedestal.webp",
+      alt: "Ornate golden urn on pedestal",
+      width: 1086,
+      height: 1086,
       blurDataURL:
-        "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAgCdASoQABAAA4BaJbACdAdwLg2tXGHZSvn8AAD88sW76MVZhQCA4oub35Xcqidi0GTq0HvkHEvWpWeVgc5AngkI2dnxoA8KAuGRBq1RfSbguXOJHXBrnvu4v+qk/tBenZo3PHzrYbTkdrTfQP+uwJfAAAAA",
+        "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQABAAA4BaJbACdAEfTpDMNySjSAD+zc/+LUfjS173oU+d5IV/Gn3/jkhY1bu8okSiZaiXLBlfKstoOoXGu/cPguQR2pnDbmW90hP5Tf/eBZ5opTVHVkCUFdzcifFciwAAAA==",
     },
     products: [
       {
-        slug: "brass-round",
-        name: "Round Brass Chafing Dish",
+        slug: "antique-bronze-vessel",
+        name: "Ornate Antique Bronze Vessel",
         category: "chafing-dishes",
         image: {
-          src: "/images/products/chafing-dishes/brass-round.webp",
-          alt: "Round polished brass chafing dish on a three-legged stand",
-          width: 1200,
-          height: 1200,
+          src: "/images/products/chafing-dishes/antique-bronze-vessel.webp",
+          alt: "Ornate antique bronze vessel",
+          width: 1086,
+          height: 1086,
           blurDataURL:
-            "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQABAAA4BaJZgCdACj6dMJ24AA/u9Mv0GJ+Q/OX+1RynxUubYzvyZkB7qs/Y12Fn5Ohl2bJ31Ftz1tYjWXju2ZO3jWNRiDe7MK0JzCuPBN5k/M4kYYAAAA",
+            "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQABAAA4BaJbACdADQ8no2Da1BQAD+71m/TDxlj1+AQ97529QXPBL3WyJU8ybtbrkGfXEp6D6sNjSqCGJ3CoLIb094XaoolvfaTU3eAXutGzRd9XY3/ckbUReEy32AAAA=",
         },
       },
       {
-        slug: "silver-carved-stand",
-        name: "Silver Chafer on Carved Stand",
+        slug: "golden-ribbed-serving-pot",
+        name: "Ornate Golden Ribbed Serving Pot",
         category: "chafing-dishes",
         image: {
-          src: "/images/products/chafing-dishes/silver-carved-stand.webp",
-          alt: "Silver chafing dish resting on an ornately carved metal stand",
-          width: 853,
-          height: 853,
+          src: "/images/products/chafing-dishes/golden-ribbed-serving-pot.webp",
+          alt: "Ornate golden ribbed serving pot",
+          width: 1086,
+          height: 1086,
           blurDataURL:
-            "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQABAAA4BaJbACdADiaHNEj+WoAP7p4ZZW3wAyCVgd3EnmotDJu+1O9ci7i7PS2vJMoRFO+ev9xySnsSL+g8GWJIm89ZgXkYUsE/Og4tPQkRxiWQAAAA==",
+            "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQABAAA4BaJYgCdAEO+nfI2ZwAAP7s+5dL+jCkE7ZA7+/KxJgXe4TNiDD4ewRa9x5sA0pLK2ETQ6K/NtkNIFi7CfotpxVtZ5oAAA==",
         },
       },
       {
-        slug: "gold-hammered-square",
-        name: "Hammered Gold Square Chafer",
+        slug: "golden-urn-pedestal",
+        name: "Ornate Golden Urn on Pedestal",
         category: "chafing-dishes",
         image: {
-          src: "/images/products/chafing-dishes/gold-hammered-square.webp",
-          alt: "Square gold chafing dish with a hammered lid on tapered legs",
-          width: 1200,
-          height: 1200,
+          src: "/images/products/chafing-dishes/golden-urn-pedestal.webp",
+          alt: "Ornate golden urn on pedestal",
+          width: 1086,
+          height: 1086,
           blurDataURL:
-            "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQABAAA4BaJagCdH8AEMjiQP1mAADOGgtMqjtYtEuHDk0CASaEYAw9FJW8eT4l/cUPBLiC1DJnOEf6fFka/OHzMbvRrllH8QAAAA==",
+            "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQABAAA4BaJbACdAEfTpDMNySjSAD+zc/+LUfjS173oU+d5IV/Gn3/jkhY1bu8okSiZaiXLBlfKstoOoXGu/cPguQR2pnDbmW90hP5Tf/eBZ5opTVHVkCUFdzcifFciwAAAA==",
         },
       },
       {
-        slug: "brass-handi",
-        name: "Large Brass Handi Chafer",
+        slug: "hammered-brass-chafing-dish",
+        name: "Ornate Hammered Brass Chafing Dish",
         category: "chafing-dishes",
         image: {
-          src: "/images/products/chafing-dishes/brass-handi.webp",
-          alt: "Large rounded brass handi chafing dish with a scrolled lid handle",
-          width: 1179,
-          height: 1179,
+          src: "/images/products/chafing-dishes/hammered-brass-chafing-dish.webp",
+          alt: "Ornate hammered brass chafing dish",
+          width: 1062,
+          height: 1062,
           blurDataURL:
-            "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACQAgCdASoQABAAA4BaJbACdAdwLg2tXGHZSvn8AAD88sW76MVZhQCA4oub35Xcqidi0GTq0HvkHEvWpWeVgc5AngkI2dnxoA8KAuGRBq1RfSbguXOJHXBrnvu4v+qk/tBenZo3PHzrYbTkdrTfQP+uwJfAAAAA",
+            "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAQCdASoQABAAA4BaJbACdADA5fjAAP7qISQHReY7qlsLpxZ9OzuJrqktIDQ6/2CFMqZoljXjy/mo8gra0VCmHTwyxrB+uXFsFMcFY5OMhdIPyDL0P1+DSZ2o8lMPN4AAAA==",
         },
       },
       {
-        slug: "copper-ribbed-dome",
-        name: "Ribbed Copper Dome Chafer",
+        slug: "golden-brass-canister",
+        name: "Golden Brass Canister",
         category: "chafing-dishes",
         image: {
-          src: "/images/products/chafing-dishes/copper-ribbed-dome.webp",
-          alt: "Copper and silver ribbed chafing dish with a domed lid",
-          width: 877,
-          height: 877,
+          src: "/images/products/chafing-dishes/golden-brass-canister.webp",
+          alt: "Golden brass canister on dark stone",
+          width: 1086,
+          height: 1086,
           blurDataURL:
-            "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQABAAA4BaJQBOgCKfO+tl8WAAAP3wWXMB120OD+gNTWW3T81Pp5ghuBaqSxOefsfbzBCt7cU7oWQBZpMTUnR6BwTDslrO+inUFf3uWwAAAA==",
+            "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoQABAAA4BaJbACdADb8HWetCIAAP7zSSThVN2JF9gDIEwHXqIGdoLhZ76cmOXalRfXxWR9+YIi8o0GNKeUy7IFzXNctn1Gk+U42fqPNFrJV6FdLyiuNZAUEqt7E3gUuLqtM4AA",
         },
       },
     ],

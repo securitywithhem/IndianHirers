@@ -76,18 +76,18 @@ const item = (id) => {
 
 console.log("\ngetCollections, getCollection");
 
-test("eight collections, in display order", () => {
+test("nine collections, in display order", () => {
   assert.deepEqual(
     getCollections().map((c) => c.slug),
     [
       "heritage-silver",
       "bone-china",
-      "premium-melamine",
-      "regular-melamine",
+      "melamine",
       "chat-and-snack-plates",
       "chafing-dishes",
       "cutlery-and-serveware",
       "glassware",
+      "wooden-plates",
     ]
   );
 });
@@ -110,8 +110,8 @@ test("no query returns every public item and nothing hidden", () => {
 });
 
 test("collection filter", () => {
-  const items = getItems({ collection: "regular-melamine" });
-  assert.deepEqual(names(items), ["Matt", "24KT Gold"]);
+  const items = names(getItems({ collection: "melamine" }));
+  assert.ok(items.includes("Matt Black Series") && !items.includes("Double Color"));
   assert.deepEqual(getItems({ collection: "cutlery-and-serveware" }), []);
 });
 
@@ -160,13 +160,13 @@ test("pieceType filter", () => {
   assert.equal(soupSets.length, 12);
   assert.ok(
     soupSets.every((i) =>
-      ["bone-china", "premium-melamine", "regular-melamine"].includes(i.collection)
+      ["bone-china", "melamine"].includes(i.collection)
     )
   );
-  assert.equal(getItems({ pieceType: "soup-set", collection: "regular-melamine" }).length, 2);
+  assert.equal(getItems({ pieceType: "soup-set", collection: "melamine" }).length, 7);
   assert.deepEqual(names(getItems({ pieceType: "mug" })), ["Mug"]);
   assert.deepEqual(
-    names(getItems({ pieceType: "bowl", collection: "premium-melamine" })),
+    names(getItems({ pieceType: "bowl", collection: "melamine" })),
     ["Matt Black Series"]
   );
 });
@@ -219,7 +219,7 @@ test("hidden items are dropped from the message", () => {
 test("the message is fully percent-encoded", () => {
   const url = buildWhatsAppQuoteUrl([
     item("chat-and-snack-plates--mug"),
-    item("premium-melamine--blue-gold-border"),
+    item("melamine--blue-rim"),
   ]);
   const text = url.slice(PREFIX.length);
   // encodeURIComponent leaves ( ) ' ! * unescaped; they are safe in a query.
@@ -327,9 +327,7 @@ const EXPECTED = {
     White: BONE_CHINA,
     "Black-White": BONE_CHINA,
   },
-  "premium-melamine": {
-    "Double Color": SET,
-    "24KT Blue": SET,
+  melamine: {
     "Matt Black Series": [
       "Dinner Set",
       "Soup Set",
@@ -340,7 +338,6 @@ const EXPECTED = {
       'Nasta Plate 9"',
     ],
   },
-  "regular-melamine": { Matt: SET, "24KT Gold": SET },
   "chat-and-snack-plates": {
     Rectangular: [],
     "Dessert Bowl": ["Dessert Bowl"],

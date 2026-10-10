@@ -20,12 +20,16 @@ import { testimonials } from "./testimonialList";
 export { hasTestimonials, testimonials } from "./testimonialList";
 export type { Testimonial } from "./testimonialList";
 
+export interface ProcessStep {
+  title: string;
+  description: string;
+}
+
 export interface TestimonialsEmptyState {
   heading: string;
   paragraphs: string[];
   whatsappLabel: string;
   whatsappMessage: string;
-  /** Generic label; build the href with `telUrl()`. */
   callLabel: string;
   link: CtaLink;
 }
@@ -35,16 +39,18 @@ export interface TestimonialsPageContent {
   /** Page h1 when there are testimonials to show. */
   heading: string;
   lead: string;
-  /** Shown instead of the list while `testimonials` is empty. */
   empty: TestimonialsEmptyState;
-  /** Closing call to action under the list, once there is one. */
+  
+  processHeading: string;
+  processLead: string;
+  processSteps: ProcessStep[];
+
   cta: {
     heading: string;
     whatsappLabel: string;
     whatsappMessage: string;
     link: CtaLink;
   };
-  /** Joins role and organisation in the attribution line. */
   attributionSeparator: string;
 }
 
@@ -63,6 +69,26 @@ export const testimonialsPage: TestimonialsPageContent = {
     callLabel: "Call us",
     link: { label: "See the collections", href: routes.collections },
   },
+  processHeading: "How we work",
+  processLead: "Our commitment to quality, timing, and hygiene is what builds trust with the industry's best.",
+  processSteps: [
+    {
+      title: "Pristine Cleaning & Hygiene",
+      description: "Every piece of crockery, glassware, and cutlery is washed, sanitized, and polished before it ever reaches your venue. We maintain hotel-grade hygiene standards so your setup is spotless.",
+    },
+    {
+      title: "Careful Handling & Packaging",
+      description: "Tableware is fragile, but our handling is precise. We use custom-padded crates and secure packaging to ensure zero chipping or breakage during transit.",
+    },
+    {
+      title: "Punctual Delivery",
+      description: "In the events industry, time is everything. We coordinate closely with planners and venues to ensure your items arrive exactly when you need them, ready for setup.",
+    },
+    {
+      title: "Seamless Support",
+      description: "From last-minute additions to quick replacements, we stand by you throughout the event to ensure everything goes off without a hitch.",
+    }
+  ],
   cta: {
     heading: "Planning an event?",
     whatsappLabel: "Enquire on WhatsApp",

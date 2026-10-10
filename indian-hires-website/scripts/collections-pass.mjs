@@ -353,7 +353,7 @@ console.log("\n3. Structure");
   check("empty collection: \"Collection coming soon\" with a WhatsApp action", empty.trim() === "Collection coming soon" && (await page.getByText("WhatsApp us for current stock.").count()) === 1 && (await page.locator('main a[href^="https://wa.me/"]').count()) >= 1, empty);
   check("empty collection: no ItemList", (await page.locator('script[type="application/ld+json"]').evaluateAll((nodes) => nodes.filter((node) => node.textContent.includes("ItemList")).length)) === 0);
 
-  await page.goto(base + "/collections/premium-melamine", { waitUntil: "networkidle" });
+  await page.goto(base + "/collections/melamine", { waitUntil: "networkidle" });
   await hydrated(page);
   await page.getByRole("link", { name: "Blue Rim", exact: true }).click();
   await page.getByRole("dialog").waitFor();

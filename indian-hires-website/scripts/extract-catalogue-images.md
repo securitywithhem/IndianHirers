@@ -51,7 +51,7 @@ public/images/catalogue/<collection>/<slug>-1.webp
 ```
 
 - `<collection>` is a `CollectionSlug` from `src/content/collections.ts`
-  (`bone-china`, `premium-melamine`, `regular-melamine`, `chat-and-snack-plates`,
+  (`bone-china`, `melamine`, `chat-and-snack-plates`,
   `heritage-silver`, `chafing-dishes`, `cutlery-and-serveware`, `glassware`).
 - `<slug>` is the item's `slug` in `collectionSeeds` (`rose-gold`, `24kt-blue`, …).
 - `-1` is the lead photograph; further views of the same design are `-2`, `-3`.

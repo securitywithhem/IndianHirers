@@ -28,6 +28,12 @@ META = {
         "Plain, sturdy glassware for water, soft drinks and wine service. Supplied "
         "in crates, counted out and counted back.",
     ),
+    "wooden": (
+        "Wooden Plates",
+        "Warm, natural wood for a relaxed table",
+        "Wooden plates, bowls and platters in natural wood. An earthy option "
+        "alongside the melamine and bone china ranges.",
+    ),
     "chafing-dishes": (
         "Chafing Dishes",
         "Keeping the buffet hot",
@@ -35,7 +41,7 @@ META = {
         "including carved-stand pieces for front-of-house buffet lines.",
     ),
 }
-ORDER = ["vintage", "bone-china", "melamine", "glassware", "chafing-dishes"]
+ORDER = ["vintage", "bone-china", "melamine", "glassware", "wooden", "chafing-dishes"]
 
 # Categories that are real stock but not yet photographed. They render as a
 # named collection with an enquiry route rather than an empty grid, so the range
@@ -107,6 +113,7 @@ export type ProductCategorySlug =
   | "bone-china"
   | "melamine"
   | "glassware"
+  | "wooden"
   | "chafing-dishes";
 
 export interface ProductImage {
@@ -142,19 +149,21 @@ export const productCategories: ProductCategory[] = [''']
     for cat in ORDER:
         pending = cat in PENDING
         name, tagline, desc = (PENDING if pending else META)[cat]
-        data = None if pending else m["categories"][cat]
+        data = m["categories"].get(cat)
         out.append("  {")
         out.append(f"    slug: {s(cat)},")
         out.append(f"    name: {s(name)},")
         out.append(f"    tagline: {s(tagline)},")
         out.append(f"    description:\n      {s(desc)},")
-        if pending:
+        if pending and data is None:
             out.append("    cover: null,")
             out.append("    comingSoon: true,")
             out.append("    products: [],")
             out.append("  },")
             continue
         out.append(f"    cover: {image_lit(data['cover'], '    ')},")
+        if pending:
+            out.append("    comingSoon: true,")
         out.append("    products: [")
         for p in data["products"]:
             out.append("      {")

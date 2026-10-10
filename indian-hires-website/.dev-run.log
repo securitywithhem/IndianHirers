@@ -1,0 +1,212 @@
+
+> indian-hires-website@0.1.0 dev
+> next dev -p 3001
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 12.9s (809 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1257ms (324 modules)
+ GET / 200 in 633ms
+ GET / 200 in 119ms
+ ○ Compiling /collections ...
+ ✓ Compiled /collections in 9s (830 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections 200 in 9272ms
+ ✓ Compiled /testimonials in 488ms (838 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /testimonials 200 in 643ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 2.5s (1064 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /contact 200 in 2673ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 4.7s (1920 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /gallery 200 in 5008ms
+ ○ Compiling /founders ...
+ ✓ Compiled /founders in 1420ms (1931 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /founders 200 in 1774ms
+ ○ Compiling /design-system ...
+ ✓ Compiled /design-system in 1960ms (1943 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /design-system 200 in 2326ms
+ GET / 200 in 77ms
+ GET / 200 in 268ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1428ms (1946 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /images/clients/suba.svg 404 in 1678ms
+ ○ Compiling /collections/[slug] ...
+ ✓ Compiled /collections/[slug] in 1941ms (1987 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 7s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 702ms (896 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 276ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled /_not-found in 431ms (965 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/premium-melamine 404 in 595ms
+ GET /collections/premium-melamine 404 in 587ms
+ GET /collections/regular-melamine 404 in 44ms
+ GET /collections/regular-melamine 404 in 40ms
+ GET /collections 200 in 67ms
+ GET /collections/melamine 200 in 67ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 2.6s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1194ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/bone-china 200 in 114ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1146ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/cutlery-and-serveware 200 in 196ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1982ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/wooden-plates 200 in 261ms
+ GET /collections/cutlery-and-serveware 200 in 97ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections 200 in 127ms
+ ✓ Compiled in 1410ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/wooden-plates 200 in 275ms
+ GET /collections/cutlery-and-serveware 200 in 123ms
+ GET /collections 200 in 115ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 197ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1792ms (995 modules)
+ GET /favicon.ico 200 in 2009ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 2.8s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1531ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 405ms
+ GET /collections/chafing-dishes 200 in 88ms
+ GET /collections/wooden-plates 200 in 84ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/bone-china 200 in 69ms
+ GET /collections 200 in 82ms
+ GET /collections/chafing-dishes 200 in 69ms
+ GET /collections/melamine 200 in 83ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 290ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1386ms (995 modules)
+ GET /favicon.ico 200 in 1590ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 3.7s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 4.3s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 587ms
+ GET /collections 200 in 336ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 189ms
+ ✓ Compiled in 4.9s (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 1182ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 270ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/bone-china 200 in 1493ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ○ Compiling /favicon.ico ...
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled /favicon.ico in 3.5s (995 modules)
+ GET /favicon.ico 200 in 3811ms
+ GET /favicon.ico 200 in 63ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 8.4s (1891 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 684ms
+ GET /collections/cutlery-and-serveware 200 in 413ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 364ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/melamine 200 in 588ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 953ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /favicon.ico 200 in 381ms
+ ✓ Compiled in 1865ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ✓ Compiled in 1166ms (1859 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 217ms
+ GET /collections/heritage-silver 200 in 88ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /collections/heritage-silver 200 in 236ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 961ms (995 modules)
+ GET /favicon.ico 200 in 1261ms
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1851ms (997 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).
+ GET /images/clients/suba.svg 404 in 2536ms
+ GET /images/clients/sukhadiya.svg 404 in 232ms
+ GET /images/clients/patel.svg 404 in 229ms
+ GET /images/clients/new-patel.svg 404 in 147ms
+ GET /images/clients/shyam.svg 404 in 112ms
+ GET /images/clients/jay-pepper-cream.svg 404 in 138ms
+ GET /images/clients/kuisine.svg 404 in 142ms
+ ✓ Compiled /testimonials in 400ms (969 modules)
+Missing environment variables: NEXT_PUBLIC_WEB3FORMS_KEY, NEXT_PUBLIC_MAP_EMBED_URL, NEXT_PUBLIC_SITE_URL. Check .env.local (see .env.example).

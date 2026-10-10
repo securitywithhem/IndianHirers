@@ -19,35 +19,29 @@ QUALITY = 82
 # category -> (source folder, [(source file, slug, name, alt)])
 KEEP = {
     "bone-china": ("Crockery", [
-        ("Golden-Broder.jpeg", "golden-rim", "Golden Rim Bone China",
+        ("Gold Chain C..png", "golden-rim", "Golden Rim Bone China",
          "Bone china dinner plate, side plate and bowls with a woven gold rim"),
-        ("Green-Golden.jpeg", "emerald-gold", "Emerald & Gold Bone China",
+        ("Green Golden C..png", "emerald-gold", "Emerald & Gold Bone China",
          "Bone china place setting with emerald green and gold patterned borders"),
-        ("Haldi.jpeg", "haldi-ivory", "Haldi Ivory Bone China",
+        ("Haldi Ivory C..png", "haldi-ivory", "Haldi Ivory Bone China",
          "Warm ivory bone china plates, cup and bowls edged with a fine gold line"),
-        ("Plain-White.jpeg", "classic-white", "Classic White Bone China",
+        ("Plain White C..png", "classic-white", "Classic White Bone China",
          "Plain white bone china dinner plate, side plate and serving bowls"),
-        ("Spider.jpeg", "spiral-motif", "Spiral Motif Bone China",
+        ("Spiral  C..png", "spiral-motif", "Spiral Motif Bone China",
          "White bone china set decorated with black spiral motifs"),
+        ("Elegant Porcelain Dinnerware Still Life.png", "black-scallop",
+         "Black Scallop Bone China",
+         "Bone china dinner plate, side plate, cup and saucer and bowl with a black scallop lattice border and a fine gold rim"),
     ]),
     "melamine": ("Malemine", [
-        ("Black.jpeg", "matt-black", "Matt Black Melamine",
+        ("Black Matt M..png", "matt-black", "Matt Black Melamine",
          "Matt black melamine charger, dinner plate and two bowls"),
-        ("Blue-border.jpeg", "blue-rim", "Blue Rim Melamine Set",
+        ("Blue Matt M..png", "blue-matt", "Blue Matt Melamine Set",
+         "Blue matt melamine plates and bowls"),
+        ("White Matt M..png", "white-matt", "White Matt Melamine Set",
+         "White matt melamine plates and bowls"),
+        ("Bluerim.png", "blue-rim", "Blue Rim Melamine Set",
          "Melamine place setting with a fine blue rim, cutlery, bowls and cups"),
-        ("LightBlue.jpeg", "sky-blue", "Sky Blue Melamine Set",
-         "Melamine place setting with a light blue banded border and cutlery"),
-        ("Plain-white.jpeg", "ribbed-white", "Ribbed White Melamine",
-         "Ribbed off-white melamine plates and bowls"),
-        ("WhatsApp Image 2026-07-20 at 00.09.10 (2).jpeg", "textured-ivory",
-         "Textured Ivory Melamine",
-         "Ivory melamine plates with a brushed linear texture and matching bowls"),
-        ("WhatsApp Image 2026-07-20 at 00.09.10 (3).jpeg", "gold-medallion",
-         "Gold Medallion Melamine",
-         "Pale melamine plates and bowls with a gold medallion motif"),
-        ("WhatsApp Image 2026-07-20 at 00.09.11.jpeg", "blue-gold-border",
-         "Blue & Gold Border Melamine",
-         "Melamine dinner service with a blue geometric and gold border"),
     ]),
     "glassware": ("GlassWare", [
         ("WhatsApp Image 2026-07-20 at 00.09.12 (2).jpeg", "highball",
@@ -59,35 +53,48 @@ KEEP = {
         ("WhatsApp Image 2026-07-20 at 00.09.13.jpeg", "water-tumbler",
          "Straight Water Tumbler", "Straight-sided clear glass water tumbler"),
     ]),
+    # Backdrop for the Vintage collection, not a product: its cover only.
+    "vintage": ("Silverware", []),
+    "wooden": ("Wooden", [
+        ("Warm Wooden Tableware Collection.png", "wooden-plates",
+         "Wooden Plates",
+         "Round natural wooden plates and small bowls on a dark backdrop"),
+        ("Warm Wooden Kitchenware Display.png", "wooden-platters-display",
+         "Wooden Plates Display",
+         "Scalloped wooden platters and a wooden bowl beside a gold tiered stand"),
+    ]),
     "chafing-dishes": ("Chrafering-dish", [
-        ("WhatsApp Image 2026-07-20 at 00.09.54.jpeg", "brass-round",
-         "Round Brass Chafing Dish",
-         "Round polished brass chafing dish on a three-legged stand"),
-        ("WhatsApp Image 2026-07-20 at 00.09.55 (2).jpeg", "silver-carved-stand",
-         "Silver Chafer on Carved Stand",
-         "Silver chafing dish resting on an ornately carved metal stand"),
-        ("WhatsApp Image 2026-07-20 at 00.09.55.jpeg", "gold-hammered-square",
-         "Hammered Gold Square Chafer",
-         "Square gold chafing dish with a hammered lid on tapered legs"),
-        ("WhatsApp Image 2026-07-20 at 00.09.56 (1).jpeg", "brass-handi",
-         "Large Brass Handi Chafer",
-         "Large rounded brass handi chafing dish with a scrolled lid handle"),
-        ("WhatsApp Image 2026-07-20 at 00.09.57 (1).jpeg", "copper-ribbed-dome",
-         "Ribbed Copper Dome Chafer",
-         "Copper and silver ribbed chafing dish with a domed lid"),
+        ("Ornate Antique Bronze Vessel.png", "antique-bronze-vessel",
+         "Ornate Antique Bronze Vessel",
+         "Ornate antique bronze vessel"),
+        ("Ornate Golden Ribbed Serving Pot.png", "golden-ribbed-serving-pot",
+         "Ornate Golden Ribbed Serving Pot",
+         "Ornate golden ribbed serving pot"),
+        ("Ornate Golden Urn on Pedestal.png", "golden-urn-pedestal",
+         "Ornate Golden Urn on Pedestal",
+         "Ornate golden urn on pedestal"),
+        ("Ornate Hammered Brass Chafing Dish.png", "hammered-brass-chafing-dish",
+         "Ornate Hammered Brass Chafing Dish",
+         "Ornate hammered brass chafing dish"),
+        ("Golden Brass Canister on Dark Stone.png", "golden-brass-canister",
+         "Golden Brass Canister",
+         "Golden brass canister on dark stone"),
     ]),
 }
 
 # Dedicated category cover shots that are NOT product tiles.
 COVERS = {
+    "vintage": ("Silverware", "Ornate Silverware Still Life.png",
+                "Ornate silverware: engraved trays, a covered vessel and hammered bowls on a dark backdrop"),
     "bone-china": ("Crockery", "WhatsApp Image 2026-07-20 at 00.12.22.jpeg",
                    "Close detail of an emerald and gold bone china place setting"),
 }
 # Categories whose cover reuses an existing tile.
 COVER_FROM_TILE = {
-    "melamine": "blue-gold-border",
+    "melamine": "blue-rim",
     "glassware": "wine-glass",
-    "chafing-dishes": "brass-handi",
+    "wooden": "wooden-plates",
+    "chafing-dishes": "golden-urn-pedestal",
 }
 
 REJECTED = [
@@ -109,7 +116,6 @@ REJECTED = [
 # their own backdrop instead.
 PAD = {
     "glassware/highball", "glassware/wine-glass", "glassware/water-tumbler",
-    "chafing-dishes/brass-round", "chafing-dishes/gold-hammered-square",
 }
 
 

@@ -24,7 +24,7 @@ const ROUTES = process.env.SHOT_ROUTES
       ["home", "/"],
       ["collections", "/collections"],
       ["collections-bone-china", "/collections/bone-china"],
-      ["collections-premium-melamine", "/collections/premium-melamine"],
+      ["collections-melamine", "/collections/melamine"],
       ["collections-chafing-dishes", "/collections/chafing-dishes"],
       ["collections-heritage-silver", "/collections/heritage-silver"],
       ["collections-cutlery-and-serveware", "/collections/cutlery-and-serveware"],

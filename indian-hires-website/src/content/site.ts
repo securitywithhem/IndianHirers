@@ -14,8 +14,7 @@
  * import this module directly inside the client component instead.
  */
 import { env } from "@/lib/env";
-// A leaf module (no imports of its own), so this cannot become a cycle.
-import { hasTestimonials } from "./testimonialList";
+// No imports needed from testimonialList as the page is always active now
 
 // ---------------------------------------------------------------------------
 // Brand
@@ -177,13 +176,9 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 /**
- * Header and mobile drawer. Derived: the Testimonials entry is present only
- * when there is a testimonial to read (`hasTestimonials`). The route and its
- * page exist either way; the menus just do not send people to an empty page.
+ * Header and mobile drawer. The Testimonials entry is always present.
  */
-export const mainNav: NavItem[] = NAV_ITEMS.filter(
-  (item) => item.href !== routes.testimonials || hasTestimonials
-);
+export const mainNav: NavItem[] = NAV_ITEMS;
 
 /** Footer link list. Same destinations as the header, kept as its own export. */
 export const footerNav: NavItem[] = mainNav;
@@ -482,9 +477,7 @@ export const routeMetadata: Record<MetadataKey, RouteMetadata> = {
     title: "Testimonials",
     description: `What customers say about hiring from ${brand.name}, ${brand.city}.`,
     path: "/testimonials",
-    // Derived: not indexed (and so not in the sitemap) while no testimonials
-    // are published; indexed as soon as the list has an entry.
-    index: hasTestimonials,
+    index: true,
   },
   "/contact": {
     title: `Contact — Call, WhatsApp or Enquire in ${brand.city}`,

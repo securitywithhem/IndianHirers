@@ -136,9 +136,6 @@ export function firstScreenTiles(aspects: readonly TileAspect[]): { eager: numbe
  * Remove an id once its design is re-photographed (OPEN_ISSUES O13).
  */
 const WEAK_BACKDROP: readonly string[] = [
-  "chafing-dishes--silver-carved-stand",
-  "chafing-dishes--gold-hammered-square",
-  "chafing-dishes--brass-round",
 ];
 
 function permutations<T>(items: readonly T[]): T[][] {

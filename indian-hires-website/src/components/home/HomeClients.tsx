@@ -14,7 +14,6 @@ const CLIENTS = [
   { name: "Suba Hotels", logo: "/images/clients/suba.svg" },
   // Restaurants
   { name: "Spice Kraft", logo: "/images/clients/spice-kraft.png" },
-  { name: "Secret Kitchen", logo: "/images/clients/secret-kitchen.svg" },
   { name: "22nd Parallel", logo: "/images/clients/22nd-parallel.png" },
   // Caterers
   { name: "Shashi Catering Services", logo: "/images/clients/shashi-catering.png" },

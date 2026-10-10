@@ -19,7 +19,7 @@ export function generateStaticParams() {
 
 /*
  * /products/<old category> → its new collection (e.g. melamine →
- * /collections/premium-melamine). Issued by the page, so each one is
+ * /collections/melamine). Issued by the page, so each one is
  * prerendered; the mapping is `legacyRedirects` in the content module.
  */
 export default function LegacyCategoryPage({ params }: LegacyCategoryPageProps) {
