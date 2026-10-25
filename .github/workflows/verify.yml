@@ -1,0 +1,55 @@
+name: Verify
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, typecheck, build, tokens
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: indian-hires-website
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: indian-hires-website/package-lock.json
+
+      - name: Cache Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: indian-hires-website/.next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-${{ hashFiles('indian-hires-website/**/*.[jt]s', 'indian-hires-website/**/*.[jt]sx') }}
+          restore-keys: |
+            nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify (lint → typecheck → build → check-tokens)
+        run: npm run verify
+        env:
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
+          NEXT_PUBLIC_PHONE: ${{ vars.NEXT_PUBLIC_PHONE }}
+          NEXT_PUBLIC_PHONE_ALT: ${{ vars.NEXT_PUBLIC_PHONE_ALT }}
+          NEXT_PUBLIC_PHONE_JAY: ${{ vars.NEXT_PUBLIC_PHONE_JAY }}
+          NEXT_PUBLIC_WHATSAPP: ${{ vars.NEXT_PUBLIC_WHATSAPP }}
+          NEXT_PUBLIC_EMAIL: ${{ vars.NEXT_PUBLIC_EMAIL }}
+          NEXT_PUBLIC_MAP_EMBED_URL: ${{ vars.NEXT_PUBLIC_MAP_EMBED_URL }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_INSTAGRAM_URL: ${{ vars.NEXT_PUBLIC_INSTAGRAM_URL }}
+          NEXT_PUBLIC_FACEBOOK_URL: ${{ vars.NEXT_PUBLIC_FACEBOOK_URL }}
