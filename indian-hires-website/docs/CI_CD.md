@@ -25,21 +25,13 @@ merge to main ─▶ Verify workflow + Vercel production build (held, not live)
 
 Lighthouse in CI does not replace the ≥ 95 check in `QA_LOOP.md`.
 
-## One-time setup
+## Setup
 
-The gate does nothing until step 2 is done, and until then every push to `main` goes
-live immediately.
+The gate is a Deployment Check on the Vercel project, named **Quality gate**. See it
+under **indian-hirers → Settings → Build and Deployment → Deployment Checks**.
 
-1. Merge these workflows to `main` and let **Verify** finish once, so that Vercel can
-   see the check name.
-2. In Vercel, open **indian-hirers → Settings → Build and Deployment → Deployment
-   Checks → Add Checks → GitHub**, and select **Quality gate**.
-3. Confirm it holds: push a harmless commit to `main` and check that the deployment
-   waits on the check before `indian-hirers.vercel.app` changes. Vercel's docs describe
-   the hold in terms of custom domains and this project only has its `.vercel.app`
-   address, so this needs seeing once.
-4. When the real domain is live, set `NEXT_PUBLIC_SITE_URL` in Vercel and the
-   `PRODUCTION_URL` repository variable in GitHub.
+When the real domain is live, set `NEXT_PUBLIC_SITE_URL` in Vercel and the
+`PRODUCTION_URL` repository variable in GitHub.
 
 ## Day to day
 
@@ -47,6 +39,8 @@ live immediately.
   `npm run smoke -- <url>`.
 - **Gate failed:** open the failed step in the run. The logs and axe results are in
   the `quality-gate` artifact. Nothing has been released, so fix and push again.
+- **`next/font` error in the gate:** fetching Google Fonts from CI is intermittently
+  flaky. The step retries that error once; if it fails twice, re-run the job.
 - **A budget failed:** the ceilings are in `scripts/check-budgets.mjs` and
   `.claude/rules/performance.md`. Change both together, and only deliberately.
 - **Renaming the "Quality gate" job:** update the Deployment Check in Vercel as well,
