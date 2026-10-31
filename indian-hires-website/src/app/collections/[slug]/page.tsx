@@ -32,7 +32,7 @@ import { collectionMetadata, routeMetadata, routes, whatsappMessages } from "@/c
 import { collectionItemListJsonLd } from "@/lib/catalogue";
 
 interface CollectionPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 const ITEMS_HEADING_ID = "collection-items-heading";
@@ -50,13 +50,15 @@ export function generateStaticParams() {
   return collectionSlugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: CollectionPageProps) {
-  const collection = findCollection(params.slug);
+export async function generateMetadata({ params }: CollectionPageProps) {
+  const { slug } = await params;
+  const collection = findCollection(slug);
   return collection ? pageMetadata(collectionMetadata(collection)) : pageMetadata(routeMetadata.notFound);
 }
 
-export default function CollectionPage({ params }: CollectionPageProps) {
-  const collection = findCollection(params.slug);
+export default async function CollectionPage({ params }: CollectionPageProps) {
+  const { slug } = await params;
+  const collection = findCollection(slug);
   if (!collection) notFound();
 
   const { collectionPage, emptyCollection, collectionNotes, textOnly } = catalogueCopy;

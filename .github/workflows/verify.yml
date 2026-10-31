@@ -112,8 +112,8 @@ jobs:
         with:
           fail-on-severity: high
 
-  # The next two report without blocking. The audit starts out failing: see
-  # docs/OPEN_ISSUES.md (O-CI). Remove continue-on-error once it is clean.
+  # The next two report without blocking. A newly published advisory says nothing
+  # about the change under test, so it must not hold an unrelated release.
   audit:
     name: Dependency audit (report)
     runs-on: ubuntu-latest

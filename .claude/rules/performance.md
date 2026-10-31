@@ -47,11 +47,16 @@ FCP < 1.5s.
 
 | Route | Ceiling | Baseline (R0) |
 |---|---|---|
-| Shared by all | 90 kB | 87.3 kB |
+| Shared by all | 105 kB | 87.3 kB |
 | `/` | 185 kB, target ≤ 160 kB | 182 kB |
 | `/contact` | 140 kB | 138 kB |
-| `/collections`, `/collections/[slug]`, `/gallery` (R0: `/products`, `/products/[slug]`) | 110 kB | 101 kB |
-| `/founders`, `/testimonials`, 404 | 100 kB | 87.5–96.2 kB |
+| `/collections`, `/collections/[slug]`, `/gallery` (R0: `/products`, `/products/[slug]`) | 120 kB | 101 kB |
+| `/founders`, `/testimonials`, 404 | 110 kB | 87.5–96.2 kB |
 
 A route over its ceiling fails the phase. Paste the build table into the phase's
-evidence so the comparison is visible.
+evidence so the comparison is visible. `scripts/check-budgets.mjs` enforces these in CI.
+
+The shared, collection, gallery, founders, testimonials and 404 ceilings rose by 10–15 kB
+with the move to Next 15, which added that much framework code to every route (shared
+87.6 → 103 kB) to close its security advisories. Lighthouse was unchanged on the routes
+measured (`docs/OPEN_ISSUES.md`, CI/CD). That headroom is the framework's, not for features.
