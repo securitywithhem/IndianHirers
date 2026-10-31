@@ -142,7 +142,8 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build
-        run: npm run build
+        # Report only, so a plain retry is enough for the Google Fonts flake (see the gate).
+        run: npm run build || { sleep 20; npm run build; }
 
       - name: Start the production build
         run: |
