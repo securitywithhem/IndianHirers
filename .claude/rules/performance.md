@@ -58,5 +58,6 @@ evidence so the comparison is visible. `scripts/check-budgets.mjs` enforces thes
 
 The shared, collection, gallery, founders, testimonials and 404 ceilings rose by 10–15 kB
 with the move to Next 15, which added that much framework code to every route (shared
-87.6 → 103 kB) to close its security advisories. Lighthouse was unchanged on the routes
-measured (`docs/OPEN_ISSUES.md`, CI/CD). That headroom is the framework's, not for features.
+87.6 → 103 kB) to close its security advisories. Its Lighthouse effect is not settled:
+level locally, lower on `/` and `/gallery` in CI (`docs/OPEN_ISSUES.md`, CI/CD). That
+headroom is the framework's, not for features.
