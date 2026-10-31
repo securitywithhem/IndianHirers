@@ -53,6 +53,9 @@ jobs:
           restore-keys: |
             nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-
 
+      - name: Catalogue tests
+        run: npm run test:catalogue
+
       - name: Verify (lint → typecheck → build → check-tokens)
         # Fetching Google Fonts from CI runners fails now and then, crashing next/font.
         # Retry that one error so it cannot hold a release; anything else fails at once.
@@ -109,23 +112,8 @@ jobs:
         with:
           fail-on-severity: high
 
-  # The next three report without blocking. The first two start out failing:
-  # see docs/OPEN_ISSUES.md (O-CI). Remove continue-on-error once they are clean.
-  catalogue-tests:
-    name: Catalogue tests (report)
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    continue-on-error: true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Catalogue tests
-        run: npm run test:catalogue
-
+  # The next two report without blocking. The audit starts out failing: see
+  # docs/OPEN_ISSUES.md (O-CI). Remove continue-on-error once it is clean.
   audit:
     name: Dependency audit (report)
     runs-on: ubuntu-latest

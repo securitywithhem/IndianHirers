@@ -15,10 +15,9 @@ merge to main ─▶ Verify workflow + Vercel production build (held, not live)
 
 | Check | Workflow | When | Blocks release? |
 |---|---|---|---|
-| **Quality gate**: lint, typecheck, build, tokens, First Load JS budgets, smoke test, axe | `verify.yml` | PRs, pushes to `main` | **Yes** |
+| **Quality gate**: catalogue tests, lint, typecheck, build, tokens, First Load JS budgets, smoke test, axe | `verify.yml` | PRs, pushes to `main` | **Yes** |
 | Dependency review: new high-severity packages | `verify.yml` | PRs | Only if made required in GitHub |
-| Catalogue tests (report) | `verify.yml` | PRs, pushes to `main` | No, 4 known failures (`OPEN_ISSUES.md` CI3) |
-| Dependency audit (report) | `verify.yml` | PRs, pushes to `main` | No, known advisories (`OPEN_ISSUES.md` CI4) |
+| Dependency audit (report) | `verify.yml` | PRs, pushes to `main` | No, known advisories (`OPEN_ISSUES.md` CI3) |
 | Lighthouse mobile (report), scores in the job summary | `verify.yml` | After the gate passes | No, CI runners are too noisy to gate on |
 | Production smoke test | `post-deploy.yml` | Each promotion, daily at 07:00 IST, on demand | No, it runs after release |
 | Dependabot: weekly minor and patch updates | `dependabot.yml` | Weekly | Goes through the same gate |

@@ -127,7 +127,7 @@ test("hidden entries are never returned", () => {
 
 test("no hidden entry leaves the module through a collection", () => {
   const hidden = content.collections.flatMap((c) => c.items).filter((i) => i.status !== "available");
-  assert.equal(hidden.length, 9, "the fixture has hidden entries to leak");
+  assert.equal(hidden.length, 3, "the fixture has hidden entries to leak");
   const viaList = getCollections().flatMap((c) => c.items);
   const viaSlug = content.collectionSlugs.flatMap((slug) => getCollection(slug).items);
   for (const exposed of [viaList, viaSlug]) {
@@ -157,13 +157,13 @@ test("finish filter matches any of an item's finishes", () => {
 
 test("pieceType filter", () => {
   const soupSets = getItems({ pieceType: "soup-set" });
-  assert.equal(soupSets.length, 12);
+  assert.equal(soupSets.length, 11);
   assert.ok(
     soupSets.every((i) =>
       ["bone-china", "melamine"].includes(i.collection)
     )
   );
-  assert.equal(getItems({ pieceType: "soup-set", collection: "melamine" }).length, 7);
+  assert.equal(getItems({ pieceType: "soup-set", collection: "melamine" }).length, 3);
   assert.deepEqual(names(getItems({ pieceType: "mug" })), ["Mug"]);
   assert.deepEqual(
     names(getItems({ pieceType: "bowl", collection: "melamine" })),
@@ -372,13 +372,13 @@ test("chat plates: the catalogue's eleven lines map to eight entries, none extra
   );
 });
 
-test("placeholders: silver-plated range, six chafing dish designs, cutlery & serveware", () => {
+test("placeholders: silver-plated range, cutlery & serveware; none left in chafing dishes", () => {
   const silver = names(allEntries("heritage-silver"));
   for (const name of ["Silver-Plated Plates", "Silver-Plated Cutlery", "Tableware"]) {
     assert.equal(silver.filter((n) => n === name).length, 1, name);
   }
   const todo = allEntries("chafing-dishes").filter((entry) => entry.status === "todo");
-  assert.equal(todo.length, 6);
+  assert.equal(todo.length, 0);
   assert.deepEqual(allEntries("cutlery-and-serveware"), []);
 });
 
