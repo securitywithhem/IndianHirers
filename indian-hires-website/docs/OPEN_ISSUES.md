@@ -5,6 +5,17 @@ says what is blocking it. Copy assumptions awaiting the owner's confirmation are
 listed separately, with file and key and the original wording, in
 `docs/COPY_TO_CONFIRM.md`.
 
+## CI/CD (O-CI)
+
+Found while building the pipeline (`docs/CI_CD.md`). CI reports the audit without
+blocking; remove `continue-on-error` from its job once it is clean.
+
+| # | Item | Where it shows | What is needed |
+|---|---|---|---|
+| CI1 | **The live site has no enquiry form.** `NEXT_PUBLIC_WEB3FORMS_KEY` is not set in Vercel (or in `.env.local`), and the form only renders when it is. WhatsApp, phone and email links still work | `/contact` | Create a Web3Forms key, add it to Vercel production and preview, redeploy |
+| CI2 | No map on the live site: `NEXT_PUBLIC_MAP_EMBED_URL` is not set in Vercel | `/contact` | The Google Maps embed URL for the Akota office |
+| CI3 | `npm audit --omit=dev`: 25 advisories (2 critical, 14 high). The critical ones are `next` (fix requires a major upgrade to 16) and `proxy-addr`; `zod` needs a major too. Many come through `shadcn`, a CLI listed under `dependencies` | CI job "Dependency audit (report)" | Plan the Next upgrade through the QA loop; decide whether `shadcn` moves to devDependencies |
+
 ## Needs the owner — Phase R1
 
 | # | Item | Where it shows | What is needed |

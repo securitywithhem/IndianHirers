@@ -77,7 +77,11 @@ npm run lint        # next lint
 npm run typecheck   # tsc --noEmit
 npm run build       # next build
 npm run verify      # lint → typecheck → build → check-tokens; stops at first failure
+npm run smoke -- <base-url>             # routes, redirects, enquiry links, no prices
+npm run check:budgets -- <build-log>    # First Load JS ceilings, from `next build` output
 ```
+
+CI/CD (GitHub Actions gate, Vercel release, rollback): `indian-hires-website/docs/CI_CD.md`.
 
 **Server discipline — same order every iteration.** `verify` refuses to run while port
 3001 is in use (a build under a live dev server corrupts `.next`).

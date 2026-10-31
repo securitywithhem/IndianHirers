@@ -13,6 +13,10 @@
 /.next/
 /out/
 
+# CI output, when the same steps are run locally
+/verify.log
+/ci-audit/
+
 # production
 /build
 

@@ -1,0 +1,17 @@
+name: Setup
+description: Node from .nvmrc (same major as the Vercel project) and a clean npm install.
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version-file: indian-hires-website/.nvmrc
+        cache: npm
+        cache-dependency-path: indian-hires-website/package-lock.json
+
+    - name: Install dependencies
+      shell: bash
+      working-directory: indian-hires-website
+      run: npm ci

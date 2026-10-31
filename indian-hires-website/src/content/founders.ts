@@ -144,9 +144,9 @@ export const founders: FoundersContent = {
         ],
         pullQuotes: [
           // The story's closing line, set after its opening paragraph.
-          { text: "Carried forward across generations, from grandfather to father to son.", afterParagraph: 0 },
+          { text: "Carried forward from grandfather, to father, to son.", afterParagraph: 0 },
           // From the 2001 paragraph, set after the next one.
-          { text: "With nothing more than a handful of steel plates and a will to serve", afterParagraph: 2 },
+          { text: "With nothing more than a handful of steel plates and a drive to build something lasting", afterParagraph: 2 },
         ],
       },
       {
