@@ -2,7 +2,7 @@ import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { legacyRedirects } from "@/content/collections";
 
 interface LegacyCategoryPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 /* The parent of this file's route: the old category pages lived under it. */
@@ -22,8 +22,9 @@ export function generateStaticParams() {
  * /collections/melamine). Issued by the page, so each one is
  * prerendered; the mapping is `legacyRedirects` in the content module.
  */
-export default function LegacyCategoryPage({ params }: LegacyCategoryPageProps) {
-  const rule = legacyRedirects.find((candidate) => candidate.source === `${LEGACY_PREFIX}${params.slug}`);
+export default async function LegacyCategoryPage({ params }: LegacyCategoryPageProps) {
+  const { slug } = await params;
+  const rule = legacyRedirects.find((candidate) => candidate.source === `${LEGACY_PREFIX}${slug}`);
   if (!rule) notFound();
   if (rule.permanent) permanentRedirect(rule.destination);
   redirect(rule.destination);

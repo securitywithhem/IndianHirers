@@ -7,14 +7,14 @@ listed separately, with file and key and the original wording, in
 
 ## CI/CD (O-CI)
 
-Found while building the pipeline (`docs/CI_CD.md`). CI reports the audit without
-blocking; remove `continue-on-error` from its job once it is clean.
+Found while building the pipeline (`docs/CI_CD.md`).
 
 | # | Item | Where it shows | What is needed |
 |---|---|---|---|
 | CI1 | **The live site has no enquiry form.** `NEXT_PUBLIC_WEB3FORMS_KEY` is not set in Vercel (or in `.env.local`), and the form only renders when it is. WhatsApp, phone and email links still work | `/contact` | Create a Web3Forms key, add it to Vercel production and preview, redeploy |
 | CI2 | No map on the live site: `NEXT_PUBLIC_MAP_EMBED_URL` is not set in Vercel | `/contact` | The Google Maps embed URL for the Akota office |
-| CI3 | `npm audit --omit=dev`: 25 advisories (2 critical, 14 high). The critical ones are `next` (fix requires a major upgrade to 16) and `proxy-addr`; `zod` needs a major too. Many come through `shadcn`, a CLI listed under `dependencies` | CI job "Dependency audit (report)" | Plan the Next upgrade through the QA loop; decide whether `shadcn` moves to devDependencies |
+| CI3 | Dev-only advisories remain in `npm audit` (24, 1 high): the ESLint 8 toolchain and the `shadcn` CLI. None ships to visitors, and production dependencies report 0 | Local `npm audit` | Move to ESLint 9 and Next 16 as planned work; Next 16 also needs React 19 and a replacement for `next lint` |
+| CI4 | Next 15 raised First Load JS by 10–15 kB per route; ceilings were rebased (`.claude/rules/performance.md`). Local Lighthouse mobile, median of 3, Next 15 vs 14: `/` 96 vs 94, `/collections` 96 vs 97, `/gallery` 95 vs 95, `/founders` 98 vs 98. `/gallery` swings on both, with single runs of 84–85 at LCP 4.5s. CI, one run each, Next 15 vs 14: `/` 67 vs 77, `/gallery` 88 vs 96, the other six within 2 points | `/`, `/gallery` | Re-measure both on production after release; investigate the homepage's script cost and the gallery's LCP variance |
 
 ## Needs the owner — Phase R1
 

@@ -11,16 +11,16 @@
  */
 import { readFileSync } from "node:fs";
 
-const SHARED_CEILING = 90;
+const SHARED_CEILING = 105;
 const CEILINGS = {
   "/": 185,
   "/contact": 140,
-  "/collections": 110,
-  "/collections/[slug]": 110,
-  "/gallery": 110,
-  "/founders": 100,
-  "/testimonials": 100,
-  "/_not-found": 100,
+  "/collections": 120,
+  "/collections/[slug]": 120,
+  "/gallery": 120,
+  "/founders": 110,
+  "/testimonials": 110,
+  "/_not-found": 110,
 };
 
 const file = process.argv[2];

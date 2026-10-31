@@ -42,7 +42,7 @@ Colour: the palette is warm, hue 10°–46°, sampled from the logo (`#702010`).
 
 ## Stack
 
-Next.js 14 App Router · TypeScript strict · Tailwind 3 · shadcn/ui · lucide-react ·
+Next.js 15 App Router (on React 18) · TypeScript strict · Tailwind 3 · shadcn/ui · lucide-react ·
 react-hook-form + zod · Web3Forms · Vercel.
 
 **Motion: `motion`** (framer-motion's successor), installed in R1. `framer-motion`, `gsap`
