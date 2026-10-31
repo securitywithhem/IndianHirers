@@ -12,7 +12,7 @@ const legacyRedirects = [
   { source: "/products", destination: "/collections" },
   { source: "/products/vintage", destination: "/collections/heritage-silver" },
   { source: "/products/bone-china", destination: "/collections/bone-china" },
-  { source: "/products/melamine", destination: "/collections/premium-melamine" },
+  { source: "/products/melamine", destination: "/collections/melamine" },
   { source: "/products/glassware", destination: "/collections/glassware" },
   { source: "/products/chafing-dishes", destination: "/collections/chafing-dishes" },
 ];

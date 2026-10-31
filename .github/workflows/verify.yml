@@ -1,55 +1,180 @@
+# CI for the Indian Hirers site. Vercel holds each production deployment until the
+# "Quality gate" job passes, so renaming that job means updating the Deployment
+# Check in the Vercel project too. Full picture: indian-hires-website/docs/CI_CD.md
 name: Verify
 
 on:
   push:
-    branches: ["**"]
+    branches: [main]
   pull_request:
-    branches: ["**"]
+  workflow_dispatch:
 
 concurrency:
-  group: verify-${{ github.workflow }}-${{ github.ref }}
+  group: verify-${{ github.ref }}
   cancel-in-progress: true
 
-jobs:
-  verify:
-    name: Lint, typecheck, build, tokens
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: indian-hires-website
+permissions:
+  contents: read
 
+# Public contact details, so the checks see a populated site. Production values
+# live in Vercel; these never reach a deployment.
+env:
+  NEXT_TELEMETRY_DISABLED: "1"
+  NEXT_PUBLIC_PHONE: "+918734090908"
+  NEXT_PUBLIC_PHONE_ALT: "+919825037478"
+  NEXT_PUBLIC_PHONE_JAY: "+919925515029"
+  NEXT_PUBLIC_WHATSAPP: "918734090908"
+  NEXT_PUBLIC_EMAIL: "indianhires@gmail.com"
+  NEXT_PUBLIC_SITE_URL: "https://indian-hirers.vercel.app"
+  BASE_URL: "http://localhost:3101"
+
+defaults:
+  run:
+    shell: bash
+    working-directory: indian-hires-website
+
+jobs:
+  gate:
+    name: Quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "npm"
-          cache-dependency-path: indian-hires-website/package-lock.json
+      - name: Setup
+        uses: ./.github/actions/setup
 
       - name: Cache Next.js build cache
-        uses: actions/cache@v4
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: indian-hires-website/.next/cache
-          key: nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-${{ hashFiles('indian-hires-website/**/*.[jt]s', 'indian-hires-website/**/*.[jt]sx') }}
+          key: nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-${{ hashFiles('indian-hires-website/src/**') }}
           restore-keys: |
             nextjs-${{ runner.os }}-${{ hashFiles('indian-hires-website/package-lock.json') }}-
 
-      - name: Install dependencies
-        run: npm ci
-
       - name: Verify (lint → typecheck → build → check-tokens)
-        run: npm run verify
+        run: npm run verify 2>&1 | tee verify.log
+
+      - name: First Load JS budgets
+        run: npm run check:budgets -- verify.log
+
+      - name: Start the production build
+        run: |
+          npx next start -p 3101 &
+          curl --silent --show-error --fail --retry 30 --retry-connrefused --retry-delay 1 --output /dev/null "$BASE_URL"
+
+      - name: Smoke test
+        run: npm run smoke -- "$BASE_URL"
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility (axe)
+        run: node scripts/audit.mjs axe "$BASE_URL"
         env:
-          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
-          NEXT_PUBLIC_PHONE: ${{ vars.NEXT_PUBLIC_PHONE }}
-          NEXT_PUBLIC_PHONE_ALT: ${{ vars.NEXT_PUBLIC_PHONE_ALT }}
-          NEXT_PUBLIC_PHONE_JAY: ${{ vars.NEXT_PUBLIC_PHONE_JAY }}
-          NEXT_PUBLIC_WHATSAPP: ${{ vars.NEXT_PUBLIC_WHATSAPP }}
-          NEXT_PUBLIC_EMAIL: ${{ vars.NEXT_PUBLIC_EMAIL }}
-          NEXT_PUBLIC_MAP_EMBED_URL: ${{ vars.NEXT_PUBLIC_MAP_EMBED_URL }}
-          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
-          NEXT_PUBLIC_INSTAGRAM_URL: ${{ vars.NEXT_PUBLIC_INSTAGRAM_URL }}
-          NEXT_PUBLIC_FACEBOOK_URL: ${{ vars.NEXT_PUBLIC_FACEBOOK_URL }}
+          AUDIT_STRICT: "1"
+          AUDIT_OUT: ci-audit
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: quality-gate
+          path: |
+            indian-hires-website/verify.log
+            indian-hires-website/ci-audit/
+          retention-days: 14
+          if-no-files-found: ignore
+
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Block new high-severity dependencies
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high
+
+  # The next three report without blocking. The first two start out failing:
+  # see docs/OPEN_ISSUES.md (O-CI). Remove continue-on-error once they are clean.
+  catalogue-tests:
+    name: Catalogue tests (report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Catalogue tests
+        run: npm run test:catalogue
+
+  audit:
+    name: Dependency audit (report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+  # Shared runners are too noisy to gate on these scores, so the 95 target is
+  # still confirmed per docs/QA_LOOP.md; this shows the trend on every change.
+  lighthouse:
+    name: Lighthouse mobile (report)
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Build
+        run: npm run build
+
+      - name: Start the production build
+        run: |
+          npx next start -p 3101 &
+          curl --silent --show-error --fail --retry 30 --retry-connrefused --retry-delay 1 --output /dev/null "$BASE_URL"
+
+      - name: Lighthouse
+        run: node scripts/audit.mjs lighthouse "$BASE_URL"
+        env:
+          LH_PRESETS: mobile
+          AUDIT_OUT: ci-audit
+
+      - name: Write the job summary
+        run: |
+          {
+            echo "### Lighthouse mobile (one run, shared CI runner)"
+            echo "| Route | Perf | A11y | LCP | CLS |"
+            echo "|---|---:|---:|---:|---:|"
+            node -e '
+              const rows = JSON.parse(require("fs").readFileSync("ci-audit/lighthouse-summary.json", "utf8"));
+              for (const r of rows) console.log(r.error ? `| ${r.route} | error | | | |` : `| ${r.route} | ${r.perf} | ${r.a11y} | ${r.lcp} | ${r.cls} |`);
+            '
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse
+          path: indian-hires-website/ci-audit/
+          retention-days: 14
+          if-no-files-found: ignore

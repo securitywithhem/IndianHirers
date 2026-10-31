@@ -14,7 +14,8 @@
  * Optional: LH_RUNS=3 runs Lighthouse that many times per route and preset and
  * reports the median by performance score (every run's JSON is kept);
  * LH_PRESETS=mobile limits the presets; PW_CHROMIUM / CHROME_PATH point at a
- * Chromium binary when Playwright's own is not installed.
+ * Chromium binary when Playwright's own is not installed; AUDIT_STRICT=1 makes
+ * `axe` exit 1 on any violation (CI).
  */
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -63,6 +64,7 @@ if (mode === "axe") {
   await browser.close();
   writeFileSync(`${outDir}/axe.json`, JSON.stringify(report, null, 2));
   console.log(`\naxe: ${total} violation group(s) across ${ROUTES.length} routes × 2 widths → ${outDir}/axe.json`);
+  if (total > 0 && process.env.AUDIT_STRICT === "1") process.exitCode = 1;
 } else if (mode === "lighthouse") {
   const rows = [];
   const runs = Number(process.env.LH_RUNS ?? 1);
