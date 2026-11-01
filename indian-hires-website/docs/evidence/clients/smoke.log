@@ -1,0 +1,26 @@
+
+> indian-hires-website@0.1.0 smoke
+> node scripts/smoke.mjs http://localhost:3001
+
+smoke: http://localhost:3001
+
+ok    / is up, named, and shows no price
+ok    /collections is up, named, and shows no price
+ok    /collections/bone-china is up, named, and shows no price
+ok    /founders is up, named, and shows no price
+ok    /gallery is up, named, and shows no price
+ok    /testimonials is up, named, and shows no price
+ok    /contact is up, named, and shows no price
+ok    /contact has WhatsApp, phone and email links
+ok    /products redirects permanently to a live page
+ok    /products/vintage redirects permanently to a live page
+ok    /products/bone-china redirects permanently to a live page
+ok    /products/melamine redirects permanently to a live page
+ok    /products/glassware redirects permanently to a live page
+ok    /products/chafing-dishes redirects permanently to a live page
+ok    /robots.txt is served
+ok    /sitemap.xml is served
+ok    /design-system is a 404
+ok    /no-such-page is a 404
+
+smoke: ALL PASS

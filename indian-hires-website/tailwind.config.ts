@@ -254,10 +254,10 @@ const config = {
           from: { transform: "translate3d(0, calc(100% + 1rem), 0)" },
           to: { transform: "translate3d(0, 0, 0)" },
         },
-        // Continuous horizontal marquee for client logos/text.
+        // The client slider (<Marquee>): two equal copies, so -50% is one full set.
         marquee: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - 2rem))" }, // 2rem matches the gap-x-8
+          from: { transform: "translate3d(0, 0, 0)" },
+          to: { transform: "translate3d(-50%, 0, 0)" },
         },
       },
       animation: {
@@ -274,7 +274,7 @@ const config = {
         "enter-rise": `enter-rise 500ms ${EASE_ROYAL} backwards`,
         "enter-fade": `enter-fade 400ms ${EASE_ROYAL} backwards`,
         "bar-rise": `bar-rise 500ms ${EASE_ROYAL} 1200ms backwards`,
-        marquee: "marquee 50s linear infinite",
+        marquee: "marquee 45s linear infinite",
       },
     },
   },

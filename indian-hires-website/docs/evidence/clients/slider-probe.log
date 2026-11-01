@@ -1,0 +1,29 @@
+390 {"a":2016,"b":2016,"widerThanScreen":true,"anim":"marquee","lis":9,"over":false,"broken":0,"dup":"true","moved":-27.6}
+Taj Vivanta, Vadodara | Taj Vivanta, Kevadia | Fern, Vadodara | Fern, Kevadia | Fortune, Vadodara | Fortune, Kevadia | Shashi Catering Services Pvt Ltd | Sayaji Hotels | Suba Hotels
+768 {"a":2304,"b":2303.999755859375,"widerThanScreen":true,"anim":"marquee","lis":9,"over":false,"broken":0,"dup":"true","moved":-30.7}
+1280 {"a":2304,"b":2303.999755859375,"widerThanScreen":true,"anim":"marquee","lis":9,"over":false,"broken":0,"dup":"true","moved":-31.6}
+focusables in section 1
+1920 {"a":2304,"b":2303.999755859375,"widerThanScreen":true,"anim":"marquee","lis":9,"over":false,"broken":0,"dup":"true","moved":-30.7}
+reduced 390 {"anim":"none","visibleLis":9,"btn":0,"over":false,"offscreen":0}
+reduced 1280 {"anim":"none","visibleLis":9,"btn":0,"over":false,"offscreen":0}
+running -25.59
+hover 0
+off slider, running -26.45
+button paused 0 Play the hotel logos
+keyboard resumed -25.6 Pause the hotel logos
+keyboard paused 0
+button size 44 44
+touch hover:hover? false
+after tap on logos, moved -22.4
+tap pause, moved 0 Play the hotel logos
+tap play, moved -23.15 Pause the hotel logos
+images {"total":18,"loaded":18,"srcs":["384"]}
+logo requests at page top 0
+after scrolling to section 18/18 loaded requests 6
+390 {"clip":390,"blankAtEnd":0,"unloaded":0,"scroll":false}
+1920 {"clip":1920,"blankAtEnd":0,"unloaded":0,"scroll":false}
+2304 {"clip":2304,"blankAtEnd":0,"unloaded":0,"scroll":false}
+2560 {"clip":2304,"blankAtEnd":0,"unloaded":0,"scroll":false}
+3440 {"clip":2304,"blankAtEnd":0,"unloaded":0,"scroll":false}
+axe reduced, section: 0
+reduced: images still lazy true

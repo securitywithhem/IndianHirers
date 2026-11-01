@@ -1,64 +1,53 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion";
+import { Marquee } from "@/components/motion/Marquee";
+import { SectionHeading } from "@/components/ornament";
 import { Band } from "@/components/shared/Band";
+import { home } from "@/content/home";
 
-const CLIENTS = [
-  // Hotels
-  { name: "Taj Vivanta, Vadodara", logo: "/images/clients/taj-vivanta.png" },
-  { name: "Taj Vivanta, Kevadia", logo: "/images/clients/taj-vivanta.png" },
-  { name: "Fern, Vadodara", logo: "/images/clients/fern.png" },
-  { name: "Fern, Kevadia", logo: "/images/clients/fern.png" },
-  { name: "Fortune, Vadodara", logo: "/images/clients/fortune.png" },
-  { name: "Fortune, Kevadia", logo: "/images/clients/fortune.png" },
-  { name: "Sayaji Hotels", logo: "/images/clients/sayaji.png" },
-  { name: "Suba Hotels", logo: "/images/clients/suba.svg" },
-  // Restaurants
-  { name: "Spice Kraft", logo: "/images/clients/spice-kraft.png" },
-  { name: "22nd Parallel", logo: "/images/clients/22nd-parallel.png" },
-  // Caterers
-  { name: "Shashi Catering Services", logo: "/images/clients/shashi-catering.png" },
-  { name: "Sukhadiya", logo: "/images/clients/sukhadiya.svg" },
-  { name: "Patel", logo: "/images/clients/patel.svg" },
-  { name: "New Patel", logo: "/images/clients/new-patel.svg" },
-  { name: "Shyam", logo: "/images/clients/shyam.svg" },
-  { name: "Jay / Pepper Cream", logo: "/images/clients/jay-pepper-cream.svg" },
-  { name: "Kuisine", logo: "/images/clients/kuisine.svg" },
-];
+const HEADING_ID = "home-clients-heading";
 
+/**
+ * The hotels the family serves, as a full-bleed slider of their logos. Each
+ * logo is `alt=""` because the name is printed under it, which is also what
+ * tells the two Taj Vivanta, Fern and Fortune entries apart.
+ *
+ * Nine tiles of 224–256px make one set at most 2304px wide, so the slider stops
+ * growing there (144rem) and never shows a gap. Gold hairlines separate the
+ * tiles, as in the trust strip. Under reduced motion the tiles wrap, still and
+ * centred.
+ */
 export function HomeClients() {
-  // To make the marquee infinite seamlessly, we duplicate the list
-  const TickerList = () => (
-    <ul className="flex items-center gap-x-12 md:gap-x-16 shrink-0 animate-marquee hover:[animation-play-state:paused] pr-12 md:pr-16">
-      {CLIENTS.map((client, i) => (
-        <li key={`${client.name}-${i}`} className="flex items-center shrink-0">
-          <div className="relative h-10 w-32 md:h-12 md:w-40 opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-            <Image
-              src={client.logo}
-              alt={`${client.name} logo`}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 128px, 160px"
-            />
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
+  const { clients } = home;
 
   return (
-    <Band tone="ivory-alt" size="sm" className="border-t border-hairline/20 overflow-hidden" innerClassName="flex flex-col items-center">
-      <Reveal>
-        <h2 className="type-caption text-kicker mb-10 text-center uppercase tracking-widest">
-          Trusted by Industry Leaders
-        </h2>
+    <Band tone="ivory-alt" aria-labelledby={HEADING_ID} innerClassName="max-w-none px-0">
+      <Reveal className="shell flex flex-col items-center">
+        <SectionHeading as="h2" id={HEADING_ID} align="center" heading={clients.heading} />
       </Reveal>
 
-      <Reveal className="w-full relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        {/* We need two lists side-by-side to make the loop seamless */}
-        <div className="flex min-w-full">
-          <TickerList />
-          <TickerList />
-        </div>
+      <Reveal className="mt-10 md:mt-14">
+        <Marquee maxWidthClass="max-w-[144rem]" pauseLabel={clients.pauseLabel} playLabel={clients.playLabel}>
+          <ul role="list" className="flex motion-reduce:flex-wrap motion-reduce:justify-center">
+            {clients.hotels.map((hotel) => (
+              <li
+                key={hotel.name}
+                className="flex w-56 shrink-0 flex-col items-center gap-4 border-l border-hairline/40 px-6 text-center motion-reduce:w-1/2 motion-reduce:border-l-0 motion-reduce:px-3 motion-reduce:py-4 md:w-64 motion-reduce:md:w-64"
+              >
+                <Image
+                  src={hotel.logo.src}
+                  alt=""
+                  aria-hidden="true"
+                  width={hotel.logo.width}
+                  height={hotel.logo.height}
+                  sizes="(min-width: 768px) 208px, 176px"
+                  className="h-20 w-full object-contain"
+                />
+                <p className="type-small min-h-[3.1em] text-balance text-muted-foreground">{hotel.name}</p>
+              </li>
+            ))}
+          </ul>
+        </Marquee>
       </Reveal>
     </Band>
   );

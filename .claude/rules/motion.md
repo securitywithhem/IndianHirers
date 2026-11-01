@@ -74,6 +74,16 @@ No `ease-in` on entrances. No bounce or elastic — it reads as playful, not dig
   single frame, stops loops and turns off smooth scrolling. It is a net, not the gate:
   each animation must still be written `motion-safe:` or behind a primitive. With the net
   in place the permitted ≤ 200ms opacity fades are instant under reduced motion.
+- **Client logo slider (owner's request, Nov 2026).** The home page's hotel logos may loop
+  continuously through `<Marquee>`: `transform` only, `linear`, 45s, outside the no-loops
+  rule above. It stops on hover and has a visible pause control (WCAG 2.2.2). Under
+  reduced motion it does not move. No other marquee without the owner's approval.
+  It does not stop when its control takes focus: the moving track holds nothing
+  focusable, and stopping there would make Play appear to do nothing after a click.
+  Its logos start lazy and all load when the section is within 800px of the screen:
+  a lazy image in the clipped track only loads once on screen, so it would enter blank.
+  That observer is gated on the `prefers-reduced-motion` query, not `useMotionPreference`:
+  on a low-power device the hook says reduce while the CSS animation still runs.
 - **Card hover (owner's brief).** The card image zoom runs 700ms (`duration-zoom`, scale
   1.04) and the card lift 350ms; both are `motion-safe:` and outside the 150–200ms hover
   row, which still applies to colour and focus changes. The gallery's photograph tiles
