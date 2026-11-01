@@ -31,6 +31,9 @@ export type { EnterOnLoadProps, EnterOnLoadTag, EnterStep } from "./EnterOnLoad"
 export { SlideUpAfter } from "./SlideUpAfter";
 export type { SlideUpAfterProps, SlideUpAfterTag } from "./SlideUpAfter";
 
+/* `Marquee` is not re-exported: its icons would reach every route that imports
+ * from here, and two went over budget. Import "@/components/motion/Marquee". */
+
 /* Chrome. */
 export { PageFade } from "./PageFade";
 export type { PageFadeProps } from "./PageFade";

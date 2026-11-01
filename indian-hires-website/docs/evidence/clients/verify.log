@@ -1,0 +1,99 @@
+
+> indian-hires-website@0.1.0 verify
+> bash scripts/verify.sh
+
+
+==> [1/4 lint] npm run lint
+
+> indian-hires-website@0.1.0 lint
+> next lint
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/hemgabhawala/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/hemgabhawala/Desktop/Hem/IndianHirers/indian-hires-website/package-lock.json
+
+✔ No ESLint warnings or errors
+==> [1/4 lint] PASS
+
+==> [2/4 typecheck] npm run typecheck
+
+> indian-hires-website@0.1.0 typecheck
+> tsc --noEmit
+
+==> [2/4 typecheck] PASS
+
+==> [3/4 build] npm run build
+
+> indian-hires-website@0.1.0 build
+> next build
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/hemgabhawala/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/hemgabhawala/Desktop/Hem/IndianHirers/indian-hires-website/package-lock.json
+
+   ▲ Next.js 15.5.28
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.4s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/28) ...
+   Generating static pages (7/28) 
+   Generating static pages (14/28) 
+   Generating static pages (21/28) 
+ ✓ Generating static pages (28/28)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    1.44 kB         116 kB
+├ ○ /_not-found                            135 B         103 kB
+├ ○ /collections                         2.46 kB         117 kB
+├ ● /collections/[slug]                  3.47 kB         118 kB
+├   ├ /collections/heritage-silver
+├   ├ /collections/bone-china
+├   ├ /collections/melamine
+├   └ [+5 more paths]
+├ ○ /contact                             1.32 kB         108 kB
+├ ○ /design-system                         174 B         112 kB
+├ ○ /founders                              208 B         110 kB
+├ ○ /gallery                             4.14 kB         119 kB
+├ ○ /products                              135 B         103 kB
+├ ● /products/[slug]                       135 B         103 kB
+├   ├ /products/vintage
+├   ├ /products/bone-china
+├   ├ /products/melamine
+├   └ [+3 more paths]
+├ ○ /robots.txt                            135 B         103 kB
+├ ○ /sitemap.xml                           135 B         103 kB
+└ ○ /testimonials                          208 B         110 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/255-b1e2483a7e02feee.js       46.6 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)          2.22 kB
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+==> [3/4 build] PASS
+
+==> [4/4 tokens] node scripts/check-tokens.mjs
+check-tokens: scanned 118 files in src/components, src/app
+
+check-tokens: PASS — no raw colours or stock white/black outside the token files
+==> [4/4 tokens] PASS
+
+verify: ALL PASS

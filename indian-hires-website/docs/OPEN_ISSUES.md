@@ -238,3 +238,14 @@ so the measured build stays the reviewed one. Each is small.
 | # | Item | Where | What is needed |
 |---|---|---|---|
 | O46 | **Gallery tile zoom.** The gallery's tiles use the 700ms card zoom. The motion rule's exception named card images only (the owner's brief); the builder extended it to the gallery tiles in R6 without approval — recorded as pending in `.claude/rules/motion.md` | `/gallery` | Approve, or the tiles take `duration-enter` (350ms) |
+
+## Home client slider ("Trusted by Industry Leaders")
+
+Evidence: `docs/evidence/clients/`.
+
+| # | Item | Where | What is needed |
+|---|---|---|---|
+| O47 | **Logo files and permission.** The logos came from the web, not the hotels (`COPY_TO_CONFIRM.md` 4.13). Suba's only available source is 74px wide; Taj Vivanta's and Fortune's are about 300px. All three are slightly soft on high-density screens | `public/images/clients/` | Permission, and larger files for these three |
+| E69 | **Two ivory-100 bands will touch.** `HomeTestimonials` and `HomeClients` are both `ivory-alt`. They cannot meet while there are no testimonials (O12) | `src/app/page.tsx` | Change one tone when the first testimonial is published |
+| E71 | **Edge fade.** The slider's edge mask takes captions below 4.5:1 for a moment as they enter and leave. Accepted: each name crosses the full-contrast area, and pausing lets it be read | `Marquee.tsx` | Nothing |
+| E70 | **Not measured:** Safari with VoiceOver on the slider. Lighthouse mobile LCP on `/` stays above the 2.5s target, from the hero and not this section (E29) | `/` | A Safari pass; the LCP work in E29 |

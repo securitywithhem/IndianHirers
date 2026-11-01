@@ -14,7 +14,8 @@ export const metadata = pageMetadata(routeMetadata["/"]);
 /**
  * Section rhythm (Docs/UI_UX_V2.md §5.2): maroon-950 hero → ivory linen →
  * ivory-100 → the one maroon mid band → ivory → (ivory-100, once there are
- * testimonials) → maroon closing band, which meets the footer.
+ * testimonials) → ivory-100 clients → maroon closing band, which meets the
+ * footer.
  */
 export default function Home() {
   return (

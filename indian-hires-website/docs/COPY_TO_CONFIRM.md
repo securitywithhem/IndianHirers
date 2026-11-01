@@ -219,6 +219,9 @@ Also:
 | 4.8 | Trust strip, four facts: 1977 "First shop opened in Malad, Mumbai" · 3 "Generations of the family" · years "In Vadodara" (derived from 2001) · 2015 "Bone china introduced on hire". No catalogue counts. GSTIN is not shown here | `home.trust.items` | Facts from CLAUDE.md and the founders' story. The story says "**By** 2015, he had introduced bone china" — is 2015 the year? (also 5.5) |
 | 4.9 | Hero image: the Golden Rim photograph (`/images/products/bone-china/golden-rim.webp`, 1184×1184). Alt: "White bone china dinner plate, quarter plate, saucer and two bowls with a gold lattice border, on a dark cloth" — written from the photograph | `home.ts` → `HERO_ITEM_ID`, `HERO_ALT` | Alt is INFERRED from the photograph. A 4:5 crop of this square leaves 947px of width — no photograph in the library gives 1000px. **A larger hero photograph is needed** (at least 1250×1250, or 1000×1250 portrait) |
 | 4.10 | Featured lead: "8 collections of crockery and tableware. Rates on request." | `home.featured.lead` | NEW COPY; the 8 is derived |
+| 4.11 | Client slider: the nine hotel names and their order | `home.clients.hotels` | **Supplied by the owner.** Shashi Catering Services Pvt Ltd is listed among the hotels, as supplied |
+| 4.12 | "Trusted by Industry Leaders" | `home.clients.heading` | Wording chosen by the owner |
+| 4.13 | Hotel logos | `public/images/clients/` | **Confirm permission to show them.** Taken from the web, not supplied by the hotels (Suba's from subahotels.com, Fern's from fernhotels.com) |
 
 ---
 
@@ -344,7 +347,7 @@ In the data, **rendered nowhere**. The home trust strip is still `home.trust` (�
 | # | Badge | `confirmed` | To confirm |
 |---|---|---|---|
 | 9.8 | "25+ Years of Heritage" | **false** | The brief's wording, but the family's first shop opened in **1977** — 49 years — and the home strip leads with 1977. Twenty-five years is the time in Vadodara (since 2001). Should this read "in Vadodara", or use the longer history? |
-| 9.9 | "Hotels & Caterers Trust Us" | **false** | The brief's wording. No hotel or caterer is named anywhere on the site (O12) |
+| 9.9 | "Hotels & Caterers Trust Us" | **false** | The brief's wording. The home page now names the hotels the owner supplied (4.11); no testimonial from any of them is published (O12) |
 | 9.10 | "Complete Event Tableware" | **false** | Flagged by the brief itself. "Complete" is a claim: Cutlery & Serveware has no list yet and there is no linen or furniture |
 | 9.11 | "Careful Handling & On-time Delivery" | **false** | Flagged by the brief itself. Delivery and collection are themselves unconfirmed (O9) |
 

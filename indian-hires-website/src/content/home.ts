@@ -1,7 +1,7 @@
 /**
  * Home page (`/`) content, in section order:
  *   hero → trust strip → featured collections → heritage teaser →
- *   how hiring works → testimonials → closing CTA
+ *   how hiring works → testimonials → clients → closing CTA
  *
  * Numbers on this page are derived (years from the brand facts and the
  * founders' story, the number of collections from the catalogue). None is
@@ -126,6 +126,28 @@ export interface HomeTestimonials {
   link: CtaLink;
 }
 
+/** A transparent logo in /images/clients, so no blur placeholder. */
+export interface ClientLogo {
+  src: string;
+  width: number;
+  height: number;
+}
+
+export interface ClientHotel {
+  name: string;
+  /** Decorative: `name` is printed under it. */
+  logo: ClientLogo;
+}
+
+/** No eyebrow: "how hiring works" above carries one. */
+export interface HomeClients {
+  heading: string;
+  hotels: ClientHotel[];
+  /** `aria-label`s of the slider's control. */
+  pauseLabel: string;
+  playLabel: string;
+}
+
 export interface HomeClosingCta {
   heading: string;
   body: string;
@@ -141,6 +163,7 @@ export interface HomeContent {
   heritage: HomeHeritage;
   howItWorks: HomeHowItWorks;
   testimonials: HomeTestimonials;
+  clients: HomeClients;
   closingCta: HomeClosingCta;
 }
 
@@ -218,6 +241,15 @@ const HERO_EYEBROW = `Since ${brand.foundedYear} · ${brand.city} since ${brand.
 
 const displayPhone = formatPhone();
 const CALL_LABEL = displayPhone ? `Call ${displayPhone}` : "Call us";
+
+const CLIENT_LOGOS = {
+  taj: { src: "/images/clients/taj-vivanta.webp", width: 327, height: 115 },
+  fern: { src: "/images/clients/fern.webp", width: 608, height: 276 },
+  fortune: { src: "/images/clients/fortune.webp", width: 298, height: 139 },
+  shashi: { src: "/images/clients/shashi-catering.webp", width: 450, height: 201 },
+  sayaji: { src: "/images/clients/sayaji.webp", width: 276, height: 246 },
+  suba: { src: "/images/clients/suba.webp", width: 222, height: 207 },
+} satisfies Record<string, ClientLogo>;
 
 export const home: HomeContent = {
   hero: {
@@ -314,6 +346,24 @@ export const home: HomeContent = {
   testimonials: {
     heading: "What our customers say",
     link: { label: "Read all testimonials", href: routes.testimonials },
+  },
+
+  // The owner's list: the names, spelling and order are theirs.
+  clients: {
+    heading: "Trusted by Industry Leaders",
+    hotels: [
+      { name: "Taj Vivanta, Vadodara", logo: CLIENT_LOGOS.taj },
+      { name: "Taj Vivanta, Kevadia", logo: CLIENT_LOGOS.taj },
+      { name: "Fern, Vadodara", logo: CLIENT_LOGOS.fern },
+      { name: "Fern, Kevadia", logo: CLIENT_LOGOS.fern },
+      { name: "Fortune, Vadodara", logo: CLIENT_LOGOS.fortune },
+      { name: "Fortune, Kevadia", logo: CLIENT_LOGOS.fortune },
+      { name: "Shashi Catering Services Pvt Ltd", logo: CLIENT_LOGOS.shashi },
+      { name: "Sayaji Hotels", logo: CLIENT_LOGOS.sayaji },
+      { name: "Suba Hotels", logo: CLIENT_LOGOS.suba },
+    ],
+    pauseLabel: "Pause the hotel logos",
+    playLabel: "Play the hotel logos",
   },
 
   closingCta: {
