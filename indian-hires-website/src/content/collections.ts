@@ -1255,11 +1255,6 @@ export interface CatalogueLandingCopy {
   cardItemCount: (items: number) => string;
   /** Count line on a card for a collection with nothing listed yet. */
   cardEmpty: string;
-  /**
-   * Accessible name of a collection card link. Begins with the visible title
-   * (WCAG 2.5.3); the tagline and the count describe the link.
-   */
-  cardLinkLabel: (collectionTitle: string) => string;
   /** Closing note under the grid. */
   footnote: string;
   /** The "Not sure what you need?" strip that closes the page. */
@@ -1443,7 +1438,6 @@ export const catalogueCopy: CatalogueCopy = {
     cardCount: countDesigns,
     cardItemCount: countItems,
     cardEmpty: "Ask us for the list",
-    cardLinkLabel: (collectionTitle) => `${collectionTitle} collection`,
     footnote: "Rates depend on your dates, quantities and delivery location.",
     suggest: {
       heading: "Not sure what you need?",
