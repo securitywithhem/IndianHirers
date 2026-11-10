@@ -1,9 +1,8 @@
-import { useId } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArchFrame, CrownPlaceholder } from "@/components/ornament";
-import { catalogueCopy, collectionCountLabel, type Collection } from "@/content/collections";
+import { collectionCountLabel, type Collection } from "@/content/collections";
 import { collectionPath } from "@/content/site";
 
 export type CollectionTileHeading = "h2" | "h3" | "h4";
@@ -42,22 +41,18 @@ const DEFAULT_SIZES =
  * (`card-royal`) and the photograph zooms to 1.04 over 700ms — both off under
  * reduced motion.
  *
- * The link is named by `catalogueCopy.landing.cardLinkLabel` and described by
- * the tagline and the count, so a list of links stays short to listen to.
+ * The link is named by its own visible text — title, tagline, count — with no
+ * `aria-label`, so the accessible name contains every word on the tile
+ * (WCAG 2.5.3, axe `label-content-name-mismatch`). The photograph is
+ * decorative inside the link (`alt=""`): the title already says what it is.
  */
 export function CollectionTile({ collection, headingLevel, sizes = DEFAULT_SIZES, className }: CollectionTileProps) {
   const Heading = headingLevel;
-  const id = useId();
-  const taglineId = `${id}-tagline`;
-  const countId = `${id}-count`;
-  const { landing } = catalogueCopy;
   const { hero } = collection;
 
   return (
     <Link
       href={collectionPath(collection.slug)}
-      aria-label={landing.cardLinkLabel(collection.title)}
-      aria-describedby={`${taglineId} ${countId}`}
       className={cn(
         "card-royal group focus-ring flex h-full flex-col items-center gap-4 rounded-card border border-hairline/40 bg-card p-4 text-center text-card-foreground shadow-card md:p-5",
         className,
@@ -67,7 +62,7 @@ export function CollectionTile({ collection, headingLevel, sizes = DEFAULT_SIZES
         {hero ? (
           <Image
             src={hero.src}
-            alt={hero.alt}
+            alt=""
             fill
             sizes={sizes}
             placeholder="blur"
@@ -80,10 +75,10 @@ export function CollectionTile({ collection, headingLevel, sizes = DEFAULT_SIZES
       </ArchFrame>
       <div className="flex flex-col items-center gap-2">
         <Heading className="type-h4 text-heading">{collection.title}</Heading>
-        <p id={taglineId} className="type-small text-muted-foreground">
+        <p className="type-small text-muted-foreground">
           {collection.tagline}
         </p>
-        <p id={countId} className="type-caption text-kicker">
+        <p className="type-caption text-kicker">
           {collectionCountLabel(collection)}
         </p>
       </div>
