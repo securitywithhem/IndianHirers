@@ -32,7 +32,7 @@ Found while building the pipeline (`docs/CI_CD.md`).
 | O10 | Hours and service areas | Carried over from the previous site; service areas reduced to the five named cities | Confirm they are current |
 | O11 | Founders' story wording | "one of the leading rental agencies across Gujarat", "exponential growth" and a typed "twenty-five years" were softened; the originals are quoted in `COPY_TO_CONFIRM.md` §5. Roles "Founder" / "Partner" | Approve the softened wording or restore; confirm roles; confirm bone china was introduced in 2015 (now a headline fact) |
 | O12 | Testimonials | None published; the old ones read as invented and were not restored. The page shows an honest empty state, is `noindex`, and is out of the navigation until testimonials exist | Real testimonials with permission to credit |
-| O13 | Missing assets | Event photographs, founder portraits, a 1200×630 share image, a transparent logo master, and a hero photograph of at least 1000×1250 (the largest source today gives 947px after the 4:5 crop) | The files |
+| O13 | Missing assets | Event photographs, founder portraits (Jasvantlal and Nikesh; Jay's is in), a 1200×630 share image, a transparent logo master, and a hero photograph of at least 1000×1250 (the largest source today gives 947px after the 4:5 crop) | The files |
 | O14 | Contact form cannot send | `NEXT_PUBLIC_WEB3FORMS_KEY` is empty; the form is hidden and WhatsApp/call are offered instead | The Web3Forms key |
 | O15 | Map embed | `NEXT_PUBLIC_MAP_EMBED_URL` is empty; an "open in Google Maps" link is shown instead | The embed URL |
 | O16 | Rates | By the owner's decision no rates exist in the code and there is no price flag | Nothing — recorded so the decision is visible |
@@ -188,7 +188,7 @@ could not be checked, is below.
 
 | # | Item | Where it shows | What is needed |
 |---|---|---|---|
-| O40 | **Founder portraits.** The brief asks for two circular, warm-toned portraits. The circular frame is built and tested with a stand-in photograph (`founders-portrait-photo` check, then reverted); with no portrait supplied it shows a maroon cameo with the gold crown, which stands for no one | `/founders` → Meet the Family | Two portraits (O13). Set `portrait` on each profile in `src/content/founders.ts` |
+| O40 | **Founder portraits.** The brief asks for two circular, warm-toned portraits. The circular frame is built and tested with a stand-in photograph (`founders-portrait-photo` check, then reverted); with no portrait supplied it shows a maroon cameo with the gold crown, which stands for no one | `/founders` → Meet the Family | **Jay's supplied 10 Nov 2026** (`public/images/founders/jay.webp`). Still needed: Jasvantlal's and Nikesh's portraits (O13). Set `portrait` on each profile in `src/content/founders.ts` |
 | O41 | **Timeline years the story does not give.** "Premium melamine and glassware" and "Through COVID" are in the data as `status: "todo"` with no year and are not shown. The timeline shows 1977, 2001, 2015, 2023 | `src/content/founders.ts` → `milestones` | The two years (or say they should stay out) |
 | O42 | **Pull-quotes** on /founders are excerpts of the family's own story text, set large; no new words and no attribution to a person. The brief's "pull-quotes" could also mean quotations from the family, which do not exist (O29) | `/founders` | Approve, or supply a sentence in the family's own words |
 | O43 | **Opening hours** remain the previous site's, marked `TODO(owner)` (O10) | `/contact` | Confirm or correct |

@@ -139,7 +139,7 @@ export const founders: FoundersContent = {
         heading: null,
         paragraphs: [
           `Our journey didn't start with a grand vision of luxury; it started with the simple desire to serve. In ${brand.foundedYear}, Mr. Jasvantlal Satilal Gabhawala opened a very small shop in Malad, Mumbai. We learned the fundamentals of this business from the ground up, fulfilling small orders and understanding exactly what it takes to make an event run smoothly. Those early days taught us that hospitality is entirely about reliability and genuine care.`,
-          `In ${brand.vadodaraSinceYear}, Nikesh Jasvantlal Gabhawala brought this ethos to Vadodara. He started with nothing more than a handful of steel plates and a drive to build something lasting. Over the years, as the scale of events in Gujarat grew, so did we. Nikesh carefully expanded the inventory from basic utensils to premium melamine and fine glassware. He built the business not through marketing, but by consistently delivering on his promises to local caterers and event hosts.`,
+          `In ${brand.vadodaraSinceYear}, Nikesh Jasvantlal Gabhawala brought this ethos to Vadodara, with the support of Mr. Alpesh Jasvantlal Gabhawala, the eldest son of Mr. Jasvantlal, who manages the ${brand.foundedLocality} branch. He started with nothing more than a handful of steel plates and a drive to build something lasting. Over the years, as the scale of events in Gujarat grew, so did we. Nikesh carefully expanded the inventory from basic utensils to premium melamine and fine glassware. He built the business not through marketing, but by consistently delivering on his promises to local caterers and event hosts.`,
           `By ${storyYears.boneChinaIntroduced}, we saw a shift in how people celebrated and became one of the first to introduce fine bone china on rental—a decision that redefined the standard for premium events in the region. Like many businesses, the years during the pandemic tested everything we had built. But Nikesh refused to let the legacy fade. He kept the business afloat through the hardest seasons and rebuilt our operations piece by piece, ensuring that our standard of quality was never compromised.`,
         ],
         pullQuotes: [
@@ -235,7 +235,15 @@ export const founders: FoundersContent = {
         role: "Partner",
         description:
           "Stepped in to champion the family legacy, infusing modern ambition and fresh energy to expand our premier services across the hospitality sector in Gujarat.",
-        portrait: null,
+        // Supplied by the family, 10 Nov 2026: square crop of the original, 640px (176px at up to 3.6x).
+        portrait: {
+          src: "/images/founders/jay.webp",
+          alt: `Portrait of ${JAY}`,
+          width: 640,
+          height: 640,
+          blurDataURL:
+            "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQAgCdASoQABAAAsBMJYwCdAYtBzekE8cVt4jMMAD+xYN6gg3ihfEcGpM2v9O4Zg8EWi1o/cfhajFl33ABbN0vi0smUq/PjbGE3D+PqvQ9vrmP/eQlXXFG6Sl5Je8n4krHaXmMCBKmY//M39oEgOO9ccBz7BiW6IreB4AA",
+        },
         portraitAlt: `Portrait of ${JAY}`,
       },
     ],
